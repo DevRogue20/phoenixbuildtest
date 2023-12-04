@@ -56,7 +56,7 @@ Core3 = {
 	DBPort = 3306,
 	DBName = "swgemu",
 	DBUser = "swgemu",
-	DBPass = "123456",
+	DBPass = "12345678",
 	DBInstances = 2,
 	DBSecret = "swgemus3cr37!", -- Change this! This value should be unique and of reasonable length.
 
@@ -69,7 +69,7 @@ Core3 = {
 	MantisPort = 3306,
 	MantisName = "swgemu",
 	MantisUser = "swgemu",
-	MantisPass = "123456",
+	MantisPass = "12345678",
 	MantisPrfx = "mantis_", -- The prefix for your mantis tables.
 
 	MetricsHost = "localhost",
@@ -147,7 +147,7 @@ Core3 = {
 	},
 
 	-- directory of tres with live.cfg
-	TrePath = "/home/swgemu/workspace/tre",
+	TrePath = "/home/ubuntu/workspace/tre",
 
 	TreFiles = {
 		"mtg_patch_023.tre",
