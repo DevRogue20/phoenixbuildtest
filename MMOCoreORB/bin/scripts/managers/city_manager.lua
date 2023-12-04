@@ -55,7 +55,7 @@ CitySpecializationCooldown = 604800000
 TreasuryWithdrawalCooldown = 86400000
 
 --The number of city update cycles that must pass before mayoral voting process is complete.
-CityVotingCycles = 3
+CityVotingCycles = 1
 
 --The number of city update cyles after which to lock the mayoral voting race registration.
 CityVotingCyclesUntilLocked = 2
@@ -95,15 +95,15 @@ maintenanceDiscount = 1.0
 	The maximum amount of cities per rank is 255.
 --]]
 CitiesAllowed = {
-	{"corellia", {20, 20, 15, 10, 10}},
-	{"dantooine", {50, 50, 30, 20, 20}},
+	{"corellia", {20, 20, 15, 10, 5}},
+	{"dantooine", {50, 50, 30, 20, 5}},
 	{"dathomir", {0, 0, 0, 0, 0}},
 	{"endor", {0, 0, 0, 0, 0}},
-	{"lok", {50, 50, 30, 20, 20}},
-	{"naboo", {20, 20, 15, 10, 10}},
-	{"rori", {50, 50, 30, 20, 20}},
-	{"talus", {50, 50, 30, 20, 20}},
-	{"tatooine", {20, 20, 15, 10, 10}},
+	{"lok", {50, 50, 30, 20, 5}},
+	{"naboo", {20, 20, 15, 10, 5}},
+	{"rori", {50, 50, 30, 20, 5}},
+	{"talus", {50, 50, 30, 20, 5}},
+	{"tatooine", {20, 20, 15, 10, 5}},
 	{"yavin4", {0, 0, 0, 0, 0}}
 }
 
