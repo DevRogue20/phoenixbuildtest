@@ -1,7 +1,7 @@
 csr = {
 	level = 12,
 	name = "csr",
-	flag = 1, -- CSR
+	flag = 0,
 	tag = "Phoenix - GM",
 	skills = {
 		"admin_base",

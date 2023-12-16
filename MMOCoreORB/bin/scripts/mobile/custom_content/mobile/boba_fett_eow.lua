@@ -1,5 +1,5 @@
 boba_fett_eow = Creature:new {
-	customName = "boba_fett_eow",
+	customName = "Boba Fett",
 	socialGroup = "townsperson",
 	faction = "",
 	mobType = MOB_NPC,
