@@ -1411,7 +1411,7 @@ void CreatureObjectImplementation::addSkill(Skill* skill, bool notifyClient) {
 
 				Zone* zone = getZone();
 
-				if (!helperDroidSpawned && zone != nullptr && zone->getZoneName() != "tutorial") {
+				if (!helperDroidSpawned && zone != nullptr && zone->getZoneName() != "tutorial" && ConfigManager::instance()->getBool("Core3.PlayerObject.CreateHelperDroid", true)) {
 					Reference<Task*> createDroid = new SpawnHelperDroidTask(asCreatureObject());
 
 					if (createDroid != nullptr && !createDroid->isScheduled()) {

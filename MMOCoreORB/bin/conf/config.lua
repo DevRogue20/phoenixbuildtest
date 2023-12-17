@@ -150,6 +150,8 @@ Core3 = {
 	TrePath = "/home/ubuntu/workspace/tre",
 
 	TreFiles = {
+		"tat_mando_bunker_test.tre",
+	        "SmokedCustoms.tre",
 		"mtg_patch_023.tre",
 		"mtg_patch_022.tre",
 		"mtg_planets.tre",
@@ -216,6 +218,11 @@ Core3 = {
 
 	PlayerLogLevel = 4, -- -1 NONE, 0 FATAL, 1 ERROR, 2 WARNING, 3 LOG, 4 INFO, 5 DEBUG
 	MaxLogLines = 1000000, -- how often to rotate log (currently only log/player.log rotates)
+	
+	PlayerObject = {
+		-- Default: true
+		CreateHelperDroid = false
+	}
 }
 
 -- NOTE: conf/config-local.lua is parsed after this file if it exists

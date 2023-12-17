@@ -1556,7 +1556,7 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 				"Enhance Character", "enhance_character",
 				"Jedi",
 				{
-					--"Unlock Jedi Initiate", "unlock_jedi_initiate",
+					"Unlock Jedi Initiate", "unlock_jedi_initiate",
 					--"Unlock Jedi Knight FRS Alliance Light Side", "frs_light_side",
 					--"Unlock Dark Jedi Knight FRS Imperial Dark Side", "frs_dark_side"
 				},

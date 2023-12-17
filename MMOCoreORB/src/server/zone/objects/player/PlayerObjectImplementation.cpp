@@ -3415,20 +3415,23 @@ String PlayerObjectImplementation::getPlayedTimeString(bool verbose) const {
 }
 
 void PlayerObjectImplementation::createHelperDroid() {
-	// Only spawn droid if character is less than 1 days old
-	if (getCharacterAgeInDays() >= 1 || isPrivileged())
-		return;
+    // Check configuration before creating the droid
+    if (ConfigManager::instance()->getBool("Core3.PlayerObject.CreateHelperDroid", true)) {
+        // Only spawn droid if character is less than 1 days old
+        if (getCharacterAgeInDays() >= 1 || isPrivileged())
+            return;
 
-	CreatureObject* player = dynamic_cast<CreatureObject*>(parent.get().get());
+        CreatureObject* player = dynamic_cast<CreatureObject*>(parent.get().get());
 
-	if (player == nullptr)
-		return;
+        if (player == nullptr)
+            return;
 
-	Zone* zone = player->getZone();
+        Zone* zone = player->getZone();
 
-	if (zone == nullptr || zone->getZoneName() == "tutorial")
-		return;
+        if (zone == nullptr || zone->getZoneName() == "tutorial")
+            return;
 
-	Reference<Task*> createDroid = new SpawnHelperDroidTask(player);
-	createDroid->schedule(5000);
+        Reference<Task*> createDroid = new SpawnHelperDroidTask(player);
+        createDroid->schedule(5000);
+    }
 }
