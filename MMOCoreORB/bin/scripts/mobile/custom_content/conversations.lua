@@ -10,6 +10,3 @@ includeFile("custom_content/conversations/kashyyyk/dead_forest/shaey_kayr_conv.l
 
 -- Tutorials
 includeFile("custom_content/conversations/the_tutorial/tutorial_0001_han_solo_conv.lua")
-
---Push_Customs
-includeFile("custom_content/conversations/Push_Customs/donator_conv.lua")
