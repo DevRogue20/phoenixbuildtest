@@ -723,3 +723,9 @@ includeFile("custom_screenplays/screenplays.lua")
 --Rogue's Customs
 includeFile("Rogue_Customs/screenplays.lua")
 
+--Push_Customs
+includeFile("Push_Customs/screenplays.lua")
+
+--Dungeons
+includeFile("dungeon/ig88_boss.lua")
+includeFile("dungeon/ig88_objects.lua")

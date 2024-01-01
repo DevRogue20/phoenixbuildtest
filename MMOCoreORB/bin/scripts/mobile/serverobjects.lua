@@ -52,3 +52,6 @@ includeFile("outfits/serverobjects.lua")
 -- Custom content - Loads last to allow for overrides
 includeFile("../custom_scripts/mobile/serverobjects.lua")
 includeFile("SmokedCustoms/serverobjects.lua")
+includeFile("Push_Customs/serverobjects.lua")
+includeFile("gcw_transitsystem/serverobjects.lua")
+includeFile("replicator_series/serverobjects.lua")
