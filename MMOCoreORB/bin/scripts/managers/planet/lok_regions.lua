@@ -147,6 +147,8 @@ lok_regions = {
 	{"58_broken_wall_nobuild", -4432, -5743, {CIRCLE, 100}, NOSPAWNAREA + NOBUILDZONEAREA},
 	{"59_pillars_nobuild", -5185, -4816, {CIRCLE, 75}, NOSPAWNAREA + NOBUILDZONEAREA},
 	{"60_gurk_hut_nobuild", -3764, -3468, {CIRCLE, 50}, NOSPAWNAREA + NOBUILDZONEAREA},
+	{"ig88_entrance", -7500, 3600, {CIRCLE, 200}, NOSPAWNAREA},
+	{"ig88_nobuild", -7501, 3599, {CIRCLE, 500}, NOBUILDZONEAREA},
 
 	-- City
 	{"@lok_region_names:lok_nyms_stronghold", 436, 5120, {CIRCLE, 429}, CITY + NOSPAWNAREA},

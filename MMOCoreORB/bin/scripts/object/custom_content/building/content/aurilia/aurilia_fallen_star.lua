@@ -42,6 +42,10 @@
 
 
 object_building_content_aurilia_aurilia_fallen_star = object_building_content_aurilia_shared_aurilia_fallen_star:new {
+    childObjects = {
+		{templateFile = "object/tangible/terminal/terminal_elevator_up.iff", x = 1.44, z = 0.0, y = -12.49, ow = 0, ox = 0, oy = 0, oz = 0, cellid = 26, containmentType = -1},
+		{templateFile = "object/tangible/terminal/terminal_elevator_down.iff", x = 1.44, z = 9.0, y = -12.49, ow = 0, ox = 0, oy = 0, oz = 0, cellid = 26, containmentType = -1},
+	},
 
 }
 

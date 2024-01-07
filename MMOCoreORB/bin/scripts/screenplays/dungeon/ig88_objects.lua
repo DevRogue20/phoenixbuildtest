@@ -23,7 +23,7 @@ end
 
 function ig88_objects:spawnMobiles()
 
-	local pCollector1 = spawnMobile("lok", "eg6_port", 60, -7633.4, 93.0, 3496.0, 0, 0)
+	local pCollector1 = spawnMobile("lok", "eg6_port", 60, 32.4, 7.0, 0, -97.0, 610000326)
 	local collector1 = LuaCreatureObject(pCollector1)
 	collector1:setOptionsBitmask(264)
 	collector1:setCustomObjectName("\\#FF0000Enter the IG-88 Droid Factory")
@@ -41,7 +41,7 @@ function ig88_objects:spawnMobiles()
 		return
 	end
 
-	spawnSceneObject("lok","object/static/structure/tatooine/concrete_slab_tatooine_16x8.iff", -7634.0,85.5,3489.0,0,0)
+	--[[spawnSceneObject("lok","object/static/structure/tatooine/concrete_slab_tatooine_16x8.iff", -7634.0,85.5,3489.0,0,0)
 	spawnSceneObject("lok","object/static/structure/tatooine/concrete_slab_tatooine_16x8.iff", -7618.0,85.5,3489.0,0,0)
 	spawnSceneObject("lok","object/static/structure/tatooine/concrete_slab_tatooine_16x8.iff", -7602.0,85.5,3489.0,0,0)
 	spawnSceneObject("lok","object/static/structure/tatooine/concrete_slab_tatooine_16x8.iff", -7602.0,85.5,3454.0,0,0)
@@ -87,7 +87,7 @@ function ig88_objects:spawnMobiles()
 	spawnSceneObject("lok","object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff", -7631.0,96.0,3575.0,1,0)
 	spawnSceneObject("lok","object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff", -7631.0,96.0,3585.0,1,0)
 	spawnSceneObject("lok","object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff", -7631.0,96.0,3595.0,1,0)
-	spawnSceneObject("lok","object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff", -7631.0,96.0,3605.0,1,0)
+	spawnSceneObject("lok","object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff", -7631.0,96.0,3605.0,1,0)]]
 	spawnSceneObject("lok","object/static/structure/tatooine/tent_house_tatooine_style_01.iff", -7659.0,110.0,3591.0,1,0)
 
 	--spawnMobile("lok", "imp_transitpilot", 180, 7658.0, 110.0, 3585.0, math.random(360), 0)
@@ -97,6 +97,7 @@ function ig88_objects:spawnMobiles()
 
 
 
+	--[[spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7679.0, 92.0, math.random(25) + 3476.0, math.random(360), 0)
 	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7679.0, 92.0, math.random(25) + 3476.0, math.random(360), 0)
 	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7679.0, 92.0, math.random(25) + 3476.0, math.random(360), 0)
 	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7679.0, 92.0, math.random(25) + 3476.0, math.random(360), 0)
@@ -126,9 +127,62 @@ function ig88_objects:spawnMobiles()
 	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7679.0, 92.0, math.random(25) + 3476.0, math.random(360), 0)
 	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7679.0, 92.0, math.random(25) + 3476.0, math.random(360), 0)
 	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7679.0, 92.0, math.random(25) + 3476.0, math.random(360), 0)
-	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7679.0, 92.0, math.random(25) + 3476.0, math.random(360), 0)
-	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7679.0, 92.0, math.random(25) + 3476.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7679.0, 92.0, math.random(25) + 3476.0, math.random(360), 0)]]
 
+	--Push Changes
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	--[[spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)
+	spawnMobile("lok", "ig_tao_ni", 180, math.random(25) + -7495.0, 92.0, math.random(25) + 3585.0, math.random(360), 0)]]
+	
+	--Fallen Star
+	spawnMobile("lok", "ig_battle_droid", 300, -17.38, 7.01, 6.49, 90, 610000320)
+	spawnMobile("lok", "ig_battle_droid", 300, -17.38, 7.01, -4.47, 90, 610000320)
+	spawnMobile("lok", "ig_battle_droid", 300, 0.0, 9.01, -12.55, -90, 610000344)
+	spawnMobile("lok", "ig_battle_droid", 300, 6.35, 7.01, -9.50, 0.0, 610000322)
+	spawnMobile("lok", "ig_battle_droid", 300, 6.35, 7.01, 9.41, -179, 610000322)
+	spawnMobile("lok", "ig_battle_droid", 300, 26.5, 7.01, -2.79, -90, 610000323)
+	spawnMobile("lok", "ig_battle_droid", 300, 26.5, 7.01, 2.79, -90, 610000323)
+	spawnMobile("lok", "ig_droideka", 300, 1.54, 7.01, -0.17, -90, 610000320)
+	spawnMobile("lok", "ig_droideka", 300, -15.15, 9.01, -12.32, 90, 610000321)
+	spawnMobile("lok", "ig_droideka", 300, -3.19, 9.01, -10.50, -90, 610000321)
+	spawnMobile("lok", "ig_droideka", 300, -3.19, 9.01, -14.50, -90, 610000321)
+	spawnMobile("lok", "ig_droideka", 300, 22.68, 7.01, 0.0, -90, 610000323)
+
+	--Courtyard
+	spawnSceneObject("lok","object/static/structure/general/droid_droideka_powerdown.iff", -7456.0,91.9,3588.0,1,0)
+	spawnSceneObject("lok","object/static/structure/general/droid_droideka_powerdown.iff", -7471.0,95.0,3614.0,2,0)
+	spawnSceneObject("lok","object/static/structure/general/droid_droideka_powerdown.iff", -7492.6,92.0,3618.0,4,0)
+	spawnSceneObject("lok","object/static/structure/general/droid_droideka_powerdown.iff", -7519.0,92.0,3603.0,1,0)
+	spawnSceneObject("lok","object/static/structure/general/droid_droideka_powerdown.iff", -7508.0,92.2,3584.0,2,0)
+	spawnSceneObject("lok","object/static/structure/general/droid_droideka_powerdown.iff", -7501.0,91.9,3571.0,1,0)
 
 end
 
@@ -138,7 +192,7 @@ function ig88_objects:teleportIG(pCollector, pPlayer)
 end
 
 function ig88_objects:teleportDFE(pCollector2, pPlayer)
-	playerSwitchZoneOutOfCombatRange(pPlayer, pCollector2, 10 ,"lok", -7636.0, 94.0, 3504.0, 0)
+	playerSwitchZoneOutOfCombatRange(pPlayer, pCollector2, 10 , "lok", -7469.0, 93.0, 3523.0, 0)
 	return 0
 end
 

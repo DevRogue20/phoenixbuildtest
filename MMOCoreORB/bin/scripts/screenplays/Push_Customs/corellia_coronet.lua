@@ -100,7 +100,7 @@ CorelliaCoronetScreenPlay = CityScreenPlay:new {
 		--{patrolPoints, template, x, z, y, direction, cell, mood, combatPatrol},
 
 		--Droids
-		{"cll8_1", "cll8_binary_load_lifter", -146, 28, -4762, 0, 0, "", false},
+		--{"cll8_1", "cll8_binary_load_lifter", -146, 28, -4762, 0, 0, "", false},
 		{"r3_1", "r3", 158, 28, -4785, 0, 0, "", false},
 		{"r3_2", "r3", -182, 28, -4731, 293, 0, "", false},
 		{"surgical_1", "surgical_droid_21b", -25.52, 0.26, -3.5, 357, 1855535, "", false},
@@ -122,7 +122,7 @@ CorelliaCoronetScreenPlay = CityScreenPlay:new {
 		--table_name = {{x, z, y, cell, delayAtNextPoint}}
 
 		--Droids
-		cll8_1 = {{-147, 28, -4775, 0, false}, {-139, 28, -4751, 0, false}, {-164, 28, -4729, 0, false}, {-145, 28, -4691, 0, false}, {-105, 28, -4665, 0, true}, {-77, 28, -4637, 0, false}, {-105, 28, -4665, 0, false}, {-145, 28, -4691, 0, false}},
+		--cll8_1 = {{-147, 28, -4775, 0, false}, {-139, 28, -4751, 0, false}, {-164, 28, -4729, 0, false}, {-145, 28, -4691, 0, false}, {-105, 28, -4665, 0, true}, {-77, 28, -4637, 0, false}, {-105, 28, -4665, 0, false}, {-145, 28, -4691, 0, false}},
 		r3_1 = {{-149, 28, -4785, 0, false}, {-196, 28, -4778, 0, false}, {-205, 28, -4755, 0, false}},
 		r3_2 = {{-178, 28, -4717, 0, false}, {-186, 28, -4702, 0, false}, {-192, 28, -4714, 0, false}, {-212, 28, -4682, 0, false}, {-182, 28, -4731, 0, false}},
 		surgical_1 = {{-25.52, 0.26, -3.48, 1855535, false}, {-11.3, 0.3, -6.5, 1855535, true}, {-11.1, 0.3, 5.6, 1855535, false}, {-30.0, 0.3, 6.0, 1855535, false}, {-29.9, 0.3, -6.0, 1855535, true}},
@@ -309,22 +309,37 @@ CorelliaCoronetScreenPlay = CityScreenPlay:new {
 		{"junk_dealer", 0, -118.06, 28, -4791.91, -120, 0, ""},
 
 		-- Trainers Outside
+		{"trainer_smuggler",0,-216,28,-4710,175,0, ""},
+		{"trainer_weaponsmith",0,-187,28,-4690,91,0, ""},
+		{"trainer_pistol",0,-166,28,-4747,92,0, ""},
+		{"trainer_carbine",0,-166,28,-4744,92,0, ""},
+		{"trainer_rifleman",0,-166,28,-4743,92,0, ""},
+		{"trainer_commando",0,-161,28,-4747,80,0, ""},
+		{"trainer_bountyhunter",0,-166,28,-4749,92,0, ""},
+		{"trainer_polearm",0,-163,28,-4757.92,92,0, ""},
+		{"trainer_1hsword",0,-166,28,-4758,92,0, ""},
+		{"trainer_2hsword",0,-168,28,-4762,180,0, ""},
+		{"trainer_unarmed",0,-166,28,-4760,92,0, "npc_sitting_ground"},
 		{"trainer_architect",0,-161,28,-4698,-95,0, ""},
 		{"trainer_artisan",0,-187,28,-4700,92,0, ""},
 		{"trainer_bioengineer",0,-424.092,28,-4651.85,94,0, ""},
 		{"trainer_brawler",0,-164,28,-4754,88,0, ""},
-		{"trainer_combatmedic",0,-33.9759,28,-4435.08,95,0, ""},
+		{"trainer_combatmedic",0,-166,28,-4691,95,0, ""},
 		{"trainer_creaturehandler",0,-55,28,-4566,0,0, ""},
 		{"trainer_entertainer",0,-173,28,-4739,0,0, ""},
 		{"trainer_entertainer",0,-228,28.6,-4118,0,0, ""},
 		{"trainer_marksman",0,-165,28,-4746,92,0, ""},
 		{"trainer_marksman",0,-35,28,-4372,269,0, ""},
 		{"trainer_medic",0,-33,28,-4422,72,0, ""},
+		{"trainer_doctor",0,-168,28,-4691,0,0, ""},
 		{"trainer_medic",0,-172,28,-4691,0,0, ""},
 		{"trainer_merchant",0,-369,28,-4533,92,0, ""},
 		{"trainer_politician",0,-218,28,-4500,0,0, ""},
 		{"trainer_ranger",0,-505,28,-4633,180,0, ""},
+		{"trainer_ranger",0,-177,28,-4715,134,0, ""},
+		{"trainer_squadleader",0,-169.45,28,-4705,134,0, ""},
 		{"trainer_scout",0,-169.45,28,-4712.58,134,0, ""},
+		{"trainer_creaturehandler",0,-180,28,-4712.58,220,0, ""},
 
 		-- Chassis dealer.
 		{"chassis_dealer", 0, 0.1, 0.6, 72.9, -4, 1855672, ""},
