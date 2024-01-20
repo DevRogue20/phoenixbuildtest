@@ -135,3 +135,8 @@ includeFile("weapon/groups/tutorial_bandit.lua")
 includeFile("weapon/custom_groups/general_grievous_weapons.lua")
 includeFile("weapon/custom_groups/nk3_weapons.lua")
 includeFile("weapon/custom_groups/wookiee_weapons.lua")
+
+--Push Weapon Groups
+includeFile("weapon/groups/warden_banhammer_weapons.lua")
+includeFile("weapon/groups/ubar_weapons.lua")
+includeFile("weapon/groups/kirana_ti_weapons.lua")

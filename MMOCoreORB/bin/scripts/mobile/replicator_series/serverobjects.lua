@@ -46,7 +46,7 @@ includeFile("replicator_series/ig88_npc_boss.lua")
 
 
 --Axkva Min
---[[includeFile("replicator_series/nightsister_nandina.lua")
+includeFile("replicator_series/nightsister_nandina.lua")
 includeFile("replicator_series/nightsister_gorvo_rancor.lua")
 includeFile("replicator_series/nightsister_lelli_hi.lua")
 includeFile("replicator_series/nightsister_kimaru.lua")
@@ -56,9 +56,9 @@ includeFile("replicator_series/nightsister_oxvul.lua")
 includeFile("replicator_series/nightsister_doum.lua")
 includeFile("replicator_series/axkva_min_heroic.lua")
 includeFile("replicator_series/warden.lua")
-includeFile("replicator_series/aurilian_botanist.lua")
+--includeFile("replicator_series/aurilian_botanist.lua")
 
---Guardsman
+--[[Guardsman
 includeFile("replicator_series/minstyngar1.lua")
 includeFile("replicator_series/nightsister_ekomal1.lua")
 includeFile("replicator_series/experimental_ig_stun1.lua")

@@ -729,3 +729,5 @@ includeFile("Push_Customs/screenplays.lua")
 --Dungeons
 includeFile("dungeon/ig88_boss.lua")
 includeFile("dungeon/ig88_objects.lua")
+includeFile("dungeon/axkva_min_instance.lua")
+includeFile("dungeon/axkva_objects.lua")

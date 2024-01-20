@@ -188,7 +188,7 @@ function NightSisterStrongholdScreenPlay:spawnMobiles()
 	spawnMobile("dathomir", "nightsister_initiate",600,5.27219,-24.4314,-26.0931,2,4115620)
 	spawnMobile("dathomir", "nightsister_initiate",600,2.20982,-11.8595,-2.93477,7,4115619)
 
-	self:respawnAxkvaMin()
+	--self:respawnAxkvaMin()
 
 	local pTrap = spawnSceneObject("dathomir", "object/static/terrain/corellia/rock_crystl_shrpbush_med.iff", -11.5, -64.6, -202.2, 4115624, 0.707107, 0, 0.707107, 0)
 
@@ -268,7 +268,7 @@ function NightSisterStrongholdScreenPlay:notifyEnteredTrapArea(pActiveArea, pPla
 	return 0
 end
 
-function NightSisterStrongholdScreenPlay:respawnAxkvaMin()
+--[[function NightSisterStrongholdScreenPlay:respawnAxkvaMin()
 	local pAxkvaMin = spawnMobile("dathomir", "axkva_min", 0, -90.5, -101, -102.2, 172, 4115629)
 
 	if (pAxkvaMin ~= nil) then
@@ -281,7 +281,7 @@ function NightSisterStrongholdScreenPlay:axkvaKilled(pAxkvaMin)
 	createEvent(86400 * 1000, "NightSisterStrongholdScreenPlay", "respawnAxkvaMin", nil, "")
 
 	return 1
-end
+end]]
 
 function NightSisterStrongholdScreenPlay:spawnGuards(pAxkvaMin)
 	if (pAxkvaMin == nil or CreatureObject(pAxkvaMin):isDead()) then
