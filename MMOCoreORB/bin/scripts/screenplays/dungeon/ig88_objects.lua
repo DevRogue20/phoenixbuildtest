@@ -28,18 +28,28 @@ function ig88_objects:spawnMobiles()
 	collector1:setOptionsBitmask(264)
 	collector1:setCustomObjectName("\\#FF0000Enter the IG-88 Droid Factory")
 	createObserver(OBJECTRADIALUSED, "ig88_objects", "teleportIG", pCollector1)
-	if (pCollecter1~= nil) then 
+	--[[if (pCollecter1~= nil) then 
 		return
-	end
+	end]]
 
 	local pCollector2 = spawnMobile("dungeon2", "eg6_port", 60, 6.5, 0, 40.0, 0, 14200138)
 	local collector2 = LuaCreatureObject(pCollector2)
 	collector2:setOptionsBitmask(264)
 	collector2:setCustomObjectName("\\#FF0000Exit the Droid Factory")
 	createObserver(OBJECTRADIALUSED, "ig88_objects", "teleportDFE", pCollector2)
-	if (pCollecter2~= nil) then 
+	--[[if (pCollecter2~= nil) then 
 		return
-	end
+	end]]
+
+	--Temporary Testing Teleporter
+	local pPort = spawnMobile("corellia", "eg6_port", 1, -170.0, 28.0, -4734.0, 45, 0, "")
+	local port = LuaCreatureObject(pPort)
+	port:setOptionsBitmask(264)
+	port:setCustomObjectName("\\#FF0000IG88 Dungeon")
+	createObserver(OBJECTRADIALUSED, "ig88_objects", "teleporttest", pPort)
+	--[[if (pCollector1 or pCollector2 or pPort~= nil) then
+		return
+	end]]
 
 	--[[spawnSceneObject("lok","object/static/structure/tatooine/concrete_slab_tatooine_16x8.iff", -7634.0,85.5,3489.0,0,0)
 	spawnSceneObject("lok","object/static/structure/tatooine/concrete_slab_tatooine_16x8.iff", -7618.0,85.5,3489.0,0,0)
@@ -193,6 +203,12 @@ end
 
 function ig88_objects:teleportDFE(pCollector2, pPlayer)
 	playerSwitchZoneOutOfCombatRange(pPlayer, pCollector2, 10 , "lok", -7469.0, 93.0, 3523.0, 0)
+	return 0
+end
+
+--Temporary Teleport for Testing
+function ig88_objects:teleporttest(pCollector3, pPlayer)
+	playerSwitchZoneOutOfCombatRange(pPlayer, pCollector3, 10 , "lok", -7469.0, 93.0, 3523.0, 0)
 	return 0
 end
 

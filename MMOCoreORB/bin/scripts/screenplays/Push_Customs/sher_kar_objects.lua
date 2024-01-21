@@ -23,7 +23,7 @@ end
 
 function sher_kar_objects:spawnMobiles()
 
-	local pCollector1 = spawnMobile("corellia", "eg6_port", 1, -166.0, 28.0, -4734.0, 90, 0)
+	local pCollector1 = spawnMobile("corellia", "eg6_port", 1, -166.0, 28.0, -4734.0, 45, 0)
 	local collector1 = LuaCreatureObject(pCollector1)
 	collector1:setOptionsBitmask(264)
 	collector1:setCustomObjectName("\\#FF0000Sher'Kar Dungeon")

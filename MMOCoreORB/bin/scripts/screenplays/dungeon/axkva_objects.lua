@@ -28,16 +28,26 @@ function axkva_objects:spawnMobiles()
 	collector1:setOptionsBitmask(264)
 	collector1:setCustomObjectName("\\#FF0000Enter the Prison")
 	createObserver(OBJECTRADIALUSED, "axkva_objects", "teleportAxkva", pCollector1)
-	if (pCollecter1~= nil) then 
+	--[[if (pCollecter1~= nil) then 
 		return
-	end
+	end]]
 
 	local pCollector2 = spawnMobile("dungeon2", "eg6_port", 60, -84.2, 17.9, 16.4, 0, 14200004)
 	local collector2 = LuaCreatureObject(pCollector2)
 	collector2:setOptionsBitmask(264)
 	collector2:setCustomObjectName("\\#FF0000Exit the Prison")
 	createObserver(OBJECTRADIALUSED, "axkva_objects", "teleportNSCAVE", pCollector2)
-	if (pCollecter2~= nil) then 
+	--[[if (pCollecter2~= nil) then 
+		return
+	end]]
+
+	--Temporary for Testing
+	local pPort = spawnMobile("corellia", "eg6_port", 1, -174.0, 28.0, -4734.0, 45, 0, "")
+	local port = LuaCreatureObject(pPort)
+	port:setOptionsBitmask(264)
+	port:setCustomObjectName("\\#FF0000Axkva Min Dungeon")
+	createObserver(OBJECTRADIALUSED, "axkva_objects", "teleporttest", pPort)
+	if (pCollector1 or pCollector2 or pPort~= nil) then 
 		return
 	end
 
@@ -50,6 +60,12 @@ end
 
 function axkva_objects:teleportNSCAVE(pCollector2, pPlayer)
 	playerSwitchZoneOutOfCombatRange(pPlayer, pCollector2, 10 ,"dathomir", -3959.0, 124.0, -55.0, 0)
+	return 0
+end
+
+--Temporary for Testing
+function axkva_objects:teleporttest(pCollector3, pPlayer)
+	playerSwitchZoneOutOfCombatRange(pPlayer, pCollector3, 10 ,"dathomir", -3959.0, 124.0, -55.0, 0)
 	return 0
 end
 
