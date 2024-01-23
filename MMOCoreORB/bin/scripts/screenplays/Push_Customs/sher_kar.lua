@@ -33,20 +33,7 @@ function sher_karScreenPlay:populate()
 	local hard = play.hard
 	local quest = play.questString
 	local sTbl
---mysterious cave
-	--local cave = spawnSceneObject(planet,"object/building/mustafar/dungeon/monster_lair/must_monster_lair.iff", 0, 0, -1000, 0, math.rad(50))
-	--local caveID = LuaSceneObject(cave):getObjectID()
-	--writeData("dungeon2:legacy:sherKarCave",caveID)
-	--LuaSceneObject(cave):setCustomObjectName("Sher Kar Cave")
 
-	--local pCell, cellID
-	--pCell = BuildingObject(cave):getNamedCell("r1")
-	--print("pCell:",pCell)
-	--if (pCell ~= nil) then
-	--	cellID = SceneObject(pCell):getObjectID()
-
-		--lspawnMobile(zoneName, spawnList, respawnTimer, x, z, y, heading, parentID, spawnRange, spawnCount, ai)
-		--spawnMobile(planet, port, math.random(80,120), -22.9, 0.4, 9.5, 161, cellID)
 		spawnMobile(planet, weak, math.random(80,120), -52.8, -5.5, 15.2, 123, 14201897)
 		spawnMobile(planet, weak, math.random(80,120), -105.1, -16.5, -50.3, 178, 14201897)
 		spawnMobile(planet, weak, math.random(80,120), -162.7, -17.7, -59.1, 148, 14201897)
@@ -55,10 +42,5 @@ function sher_karScreenPlay:populate()
 		spawnMobile(planet, mid, math.random(80,120), -127.1, -17.4, -113.7, 167, 14201897)
 		spawnMobile(planet, hard, math.random(2500,3100), -93.1, -7.3, -182.3, -27, 14201897)
 
-		lspawnMobile(planet, {mid}, math.random(20,30),-93.1, -7.3, -182.3, -27, 14201897, 7, 3 ,"")
-	--end
-
 	return 0
 end
-
-

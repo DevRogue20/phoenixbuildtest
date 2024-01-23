@@ -1,4 +1,5 @@
 sher_kar_boss = Creature:new {
+	objectName = "",
 	customName = "Sher'kar",
 	socialGroup = "rancor",
 	pvpFaction = "",
