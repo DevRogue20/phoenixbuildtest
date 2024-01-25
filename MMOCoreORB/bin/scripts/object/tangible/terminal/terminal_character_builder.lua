@@ -1557,8 +1557,8 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 				"Jedi",
 				{
 					"Unlock Jedi Initiate", "unlock_jedi_initiate",
-					--"Unlock Jedi Knight FRS Alliance Light Side", "frs_light_side",
-					--"Unlock Dark Jedi Knight FRS Imperial Dark Side", "frs_dark_side"
+					"Unlock Jedi Knight FRS Alliance Light Side", "frs_light_side",
+					"Unlock Dark Jedi Knight FRS Imperial Dark Side", "frs_dark_side"
 				},
 				"Fill Force Bar", "fill_force_bar",
 				"Reset Buffs", "reset_buffs",

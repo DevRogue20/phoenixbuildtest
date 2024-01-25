@@ -6190,7 +6190,7 @@ void PlayerManagerImplementation::enhanceCharacter(CreatureObject* player) {
 	message = message && doEnhanceCharacter(0x3EC6FCB6, player, performanceBuff, performanceDuration, BuffType::PERFORMANCE, 8); // performance_enhance_music_willpower
 
 	if (message && player->isPlayerCreature())
-		player->sendSystemMessage("An unknown force strengthens you for battles yet to come.");
+		player->sendSystemMessage("You are imbued with the empowering embrace of the Phoenix, Igniting your spirit for the challenges that lie ahead.");
 }
 
 void PlayerManagerImplementation::sendAdminJediList(CreatureObject* player) {
