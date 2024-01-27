@@ -361,6 +361,22 @@ end
 function CorelliaCoronetScreenPlay:spawnSceneObjects()
 	--outside starport
 	spawnSceneObject(self.planet, "object/tangible/crafting/station/public_space_station.iff", -178.575, 28, -4689.35, 0, math.rad(180) )
+	spawnSceneObject(self.planet, "object/tangible/camp/camp_pavilion_s2.iff", -175.8, 28, -4786.0, 0, math.rad(90) )
+	spawnSceneObject(self.planet, "object/static/particle/pt_lair_evil_fire_large_green.iff", -175.8, 35, -4786.0, 0, math.rad(90) )
+	spawnSceneObject(self.planet, "object/static/particle/pt_lair_evil_fire_large_green.iff", -175.8, 31.5, -4786.0, 0, math.rad(90) )
+	spawnSceneObject(self.planet, "object/static/particle/pt_lair_evil_fire_large_green.iff", -175.8, 28, -4786.0, 0, math.rad(90) )
+	spawnSceneObject(self.planet, "object/tangible/furniture/jedi/frn_all_table_light_01.iff", -158.0, 28, -4725.9, 0, math.rad(90) )
+	spawnSceneObject(self.planet, "object/tangible/furniture/all/frn_all_tiki_torch_s1.iff", -158.0, 28, -4725.9, 0, math.rad(90) )
+	spawnSceneObject(self.planet, "object/tangible/furniture/jedi/frn_all_light_chair_s01.iff", -153.9, 28, -4725.9, 0, math.rad(-93) )
+	spawnSceneObject(self.planet, "object/tangible/furniture/jedi/frn_all_light_chair_s01.iff", -158.0, 28, -4729.9, 0, math.rad(1) )
+	spawnSceneObject(self.planet, "object/tangible/furniture/jedi/frn_all_light_chair_s01.iff", -161.8, 28, -4726.0, 0, math.rad(89) )
+
+	spawnSceneObject(self.planet, "object/tangible/furniture/jedi/frn_all_light_chair_s01.iff", -158.0, 28, -4722.0, 0, math.rad(178) )
+	spawnSceneObject(self.planet, "object/tangible/furniture/jedi/frn_all_light_chair_s01.iff", -160.8, 28, -4723.2, 0, math.rad(132) )
+	spawnSceneObject(self.planet, "object/tangible/furniture/jedi/frn_all_light_chair_s01.iff", -155.4, 28, -4723.2, 0, math.rad(-134) )
+
+	spawnSceneObject(self.planet, "object/tangible/furniture/jedi/frn_all_light_chair_s01.iff", -155.2, 28, -4728.5, 0, math.rad(-44) )
+	spawnSceneObject(self.planet, "object/tangible/furniture/jedi/frn_all_light_chair_s01.iff", -160.6, 28, -4728.6, 0, math.rad(44) )
 end
 
 function CorelliaCoronetScreenPlay:spawnMobiles()

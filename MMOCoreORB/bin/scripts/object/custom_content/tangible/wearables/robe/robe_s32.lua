@@ -62,7 +62,7 @@ object_tangible_wearables_robe_robe_s32 = object_tangible_wearables_robe_shared_
 				noTrade = 1,
 
 				objectMenuComponent = "RobeObjectMenuComponent",
-				certificationsRequired = {"force_title_jedi_rank_10"},
+				certificationsRequired = {"force_title_jedi_rank_02"},
 				attributeListComponent = "JediRobeAttributeListComponent",
 }
 ObjectTemplates:addTemplate(object_tangible_wearables_robe_robe_s32, "object/tangible/wearables/robe/robe_s32.iff")
