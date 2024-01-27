@@ -1,0 +1,41 @@
+tony_memorial = Creature:new {
+	objectName = "",
+	customName = "Tony (Developer Heat) Garcia",
+	socialGroup = "Townsperson",
+	pvpFaction = "",
+	faction = "",
+	level = 500,
+	chanceHit = 40,
+	damageMin = 1645,
+	damageMax = 2000,
+	baseXp = 30000,
+	bonusType = "",
+	bonusXP = 700,
+	baseHAM = 22340000,
+	baseHAMmax = 22340000,
+	armor = 3,
+	resists = {100,100,100,100,100,100,100,100,100}, --kinetic,energy,blast,heat,cold,electric,acid,stun,ls
+	meatType = "",
+	meatAmount = 0,
+	hideType = "",
+	hideAmount = 0,
+	boneType = "",
+	boneAmount = 0,
+	milk = 0,
+	tamingChance = 0,
+	ferocity = 0,
+	pvpBitmask = NONE,
+	creatureBitmask = NONE,
+	optionsBitmask = 128,
+	diet = HERBIVORE,
+
+	templates = {"object/mobile/som/obi_wan_ghost.iff"},
+	outfit = "tony_outfit",	
+	scale = 1.8,	
+	lootGroups = {},
+	weapons = {},
+	conversationTemplate = "",
+	attacks = merge(lightsabermaster,forcepowermaster)
+}
+
+CreatureTemplates:addCreatureTemplate(tony_memorial, "tony_memorial")

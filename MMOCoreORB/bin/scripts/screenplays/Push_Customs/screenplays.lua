@@ -12,7 +12,10 @@ includeFile("Push_Customs/twin_sabers/twin_sabers.lua")
 includeFile("Push_Customs/twin_sabers/twin_sabers_objects.lua")
 
 --DWS
-includeFile("Push_Customs/dws/dws_objects.lua")
+--includeFile("Push_Customs/dws/dws_objects.lua")
+
+--Iconic
+--includeFile("Push_Customs/iconic/iconic_objects.lua")
 
 --Tony's Memorial
 includeFile("Push_Customs/memorials/TonyMemorial.lua")
