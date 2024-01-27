@@ -42,6 +42,9 @@
 
 
 object_tangible_wearables_backpack_fannypack_s01 = object_tangible_wearables_backpack_shared_fannypack_s01:new {
+	
+	customName = "Peaches Belt",
+
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/smc_female.iff",
 				"object/creature/player/smc_male.iff",
@@ -93,6 +96,18 @@ object_tangible_wearables_backpack_fannypack_s01 = object_tangible_wearables_bac
 				"object/creature/player/zabrak_female.iff",
 				"object/creature/player/wookiee_male.iff",
 				"object/creature/player/wookiee_female.iff" },
+
+	skillMods =
+	{
+		{"jedi_force_power_regen",50},
+		{"jedi_force_power_max", 500},
+		{"onehandlightsaber_accuracy",25},
+		{"polearmlightsaber_accuracy",25},
+		{"twohandlightsaber_accuracy",25},
+	},
+			
+	--Temporary Color Change
+	objectMenuComponent = ArmorObjectMenuComponent,
 
 	numberExperimentalProperties = {1, 1, 1, 1},
 	experimentalProperties = {"XX", "XX", "XX", "XX"},
