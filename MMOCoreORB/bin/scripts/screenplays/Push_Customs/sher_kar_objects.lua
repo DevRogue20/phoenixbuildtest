@@ -28,16 +28,19 @@ function sher_kar_objects:spawnMobiles()
 	collector1:setOptionsBitmask(264)
 	collector1:setCustomObjectName("\\#FF0000Sher'Kar Dungeon")
 	createObserver(OBJECTRADIALUSED, "sher_kar_objects", "teleportsherkar", pCollector1)
-	--if (pCollector1~= nil) then
-	--	return
-	--end
-
+	
 	local pCollector2 = spawnMobile("dungeon2", "eg6_port", 1, -84.2, -3.9, -202.2, -5, 14201897)
 	local collector2 = LuaCreatureObject(pCollector2)
 	collector2:setOptionsBitmask(264)
 	collector2:setCustomObjectName("\\#FF0000Exit the Dungeon")
 	createObserver(OBJECTRADIALUSED, "sher_kar_objects", "teleportDFE", pCollector2)
-	if (pCollector1 or pCollector2~= nil) then
+	
+	local pCollector3 = spawnMobile("dungeon2", "eg6_port", 1, -22.9, 0.4, 9.5, 161, 14201897)
+	local collector3 = LuaCreatureObject(pCollector3)
+	collector3:setOptionsBitmask(264)
+	collector3:setCustomObjectName("\\#FF0000Exit the Dungeon")
+	createObserver(OBJECTRADIALUSED, "sher_kar_objects", "teleportDFE", pCollector3)
+	if (pCollector1 or pCollector2 or pCollector3~= nil) then
 		return 1
 	end
 
