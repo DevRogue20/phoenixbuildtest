@@ -17,7 +17,7 @@ end
 
 function axkva_min_instance:spawnMobiles()
 	local pTrigger = spawnMobile("dungeon2", "nightsister_nandina", 3600, -68.2, 13.6, 16.0, 113, 14200004)
-	spawnMobile("dungeon2", "nightsister_gorvo_rancor", 3600, -62.3, 13.8, 30.1, 139, 14200004)
+	spawnMobile("dungeon2", "grovo", 3600, -62.3, 13.8, 30.1, 139, 14200004)
 	if (pTrigger ~= nil ) then	
         createObserver(OBJECTDESTRUCTION, "axkva_min_instance", "notifyTriggerDead", pTrigger)
 	end
