@@ -1204,7 +1204,9 @@ includeFile("items/wearables/wookiee/wke_skirt_s03.lua")
 includeFile("items/wearables/wookiee/wke_skirt_s04.lua")
 
 --Push Loot
-includeFile("items/push/war_droid_deed.lua")
+includeFile("items/push/sherkar_venom.lua")
+includeFile("items/push/sherkar_venom_rare.lua")
+includeFile("items/push/sherkar_tissue.lua")
 
 
 --Named Color Crystals

@@ -372,7 +372,7 @@ includeFile("groups/wearables/wearables_scarce.lua")
 includeFile("groups/wearables/wearables_uncommon.lua")
 
 --Push Loot
-includeFile("groups/push/war_droid_loot.lua")
+includeFile("groups/push/sher_kar_loot.lua")
 
 
 --Named Color Crystals

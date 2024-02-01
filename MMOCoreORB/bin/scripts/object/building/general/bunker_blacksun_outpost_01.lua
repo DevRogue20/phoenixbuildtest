@@ -42,6 +42,12 @@
 
 
 object_building_general_bunker_blacksun_outpost_01 = object_building_general_shared_bunker_blacksun_outpost_01:new {
+    childObjects = {
+        {templateFile = "object/tangible/terminal/terminal_elevator_up.iff", x = 75.46, z = -50.00, y = 59.00, ow = 0, ox = 0, oy = 0, oz = 0, cellid = 3566207, containmentType = -1}, --Elevator 1
+        {templateFile = "object/tangible/terminal/terminal_elevator_up.iff", x = -8.45, z = -20.00, y = 58.93, ow = 0, ox = 0, oy = 0, oz = 0, cellid = 3566250, containmentType = -1}, --Elevator 2
+        {templateFile = "object/tangible/terminal/terminal_elevator_down.iff", x = 75.46, z = -20.00, y = 59.00, ow = 0, ox = 0, oy = 0, oz = 0, cellid = 3566307, containmentType = -1}, --Elevator 1
+        {templateFile = "object/tangible/terminal/terminal_elevator_down.iff", x = -8.45, z = 9.01, y = 58.93, ow = 0, ox = 0, oy = 0, oz = 0, cellid = 3566250, containmentType = -1}, --Elevator 2
+        },
 
 }
 
