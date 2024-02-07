@@ -4,7 +4,7 @@ axkva_min_instance = ScreenPlay:new {
 }
 spHelper = require("screenplayHelper")
 registerScreenPlay("axkva_min_instance", true)
-local ObjectManager = require("managers.object.object_manager")  print("Object manager loaded for Axkva Min")
+local ObjectManager = require("managers.object.object_manager")  --print("Object manager loaded for Axkva Min")
 
 --------------------------------------
 --   Initialize screenplay           -
@@ -27,7 +27,7 @@ end
 	
 
 function axkva_min_instance:notifyTriggerDead(pTrigger, pPlayer)
-        local pWarden = spawnMobile("dungeon2", "warden", 0, -62.3, 13.8, 30.1, 139, 14200004) print("Killed Nandina--Warden spawn Axkva Min encounter")
+        local pWarden = spawnMobile("dungeon2", "warden", 0, -62.3, 13.8, 30.1, 139, 14200004) --print("Killed Nandina--Warden spawn Axkva Min encounter")
 	ObjectManager.withCreatureObject(pWarden, function(oBoss)
 		writeData("warden", oBoss:getObjectID())			
 		spatialChat(pWarden, "You think you can come into my prison? Your lack of respect disgusts me. You will face my prisoners young fools.")	
@@ -38,7 +38,7 @@ function axkva_min_instance:notifyTriggerDead(pTrigger, pPlayer)
 end
 
 function axkva_min_instance:spawnBoss1(pBoss1, pPlayer)
-        local pBoss1 = spawnMobile("dungeon2", "nightsister_lelli_hi", 0, -82.9, 17.8, 19.1, 101, 14200004) print("spawned Lelli")
+        local pBoss1 = spawnMobile("dungeon2", "nightsister_lelli_hi", 0, -82.9, 17.8, 19.1, 101, 14200004) --print("spawned Lelli")
 	ObjectManager.withCreatureObject(pBoss1, function(oBoss)
 		writeData("axkvaboss1", oBoss:getObjectID())			
 		spatialChat(pBoss1, "Free to kill")	
@@ -63,7 +63,7 @@ function axkva_min_instance:despawnBoss1(pBoss1, pPlayer)
 end
 
 function axkva_min_instance:spawnBoss2(pBoss2, pPlayer)
-        local pBoss2 = spawnMobile("dungeon2", "nightsister_kimaru", 0, -80.0, 17.8, 31.4, 101, 14200004) print("Startup Axkva Min encounter")
+        local pBoss2 = spawnMobile("dungeon2", "nightsister_kimaru", 0, -80.0, 17.8, 31.4, 101, 14200004) --print("Startup Axkva Min encounter")
 	ObjectManager.withCreatureObject(pBoss2, function(oBoss)
 		writeData("axkvaboss2", oBoss:getObjectID())			
 		spatialChat(pBoss2, "Death is but a touch away")	
@@ -90,7 +90,7 @@ function axkva_min_instance:despawnBoss2(pBoss2, pPlayer)
 end
 
 function axkva_min_instance:spawnBoss3(pBoss3, pPlayer)
-        local pBoss3 = spawnMobile("dungeon2", "nightsister_suin_chalo", 0, -80.6, 17.8, 29.0, 100, 14200004) print("Startup Axkva Min encounter")
+        local pBoss3 = spawnMobile("dungeon2", "nightsister_suin_chalo", 0, -80.6, 17.8, 29.0, 100, 14200004) --print("Startup Axkva Min encounter")
 	ObjectManager.withCreatureObject(pBoss3, function(oBoss)
 		writeData("axkvaboss3", oBoss:getObjectID())			
 		spatialChat(pBoss3, "My sisters failed, I will not")	
@@ -119,7 +119,7 @@ end
 
 
 function axkva_min_instance:spawnBoss4(pBoss4, pPlayer)
-        local pBoss4 = spawnMobile("dungeon2", "axkva_min_heroic", 0, -84.2, 17.9, 16.8, 97, 14200004) print("Startup Axkva Min encounter")
+        local pBoss4 = spawnMobile("dungeon2", "axkva_min_heroic", 0, -84.2, 17.9, 16.8, 97, 14200004) --print("Startup Axkva Min encounter")
 	ObjectManager.withCreatureObject(pBoss4, function(oBoss)
 		writeData("axkvaboss4", oBoss:getObjectID())			
 		spatialChat(pBoss4, "Warden you control me no longer, after I turn these weaklings to dust, I will have my revenge on you")	

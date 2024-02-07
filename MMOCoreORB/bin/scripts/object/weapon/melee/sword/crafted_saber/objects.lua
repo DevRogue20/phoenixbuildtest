@@ -5206,3 +5206,19 @@ object_weapon_melee_sword_crafted_saber_shared_sword_lightsaber_training = Share
 }
 
 ObjectTemplates:addClientTemplate(object_weapon_melee_sword_crafted_saber_shared_sword_lightsaber_training, "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_training.iff")
+
+--***************************************************************************
+
+object_weapon_melee_sword_crafted_saber_shared_sword_lightsaber_one_handed_pvp_bf_gen5 = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_pvp_bf_gen5.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_weapon_melee_sword_crafted_saber_shared_sword_lightsaber_one_handed_pvp_bf_gen5, "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_pvp_bf_gen5.iff")
+
+--***************************************************************************
+
+object_weapon_melee_sword_crafted_saber_shared_sword_lightsaber_gen6 = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_gen6.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_weapon_melee_sword_crafted_saber_shared_sword_lightsaber_gen6, "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_gen6.iff")

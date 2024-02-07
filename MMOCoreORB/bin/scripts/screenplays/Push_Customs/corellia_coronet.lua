@@ -310,7 +310,7 @@ CorelliaCoronetScreenPlay = CityScreenPlay:new {
 
 		-- Trainers Outside
 		{"trainer_smuggler",0,-216,28,-4710,175,0, ""},
-		{"trainer_weaponsmith",0,-187,28,-4690,91,0, ""},
+		{"trainer_weaponsmith",0,-187,28,-4690,126,0, ""},
 		{"trainer_pistol",0,-166,28,-4747,92,0, ""},
 		{"trainer_carbine",0,-166,28,-4744,92,0, ""},
 		{"trainer_rifleman",0,-166,28,-4743,92,0, ""},
@@ -324,15 +324,15 @@ CorelliaCoronetScreenPlay = CityScreenPlay:new {
 		{"trainer_artisan",0,-187,28,-4700,92,0, ""},
 		{"trainer_bioengineer",0,-424.092,28,-4651.85,94,0, ""},
 		{"trainer_brawler",0,-164,28,-4754,88,0, ""},
-		{"trainer_combatmedic",0,-166,28,-4691,95,0, ""},
+		{"trainer_combatmedic",0,-166,28,-4691,179,0, ""},
 		{"trainer_creaturehandler",0,-55,28,-4566,0,0, ""},
 		{"trainer_entertainer",0,-173,28,-4739,0,0, ""},
 		{"trainer_entertainer",0,-228,28.6,-4118,0,0, ""},
 		{"trainer_marksman",0,-165,28,-4746,92,0, ""},
 		{"trainer_marksman",0,-35,28,-4372,269,0, ""},
 		{"trainer_medic",0,-33,28,-4422,72,0, ""},
-		{"trainer_doctor",0,-168,28,-4691,0,0, ""},
-		{"trainer_medic",0,-172,28,-4691,0,0, ""},
+		{"trainer_doctor",0,-168,28,-4691,179,0, ""},
+		{"trainer_medic",0,-172,28,-4691,179,0, ""},
 		{"trainer_merchant",0,-369,28,-4533,92,0, ""},
 		{"trainer_politician",0,-218,28,-4500,0,0, ""},
 		{"trainer_ranger",0,-505,28,-4633,180,0, ""},
@@ -340,6 +340,14 @@ CorelliaCoronetScreenPlay = CityScreenPlay:new {
 		{"trainer_squadleader",0,-169.45,28,-4705,134,0, ""},
 		{"trainer_scout",0,-169.45,28,-4712.58,134,0, ""},
 		{"trainer_creaturehandler",0,-180,28,-4712.58,220,0, ""},
+		{"trainer_musician",0,-178.2,28,-4740.3,-1,0, ""},
+		{"trainer_dancer",0,-183.4,28,-4741.6,31,0, ""},
+		{"trainer_imagedesigner",0,-170.2,28,-4741.7,2,0, ""},
+		{"trainer_armorsmith",0,-181.9,28,-4689.9,179,0, ""},
+		{"trainer_tailor",0,-188.8,28,-4691.0,126,0, ""},
+		{"trainer_droidengineer",0,-190.0,28,-4697.2,92,0, ""},
+		{"trainer_merchant",0,-189.6,28,-4703.9,90,0, ""},
+		{"trainer_chef",0,-160.7,28,-4691.1,-129,0, ""},
 
 		-- Chassis dealer.
 		{"chassis_dealer", 0, 0.1, 0.6, 72.9, -4, 1855672, ""},
@@ -417,4 +425,41 @@ function CorelliaCoronetScreenPlay:spawnMobiles()
 		self:setCustomName(pNpc, "Hunter Javeezo")
 		CreatureObject(pNpc):clearOptionBit(AIENABLED)
 	end
+
+	--Outside Spawns
+	spawnMobile(self.planet, "meatlump_buffoon",300,-145,28.9,-4959.8,63,0)
+	spawnMobile(self.planet, "meatlump_buffoon",300,-54.3,28.2,-4963.4,-90,0)
+	spawnMobile(self.planet, "meatlump_buffoon",300,-20.1,28,-4922.2,109,0)
+	spawnMobile(self.planet, "meatlump_buffoon",300,266.9,28.5,-4656.5,-109,0)
+	spawnMobile(self.planet, "meatlump_buffoon",300,284.5,29,-4541.7,-175,0)
+	spawnMobile(self.planet, "meatlump_buffoon",300,258.2,28,-4424.1,-5,0)
+	spawnMobile(self.planet, "meatlump_buffoon",300,-365.3,28,-4658.5,26,0)
+	spawnMobile(self.planet, "meatlump_buffoon",300,-270.1,28,-4923,-97,0)
+	spawnMobile(self.planet, "meatlump_clod",300,-130.2,31.1,-4993.8,72,0)
+	spawnMobile(self.planet, "meatlump_clod",300,-11.4,28,-4920.5,63,0)
+	spawnMobile(self.planet, "meatlump_clod",300,93.4,27.1,-4865,60,0)
+	spawnMobile(self.planet, "meatlump_cretin",300,-89.4,30.3,-4985.2,33,0)
+	spawnMobile(self.planet, "meatlump_cretin",300,188.1,27.1,-4770.2,-99,0)
+	spawnMobile(self.planet, "meatlump_cretin",300,287.1,29.3,-4558,-95,0)
+	spawnMobile(self.planet, "meatlump_cretin",300,-236.2,28.4,-4947.9,-16,0)
+	spawnMobile(self.planet, "meatlump_fool",300,172.6,27.9,-4773,-87,0)
+	spawnMobile(self.planet, "meatlump_fool",300,277.9,28.6,-4545.9,-99,0)
+	spawnMobile(self.planet, "meatlump_fool",300,266.6,28,-4408.9,68,0)
+	spawnMobile(self.planet, "meatlump_fool",300,-361.8,28,-4655,164,0)
+	spawnMobile(self.planet, "meatlump_fool",300,-297.3,28,-4918.8,-86,0)
+	spawnMobile(self.planet, "meatlump_fool",300,-257,30,-4968.4,24,0)
+	spawnMobile(self.planet, "meatlump_loon",300,-163,28.2,-49493,102,0)
+	spawnMobile(self.planet, "meatlump_loon",300,176,27.3,-4763.6,-7,0)
+	spawnMobile(self.planet, "meatlump_oaf",300,-136,28.8,-4958.5,83,0)
+	spawnMobile(self.planet, "meatlump_oaf",300,-72,28,-4973.1,-77,0)
+	spawnMobile(self.planet, "meatlump_oaf",300,97.6,26.6,-4867.1,101,0)
+	spawnMobile(self.planet, "meatlump_oaf",300,255,28.3,-4666.8,-51,0)
+	spawnMobile(self.planet, "meatlump_oaf",300,249.6,28,-4418.9,92,0)
+	spawnMobile(self.planet, "meatlump_oaf",300,-366,28,-4655,148,0)
+	spawnMobile(self.planet, "meatlump_oaf",300,-308,28,-4897.9,64,0)
+	spawnMobile(self.planet, "meatlump_stooge",300,-133.5,28.2,-4946,72,0)
+	spawnMobile(self.planet, "meatlump_stooge",300,-12.6,27.9,-4931.6,-19,0)
+	spawnMobile(self.planet, "meatlump_stooge",300,90.7,26.6,-4872.1,73,0)
+	spawnMobile(self.planet, "meatlump_stooge",300,252.9,28.3,-4657.7,-3,0)
+	spawnMobile(self.planet, "meatlump_stooge",300,293.9,29.7,-4552.4,-93,0)
 end

@@ -62,7 +62,26 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_s1_gen4 = obj
 				"object/creature/player/wookiee_male.iff",
 				"object/creature/player/wookiee_female.iff",
 				"object/creature/player/zabrak_male.iff",
-				"object/creature/player/zabrak_female.iff" },
+				"object/creature/player/zabrak_female.iff",
+				"object/creature/player/aqualish_female.iff",
+				"object/creature/player/aqualish_male.iff",
+				"object/creature/player/bith_female.iff",
+				"object/creature/player/bith_male.iff",
+				"object/creature/player/chiss_female.iff",
+				"object/creature/player/chiss_male.iff",
+				"object/creature/player/devaronian_male.iff",
+				"object/creature/player/gotal_male.iff",
+				"object/creature/player/gran_male.iff",
+				"object/creature/player/hutt_female.iff",
+				"object/creature/player/hutt_male.iff",
+				"object/creature/player/ishi_tib_male.iff",
+				"object/creature/player/nautolan_male.iff",
+				"object/creature/player/nightsister_female.iff",
+				"object/creature/player/nikto_male.iff",
+				"object/creature/player/quarren_male.iff",
+				"object/creature/player/smc_female.iff",
+				"object/creature/player/talz_male.iff",
+				"object/creature/player/weequay_male.iff" },
 
 	-- RANGEDATTACK, MELEEATTACK, FORCEATTACK, TRAPATTACK, GRENADEATTACK, HEAVYACIDBEAMATTACK, 
 	-- HEAVYLIGHTNINGBEAMATTACK, HEAVYPARTICLEBEAMATTACK, HEAVYROCKETLAUNCHERATTACK, HEAVYLAUNCHERATTACK
@@ -72,7 +91,7 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_s1_gen4 = obj
 	damageType = LIGHTSABER,
 
 	-- NONE, LIGHT, MEDIUM, HEAVY
-	armorPiercing = MEDIUM,
+	armorPiercing = HEAVY,
 
 	-- combat_rangedspecialize_bactarifle, combat_rangedspecialize_rifle, combat_rangedspecialize_pistol, combat_rangedspecialize_heavy, combat_rangedspecialize_carbine
 	-- combat_meleespecialize_unarmed, combat_meleespecialize_twohand, combat_meleespecialize_polearm, combat_meleespecialize_onehand, combat_general,
@@ -112,12 +131,12 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_s1_gen4 = obj
 	maxRange = 5,
 	maxRangeAccuracy = 5,
 
-	minDamage = 225,
-	maxDamage = 305,
+	minDamage = 550,
+	maxDamage = 610,
 
-	attackSpeed = 5.1,
+	attackSpeed = 4.1,
 
-	woundsRatio = 37,
+	woundsRatio = 47,
 
 	defenderToughnessModifiers = { "lightsaber_toughness" },
 
@@ -132,8 +151,8 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_s1_gen4 = obj
 	experimentalWeights = {1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1},
 	experimentalGroupTitles = {"null", "null", "expDamage", "expDamage", "expDamage", "expDamage", "expEffeciency", "expEffeciency", "expEffeciency", "expEffeciency"},
 	experimentalSubGroupTitles = {"null", "null", "mindamage", "maxdamage", "attackspeed", "woundchance", "forcecost", "attackhealthcost", "attackactioncost", "attackmindcost"},
-	experimentalMin = {0, 0, 225, 305, 5.1, 25, 55, 60, 95, 45},
-	experimentalMax = {0, 0, 235, 325, 4.8, 50, 48, 45, 65, 40},
+	experimentalMin = {0, 0, 326, 476, 4.1, 25, 55, 60, 95, 48},
+	experimentalMax = {0, 0, 360, 510, 4.8, 50, 48, 45, 65, 40},
 	experimentalPrecision = {0, 0, 0, 0, 1, 0, 1, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1},
 }
