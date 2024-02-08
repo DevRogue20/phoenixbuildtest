@@ -44,6 +44,8 @@
 object_tangible_wearables_armor_bounty_hunter_armor_bounty_hunter_bicep_l = object_tangible_wearables_armor_bounty_hunter_shared_armor_bounty_hunter_bicep_l:new {
 	templateType = ARMOROBJECT,
 
+	objectMenuComponent = "ArmorObjectMenuComponent",
+
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",
 				"object/creature/player/human_male.iff",
@@ -60,6 +62,39 @@ object_tangible_wearables_armor_bounty_hunter_armor_bounty_hunter_bicep_l = obje
 				"object/creature/player/twilek_female.iff",
 				"object/creature/player/zabrak_male.iff",
 				"object/creature/player/zabrak_female.iff",
+                "object/creature/player/aqualish_female.iff",
+                "object/creature/player/aqualish_male.iff",
+                "object/creature/player/bith_female.iff",
+                "object/creature/player/bith_male.iff",
+                "object/creature/player/chiss_female.iff",
+                "object/creature/player/chiss_male.iff",
+                "object/creature/player/devaronian_male.iff",
+                "object/creature/player/gran_male.iff",
+                "object/creature/player/ishi_tib_male.iff",
+                "object/creature/player/gotal_male.iff",
+                "object/creature/player/nautolan_male.iff",
+                "object/creature/player/nikto_male.iff",
+                "object/creature/player/quarren_male.iff",
+                "object/creature/player/nightsister_female.iff",
+                "object/creature/player/smc_female.iff",
+                "object/creature/player/togruta_female.iff",
+                "object/creature/player/weequay_male.iff",
+		"object/creature/player/abyssin_male.iff",
+		"object/creature/player/arcona_male.iff",
+		"object/creature/player/cerean_male.iff",
+		"object/creature/player/duros_male.iff",
+		"object/creature/player/feeorin_male.iff",
+		"object/creature/player/gungan_male.iff",
+		"object/creature/player/iktotchi_male.iff",
+		"object/creature/player/jenet_male.iff",
+		"object/creature/player/kel_dor_male.iff",
+		"object/creature/player/kubaz_male.iff",
+		"object/creature/player/mirialan_female.iff",
+		"object/creature/player/mirialan_male.iff",
+		"object/creature/player/sanyassan_female.iff",
+		"object/creature/player/sanyassan_male.iff",
+		"object/creature/player/zeltron_female.iff",
+		"object/creature/player/zeltron_male.iff",
 				"object/mobile/vendor/aqualish_female.iff",
 				"object/mobile/vendor/aqualish_male.iff",
 				"object/mobile/vendor/bith_female.iff",
@@ -86,23 +121,44 @@ object_tangible_wearables_armor_bounty_hunter_armor_bounty_hunter_bicep_l = obje
 				"object/mobile/vendor/weequay_male.iff",
 				"object/mobile/vendor/zabrak_female.iff",
 				"object/mobile/vendor/zabrak_male.iff" },
-	
-	-- The damage types in WeaponObject
-	vulnerability = STUN + HEAT + ACID + LIGHTSABER,
+
+	-- Damage types in WeaponObject
+	vulnerability = STUN + LIGHTSABER,
+
+	specialResists = ELECTRICITY,
 
 	-- These are default Blue Frog stats
 	healthEncumbrance = 1,
 	actionEncumbrance = 1,
 	mindEncumbrance = 1,
 
+	maxCondition = 30000,
+
 	-- LIGHT, MEDIUM, HEAVY
 	rating = LIGHT,
 
-	kinetic = 15,
-	energy = 15,
-	electricity = 15,
-	blast = 15,
-	cold = 15,
+	kinetic = 50,
+	energy = 50,
+	electricity = 10,
+	stun = 35,
+	blast = 50,
+	heat = 50,
+	cold = 50,
+	acid = 50,
+	lightSaber = 10,
+
+	numberExperimentalProperties = {1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 2, 1},
+	experimentalProperties = {"XX", "XX", "XX", "XX", "OQ", "SR", "OQ", "UT", "MA", "OQ", "MA", "OQ", "MA", "OQ", "XX", "XX", "OQ", "SR", "XX"},
+	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+	experimentalGroupTitles = {"null", "null", "null", "exp_durability", "exp_quality", "exp_resistance", "exp_durability", "exp_durability", "exp_durability", "null", "null", "exp_resistance", "null"},
+	experimentalSubGroupTitles = {"null", "null", "sockets", "hit_points", "armor_effectiveness", "armor_integrity", "armor_health_encumbrance", "armor_action_encumbrance", "armor_mind_encumbrance", "armor_rating", "armor_special_type", "armor_special_effectiveness", "armor_special_integrity"},
+	experimentalMin = {0, 0, 0, 1000, 1, 30000, 25, 22, 30, 1, 0, 0, 0},
+	experimentalMax = {0, 0, 0, 1000, 40, 50000, 15, 13, 18, 1, 0, 0, 0},
+	experimentalPrecision = {0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0},
+	experimentalCombineType = {0, 0, 4, 1, 1, 1, 1, 1, 1, 4, 4, 4, 1},
 }
 
 ObjectTemplates:addTemplate(object_tangible_wearables_armor_bounty_hunter_armor_bounty_hunter_bicep_l, "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_bicep_l.iff")
+
+
+--				Property of BloodfinEMU (Do Not Distribute)

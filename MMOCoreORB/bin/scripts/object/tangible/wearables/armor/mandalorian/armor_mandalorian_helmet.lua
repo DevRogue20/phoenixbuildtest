@@ -1,3 +1,6 @@
+
+--				Property of BloodfinEMU (Do Not Distribute) 
+
 --Copyright (C) 2010 <SWGEmu>
 
 
@@ -44,10 +47,7 @@
 object_tangible_wearables_armor_mandalorian_armor_mandalorian_helmet = object_tangible_wearables_armor_mandalorian_shared_armor_mandalorian_helmet:new {
 	templateType = ARMOROBJECT,
 
-	certificationsRequired = { "combat_bountyhunter_master",
-					"combat_commando_master",
-					"outdoors_squadleader_master",
-					"outdoors_ranger_master" },
+	objectMenuComponent = "ArmorObjectMenuComponent",	
 
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",
@@ -65,6 +65,39 @@ object_tangible_wearables_armor_mandalorian_armor_mandalorian_helmet = object_ta
 				"object/creature/player/twilek_female.iff",
 				"object/creature/player/zabrak_male.iff",
 				"object/creature/player/zabrak_female.iff",
+                "object/creature/player/aqualish_female.iff",
+                "object/creature/player/aqualish_male.iff",
+                "object/creature/player/bith_female.iff",
+                "object/creature/player/bith_male.iff",
+                "object/creature/player/chiss_female.iff",
+                "object/creature/player/chiss_male.iff",
+                "object/creature/player/devaronian_male.iff",
+                "object/creature/player/gran_male.iff",
+                "object/creature/player/ishi_tib_male.iff",
+                "object/creature/player/gotal_male.iff",
+                "object/creature/player/nautolan_male.iff",
+                "object/creature/player/nikto_male.iff",
+                "object/creature/player/quarren_male.iff",
+                "object/creature/player/nightsister_female.iff",
+                "object/creature/player/smc_female.iff",
+                "object/creature/player/togruta_female.iff",
+                "object/creature/player/weequay_male.iff",
+		"object/creature/player/abyssin_male.iff",
+		"object/creature/player/arcona_male.iff",
+		"object/creature/player/cerean_male.iff",
+		"object/creature/player/duros_male.iff",
+		"object/creature/player/feeorin_male.iff",
+		"object/creature/player/gungan_male.iff",
+		"object/creature/player/iktotchi_male.iff",
+		"object/creature/player/jenet_male.iff",
+		"object/creature/player/kel_dor_male.iff",
+		"object/creature/player/kubaz_male.iff",
+		"object/creature/player/mirialan_female.iff",
+		"object/creature/player/mirialan_male.iff",
+		"object/creature/player/sanyassan_female.iff",
+		"object/creature/player/sanyassan_male.iff",
+		"object/creature/player/zeltron_female.iff",
+		"object/creature/player/zeltron_male.iff",
 				"object/mobile/vendor/aqualish_female.iff",
 				"object/mobile/vendor/aqualish_male.iff",
 				"object/mobile/vendor/bothan_female.iff",
@@ -85,29 +118,47 @@ object_tangible_wearables_armor_mandalorian_armor_mandalorian_helmet = object_ta
 				"object/mobile/vendor/twilek_male.iff",
 				"object/mobile/vendor/weequay_male.iff",
 				"object/mobile/vendor/zabrak_female.iff",
+				"object/creature/player/wookiee_male.iff",
+				"object/creature/player/wookiee_female.iff",
 				"object/mobile/vendor/zabrak_male.iff" },
 	
 	-- Damage types in WeaponObject
-	vulnerability = COLD + ELECTRICITY + STUN + LIGHTSABER,
+	vulnerability = STUN,
 
-	-- These are default Blue Frog stats, These are also used as temporary DWB crafting stats. Needs to be adjusted to random color, and Blast should be a Special Resist. Encumberance on boots and all arm/hand armor are estimated. Helm/Chest/Leggings are correct. 
-	healthEncumbrance = 45,
-	actionEncumbrance = 48,
-	mindEncumbrance = 286,
+	specialResists = KINETIC,
+
+	-- These are default Blue Frog stats
+	healthEncumbrance = 80,
+	actionEncumbrance = 80,
+	mindEncumbrance = 50,
+
+	maxCondition = 30000,
 
 	-- LIGHT, MEDIUM, HEAVY
 	rating = LIGHT,
-	maxCondition = 40000,
 
-	kinetic = 58,
-	energy = 58,
-	electricity = 0,
-	stun = 0,
-	blast = 65,
-	heat = 58,
-	cold = 0,
-	acid = 58,
-	lightSaber = 0
+	kinetic = 50,
+	energy = 50,
+	electricity = 50,
+	stun = 15,
+	blast = 50,
+	heat = 50,
+	cold = 50,
+	acid = 50,
+	lightSaber = 10,
+
+	numberExperimentalProperties = {1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 2, 1},
+	experimentalProperties = {"XX", "XX", "XX", "XX", "OQ", "SR", "OQ", "UT", "MA", "OQ", "MA", "OQ", "MA", "OQ", "XX", "XX", "OQ", "SR", "XX"},
+	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+	experimentalGroupTitles = {"null", "null", "null", "exp_durability", "exp_quality", "exp_resistance", "exp_durability", "exp_durability", "exp_durability", "null", "null", "exp_resistance", "null"},
+	experimentalSubGroupTitles = {"null", "null", "sockets", "hit_points", "armor_effectiveness", "armor_integrity", "armor_health_encumbrance", "armor_action_encumbrance", "armor_mind_encumbrance", "armor_rating", "armor_special_type", "armor_special_effectiveness", "armor_special_integrity"},
+	experimentalMin = {0, 0, 7, 1000, 1, 30000, 25, 22, 30, 1, 24, 30, 10},
+	experimentalMax = {0, 0, 8, 1000, 40, 50000, 15, 13, 18, 1, 24, 40, 10},
+	experimentalPrecision = {0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 10, 0},
+	experimentalCombineType = {0, 0, 4, 1, 1, 1, 1, 1, 1, 4, 4, 4, 1},
 }
 
 ObjectTemplates:addTemplate(object_tangible_wearables_armor_mandalorian_armor_mandalorian_helmet, "object/tangible/wearables/armor/mandalorian/armor_mandalorian_helmet.iff")
+
+
+--				Property of BloodfinEMU (Do Not Distribute)
