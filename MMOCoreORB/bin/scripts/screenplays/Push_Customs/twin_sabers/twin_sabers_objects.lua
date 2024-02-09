@@ -29,7 +29,7 @@ function twin_sabers_objects:spawnMobiles()
 	collector1:setCustomObjectName("\\#FF0000Twin Sabers Dungeon")
 	createObserver(OBJECTRADIALUSED, "twin_sabers_objects", "teleportpalp", pCollector1)
 
-	local pCollector2 = spawnMobile("dungeon2", "eg6_port", 1, 1.1, 0.0, 1.3, 90, 14201899)
+	local pCollector2 = spawnMobile("tatooine", "eg6_port", 1, 1.1, 0.0, 1.3, 90, 609460014)
 	local collector2 = LuaCreatureObject(pCollector2)
 	collector2:setOptionsBitmask(264)
 	collector2:setCustomObjectName("\\#FF0000Exit the Dungeon")
@@ -49,7 +49,7 @@ function twin_sabers_objects:spawnMobiles()
 end
 
 function twin_sabers_objects:teleportpalp(pCollector, pPlayer)
-		playerSwitchZoneOutOfCombatRange(pPlayer, pCollector, 10 , "dungeon2", 2.1, 0.0, 0.0, 14201899)
+		playerSwitchZoneOutOfCombatRange(pPlayer, pCollector, 10 , "tatooine", 2.1, 0.0, 0.0, 609460014)
 	return 0
 end
 
