@@ -41,7 +41,7 @@ void GroupManager::inviteToGroup(CreatureObject* leader, CreatureObject* target)
 	// Pre: leader locked
 	// Post: player invited to leader's group, leader locked
 
-	bool galaxyWide = ConfigManager::instance()->getBool("Core3.PlayerManager.GalaxyWideGrouping", false);
+	bool galaxyWide = ConfigManager::instance()->getBool("Core3.PlayerManager.GalaxyWideGrouping", true);
 
 	Locker clocker(target, leader);
 
@@ -63,7 +63,7 @@ void GroupManager::inviteToGroup(CreatureObject* leader, CreatureObject* target)
 		}
 
 		// can't invite if the group is full
-		if (group->getGroupSize() >= 20) {
+		if (group->getGroupSize() >= 30) {
 			leader->sendSystemMessage("@group:full");
 			return;
 		}
@@ -174,7 +174,7 @@ void GroupManager::joinGroup(CreatureObject* player) {
 
 	Locker clocker(player, group);
 
-	if (group->getGroupSize() >= 20) {
+	if (group->getGroupSize() >= 30) {
 		player->updateGroupInviterID(0);
 
 		player->sendSystemMessage("The group is full.");
