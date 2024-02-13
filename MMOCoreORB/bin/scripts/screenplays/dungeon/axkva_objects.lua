@@ -47,6 +47,13 @@ function axkva_objects:spawnMobiles()
 	port:setOptionsBitmask(264)
 	port:setCustomObjectName("\\#FF0000Axkva Min Dungeon")
 	createObserver(OBJECTRADIALUSED, "axkva_objects", "teleporttest", pPort)
+	
+	--Escape Hatch
+	local pEject = spawnMobile("dungeon2", "eg6_port", 60, 33.0, 0.1, 0, -90, 14200003)
+	local eject = LuaCreatureObject(pEject)
+	eject:setOptionsBitmask(264)
+	eject:setCustomObjectName("\\#FF0000Get Me Out Of Here!")
+	createObserver(OBJECTRADIALUSED, "axkva_objects", "teleportcornet", pEject)
 	if (pCollector1 or pCollector2 or pPort~= nil) then 
 		return
 	end
@@ -69,3 +76,8 @@ function axkva_objects:teleporttest(pCollector3, pPlayer)
 	return 0
 end
 
+--Temporary for Testing
+function axkva_objects:teleportcornet(pEject, pPlayer)
+	playerSwitchZoneOutOfCombatRange(pPlayer, pEject, 10 ,"corellia", -151.0, 28, -4723.0, 0)
+	return 0
+end
