@@ -58,7 +58,7 @@ object_draft_schematic_space_booster_booster_mk2 = object_draft_schematic_space_
    assemblySkill = "booster_assembly", 
    experimentingSkill = "booster_experimentation", 
    customizationSkill = "medicine_customization",
-   factoryCrateSize = 0, 
+   factoryCrateSize = 1000,
 
    customizationOptions = {},
    customizationStringNames = {},

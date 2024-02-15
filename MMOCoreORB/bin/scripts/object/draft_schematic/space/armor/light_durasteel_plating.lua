@@ -58,7 +58,7 @@ object_draft_schematic_space_armor_light_durasteel_plating = object_draft_schema
    assemblySkill = "chassis_assembly", 
    experimentingSkill = "chassis_experimentation", 
    customizationSkill = "medicine_customization",
-   factoryCrateSize = 0, 
+   factoryCrateSize = 1000,
 
    customizationOptions = {},
    customizationStringNames = {},
