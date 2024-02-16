@@ -198,7 +198,7 @@ function bf_teleport_menu:fillObjectMenuResponse(pSceneObject, pMenuResponse, pP
 		end
 		
 		response:addRadialMenuItem(20, 3, "Teleport to Cnet,Corellia")
-		response:addRadialMenuItem(21, 3, "Teleport to Hoth")
+		--response:addRadialMenuItem(21, 3, "Teleport to Hoth")
 		response:addRadialMenuItem(22, 3, "Teleport to Theed,Naboo")
 		response:addRadialMenuItem(23, 3, "Teleport to Narmle,Rori")
 		response:addRadialMenuItem(24, 3, "Teleport to Dearic,Talus")
@@ -212,7 +212,7 @@ function bf_teleport_menu:fillObjectMenuResponse(pSceneObject, pMenuResponse, pP
 		end
 		
 		response:addRadialMenuItem(20, 3, "Teleport to Cnet,Corellia")
-		response:addRadialMenuItem(21, 3, "Teleport to Hoth")
+		--response:addRadialMenuItem(21, 3, "Teleport to Hoth")
 		response:addRadialMenuItem(22, 3, "Teleport to Theed,Naboo")
 		response:addRadialMenuItem(23, 3, "Teleport to Narmle,Rori")
 		response:addRadialMenuItem(24, 3, "Teleport to Dearic,Talus")
