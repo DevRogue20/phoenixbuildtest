@@ -60,6 +60,7 @@ private:
 
 	Vector<String> jtlResources;
 	Vector<String> activeResourceZones;
+	Vector<String>* planets;
 
 	MinimumPool* minimumPool;
 	FixedPool* fixedPool;
@@ -93,6 +94,7 @@ public:
 
 	void spawnScriptResources();
 	bool writeAllSpawnsToScript();
+	bool ghDumpAll();
 
 	void start();
 	void shiftResources();
@@ -151,6 +153,14 @@ public:
 	}
 
 	String getPlanetByIndex(int index) const;
+	
+	String ghDump() {
+		if (ghDumpAll()){
+			return "Galaxy Harvester Output Dumped";
+		}
+		return "Error Dumping Galaxy Harvester Output";
+	}
+	
 private:
 
 	void loadResourceSpawns();
