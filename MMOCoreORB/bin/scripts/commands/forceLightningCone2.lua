@@ -44,25 +44,26 @@
 ForceLightningCone2Command = {
 	name = "forcelightningcone2",
 
-	minDamage = 600,
-	maxDamage = 1200,
-	speed = 4.0,
-	forceCost = 250,
+    minDamage = 11000,
+    maxDamage = 12000,
+	speed = 2.0,
+	forceCost = 70,
+	accuracyBonus = 25,
 	accuracySkillMod = "forcelightning_accuracy",
 	coneAngle = 60,
 	coneAction = true,
 	visMod = 25,
 
 	stateEffects = {
-		StateEffect(
-			DIZZY_EFFECT,
-			{},
-			{},
-			{ "jedi_state_defense" },
-			30,
-			0,
-			10
-		)
+	  StateEffect(
+		DIZZY_EFFECT,
+		{},
+		{},
+		{ "jedi_state_defense" },
+		30,
+		0,
+		10
+	  )
 	},
 
 	animation = "force_lightning_1_arc_particle_level_3",
@@ -75,12 +76,7 @@ ForceLightningCone2Command = {
 	forceAttack = true,
 	damageType = ELECTRICITY_DAMAGE,
 
-	frsLightMinDamageModifier = 4,
-	frsLightMaxDamageModifier = 8,
-	frsDarkMinDamageModifier = 4,
-	frsDarkMaxDamageModifier = 8,
-
-	range = 32
+	range = 45
 }
 
 AddCommand(ForceLightningCone2Command)

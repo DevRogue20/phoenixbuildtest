@@ -46,9 +46,10 @@ ForceKnockdown2Command = {
 
     damageMultiplier = 0,
 	speed = 4.0,
-	forceCost = 100,
+	forceCost = 50,
 	visMod = 25,
 	accuracySkillMod = "forceknockdown_accuracy",
+	accuracyBonus = 50,
 	coneAngle = 40,
 	coneAction = true,
 
@@ -56,9 +57,9 @@ ForceKnockdown2Command = {
 	  StateEffect(
 		KNOCKDOWN_EFFECT,
 		{ "knockdownRecovery", "lastKnockdown" },
+		{ "force_defense" },
 		{},
-		{},
-		65,
+		85,
 		0,
 		0
 	  )

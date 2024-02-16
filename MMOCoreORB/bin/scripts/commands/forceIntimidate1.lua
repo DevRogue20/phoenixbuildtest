@@ -45,23 +45,23 @@ ForceIntimidate1Command = {
 	name = "forceintimidate1",
 
 	damageMultiplier = 0,
-	speed = 4.0,
-	forceCost = 300,
+	speed = 2.0,
+	forceCost = 100,
 	accuracySkillMod = "forceintimidate_accuracy",
-	coneAngle = 30,
-	coneAction = true,
-	forceAttack = true,
+
+
+	attackType = FORCEATTACK,
 	visMod = 25,
 
 	stateEffects = {
 	  StateEffect(
 		INTIMIDATE_EFFECT,
 		{},
+		{"force_defense"},
 		{},
-		{ "jedi_state_defense" },
 		100,
 		0,
-		60
+		80
 	  )
 	},
 
@@ -71,7 +71,7 @@ ForceIntimidate1Command = {
 
 	poolsToDamage = NO_ATTRIBUTE,
 
-	range = 32
+	range = 45
 }
 
 AddCommand(ForceIntimidate1Command)

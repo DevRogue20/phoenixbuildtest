@@ -42,10 +42,10 @@
 --true = 1, false = 0
 
 SaberThrow1Command = {
-	name = "saberthrow1",
+
+        name = "saberthrow1",                
 
 	damageMultiplier = 1.5,
-	accuracyBonus = 50,
 	speedMultiplier = 2.0,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
@@ -53,17 +53,28 @@ SaberThrow1Command = {
 	forceCostMultiplier = 1.5,
 	visMod = 25,
 
-	animation = "saberthrow",
+	stateEffects = {
+	  StateEffect( 
+		POSTUREDOWN_EFFECT, 
+		{ "postureDownRecovery" }, 
+		{ "posture_change_down_defense" }, 
+		{}, 
+		100, 
+		0, 
+		0 
+	  )
+	},
+
+	animation = "saberthrow", 
 	animType = GENERATE_INTENSITY,
 
 	combatSpam = "saberthrow1",
 
 	poolsToDamage = RANDOM_ATTRIBUTE,
-
 	weaponType = JEDIWEAPON,
-
 	range = 32
 }
+
 
 AddCommand(SaberThrow1Command)
 

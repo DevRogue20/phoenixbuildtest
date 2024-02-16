@@ -1,3 +1,6 @@
+
+--				Property of BloodfinEMU (Do Not Distribute) 
+
 --Copyright (C) 2010 <SWGEmu>
 
 
@@ -63,25 +66,41 @@ object_weapon_melee_sword_crafted_saber_sword_lightsaber_training = object_weapo
 				"object/creature/player/wookiee_female.iff",
 				"object/creature/player/zabrak_male.iff",
 				"object/creature/player/zabrak_female.iff",
-				"object/creature/player/aqualish_female.iff",
-				"object/creature/player/aqualish_male.iff",
-				"object/creature/player/bith_female.iff",
-				"object/creature/player/bith_male.iff",
-				"object/creature/player/chiss_female.iff",
-				"object/creature/player/chiss_male.iff",
-				"object/creature/player/devaronian_male.iff",
-				"object/creature/player/gotal_male.iff",
-				"object/creature/player/gran_male.iff",
+                "object/creature/player/aqualish_female.iff",
+                "object/creature/player/aqualish_male.iff",
+                "object/creature/player/bith_female.iff",
+                "object/creature/player/bith_male.iff",
+                "object/creature/player/chiss_female.iff",
+                "object/creature/player/chiss_male.iff",
+                "object/creature/player/devaronian_male.iff",
+                "object/creature/player/gran_male.iff",
 				"object/creature/player/hutt_female.iff",
 				"object/creature/player/hutt_male.iff",
-				"object/creature/player/ishi_tib_male.iff",
-				"object/creature/player/nautolan_male.iff",
-				"object/creature/player/nightsister_female.iff",
-				"object/creature/player/nikto_male.iff",
-				"object/creature/player/quarren_male.iff",
-				"object/creature/player/smc_female.iff",
-				"object/creature/player/talz_male.iff",
-				"object/creature/player/weequay_male.iff" },
+                "object/creature/player/ishi_tib_male.iff",
+                "object/creature/player/gotal_male.iff",
+                "object/creature/player/nautolan_male.iff",
+                "object/creature/player/nikto_male.iff",
+                "object/creature/player/quarren_male.iff",
+                "object/creature/player/nightsister_female.iff",
+                "object/creature/player/smc_female.iff",
+                "object/creature/player/togruta_female.iff",
+                "object/creature/player/weequay_male.iff",
+		"object/creature/player/abyssin_male.iff",
+		"object/creature/player/arcona_male.iff",
+		"object/creature/player/cerean_male.iff",
+		"object/creature/player/duros_male.iff",
+		"object/creature/player/feeorin_male.iff",
+		"object/creature/player/gungan_male.iff",
+		"object/creature/player/iktotchi_male.iff",
+		"object/creature/player/jenet_male.iff",
+		"object/creature/player/kel_dor_male.iff",
+		"object/creature/player/kubaz_male.iff",
+		"object/creature/player/mirialan_female.iff",
+		"object/creature/player/mirialan_male.iff",
+		"object/creature/player/sanyassan_female.iff",
+		"object/creature/player/sanyassan_male.iff",
+		"object/creature/player/zeltron_female.iff",
+		"object/creature/player/zeltron_male.iff"},
 
 	-- RANGEDATTACK, MELEEATTACK, FORCEATTACK, TRAPATTACK, GRENADEATTACK, HEAVYACIDBEAMATTACK,
 	-- HEAVYLIGHTNINGBEAMATTACK, HEAVYPARTICLEBEAMATTACK, HEAVYROCKETLAUNCHERATTACK, HEAVYLAUNCHERATTACK
@@ -142,7 +161,7 @@ object_weapon_melee_sword_crafted_saber_sword_lightsaber_training = object_weapo
 
 	defenderToughnessModifiers = { "lightsaber_toughness" },
 	
-	noTrade = 1,
+	noTrade = 0,
 	
 	childObjects = {
 		{templateFile = "object/tangible/inventory/lightsaber_inventory_training.iff", x = 0, z = 0, y = 0, ox = 0, oy = 0, oz = 0, ow = 0, cellid = -1, containmentType = 4}
@@ -154,10 +173,13 @@ object_weapon_melee_sword_crafted_saber_sword_lightsaber_training = object_weapo
 	experimentalWeights = {1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1},
 	experimentalGroupTitles = {"null", "null", "expDamage", "expDamage", "expDamage", "expDamage", "expEffeciency", "expEffeciency", "expEffeciency", "expEffeciency"},
 	experimentalSubGroupTitles = {"null", "null", "mindamage", "maxdamage", "attackspeed", "woundchance", "forcecost", "attackhealthcost", "attackactioncost", "attackmindcost"},
-	experimentalMin = {0, 0, 75, 195, 4.8, 2, 18, 20, 35, 40},
-	experimentalMax = {0, 0, 105, 255, 4.5, 10, 15, 15, 25, 25},
-	experimentalPrecision = {0, 0, 0, 0, 1, 0, 1, 0, 0, 0},
+	experimentalMin = {0, 0, 50, 130, 4.8, 2, 18, 20, 35, 40},
+	experimentalMax = {0, 0, 70, 170, 4.5, 10, 15, 15, 25, 25},
+	experimentalPrecision = {0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1},
 }
 
 ObjectTemplates:addTemplate(object_weapon_melee_sword_crafted_saber_sword_lightsaber_training, "object/weapon/melee/sword/crafted_saber/sword_lightsaber_training.iff")
+
+
+--				Property of BloodfinEMU (Do Not Distribute)
