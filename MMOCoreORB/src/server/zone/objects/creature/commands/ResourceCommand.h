@@ -55,6 +55,9 @@ public:
 
 			} else if(command == "create") {
 				giveResource(creature, &args);
+				
+			} else if(command == "ghdump") {
+				ghDump(creature, &args);			
 
 			} else {
 				throw Exception();
@@ -329,6 +332,19 @@ public:
 
 		resMan->givePlayerResource(creature, resName.toLowerCase(), quantity);
 	}
+	
+	void ghDump(CreatureObject* creature, StringTokenizer* args) const {
+
+		if (creature->getZoneServer() == nullptr)
+			return;
+
+		ResourceManager* resMan = creature->getZoneServer()->getResourceManager();
+
+		if (resMan == nullptr)
+			return;
+ 
+ 		creature->sendSystemMessage(resMan->ghDump());
+ 	}
 
 };
 
