@@ -1,5 +1,5 @@
 
---				Property of BloodfinEMU (Do Not Distribute) 
+--				Edited By Push 
 
 --Copyright (C) 2010 <SWGEmu>
 
@@ -170,8 +170,8 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_gen3 = object
 	experimentalWeights = {1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1},
 	experimentalGroupTitles = {"null", "null", "expDamage", "expDamage", "expDamage", "expDamage", "expEffeciency", "expEffeciency", "expEffeciency", "expEffeciency"},
 	experimentalSubGroupTitles = {"null", "null", "mindamage", "maxdamage", "attackspeed", "woundchance", "forcecost", "attackhealthcost", "attackactioncost", "attackmindcost"},
-	experimentalMin = {0, 0, 195, 285, 5.1, 19, 40, 50, 85, 35},
-	experimentalMax = {0, 0, 215, 305, 4.8, 31, 36, 45, 55, 30},
+	experimentalMin = {0, 0, 292, 427, 5.1, 19, 39, 50, 85, 35},
+	experimentalMax = {0, 0, 322, 457, 4.8, 31, 35, 45, 55, 30},
 	experimentalPrecision = {0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1},
 }
@@ -179,4 +179,4 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_gen3 = object
 ObjectTemplates:addTemplate(object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_gen3, "object/weapon/melee/polearm/crafted_saber/sword_lightsaber_polearm_gen3.iff")
 
 
---				Property of BloodfinEMU (Do Not Distribute)
+--				Edited By Push
