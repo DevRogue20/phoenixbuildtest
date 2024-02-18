@@ -278,3 +278,10 @@ object_tangible_tcg_series8_shared_wearable_lando_cape = SharedTangibleObjectTem
 	clientTemplateFileName = "object/tangible/tcg/series8/shared_wearable_lando_cape.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_tcg_series8_shared_wearable_lando_cape, "object/tangible/tcg/series8/shared_wearable_lando_cape.iff")
+
+--*****************PUSH******************
+
+object_tangible_tcg_series8_shared_phoenix_cape = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tcg/series8/shared_phoenix_cape.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tcg_series8_shared_phoenix_cape, "object/tangible/tcg/series8/shared_phoenix_cape.iff")
