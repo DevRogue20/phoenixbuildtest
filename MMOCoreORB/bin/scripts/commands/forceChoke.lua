@@ -44,9 +44,9 @@
 ForceChokeCommand = {
 	name = "forcechoke",
 
-	minDamage = 2500,
-	maxDamage = 3000,
-	speed = 2.0,
+	minDamage = 175,
+	maxDamage = 375,
+	speed = 4.0,
 	forceCost = 250,
 	visMod = 25,
 	forceAttack = true,
@@ -68,45 +68,19 @@ ForceChokeCommand = {
     { "", "" },
     HEALTH,
     true,
-    0,
-    800,
-    850,
+    -1,
+    100,
+    350,
     30,
     100,
     1
-    ),
+		)
+	},
 
-    DotEffect(
-    FORCECHOKE,
-    { "", "" },
-    ACTION,
-    true,
-    0,
-    800,
-    850,
-    30,
-    100,
-    1
-    ),
-
-    DotEffect(
-    FORCECHOKE,
-    { "", "" },
-    MIND,
-    true,
-    0,
-    800,
-    850,
-    30,
-    100,
-    1
-    )
-  },
--- 75 min 200 max at Rank 11  --for future frs work for BF
---	frsLightMinDamageModifier = 0.625,
---	frsLightMaxDamageModifier = 1.67,
---	frsDarkMinDamageModifier = 0.625,
---	frsDarkMaxDamageModifier = 1.67,
+	frsLightMinDamageModifier = 1,
+	frsLightMaxDamageModifier = 4,
+	frsDarkMinDamageModifier = 1,
+	frsDarkMaxDamageModifier = 4,
 }
 
 AddCommand(ForceChokeCommand)

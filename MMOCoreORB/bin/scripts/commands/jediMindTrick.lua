@@ -42,30 +42,20 @@
 --true = 1, false = 0
 
 JediMindTrickCommand = {
-        name = "jedimindtrick",
-	
-	damageMultiplier = 0,
-	forceCost = 100,
-	speed = 2.0,	
-	accuracyBonus = 50,
+	name = "jedimindtrick",
 
-	attackType = FORCEATTACK,
+	damageMultiplier = 0,
+	speed = 4.0,
+	forceCost = 600,
+	accuracySkillMod = "",
+	coneAngle = 0,
+	coneAction = false,
+	forceAttack = true,
 	visMod = 25,
 
-	stateEffects = {
-	  StateEffect( 
-		NEXTATTACKDELAY_EFFECT, 
-		{ "nextAttackDelayRecovery" }, 
-		{ "warcry_defense" }, 
-		{}, 
-		100, 
-		0, 
-		30 
-	  )
-	},
-      
-	animation = "force_intimidate",
-	combatSpam = "warcry",
+	stateEffects = {},
+
+	animation = "mind_trick_1",
 
 	poolsToDamage = NO_ATTRIBUTE,
 

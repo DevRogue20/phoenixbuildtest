@@ -44,9 +44,9 @@
 ForceLightningSingle1Command = {
 	name = "forcelightningsingle1",
 
-	minDamage = 6800,
-	maxDamage = 6900,
-	speed = 1.5,
+	minDamage = 400,
+	maxDamage = 700,
+	speed = 4.0,
 	forceCost = 60,
 	visMod = 25,
 	
@@ -62,7 +62,12 @@ ForceLightningSingle1Command = {
 	forceAttack = true,
 	damageType = ELECTRICITY_DAMAGE,
 
-	range = 45
+	frsLightMinDamageModifier = 2.5,
+	frsLightMaxDamageModifier = 5,
+	frsDarkMinDamageModifier = 2.5,
+	frsDarkMaxDamageModifier = 5,
+
+	range = 32
 }
 
 AddCommand(ForceLightningSingle1Command)

@@ -43,7 +43,23 @@
 
 AnimalCalmCommand = {
         name = "animalcalm",
-        visMod = 25,
+
+	damageMultiplier = 0,
+	speed = 4.0,
+	forceCost = 50,
+	accuracySkillMod = "",
+	coneAngle = 0,
+	coneAction = false,
+	forceAttack = true,
+	visMod = 25,
+
+	stateEffects = {},
+
+	animation = "mind_trick_1",
+
+	poolsToDamage = NO_ATTRIBUTE,
+
+	range = 32
 }
 
 AddCommand(AnimalCalmCommand)

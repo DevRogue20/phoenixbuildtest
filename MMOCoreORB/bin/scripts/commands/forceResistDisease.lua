@@ -46,7 +46,9 @@ ForceResistDiseaseCommand = {
         forceCost = 250,
         duration = 900,
         --animationCRC = hashCode()
-        clientEffect = "clienteffect/pl_force_resist_disease_self.cef"
+        clientEffect = "clienteffect/pl_force_resist_disease_self.cef",
+	frsLightBuffModifier = 0.35,
+	frsDarkBuffModifier = 0.35,
 }
 
 AddCommand(ForceResistDiseaseCommand)
