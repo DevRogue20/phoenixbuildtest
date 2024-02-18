@@ -1694,6 +1694,7 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 						"Droid Engineer", "crafting_apron_droid_engineer",
 						"Tailor", "crafting_apron_tailor",
 						"Weaponsmith", "crafting_apron_weaponsmith",
+						"Jedi", "crafting_apron_jedi",
 					},
 					"Backpacks",
 					{

@@ -390,6 +390,10 @@ void SuiManager::handleCharacterBuilderSelectItem(CreatureObject* player, SuiBox
 						modName = "(Combat Medic)";
 						apron->addSkillMod(SkillModManager::WEARABLE, "combat_medicine_assembly", 25);
 						apron->addSkillMod(SkillModManager::WEARABLE, "combat_medicine_experimentation", 25);
+					} else if(templatePath == "crafting_apron_jedi") {
+						modName = "(Jedi)";
+						apron->addSkillMod(SkillModManager::WEARABLE, "jedi_saber_assembly", 25);
+						apron->addSkillMod(SkillModManager::WEARABLE, "jedi_saber_experimentation", 25);
 					}
 
 					UnicodeString apronName = "Crafting Apron " + modName;

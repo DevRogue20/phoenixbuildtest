@@ -425,6 +425,8 @@ lootableClothingStatMods = {
 	"instrument_assembly",
 	"intimidate",
 	"intimidate_defense",
+	"jedi_saber_assembly",
+	"jedi_saber_experimentation",
 	"knockdown_defense",
 	"medical_foraging",
 	"medicine_assembly",
