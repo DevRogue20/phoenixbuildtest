@@ -10,10 +10,13 @@
 class NpcConversationStartCommand : public QueueCommand {
 public:
 
-	NpcConversationStartCommand(const String& name, ZoneProcessServer* server) : QueueCommand(name, server) {
+	NpcConversationStartCommand(const String& name, ZoneProcessServer* server)
+		: QueueCommand(name, server) {
+
 	}
 
 	int doQueueCommand(CreatureObject* creature, const uint64& target, const UnicodeString& arguments) const {
+
 		if (!checkStateMask(creature)) {
 			return INVALIDSTATE;
 		}
@@ -26,36 +29,26 @@ public:
 			return GENERALERROR;
 		}
 
-		PlayerObject* ghost = creature->getPlayerObject();
+		CreatureObject* player = cast<CreatureObject*>(creature);
+		PlayerObject* ghost = player->getPlayerObject();
 
-		if (ghost == nullptr)
-			return GENERALERROR;
-
-		ZoneServer* zoneServer = creature->getZoneServer();
-
-		if (zoneServer == nullptr)
-			return GENERALERROR;
-
-		ManagedReference<SceneObject*> object = zoneServer->getObject(target);
+		ManagedReference<SceneObject*> object = server->getZoneServer()->getObject(target);
 
 		if (object != nullptr && object->isCreatureObject()) {
-			CreatureObject* agentCreo = cast<CreatureObject*>(object.get());
+			CreatureObject* creatureObject = cast<CreatureObject*>(object.get());
 
 			try {
-				Locker clocker(agentCreo, creature);
-
+				Locker clocker(creatureObject, creature);
 				ValidatedPosition* validPosition = ghost->getLastValidatedPosition();
 				uint64 parentid = validPosition->getParent();
-
-				if (parentid != agentCreo->getParentID()) {
+				if (parentid != creatureObject->getParentID()) {
 					return TOOFAR;
 				}
 
-				if (checkDistance(creature, agentCreo, 5)) {
-					ghost->setConversatingCreature(agentCreo);
-
-					if (agentCreo->sendConversationStartTo(creature)) {
-						agentCreo->notifyObservers(ObserverEventType::STARTCONVERSATION, creature);
+				if (checkDistance(player, creatureObject, 5)) {
+					ghost->setConversatingCreature(creatureObject);
+					if (creatureObject->sendConversationStartTo(creature)) {
+						creatureObject->notifyObservers(ObserverEventType::STARTCONVERSATION, player);
 					}
 				} else {
 					return TOOFAR;

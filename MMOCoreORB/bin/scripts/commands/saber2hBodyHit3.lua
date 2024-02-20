@@ -42,23 +42,24 @@
 --true = 1, false = 0
 
 Saber2hBodyHit3Command = {
-        name = "saber2hbodyhit3",
-        
-    damageMultiplier = 3.25,
+	name = "saber2hbodyhit3",
+
+	damageMultiplier = 2.25,
+	accuracyBonus = 50,
 	speedMultiplier = 2.25,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
-	forceCostMultiplier = 2.5,
+	forceCostMultiplier = 1.75,
 	visMod = 25,
 
-	animation = "combo_4a", 
+	animation = "combo_4a",
 	animType = GENERATE_INTENSITY,
 
 	combatSpam = "saber2hbodyhit3",
-	
+
 	poolsToDamage = HEALTH_ATTRIBUTE,
-	
+
 	weaponType = TWOHANDJEDIWEAPON,
 
 	range = -1

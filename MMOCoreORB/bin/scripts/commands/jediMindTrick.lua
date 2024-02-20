@@ -42,7 +42,7 @@
 --true = 1, false = 0
 
 JediMindTrickCommand = {
-	name = "jedimindtrick",
+    name = "jedimindtrick",
 
 	damageMultiplier = 0,
 	speed = 4.0,
@@ -63,4 +63,3 @@ JediMindTrickCommand = {
 }
 
 AddCommand(JediMindTrickCommand)
-

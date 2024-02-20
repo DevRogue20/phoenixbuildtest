@@ -44,26 +44,24 @@
 TotalHealSelfCommand = {
 	name = "totalhealself",
 	statesToHeal = STUNNED_STATE + DIZZY_STATE + BLINDED_STATE + INTIMIDATED_STATE,
-	healDiseaseCost = 1,
-	diseaseHealIterations = 10,
-	healPoisonCost = 1,
-	poisonHealIterations = 10,
-	healBleedingCost = 1,
+	healDiseaseCost = 25,
+	diseaseHealIterations = 2,
+	healPoisonCost = 25,
+	poisonHealIterations = 2,
+	healBleedingCost = 25,
 	bleedHealIterations = 2,
-	healFireCost = 1,
+	healFireCost = 25,
 	fireHealIterations = 2,
-	healStateCost = 0,
-	forceCost = 325,
+	healStateCost = 25,
+	forceCost = 200,
 	healAmount = -1,
 	attributesToHeal = HEALTH_ATTRIBUTE + MIND_ATTRIBUTE + ACTION_ATTRIBUTE,
 	woundAttributesToHeal = HEALTH_ATTRIBUTE + MIND_ATTRIBUTE + ACTION_ATTRIBUTE,
 	healBattleFatigue = -1,
 	healWoundAmount = -1,
-	forceCostMultiplier = 0.01,
-	speed = 0
-
+	forceCostMultiplier = 0.05,
+	defaultTime = 3,
 }
-
 
 AddCommand(TotalHealSelfCommand)
 

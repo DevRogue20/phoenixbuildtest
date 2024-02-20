@@ -235,8 +235,6 @@ public:
 
 				// Player Inside Cell to Container Transfer
 
-				bool isChildOfCreo = objectToTransfer->isASubChildOf(creature);
-
 				obj = objectToTransfer;
 
 				while ((par = obj->getParent().get()) != nullptr) {
@@ -251,10 +249,6 @@ public:
 								break;
 							} else if (destPar->isCellObject()) {
 								destPar = destinationObject;
-							}
-
-							if (isChildOfCreo && destPar->isASubChildOf(creature)) {
-								break;
 							}
 
 							float distance = destPar->getDistanceTo(creature);

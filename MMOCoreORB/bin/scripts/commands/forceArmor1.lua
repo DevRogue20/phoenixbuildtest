@@ -42,7 +42,7 @@
 --true = 1, false = 0
 
 ForceArmor1Command = {
-    name = "forcearmor1",
+	name = "forcearmor1",
 	forceCost = 75,
 	duration = 900,
 	--animationCRC = hashCode()

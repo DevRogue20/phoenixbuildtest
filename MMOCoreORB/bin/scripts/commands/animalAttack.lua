@@ -42,7 +42,7 @@
 --true = 1, false = 0
 
 AnimalAttackCommand = {
-        name = "animalattack",
+	name = "animalattack",
 
 	damageMultiplier = 0,
 	speed = 4.0,
@@ -63,4 +63,3 @@ AnimalAttackCommand = {
 }
 
 AddCommand(AnimalAttackCommand)
-

@@ -43,11 +43,12 @@
 
 HealActionWoundOther2Command = {
 	name = "healactionwoundother2",
-	healWoundAmount = 250,
+	healWoundAmount = 200,
+	forceCost = 75,
 	forceCostMultiplier = 0.1,
+	defaultTime = 6,
 	woundAttributesToHeal = ACTION_ATTRIBUTE,
-	forceCost = 150,
-	range = 32
+	range = 32,
 }
 
 AddCommand(HealActionWoundOther2Command)

@@ -35,7 +35,7 @@ public:
 		// Client Effect upon hit (needed)
 		player->playEffect("clienteffect/pl_force_armor_hit.cef", "");
 
-		int fCost = param * 0.3f; //Removed FRS check, straight 3% of damage -Rogue
+		int fCost = param * getFrsModifiedExtraForceCost(player, 0.3f);
 		if (ghost->getForcePower() <= fCost) { // Remove buff if not enough force.
 			Buff* buff = player->getBuff(BuffCRC::JEDI_FORCE_ARMOR_2);
 			if (buff != nullptr) {

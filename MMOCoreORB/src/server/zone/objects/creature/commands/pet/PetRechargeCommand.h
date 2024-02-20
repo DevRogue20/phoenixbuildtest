@@ -21,12 +21,10 @@ public:
 			return GENERALERROR;
 
 		ManagedReference<DroidObject*> droidPet = cast<DroidObject*>(creature);
-
-		if (droidPet == nullptr || droidPet->isDead() || droidPet->isIncapacitated())
+		if (droidPet == nullptr)
 			return GENERALERROR;
 
 		ManagedReference<CreatureObject*> player = droidPet->getLinkedCreature().get();
-
 		if (player == nullptr)
 			return GENERALERROR;
 

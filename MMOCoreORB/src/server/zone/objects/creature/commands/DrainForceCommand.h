@@ -11,7 +11,9 @@
 class DrainForceCommand : public CombatQueueCommand {
 public:
 
-	DrainForceCommand(const String& name, ZoneProcessServer* server) : CombatQueueCommand(name, server) {
+	DrainForceCommand(const String& name, ZoneProcessServer* server)
+		: CombatQueueCommand(name, server) {
+
 	}
 
 	int doQueueCommand(CreatureObject* creature, const uint64& target, const UnicodeString& arguments) const {
@@ -107,6 +109,7 @@ public:
 			playerGhost->updateLastCombatActionTimestamp(shouldGcwCrackdownTef, shouldGcwTef, shouldBhTef);
 
 			return SUCCESS;
+
 		}
 
 		return GENERALERROR;
@@ -114,12 +117,13 @@ public:
 	}
 
 	float getCommandDuration(CreatureObject* object, const UnicodeString& arguments) const {
+		float baseDuration = defaultTime * 3.0;
 		float combatHaste = object->getSkillMod("combat_haste");
 
 		if (combatHaste > 0) {
-			return defaultTime * (1.f - (combatHaste / 100.f));
+			return baseDuration * (1.f - (combatHaste / 100.f));
 		} else {
-			return defaultTime;
+			return baseDuration;
 		}
 	}
 

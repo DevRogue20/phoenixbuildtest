@@ -11,6 +11,7 @@
 #ifndef REQUESTCORESAMPLECOMMAND_H_
 #define REQUESTCORESAMPLECOMMAND_H_
 
+#include "server/zone/packets/chat/ChatSystemMessage.h"
 #include "server/zone/objects/player/sessions/survey/SurveySession.h"
 
 class RequestCoreSampleCommand : public QueueCommand {
@@ -51,7 +52,8 @@ public:
 
 				StringIdChatParameter message("survey","tool_recharge_time");
 				message.setDI(seconds);
-				creature->sendSystemMessage(message);
+				ChatSystemMessage* sysMessage = new ChatSystemMessage(message);
+				creature->sendMessage(sysMessage);
 
 				return SUCCESS;
 			}

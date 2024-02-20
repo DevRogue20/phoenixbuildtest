@@ -43,15 +43,10 @@
 
 ForceSpeed1Command = {
         name = "forcespeed1",
-        forceCost = 75,
-	duration = 900,
-	--animationCRC = hashCode()
-	clientEffect = "clienteffect/pl_force_shield_self.cef",
-	buffClass = SINGLE_USE_BUFF,
-	frsDarkExtraForceCostModifier = -0.003,
-	frsLightExtraForceCostModifier = -0.003,
-	frsLightBuffModifier = 0.25,
-	frsDarkBuffModifier = 0.25,
+        forceCost = 150,
+        duration = 180,
+        --animationCRC = hashCode()
+        clientEffect = "clienteffect/pl_force_speed_self.cef"
 }
 
 AddCommand(ForceSpeed1Command)

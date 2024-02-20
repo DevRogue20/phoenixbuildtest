@@ -42,7 +42,7 @@
 --true = 1, false = 0
 
 AnimalCalmCommand = {
-        name = "animalcalm",
+	name = "animalcalm",
 
 	damageMultiplier = 0,
 	speed = 4.0,

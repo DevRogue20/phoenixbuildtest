@@ -8,10 +8,13 @@
 class NpcConversationStopCommand : public QueueCommand {
 public:
 
-	NpcConversationStopCommand(const String& name, ZoneProcessServer* server) : QueueCommand(name, server) {
+	NpcConversationStopCommand(const String& name, ZoneProcessServer* server)
+		: QueueCommand(name, server) {
+
 	}
 
 	int doQueueCommand(CreatureObject* creature, const uint64& target, const UnicodeString& arguments) const {
+
 		if (!checkStateMask(creature))
 			return INVALIDSTATE;
 
@@ -21,31 +24,22 @@ public:
 		if (!creature->isPlayerCreature())
 			return GENERALERROR;
 
-		PlayerObject* ghost = creature->getPlayerObject();
-
-		if (ghost == nullptr)
-			return GENERALERROR;
-
-		ZoneServer* zoneServer = creature->getZoneServer();
-
-		if (zoneServer == nullptr)
-			return GENERALERROR;
+		CreatureObject* player = cast<CreatureObject*>(creature);
+		PlayerObject* ghost = player->getPlayerObject();
 
 		uint64 conversationCreatureOid = ghost->getConversatingCreature();
-		ManagedReference<SceneObject*> object = zoneServer->getObject(conversationCreatureOid);
+		ManagedReference<CreatureObject*> object = (server->getZoneServer()->getObject(conversationCreatureOid)).castTo<CreatureObject*>();
 
-		if (object == nullptr || !object->isCreatureObject())
-			return GENERALERROR;
+		if (object != nullptr) {
 
-		ManagedReference<CreatureObject*> agentCreo = (object).castTo<CreatureObject*>();
-
-		if (agentCreo != nullptr) {
 			try {
-				Locker clocker(agentCreo, creature);
+				Locker clocker(object, creature);
 
-				agentCreo->notifyObservers(ObserverEventType::STOPCONVERSATION, creature);
-				agentCreo->stopConversation();
+				//object->selectConversationOption(option, player);
+
+				object->notifyObservers(ObserverEventType::STOPCONVERSATION, creature);
 			} catch (Exception& e) {
+
 			}
 		}
 

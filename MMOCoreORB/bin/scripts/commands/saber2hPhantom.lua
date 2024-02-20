@@ -42,50 +42,51 @@
 --true = 1, false = 0
 
 Saber2hPhantomCommand = {
-        name = "saber2hphantom",
+	name = "saber2hphantom",
 
-	damageMultiplier = 4.75,
+	damageMultiplier = 4.5,
+	accuracyBonus = 50,
 	speedMultiplier = 4.0,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
 	coneAngle = 45,
 	coneAction = true,
-	coneRange = 7,
+	coneRange = 24,
 	forceCostMultiplier = 3.0,
 	visMod = 25,
 
-		stateEffects = {
-	   StateEffect( 
-		BLIND_EFFECT, 
-		{}, 
-		{ "blind_defense", "resistance_states" }, 
-		{ "jedi_state_defense" }, 
-		85, 
-		0, 
-		30 
-	  ),
-	  StateEffect( 
-		DIZZY_EFFECT, 
-		{}, 
-		{ "dizzy_defense", "resistance_states" }, 
-		{ "jedi_state_defense" }, 
-		85, 
-		0, 
-	        30 
-	  ),
-	  StateEffect( 
-		STUN_EFFECT, 
-		{}, 
-		{ "stun_defense", "resistance_states" }, 
-		{ "jedi_state_defense" }, 
-		85, 
-		0, 
-		30 
-	  )
+	stateEffects = {
+		StateEffect(
+			BLIND_EFFECT,
+			{},
+			{ "blind_defense" },
+			{ "jedi_state_defense", "resistance_states" },
+			85,
+			0,
+			60
+		),
+		StateEffect(
+			DIZZY_EFFECT,
+			{},
+			{ "dizzy_defense" },
+			{ "jedi_state_defense", "resistance_states" },
+			85,
+			0,
+			30
+		),
+		StateEffect(
+			STUN_EFFECT,
+			{},
+			{ "stun_defense" },
+			{ "jedi_state_defense", "resistance_states" },
+			85,
+			0,
+			60
+		)
 	},
 
-	animation = "combo_jedi_2", 
+	animation = "combo_jedi_2",
 	animType = GENERATE_INTENSITY,
 
 	combatSpam = "saber2hphantom",
