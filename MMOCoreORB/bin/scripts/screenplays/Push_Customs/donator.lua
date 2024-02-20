@@ -13,7 +13,7 @@ registerScreenPlay("donator", true)
 
 function donator:start() 
    local pMerchant = spawnMobile("corellia", "donator_droid", 1, -159.9, 28, -4715.8, 104, 0 )
-
+   
 end
 
 donator_convo_handler = Object:new {
