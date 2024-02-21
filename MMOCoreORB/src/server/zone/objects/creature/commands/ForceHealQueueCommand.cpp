@@ -11,7 +11,7 @@
 #include "server/zone/objects/player/FactionStatus.h"
 
 ForceHealQueueCommand::ForceHealQueueCommand(const String& name, ZoneProcessServer* server) : JediQueueCommand(name, server) {
-	speed = 3;
+	speed = 1;
 	allowedTarget = TARGET_AUTO;
 
 	forceCost = 0;
