@@ -716,12 +716,8 @@ includeFile("SmokedCustoms/bh_bunker.lua")
 -- Server Event Automation
 includeFile("events/ServerEventAutomation.lua")
 
--- Custom content - Loads last to allow for overrides
-includeFile("../custom_scripts/screenplays/screenplays.lua")
-includeFile("custom_screenplays/screenplays.lua")
-
 --Rogue's Customs
-includeFile("Rogue_Customs/screenplays.lua")
+includeFile("RogueCustoms/screenplays.lua")
 
 --Push_Customs
 includeFile("Push_Customs/screenplays.lua")
@@ -731,3 +727,12 @@ includeFile("dungeon/ig88_boss.lua")
 includeFile("dungeon/ig88_objects.lua")
 includeFile("dungeon/axkva_min_instance.lua")
 includeFile("dungeon/axkva_objects.lua")
+
+--Mission Terminals
+includeFile("custom_content/tools/mission_direction_choice.lua")
+includeFile("custom_content/tools/mission_level_choice.lua")
+
+-- Custom content - Loads last to allow for overrides
+includeFile("../custom_scripts/screenplays/screenplays.lua")
+includeFile("custom_screenplays/screenplays.lua")
+

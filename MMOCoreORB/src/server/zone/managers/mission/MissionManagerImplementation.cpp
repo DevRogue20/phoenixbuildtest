@@ -203,7 +203,7 @@ void MissionManagerImplementation::handleMissionListRequest(MissionTerminal* mis
 	if (missionBag == nullptr)
 		return;
 
-	int maximumNumberOfItemsInMissionBag = 12;
+	int maximumNumberOfItemsInMissionBag = 24; //Phoenix: Increase mission bag size -Rogue
 
 
 	if (enableFactionalCraftingMissions) {
@@ -264,8 +264,8 @@ void MissionManagerImplementation::handleMissionAccept(MissionTerminal* missionT
 		}
 	}
 
-	//Limit to two missions (only one of them can be a bounty mission)
-	if (missionCount >= 2 || (hasBountyMission && mission->getTypeCRC() == MissionTypes::BOUNTY)) {
+	//Limit to two missions (only one of them can be a bounty mission)  //Phoenix: Allow 6 missions total -Rogue
+	if (missionCount >= 6 || (hasBountyMission && mission->getTypeCRC() == MissionTypes::BOUNTY)) {
 		StringIdChatParameter stringId("mission/mission_generic", "too_many_missions");
 		player->sendSystemMessage(stringId);
 		return;
@@ -568,9 +568,9 @@ void MissionManagerImplementation::randomizeGeneralTerminalMissions(CreatureObje
 		//Clear mission type before calling mission generators.
 		mission->setTypeCRC(0);
 
-		if (i < 6) {
+		if (i < 18) { //Phoenix: Adjust number of missions dispalyed per page -Rogue
 			randomizeGenericDestroyMission(player, mission, Factions::FACTIONNEUTRAL);
-		} else if (i < 12) {
+		} else if (i < 35) { //Phoenix: Adjust number of missions dispalyed per page -Rogue
 			randomizeGenericDeliverMission(player, mission, Factions::FACTIONNEUTRAL);
 		}
 
@@ -756,7 +756,7 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 
 	if (randomLairSpawn == nullptr) {
 		return;
-	}
+	}		
 
 	String lairTemplate = randomLairSpawn->getLairTemplateName();
 	LairTemplate* lairTemplateObject = CreatureTemplateManager::instance()->getLairTemplate(lairTemplate.hashCode());
@@ -776,6 +776,11 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 
 	int diffDisplay = difficultyLevel < 5 ? 4 : difficultyLevel;
 
+	ManagedReference<PlayerObject*> targetGhost = player->getPlayerObject();
+	if (targetGhost == nullptr) {
+		return;
+	}
+
 	if (player->isGrouped()) {
 		bool includeFactionPets = faction != Factions::FACTIONNEUTRAL || ConfigManager::instance()->includeFactionPetsForMissionDifficulty();
 		Reference<GroupObject*> group = player->getGroup();
@@ -785,8 +790,17 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 			diffDisplay += group->getGroupLevel(includeFactionPets);
 		}
 	} else {
-		diffDisplay += playerLevel;
+		String level = targetGhost->getScreenPlayData("mission_level_choice", "levelChoice");
+		int levelChoice = Integer::valueOf(level);
+		if (levelChoice > 0) {
+			diffDisplay += levelChoice;
+		} else {
+			diffDisplay += playerLevel;
+		}
 	}
+
+	String dir = targetGhost->getScreenPlayData("mission_direction_choice", "directionChoice");
+	float dirChoice = Float::valueOf(dir);
 
 	String building = lairTemplateObject->getMissionBuilding(difficulty);
 
@@ -812,9 +826,32 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 	while (!foundPosition && maximumNumberOfTries-- > 0) {
 		foundPosition = true;
 
+		//Phoenix: Player direction choice -/+ 8 degrees centerline deviation -Rogue
+
+		float direction = (float)System::random(360);
+
+		if (dirChoice > 0) {
+			int dev = System::random(8);
+			int isMinus = System::random(100);
+
+			if (isMinus > 49) {
+				dev *= -1;
+			}
+
+			direction = dirChoice + dev;
+
+			if (direction > 360) {
+				direction -= 360;
+			}
+		}
+
 		int distance = destroyMissionBaseDistance + destroyMissionDifficultyDistanceFactor * difficultyLevel;
 		distance += System::random(destroyMissionRandomDistance) + System::random(destroyMissionDifficultyRandomDistance * difficultyLevel);
-		startPos = player->getWorldCoordinate((float)distance, (float)System::random(360), false);
+		float angleRads = direction * (M_PI / 180.0f);
+		float newAngle = angleRads + (M_PI / 2);
+		startPos.setX(player->getWorldPositionX() + (cos(newAngle) * distance));
+		startPos.setY(player->getWorldPositionY() + (sin(newAngle) * distance));
+		startPos.setZ(0.0f);
 
 		if (zone->isWithinBoundaries(startPos)) {
 			float height = zone->getHeight(startPos.getX(), startPos.getY());
@@ -860,6 +897,7 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 
 	int reward = destroyMissionBaseReward + destroyMissionDifficultyRewardFactor * difficultyLevel;
 	reward += System::random(destroyMissionRandomReward) + System::random(destroyMissionDifficultyRandomReward * difficultyLevel);
+	reward = Math::min(reward, 50000); //Phoenix: 50k max payout -Rogue
 	mission->setRewardCredits(reward);
 
 	mission->setMissionDifficulty(difficultyLevel, diffDisplay, difficulty);
@@ -882,12 +920,29 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 	else
 		messageDifficulty = "_hard";
 
-	if (lairTemplateObject->getMobType() == LairTemplate::NPC)
+	//Phoenix: CL and mob names on lair
+	String groupSuffix;
+		
+	if (lairTemplateObject->getMobType() == LairTemplate::NPC){
 		missionType = "_npc";
-	else
+		groupSuffix = " camp.";
+	}
+	else{
 		missionType = "_creature";
+		groupSuffix = " lair.";
+	}
 
-	mission->setMissionTitle("mission/mission_destroy_neutral" + messageDifficulty + missionType, "m" + String::valueOf(randTexts) + "t");
+	const VectorMap<String, int>* mobiles = lairTemplateObject->getMobiles();
+	String mobileName = "mysterious";
+
+	if (mobiles->size() > 0) {
+		mobileName = mobiles->elementAt(0).getKey();
+	}
+		
+
+
+	mission->setMissionTitle("CL" + String::valueOf(diffDisplay), " Destroy the " + mobileName.replaceAll("_", " ") + groupSuffix);
+	//mission->setMissionTitle("mission/mission_destroy_neutral" + messageDifficulty + missionType, "m" + String::valueOf(randTexts) + "t");
 	mission->setMissionDescription("mission/mission_destroy_neutral" +  messageDifficulty + missionType, "m" + String::valueOf(randTexts) + "d");
 
 	switch (faction) {
