@@ -39,9 +39,17 @@ mokk_rockshaper = Creature:new {
 				{group = "armor_attachments", chance = 500000},
 				{group = "clothing_attachments", chance = 500000},
 				{group = "wearables_all", chance = 2000000},
-				{group = "color_crystals", chance = 500000}
-			}
-		}
+				{group = "color_crystals", chance = 500000},
+			},
+			lootChance = 10000000,
+		},
+		{
+			groups = 
+		{
+			{group = "mokk_common", chance = 10000000},
+		},
+		lootChance = 4500000,
+	}
 	},
 
 	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)

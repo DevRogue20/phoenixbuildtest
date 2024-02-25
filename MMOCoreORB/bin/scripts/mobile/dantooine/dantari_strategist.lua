@@ -38,9 +38,17 @@ dantari_strategist = Creature:new {
 				{group = "loot_kit_parts", chance = 3000000},
 				{group = "armor_attachments", chance = 500000},
 				{group = "clothing_attachments", chance = 500000},
-				{group = "wearables_common", chance = 2000000}
-			}
-		}
+				{group = "wearables_common", chance = 2000000},
+			},
+			lootChance = 10000000,
+		},
+		{
+			groups = 
+		{
+			{group = "dantari_common", chance = 10000000},
+		},
+		lootChance = 4500000,
+	},
 	},
 
 	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)

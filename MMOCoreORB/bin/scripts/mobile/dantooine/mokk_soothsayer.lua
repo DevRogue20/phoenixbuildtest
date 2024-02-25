@@ -40,9 +40,17 @@ mokk_soothsayer = Creature:new {
 				{group = "clothing_attachments", chance = 500000},
 				{group = "wearables_common", chance = 1000000},
 				{group = "wearables_uncommon", chance = 1000000},
-				{group = "color_crystals", chance = 500000}
-			}
-		}
+				{group = "color_crystals", chance = 500000},
+			},
+			lootChance = 10000000,
+		},
+		{
+			groups = 
+		{
+			{group = "mokk_common", chance = 10000000},
+		},
+		lootChance = 4500000,
+	}
 	},
 
 	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)

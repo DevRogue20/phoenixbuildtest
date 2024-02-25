@@ -1229,3 +1229,12 @@ includeFile("items/force_crystal_strength_of_luminaria.lua")
 includeFile("items/force_crystal_sunriders_destiny.lua")
 includeFile("items/force_crystal_ulics_redemption.lua")
 includeFile("items/force_crystal_windus_guile.lua")
+
+includeFile("items/npc/dantari_blood.lua")
+includeFile("items/npc/dantari_hides.lua")
+
+includeFile("items/npc/kunga_blood.lua")
+includeFile("items/npc/kunga_hides.lua")
+
+includeFile("items/npc/mokk_blood.lua")
+includeFile("items/npc/mokk_hides.lua")
