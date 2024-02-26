@@ -398,3 +398,9 @@ includeFile("groups/crystal_windus_guile.lua")
 includeFile("groups/npc/dantari_common.lua")
 includeFile("groups/npc/kunga_common.lua")
 includeFile("groups/npc/mokk_common.lua")
+
+--Acklay -Rogue
+includeFile("groups/geonosian_lab/acklay_bones.lua")
+
+--Rogue Customs
+includeFile("groups/npc/nightsister_vibro_unit.lua")

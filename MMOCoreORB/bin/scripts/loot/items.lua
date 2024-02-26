@@ -1238,3 +1238,6 @@ includeFile("items/npc/kunga_hides.lua")
 
 includeFile("items/npc/mokk_blood.lua")
 includeFile("items/npc/mokk_hides.lua")
+
+--Rogue's Loot
+includeFile("items/npc/nightsister_vibro_unit_rare.lua")
