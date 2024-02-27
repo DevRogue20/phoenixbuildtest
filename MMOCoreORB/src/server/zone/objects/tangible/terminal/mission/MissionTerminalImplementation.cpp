@@ -33,7 +33,7 @@ void MissionTerminalImplementation::fillObjectMenuResponse(ObjectMenuResponse* m
 
 	if (terminalType == "general" || terminalType == "imperial" || terminalType == "rebel") {
 
-		//Infinity:  Display the mission direction and level choices
+		//Phoenix:  Display the mission direction and level choices -Rogue
 		Lua* lua = DirectorManager::instance()->getLuaInstance();
 		if (lua == nullptr) {
 			return;

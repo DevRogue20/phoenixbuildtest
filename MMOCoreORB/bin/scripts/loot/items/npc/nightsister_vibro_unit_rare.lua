@@ -3,6 +3,7 @@
 nightsister_vibro_unit_rare = {
 	minimumLevel = 0,
 	maximumLevel = -1,
+<<<<<<< HEAD
 	customObjectName = "Rare Nighsister Vibro Unit",
 	directObjectTemplate = "object/tangible/component/weapon/vibro_unit_nightsister.iff",
 	craftingValues = {
@@ -18,9 +19,27 @@ nightsister_vibro_unit_rare = {
 		{"attackactioncost",18,2,0},
 		{"attackmindcost",8,2,0},
 		{"useCount",3,10,0},
+=======
+	customObjectName = "",
+	directObjectTemplate = "object/tangible/component/weapon/vibro_unit_nightsister.iff",
+	craftingValues = {
+		{"mindamage",75,100,0},
+		{"maxdamage",100,150,0},
+		{"attackspeed",1.8,-1,1},
+		{"woundchance",10,25,0},
+		{"hitpoints",100,500,0, true},
+		{"midrangemod",0,20,0},
+		{"attackhealthcost",8,2,0},
+		{"attackmindcost",8,2,0},
+		{"useCount",2,10,0},
+>>>>>>> 70de33a47e6de1e311d8ce5c4117337dd18d1365
 	},
 	customizationStringNames = {},
 	customizationValues = {}
 }
 
+<<<<<<< HEAD
 addLootItemTemplate("nightsister_vibro_unit_rare", nightsister_vibro_unit_rare)
+=======
+addLootItemTemplate("nightsister_vibro_unit_rare", nightsister_vibro_unit_rare)
+>>>>>>> 70de33a47e6de1e311d8ce5c4117337dd18d1365

@@ -399,7 +399,16 @@ includeFile("groups/crystal_windus_guile.lua")
 includeFile("groups/npc/dantari_common.lua")
 includeFile("groups/npc/kunga_common.lua")
 includeFile("groups/npc/mokk_common.lua")
+<<<<<<< HEAD
 includeFile("groups/easter_common.lua")
 includeFile("groups/npc/nightsister_rare.lua")
 includeFile("groups/npc/ns_orb_loot.lua")
 includeFile("groups/wampa_epic.lua")
+=======
+
+--Acklay -Rogue
+includeFile("groups/geonosian_lab/acklay_bones.lua")
+
+--Rogue Customs
+includeFile("groups/npc/nightsister_vibro_unit.lua")
+>>>>>>> 70de33a47e6de1e311d8ce5c4117337dd18d1365

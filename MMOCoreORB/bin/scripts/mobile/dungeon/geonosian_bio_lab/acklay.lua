@@ -33,8 +33,15 @@ acklay = Creature:new {
 		{
 			groups = {
 				{group = "acklay", chance = 10000000}
-			}
-		}
+			},
+			lootChance = 10000000,
+		},
+		{
+			groups = {
+				{group = "acklay_bones", chance = 10000000}
+			},
+			lootChance = 7500000,
+		},
 	},
 
 	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
