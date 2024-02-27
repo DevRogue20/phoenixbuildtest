@@ -68,7 +68,8 @@ emptat = Creature:new {
 
 	},
 
-	weapons = {"darth_vader_weapons"},
+	primaryWeapon = "dark_jedi_weapons_ranged",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
 	attacks = merge(lightsabermaster,forcepowermaster)
 }

@@ -10,6 +10,7 @@ includeFile("Push_Customs/sher_kar_objects.lua")
 --includeFile("Push_Customs/bloodfin_cantina.lua")
 includeFile("Push_Customs/transporter_convo_handler.lua")
 includeFile("Push_Customs/orion.lua")
+includeFile("Push_Customs/hoth_test.lua")
 
 --Twin Sabers
 includeFile("Push_Customs/twin_sabers/twin_sabers.lua")

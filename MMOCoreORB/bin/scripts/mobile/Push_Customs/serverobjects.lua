@@ -37,3 +37,6 @@ includeFile("Push_Customs/dws/spacer_podracer.lua")
 includeFile("Push_Customs/dws/manda.lua")
 includeFile("Push_Customs/dws/darth_smedley.lua")
 includeFile("Push_Customs/dws/golga_jedi.lua")
+
+--Hoth
+includeFile("Push_Customs/unkajo.lua")

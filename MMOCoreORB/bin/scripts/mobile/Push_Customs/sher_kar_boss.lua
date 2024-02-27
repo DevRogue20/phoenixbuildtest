@@ -1,10 +1,9 @@
 sher_kar_boss = Creature:new {
-	objectName = "",
+	objectName = "@mob/creature_names:Sherkar",
 	customName = "Sher'kar",
 	socialGroup = "rancor",
 	pvpFaction = "",
 	faction = "",
-	mobType = MOB_NPC,
 	level = 500,
 	chanceHit = 500,
 	damageMin = 2800,
@@ -84,13 +83,13 @@ sher_kar_boss = Creature:new {
 			},
 			lootChance = 10000000,
 		},
-		{
+		--[[{
 	        	groups =
 			{
 				{group = "frost_crystal", chance = 10000000},
 			},
 			lootChance = 6000000,
-		},
+		},]]
 		{
 			groups = {
 				{group = "sher_kar_loot", chance = 9000000},
@@ -101,7 +100,7 @@ sher_kar_boss = Creature:new {
 		{
 			groups = {
 				{group = "sher_kar_loot", chance = 9000000},
-				{group = "frost_crystal", chance = 1000000},
+				--{group = "frost_crystal", chance = 1000000},
 			},
 			lootChance = 10000000
 		},

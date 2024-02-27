@@ -35,7 +35,7 @@ nightsister_doum = Creature:new {
 			},
 			lootChance = 5000000,
 		},
-		{
+		--[[{
 			groups =
 
 			{
@@ -43,7 +43,7 @@ nightsister_doum = Creature:new {
 				{group = "spec_force_armor_loot",  chance = 6000000}
 			},
 			lootChance = 8500000,
-		},
+		},]]
 		{
 	        	groups =
 			{
@@ -51,7 +51,7 @@ nightsister_doum = Creature:new {
 				{group = "crystals_premium", chance = 4000000},
 				{group = "nightsister_rare", chance = 3000000},
 			},
-			lootChance = 4500000,
+			lootChance = 10000000,
 		}
 	},
 	weapons = {"mixed_force_weapons"},

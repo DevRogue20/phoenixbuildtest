@@ -29,13 +29,13 @@ nightsister_gorvo_rancor = Creature:new {
 	templates = {"object/mobile/outbreak_afflicted_blackwing_rancor_boss.iff"},
 	scale = 1.6,
 	lootGroups = {
-		{
+		--[[{
 	        	groups =
 			{
 				{group = "geo_crafting_jewelry_modified", chance = 5000000},
 			},
 			lootChance = 7500000,
-		},
+		},]]
 		{
 	        	groups =
 			{
@@ -61,7 +61,7 @@ nightsister_gorvo_rancor = Creature:new {
 	        	groups =
 			{
 				{group = "geonosian_relic", chance = 6500000},
-				{group = "mastery_geocave_jewelry", chance = 3500000},
+				--{group = "mastery_geocave_jewelry", chance = 3500000},
 			},
 			lootChance = 7500000,
 		},

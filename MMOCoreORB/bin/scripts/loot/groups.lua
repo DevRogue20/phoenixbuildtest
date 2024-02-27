@@ -373,6 +373,7 @@ includeFile("groups/wearables/wearables_uncommon.lua")
 
 --Push Loot
 includeFile("groups/push/sher_kar_loot.lua")
+includeFile("groups/push/speeder_deeds.lua")
 
 
 --Named Color Crystals
@@ -398,3 +399,7 @@ includeFile("groups/crystal_windus_guile.lua")
 includeFile("groups/npc/dantari_common.lua")
 includeFile("groups/npc/kunga_common.lua")
 includeFile("groups/npc/mokk_common.lua")
+includeFile("groups/easter_common.lua")
+includeFile("groups/npc/nightsister_rare.lua")
+includeFile("groups/npc/ns_orb_loot.lua")
+includeFile("groups/wampa_epic.lua")

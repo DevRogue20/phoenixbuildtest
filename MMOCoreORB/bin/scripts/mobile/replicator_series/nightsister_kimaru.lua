@@ -62,14 +62,14 @@ nightsister_kimaru = Creature:new {
 			},
 			lootChance = 6500000,
 		},
-		{
+		--[[{
 			groups =
 			{
 				{group = "infiltrator_armor_loot",  chance = 4000000},
 				{group = "spec_force_armor_loot",  chance = 6000000}
 			},
 			lootChance = 6000000,
-		}
+		}]]
 	},
 	weapons = {"warden_banhammer_weapons"},
 	conversationTemplate = "",

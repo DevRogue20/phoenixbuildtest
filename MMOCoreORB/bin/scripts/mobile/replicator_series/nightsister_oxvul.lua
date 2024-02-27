@@ -35,14 +35,14 @@ nightsister_oxvul = Creature:new {
 			},
 			lootChance = 5000000,
 		},
-		{
+		--[[{
 			groups =
 			{
 				{group = "infiltrator_armor_loot",  chance = 4000000},
 				{group = "spec_force_armor_loot",  chance = 6000000}
 			},
 			lootChance = 8500000,
-		},
+		},]]
 		{
 	        	groups =
 			{

@@ -61,13 +61,13 @@ nightsister_nandina = Creature:new {
 			},
 			lootChance = 4500000,
 		},
-		{
+		--[[{
 			groups =
 			{
 				{group = "junkshop_deed_loot", chance = 10000000},
 			},
 			lootChance = 3000000,
-		}
+		}]]
 	},
 	weapons = {"kirana_ti_weapons"},
 	conversationTemplate = "",
