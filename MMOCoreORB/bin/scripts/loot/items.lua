@@ -1241,7 +1241,6 @@ includeFile("items/npc/kunga_hides.lua")
 includeFile("items/npc/mokk_blood.lua")
 includeFile("items/npc/mokk_hides.lua")
 
-<<<<<<< HEAD
 includeFile("items/npc/nightsister_vibro_unit_rare.lua")
 includeFile("items/npc/nightsister_bicep_r.lua")
 
@@ -1250,7 +1249,5 @@ includeFile("items/mystical_glowing_orb.lua")
 includeFile("items/unkajo_tooth.lua")
 includeFile("items/locked_container_r.lua")
 includeFile("items/war_droid.lua")
-=======
 --Rogue's Loot
 includeFile("items/npc/nightsister_vibro_unit_rare.lua")
->>>>>>> 70de33a47e6de1e311d8ce5c4117337dd18d1365
