@@ -1,18 +1,17 @@
 sher_kar_boss = Creature:new {
-	objectName = "@mob/creature_names:Sherkar",
+	--objectName = "@mob/creature_names:Sherkar",
 	customName = "Sher'kar",
 	socialGroup = "rancor",
-	pvpFaction = "",
 	faction = "",
-	level = 500,
+	level = 375,
 	chanceHit = 500,
 	damageMin = 2800,
 	damageMax = 4600,
 	baseXp = 79336,
 	bonusType = "pve_xp",
 	bonusXP = 1000,
-	baseHAM = 4650000,
-	baseHAMmax = 4700000,
+	baseHAM = 2350000,
+	baseHAMmax = 2500000,
 	armor = 3,
 	resists = {90,90,90,20,70,90,45,45,35},
 	meatType = "meat_carnivore",
@@ -30,7 +29,6 @@ sher_kar_boss = Creature:new {
 	diet = CARNIVORE,
 
 	templates = {"object/mobile/som/sher_kar.iff"},
-	scale = 1.0,
 	lootGroups = {
 
 

@@ -331,7 +331,7 @@ function bf_teleport_menu:handleObjectMenuSelect(pSceneObject, pPlayer, selected
 			--ported = playerSwitchZoneOutOfCombat(pPlayer, pCollector, "corellia", -148.3, 28, -4721.5, 0)
 			playerCreature:sendSystemMessage("You are being transmitted to Corellia, Coronet")
 		elseif (selectedID == 21) then
-			LuaSceneObject(pPlayer):switchZone("hoth", -2246.8, 119.6, 719.9, 0)
+			LuaSceneObject(pPlayer):switchZone("hoth", 20, 0, -1982, 0)
 			--ported = playerSwitchZoneOutOfCombat(pPlayer, pCollector, "hoth", -2246.8, 119.6, 719.9, 0)
 			playerCreature:sendSystemMessage("You are being transmitted to Hoth, Starport")
 		elseif (selectedID == 22) then
@@ -363,7 +363,7 @@ function bf_teleport_menu:handleObjectMenuSelect(pSceneObject, pPlayer, selected
 			--ported = playerSwitchZoneOutOfCombat(pPlayer, pCollector, "corellia", -148.3, 28, -4721.5, 0)
 			playerCreature:sendSystemMessage("You are being transmitted to Corellia, Coronet")
 		elseif (selectedID == 21) then
-			LuaSceneObject(pPlayer):switchZone("hoth", -2246.8, 119.6, 719.9, 0)
+			LuaSceneObject(pPlayer):switchZone("hoth", 20, 0, -1982, 0)
 			--ported = playerSwitchZoneOutOfCombat(pPlayer, pCollector, "hoth", -2246.8, 119.6, 719.9, 0)
 			playerCreature:sendSystemMessage("You are being transmitted to Hoth, Starport")
 		elseif (selectedID == 22) then
