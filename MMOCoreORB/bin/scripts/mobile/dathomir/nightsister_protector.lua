@@ -44,7 +44,19 @@ nightsister_protector = Creature:new {
 				{group = "wearables_common", chance = 500000},
 				{group = "tailor_components", chance = 500000}
 			}
-		}
+		},
+		{
+			groups = {
+				{group = "attachments_clothing"},
+			},
+			lootChance = 5000000,
+		},
+		{
+			groups = {
+				{group = "attachments_armor"},
+			},
+			lootChance = 5000000,
+		},
 	},
 
 	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)

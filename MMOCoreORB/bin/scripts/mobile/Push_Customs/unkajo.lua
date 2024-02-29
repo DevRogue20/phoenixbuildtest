@@ -74,6 +74,18 @@ unkajo = Creature:new {
 			},
 			lootChance = 8500000
 		},]]
+		{
+			groups = {
+				{group = "attachments_clothing"},
+			},
+			lootChance = 5000000,
+		},
+		{
+			groups = {
+				{group = "attachments_armor"},
+			},
+			lootChance = 5000000,
+		}
 				
 	},
 	weapons = {},
