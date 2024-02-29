@@ -42,6 +42,18 @@ acklay = Creature:new {
 			},
 			lootChance = 7500000,
 		},
+		{
+			groups = {
+				{group = "attachment_clothing", chance 10000000}
+			},
+			lootChance = 5000000,
+		},
+		{
+			groups = {
+				{group = "attachment_armor", chance = 10000000}
+			},
+			lootChance = 5000000,
+		},
 	},
 
 	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
