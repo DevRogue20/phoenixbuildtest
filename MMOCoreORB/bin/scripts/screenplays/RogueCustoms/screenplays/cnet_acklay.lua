@@ -7,8 +7,7 @@ cnetAcklay = ScreenPlay:new{
 
 registerScreenPlay("cnetAcklay", true)
 
-function cnetAcklay
-:start()
+function cnetAcklay:start()
     if (isZoneEnabled("corellia")) then
       self:spawnMobiles()
     end
