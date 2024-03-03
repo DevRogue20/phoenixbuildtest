@@ -43,7 +43,19 @@ nightsister_elder = Creature:new {
 				{group = "melee_weapons", chance = 2000000},
 				{group = "wearables_scarce", chance = 500000}
 			}
-		}
+		},
+		{
+			groups = {
+				{group = "attachments_clothing"},
+			},
+			lootChance = 5000000,
+		},
+		{
+			groups = {
+				{group = "attachments_armor"},
+			},
+			lootChance = 5000000,
+		},
 	},
 
 	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
