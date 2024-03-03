@@ -759,3 +759,12 @@ tutorial = {
 	gcwEnabled = 0,
 }
 
+hoth = {
+	weatherEnabled = 0,
+	gcwEnabled = 0,
+
+	planetTravelPoints = {
+		{name = "Scavenger Starport", x = 0, z = 0, y = -2000, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
+	},
+}
+
