@@ -55,19 +55,13 @@ unkajo = Creature:new {
 			},
 			lootChance = 7500000,
 		},]]
-		{
+		--[[ {
 	        	groups = 
 			{
 				{group = "easter_common", chance = 10000000},
 			},
 			lootChance = 7500000,
-		},
-	   	{
-			groups = {
-				{group = "wampa_epic", chance = 10000000},
-			},
-			lootChance = 10000000,
-		},
+		}, ]]
 		--[[{
 			groups = {
 				{group = "wearables_scarce", chance = 10000000},
@@ -76,13 +70,13 @@ unkajo = Creature:new {
 		},]]
 		{
 			groups = {
-				{group = "attachments_clothing"},
+				{group = "armor_attachments", chance = 10000000},
 			},
 			lootChance = 5000000,
 		},
 		{
 			groups = {
-				{group = "attachments_armor"},
+				{group = "clothing_attachments", chance = 10000000},
 			},
 			lootChance = 5000000,
 		}

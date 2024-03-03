@@ -32,31 +32,33 @@ nightsister_protector = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "power_crystals", chance = 500000},
-				{group = "color_crystals", chance = 500000},
-				{group = "nightsister_common", chance = 2300000},
-				{group = "armor_attachments", chance = 350000},
-				{group = "clothing_attachments", chance = 350000},
+				{group = "power_crystals", chance = 2000000},
+				{group = "color_crystals", chance = 2000000},
+				{group = "nightsister_common", chance = 2000000},
 				{group = "melee_weapons", chance = 2000000},
-				{group = "rifles", chance = 1000000},
-				{group = "pistols", chance = 1000000},
-				{group = "carbines", chance = 1000000},
-				{group = "wearables_common", chance = 500000},
-				{group = "tailor_components", chance = 500000}
-			}
+				{group = "tailor_components", chance = 2000000}
+			},
+			lootChance = 10000000,
 		},
 		{
 			groups = {
-				{group = "attachments_clothing"},
+				{group = "clothing_attachments", chance = 10000000},
 			},
 			lootChance = 5000000,
 		},
 		{
 			groups = {
-				{group = "attachments_armor"},
+				{group = "armor_attachments", chance = 10000000},
 			},
 			lootChance = 5000000,
 		},
+		{
+			groups = {
+				{group = "nightsister_vibro_unit", chance = 10000000},
+		},
+			lootChance = 5000000,
+		},
+
 	},
 
 	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)

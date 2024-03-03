@@ -32,25 +32,25 @@ acklay = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "acklay", chance = 10000000}
+				{group = "acklay", chance = 10000000},
 			},
 			lootChance = 10000000,
 		},
 		{
 			groups = {
-				{group = "acklay_bones", chance = 10000000}
+				{group = "acklay_bones", chance = 10000000},
 			},
 			lootChance = 7500000,
 		},
 		{
 			groups = {
-				{group = "attachment_clothing", chance 10000000}
+				{group = "clothing_attachments", chance = 10000000},
 			},
 			lootChance = 5000000,
 		},
 		{
 			groups = {
-				{group = "attachment_armor", chance = 10000000}
+				{group = "armor_attachments", chance = 10000000},
 			},
 			lootChance = 5000000,
 		},
