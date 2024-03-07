@@ -29,6 +29,8 @@
 #include "server/chat/ChatManager.h"
 #include "server/zone/Zone.h"
 #include "server/zone/packets/scene/PlayClientEffectLocMessage.h"
+//Phoenix:  Custom includes
+#include "server/zone/managers/player/creation/PlayerCreationManager.h"
 
 void EntertainingSessionImplementation::doEntertainerPatronEffects() {
 	ManagedReference<CreatureObject*> creo = entertainer.get();
@@ -261,7 +263,19 @@ void EntertainingSessionImplementation::doPerformanceAction() {
 		return;
 	}
 
-	int actionDrain = entertainer->calculateCostAdjustment(CreatureAttribute::QUICKNESS, performance->getActionPointsPerLoop());
+	//Phoenix:  Going to reduce action cost for /startdance and /startmusic to be in line with flourish action cost
+	int actionDrain = entertainer->calculateCostAdjustment(CreatureAttribute::QUICKNESS, performance->getActionPointsPerLoop()) / 6.0f;
+
+	PlayerCreationManager* playerCreationManager = PlayerCreationManager::instance();
+	if (playerCreationManager != nullptr) {
+
+		int quickness = entertainer->getHAM(CreatureAttribute::QUICKNESS);
+		int maxQuickness = playerCreationManager->getMaximumAttributeLimit(entertainer->getSpeciesName(), CreatureAttribute::QUICKNESS);
+
+		if (quickness < 650 && maxQuickness < 650) { //Phoenix:  Let's bump all races up to Rodian-level quickness at least
+			actionDrain *= (650 - (650 - quickness) / 1.5) / 650;
+		}
+	}
 
 	if (entertainer->getHAM(CreatureAttribute::ACTION) <= actionDrain) {
 		if (isDancing()) {
@@ -434,10 +448,12 @@ void EntertainingSessionImplementation::doPerformEffect(int effectId, int effect
 
 	PerformanceManager* performanceManager = SkillManager::instance()->getPerformanceManager();
 
+	/* Phoenix:  Let's allow entertainers to spam effects to burn action
 	if (!entertainer->checkCooldownRecovery("performing_entertainer_effect")) {
 		performanceManager->performanceMessageToSelf(entertainer, nullptr, "performance", "effect_wait_self"); // You must wait before you can perform another special effect.
 		return;
 	}
+	*/
 
 	PerformEffect* effect = performanceManager->getPerformEffect(effectId, effectLevel);
 
@@ -484,8 +500,9 @@ void EntertainingSessionImplementation::doPerformEffect(int effectId, int effect
 
 	entertainer->inflictDamage(entertainer, CreatureAttribute::ACTION, effectCost, true);
 
-	uint64 effectDuration = (uint64)(effect->getEffectDuration() * 1000);
-	entertainer->addCooldown("performing_entertainer_effect", effectDuration);
+	//Phoenix:  Let's allow entertainers to spam effects to burn action
+	//uint64 effectDuration = (uint64)(effect->getEffectDuration() * 1000);
+	//entertainer->addCooldown("performing_entertainer_effect", effectDuration);
 }
 
 void EntertainingSessionImplementation::startPlayingMusic(int perfIndex, Instrument* instrument) {
@@ -645,15 +662,26 @@ void EntertainingSessionImplementation::doFlourish(int flourishNumber, bool gran
 
 	ManagedReference<Instrument*> instrument = entertainer->getPlayableInstrument();
 
-	float baseActionDrain = performance->getActionPointsPerLoop() - (int)(entertainer->getHAM(CreatureAttribute::QUICKNESS)/35.f);
+	//Phoenix:  Boosting quickness for low attribute races
+	int quickness = entertainer->getHAM(CreatureAttribute::QUICKNESS);
+
+	PlayerCreationManager* playerCreationManager = PlayerCreationManager::instance();
+	if (playerCreationManager != nullptr) {
+
+		int maxQuickness = playerCreationManager->getMaximumAttributeLimit(entertainer->getSpeciesName(), CreatureAttribute::QUICKNESS);
+		if (quickness < 650 && maxQuickness < 650)  //Phoenix:  Let's bump all races up to Rodian-level quickness at least
+			quickness = 650;
+	}
+
+	float baseActionDrain = performance->getActionPointsPerLoop() - quickness / 35.0f;
 
 	if (baseActionDrain < 0)
 		baseActionDrain = 0;
 
-	//float baseActionDrain = -40 + (getQuickness() / 37.5);
-	float flourishActionDrain = baseActionDrain / 2.0;
+	//Phoenix:  Custom action drain values
+	int actionDrain = (int)round(baseActionDrain / 6.0f); // Round to nearest dec for actual int cost
 
-	int actionDrain = (int)round((flourishActionDrain * 10 + 0.5) / 10.0); // Round to nearest dec for actual int cost
+	//entertainer->sendSystemMessage("TC - doFlourish:  flourishActionDrain = " + String::valueOf(baseActionDrain / 6.0f) + ", actionDrain = " + String::valueOf(actionDrain));
 
 	if (entertainer->getHAM(CreatureAttribute::ACTION) <= actionDrain) {
 		entertainer->sendSystemMessage("@performance:flourish_too_tired");
@@ -697,7 +725,8 @@ void EntertainingSessionImplementation::addEntertainerBuffDuration(CreatureObjec
 	buffDuration += duration;
 
 	if (buffDuration > (120.0f + (10.0f / 60.0f)) ) // 2 hrs 10 seconds
-		buffDuration = (120.0f + (10.0f / 60.0f)); // 2hrs 10 seconds
+		//Phoenix:  Custom buff duration
+		buffDuration = (210.0f); // 3 hours, 30 minutes
 
 	setEntertainerBuffDuration(creature, performanceType, buffDuration);
 }
@@ -720,6 +749,19 @@ void EntertainingSessionImplementation::addEntertainerBuffStrength(CreatureObjec
 
 	if (maxBuffStrength > 125.0f)
 		maxBuffStrength = 125.0f;	//cap at 125% power
+
+	//Phoenix:  Custom city strength buff for ent buffs in relevant specializations
+	float citySpecStrength = entertainer->getSkillMod("private_spec_buff_mind");	
+
+	//Phoenix:  Check for city ban
+	ManagedReference<CityRegion* > region = entertainer->getCityRegion().get();
+	if (region != nullptr) {
+		if (region->isBanned(entertainer->getObjectID())) {
+			citySpecStrength = 0;
+		}
+	}
+	
+	maxBuffStrength += citySpecStrength;
 
 	float factionPerkStrength = entertainer->getSkillMod("private_faction_buff_mind");
 
@@ -883,46 +925,42 @@ void EntertainingSessionImplementation::activateEntertainerBuff(CreatureObject* 
 		// Returns a % of base stat
 		int campModTemp = 100;
 
-
 		float buffStrength = getEntertainerBuffStrength(creature, performanceType) / 100.0f;
 
 		if (buffStrength == 0)
 			return;
 
 		ManagedReference<PerformanceBuff*> oldBuff = nullptr;
-		switch (performanceType) {
-		case PerformanceType::MUSIC:
-		{
-			uint32 focusBuffCRC = STRING_HASHCODE("performance_enhance_music_focus");
-			uint32 willBuffCRC = STRING_HASHCODE("performance_enhance_music_willpower");
-			oldBuff = cast<PerformanceBuff*>(creature->getBuff(focusBuffCRC));
-			if (oldBuff != nullptr && oldBuff->getBuffStrength() > buffStrength)
-				return;
-			ManagedReference<PerformanceBuff*> focusBuff = new PerformanceBuff(creature, focusBuffCRC, buffStrength, buffDuration * 60, PerformanceBuffType::MUSIC_FOCUS);
-			ManagedReference<PerformanceBuff*> willBuff = new PerformanceBuff(creature, willBuffCRC, buffStrength, buffDuration * 60, PerformanceBuffType::MUSIC_WILLPOWER);
 
-			Locker locker(focusBuff);
-			creature->addBuff(focusBuff);
-			locker.release();
+		//Phoenix:  This is all custom combined dancer/musician buffs
+		uint32 mindBuffCRC = STRING_HASHCODE("performance_enhance_dance_mind");
+		uint32 focusBuffCRC = STRING_HASHCODE("performance_enhance_music_focus");
+		uint32 willBuffCRC = STRING_HASHCODE("performance_enhance_music_willpower");
 
-			Locker locker2(willBuff);
-			creature->addBuff(willBuff);
-			break;
-		}
-		case PerformanceType::DANCE:
-		{
-			uint32 mindBuffCRC = STRING_HASHCODE("performance_enhance_dance_mind");
-			oldBuff = cast<PerformanceBuff*>(creature->getBuff(mindBuffCRC));
-			if (oldBuff != nullptr && oldBuff->getBuffStrength() > buffStrength)
-				return;
-			ManagedReference<PerformanceBuff*> mindBuff = new PerformanceBuff(creature, mindBuffCRC, buffStrength, buffDuration * 60, PerformanceBuffType::DANCE_MIND);
+		oldBuff = cast<PerformanceBuff*>(creature->getBuff(mindBuffCRC));
 
-			Locker locker(mindBuff);
-			creature->addBuff(mindBuff);
-			break;
-		}
-		}
+		if (oldBuff != nullptr && oldBuff->getBuffStrength() > buffStrength)
+			return;
 
+		//Phoenix:  Don't overwrite older buffs if the duration is longer
+		if (oldBuff != nullptr && (oldBuff->getBuffDuration() > buffDuration * 60) && (oldBuff->getBuffStrength() <= buffStrength))
+			return;
+		
+		ManagedReference<PerformanceBuff*> mindBuff = new PerformanceBuff(creature, mindBuffCRC, buffStrength, buffDuration * 60, PerformanceBuffType::DANCE_MIND);
+		ManagedReference<PerformanceBuff*> focusBuff = new PerformanceBuff(creature, focusBuffCRC, buffStrength, buffDuration * 60, PerformanceBuffType::MUSIC_FOCUS);
+		ManagedReference<PerformanceBuff*> willBuff = new PerformanceBuff(creature, willBuffCRC, buffStrength, buffDuration * 60, PerformanceBuffType::MUSIC_WILLPOWER);
+
+		Locker mlocker(mindBuff);
+		creature->addBuff(mindBuff);
+		mlocker.release();
+
+		Locker flocker(focusBuff);
+		creature->addBuff(focusBuff);
+		flocker.release();
+
+		Locker wlocker(willBuff);
+		creature->addBuff(willBuff);
+		wlocker.release();
 
 	} catch(Exception& e) {
 
