@@ -6,8 +6,8 @@ sherkar_tissue = {
 	customObjectName = "Sher Kar Tissue",
 	directObjectTemplate = "object/tangible/component/weapon/blaster_power_handler_enhancement_krayt.iff",
 	craftingValues = {
-		{"mindamage",75,125,0},
-		{"maxdamage",150,250,0},
+		{"mindamage",95,125,0},
+		{"maxdamage",125,200,0},
 		{"attackspeed",0,-1.4,1},
 		{"useCount",10,20,0},
 	},

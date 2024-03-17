@@ -74,8 +74,10 @@ void CityManagementMenuComponent::fillObjectMenuResponse(SceneObject* sceneObjec
 
 	menuResponse->addRadialMenuItemToRadialID(216, 225, 3, "@city/city:city_specializations"); //City Specialization
 
-	if (!city->isMayor(player->getObjectID()))
+	/* Infinity:  Allow mayor or admin to complete the following options
+    if (!city->isMayor(player->getObjectID()))
 		return;
+    */
 
 	menuResponse->addRadialMenuItemToRadialID(210, 221, 3, "@city/city:treasury_withdraw"); //Treasury Withdraw
 
@@ -121,7 +123,7 @@ int CityManagementMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject
 		cityManager->sendManageMilitia(city, player, sceneObject);
 		break;
 	case 219: //Adjust Taxes
-		if (city->isMayor(player->getObjectID())) {
+		if (city->isMayor(player->getObjectID()) || ghost->isAdmin()) {
 			cityManager->promptAdjustTaxes(city, player, sceneObject);
 		}
 		break;

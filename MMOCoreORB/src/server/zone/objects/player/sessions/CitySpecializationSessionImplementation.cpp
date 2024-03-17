@@ -55,8 +55,13 @@ int CitySpecializationSessionImplementation::initializeSession() {
 			Reference<const Ability*> ability = abilityList->getSafe(i);
 			const String& abilityName = ability->getAbilityName();
 
-			if (abilityName.beginsWith("city_spec"))
+			if (abilityName.beginsWith("city_spec")) {
+
+				if (abilityName == "city_spec_enhancement_and_industrial" && cityRegion != nullptr && cityRegion->getCityRank() < CityRegion::RANK_MEGALOPOLIS) {
+					continue;
+				}
 				sui->addMenuItem("@city/city:" + abilityName);
+			}
 		}
 	}
 

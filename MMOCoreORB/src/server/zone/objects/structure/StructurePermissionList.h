@@ -33,7 +33,7 @@ public:
 	};
 
 	enum {
-		MAX_ENTRIES = 50
+		MAX_ENTRIES = 100 //Phoenix: Allow 100 admin entries. -Rogue
 	};
 
 public:

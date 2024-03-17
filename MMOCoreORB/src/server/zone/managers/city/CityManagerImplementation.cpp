@@ -38,6 +38,7 @@
 #include "templates/tangible/SharedStructureObjectTemplate.h"
 #include "server/zone/objects/player/sui/callbacks/RenameCitySuiCallback.h"
 #include "server/zone/objects/transaction/TransactionLog.h"
+#include "server/zone/managers/stringid/StringIdManager.h"
 
 #ifndef CITY_DEBUG
 #define CITY_DEBUG
@@ -127,8 +128,20 @@ void CityManagerImplementation::loadLuaConfig() {
 	luaObject = lua->getGlobalObject("CitizensPerRank");
 
 	if (luaObject.isValidTable()) {
-		for (int i = 1; i <= luaObject.getTableSize(); ++i)
-			citizensPerRank.add(luaObject.getIntAt(i));
+
+		String galaxyName = "SWG Infinity";
+		if (zoneServer != nullptr) {
+			galaxyName = zoneServer->getGalaxyName();
+		}
+
+		for (int i = 1; i <= luaObject.getTableSize(); ++i) {
+			if (galaxyName.beginsWith("SWG Infinity")) {
+				citizensPerRank.add(luaObject.getIntAt(i));
+			}
+			else {
+				citizensPerRank.add(1);
+			}
+		}
 	}
 
 	luaObject.pop();
@@ -784,13 +797,31 @@ void CityManagerImplementation::processCityUpdate(CityRegion* city) {
 
 		if (citizens < maintainCitizens) {
 			contractCity(city);
-		} else if (cityRank < METROPOLIS) {
+		} else if (cityRank < MEGALOPOLIS) {
 			int advanceCitizens = citizensPerRank.get(cityRank);
 
 			if (citizens >= advanceCitizens) {
 				expandCity(city);
 			} else {
 				city->destroyAllStructuresForRank(uint8(cityRank + 1), true);
+			}
+		}
+
+		city->removeAmenitiesOutsideCity(radius);  //Infinity:  Cleanup anything moved outside the city limits
+
+		//Remove all deco that has reached 0 condition
+		for (int i = 0; i < city->getDecorationCount(); i++) {
+			ManagedReference<SceneObject*> deco = city->getCityDecoration(i);
+			TangibleObject* tano = deco->asTangibleObject();
+
+			if (deco != nullptr && tano != nullptr) {
+				if (tano->isDestroyed()) {
+					sendMaintenanceDestroyEmail(city, deco);
+					Locker clock(deco, city);
+					city->removeDecoration(deco);
+					deco->destroyObjectFromWorld(true);
+					deco->destroyObjectFromDatabase(true);
+				}
 			}
 		}
 
@@ -1252,6 +1283,7 @@ void CityManagerImplementation::updateCityVoting(CityRegion* city, bool override
 }
 
 void CityManagerImplementation::contractCity(CityRegion* city) {
+	uint8 oldRank = city->getCityRank();
 	uint8 newRank = city->getCityRank() - 1;
 	bool startedAssessment = false;
 
@@ -1267,6 +1299,9 @@ void CityManagerImplementation::contractCity(CityRegion* city) {
 
 		if (city->isRegistered())
 			unregisterCity(city, nullptr);
+	}
+	else if (oldRank == MEGALOPOLIS) {
+		city->setCitySpecialization("");
 	}
 
 	ManagedReference<SceneObject*> obj = zoneServer->getObject(city->getMayorID());
@@ -1312,7 +1347,8 @@ void CityManagerImplementation::contractCity(CityRegion* city) {
 void CityManagerImplementation::expandCity(CityRegion* city) {
 	uint8 currentRank = city->getCityRank();
 
-	if (currentRank == METROPOLIS) //City doesn't expand if it's metropolis.
+	// Infinity:  Custom rank 6 city
+	if (currentRank == MEGALOPOLIS) //City doesn't expand if it's megalopolis.
 		return;
 
 	uint8 newRank = currentRank + 1;
@@ -1371,7 +1407,7 @@ void CityManagerImplementation::destroyCity(CityRegion* city) {
 
 	city->destroyNavMesh();
 
-	for (int i = CityManager::METROPOLIS; i > 0; i--) {
+	for (int i = CityManager::MEGALOPOLIS; i > 0; i--) {
 		city->destroyAllStructuresForRank(uint8(i), false);
 	}
 
@@ -1601,13 +1637,13 @@ void CityManagerImplementation::sendCityAdvancement(CityRegion* city, CreatureOb
 		return;
 
 	int currentRank = citizensPerRank.get(rank - 1);
-	int nextRank = citizensPerRank.get(rank == METROPOLIS ? rank - 1 : rank);
+	int nextRank = citizensPerRank.get(rank == MEGALOPOLIS ? rank - 1 : rank);
 
 	listbox->addMenuItem("@city/city:city_rank_prompt @city/city:rank" + String::valueOf(rank)); // City Rank:
 	listbox->addMenuItem("@city/city:city_pop_prompt " + String::valueOf(city->getCitizenCount()) + " @city/city:citizens"); // City Population: citizens
 	listbox->addMenuItem("@city/city:pop_req_current_rank " + String::valueOf(currentRank) + " @city/city:citizens"); // Pop. Req. for Current Rank: citizens
 
-	if (rank < CityRegion::RANK_METROPOLIS)
+	if (rank < CityRegion::RANK_MEGALOPOLIS)
 		listbox->addMenuItem("@city/city:pop_req_next_rank " + String::valueOf(nextRank) + " @city/city:citizens"); // Pop. Req. for Next Rank: citizens
 	else
 		listbox->addMenuItem("@city/city:pop_req_next_rank @city/city:max_rank_achieved"); // Pop. Req. for Next Rank: Maximum City Rank Achieved
@@ -1846,7 +1882,7 @@ void CityManagerImplementation::promptAdjustTaxes(CityRegion* city, CreatureObje
 	if (ghost == nullptr)
 		return;
 
-	if (!ghost->hasAbility("manage_taxes")) {
+	if (!ghost->hasAbility("manage_taxes") && !ghost->isAdmin()) {  //Infinity:  Allow admins to adjust taxes
 		mayor->sendSystemMessage("@city/city:cant_tax"); //You lack the knowledge to manage the city's taxes.
 		return;
 	}
@@ -1883,7 +1919,7 @@ void CityManagerImplementation::promptSetTax(CityRegion* city, CreatureObject* m
 	if (ghost == nullptr)
 		return;
 
-	if (!ghost->hasAbility("manage_taxes")) {
+	if (!ghost->hasAbility("manage_taxes") && !ghost->isAdmin()) {  //Infinity:  Allow admins to adjust taxes
 		mayor->sendSystemMessage("@city/city:cant_tax"); //You lack the knowledge to manage the city's taxes.
 		return;
 	}
@@ -2475,4 +2511,84 @@ void CityManagerImplementation::alignAmenity(CityRegion* city, CreatureObject* p
 		return;
 
 	amenity->updateDirection(Math::deg2rad(90 * direction));
+}
+
+void CityManagerImplementation::sendCityStatusReport(CreatureObject* creature, const String& planetName) {
+	Locker _lock(_this.getReferenceUnsafeStaticCast(),creature);
+
+	Vector < byte > *citiesAllowed = &citiesAllowedPerRank.get(planetName.toLowerCase());
+
+	if(citiesAllowed->size() == 0) {
+		creature->sendSystemMessage("INVALID PLANET");
+		return;
+	}
+
+	int totalCities = 0;
+	int totalErroredCities = 0;
+
+	StringBuffer report;
+	report << endl << "=====================================================" << endl;
+	String localPlanetName = planetName;
+	localPlanetName[0] = toupper(localPlanetName[0]);
+	report << "City Status:  Planet = " << localPlanetName << endl;
+
+	report << "=====================================================" << endl;
+	report << "City, Rank, Specialization, Location, Property Tax, Travel Tax" << endl;
+	report << "-----------------------------------------------------------------------------------------------" << endl;
+
+	for (int i = 0; i < cities.size(); ++i) {
+		CityRegion* city = cities.get(i);
+
+		Zone* cityZone = city->getZone();
+
+		if (cityZone == nullptr) {
+				totalErroredCities++;
+				continue;
+		}
+
+		if(cityZone->getZoneName().toLowerCase() != planetName.toLowerCase()) {
+			continue;
+		}
+
+		ManagedReference<StructureObject*> cityHall = city->getCityHall();
+
+		totalCities++;
+
+		String cityName = city->getCityRegionName();
+
+		int cityNameLength = cityName.length();
+
+		report << cityName << ", ";
+
+		report << String::valueOf(city->getCityRank()) << ", ";
+
+		String specialization = city->getCitySpecialization();
+		String citySpec = StringIdManager::instance()->getStringId(specialization).toString();
+
+		if (citySpec == "") {
+			citySpec = "None";
+		}
+	
+		report << citySpec;
+
+		report << ", x: " << String::valueOf(ceil(city->getPositionX())) << " y:" << String::valueOf(ceil(city->getPositionY()));
+        report << ", " << city->getPropertyTax() << ", " << city->getTravelTax()  << endl;
+
+	}
+
+	report << "=====================================================" << endl;
+	report << "Total Cities: " << String::valueOf(totalCities) << endl;
+	report << "-----------------------------------------------------------------------------------------------" << endl;
+	report << "Max number of cities at rank 1 and above: " << String::valueOf(citiesAllowed->get(0)) << endl;
+	report << "Max number of cities at rank 2 and above: " << String::valueOf(citiesAllowed->get(1)) << endl;
+	report << "Max number of cities at rank 3 and above: " << String::valueOf(citiesAllowed->get(2)) << endl;
+	report << "Max number of cities at rank 4 and above: " << String::valueOf(citiesAllowed->get(3)) << endl;
+	report << "Max number of cities at rank 5: " << String::valueOf(citiesAllowed->get(4)) << endl;
+
+	creature->sendSystemMessage(report.toString());
+
+	ChatManager* chatManager = zoneServer->getChatManager();
+	String title = "cityStatus - " + planetName.toUpperCase();
+
+	chatManager->sendMail("System", title , report.toString(), creature->getFirstName());
 }

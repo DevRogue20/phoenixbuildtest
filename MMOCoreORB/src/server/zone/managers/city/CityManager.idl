@@ -64,6 +64,8 @@ class CityManager extends ManagedService implements Logger {
 	public static final byte TOWNSHIP = 3;
 	public static final byte CITY = 4;
 	public static final byte METROPOLIS = 5;
+	// Infinity:  Custom rank
+	public static final byte MEGALOPOLIS = 6;
 
 	public CityManager(ZoneServer zserv) {
 		Logger.setLoggingName("CityManager");
@@ -95,6 +97,8 @@ class CityManager extends ManagedService implements Logger {
 
 	public native void assessCitizens(CityRegion city);
 
+	//Infinity:  City should be locked before this function
+	@arg1preLocked
 	public native void processCityUpdate(CityRegion city);
 
 	/**
@@ -264,4 +268,6 @@ class CityManager extends ManagedService implements Logger {
 	public native void promptForceUpdate(CityRegion city, CreatureObject player);
 
 	public native void alignAmenity(CityRegion city, CreatureObject player, SceneObject amenity, int direction);
+
+	public native void sendCityStatusReport(CreatureObject creature, final string planetName);
 }

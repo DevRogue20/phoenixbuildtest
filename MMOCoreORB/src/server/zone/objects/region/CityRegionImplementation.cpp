@@ -1346,3 +1346,26 @@ void CityRegionImplementation::cleanupMissionTerminals(int limit) {
 uint64 CityRegionImplementation::getObjectID() const {
 	return _this.getReferenceUnsafeStaticCast()->_getObjectID();
 }
+
+bool CityRegionImplementation::isGCWBaseInsideRadius(int radiusToUse) {
+
+	if (zone == nullptr || cityHall == nullptr)
+		return false;
+
+	SortedVector<QuadTreeEntry*> inRangeObjects;
+	zone->getInRangeObjects(cityHall->getPositionX(), cityHall->getPositionY(), radiusToUse, &inRangeObjects, true, false);
+
+
+	for (int i = 0; i < inRangeObjects.size(); ++i) {
+		SceneObject* scene = cast<SceneObject*>(inRangeObjects.get(i));
+
+		if (scene == nullptr)
+			continue;
+
+		if (scene->isGCWBase())
+			return true;
+	}
+
+	return false;
+
+}

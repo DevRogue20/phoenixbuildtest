@@ -4,8 +4,8 @@ unkajo_tooth = {
 	customObjectName = "Unkajo's Tooth",
 	directObjectTemplate = "object/tangible/component/weapon/rancor_tooth.iff",
 	craftingValues = {
-		{"mindamage",250,300,0},
-		{"maxdamage",260,300,0},
+		{"mindamage",20,110,0},
+		{"maxdamage",120,180,0},
 		{"attackspeed",0.5,0,1},
 		{"woundchance",12,20,0},
 		{"hitpoints",100,300,0},

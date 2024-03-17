@@ -21,6 +21,13 @@ namespace region {
 		int _setObject(lua_State* L);
 		int _getObject(lua_State* L);
 		int isClientRegion(lua_State* L);
+		// Infinity:  Custom hooks
+		int isCityDecoration(lua_State* L);
+		int removeDecoration(lua_State* L);
+		int isGCWBaseInsideRadius(lua_State* L);
+		int getRadius(lua_State* L);
+		int addToTreasury(lua_State* L);
+		int isCitizen(lua_State* L);
 
 	protected:
 		CityRegion* _getRealCityRegion() {

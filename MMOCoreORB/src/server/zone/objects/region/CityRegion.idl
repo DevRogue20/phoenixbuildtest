@@ -137,6 +137,8 @@ class CityRegion extends ManagedObject implements Logger {
 	public static final byte RANK_TOWNSHIP = 3;
 	public static final byte RANK_CITY = 4;
 	public static final byte RANK_METROPOLIS = 5;
+	// Infinity:  Custom Rank
+	public static final byte RANK_MEGALOPOLIS = 6;
 
 	public static final byte TAX_INCOME = 0;
 	public static final byte TAX_PROPERTY = 1;
@@ -857,4 +859,13 @@ class CityRegion extends ManagedObject implements Logger {
 
 	@read
 	public native unsigned long getObjectID();
+
+	@dirty
+	public native boolean isCityDecoration(SceneObject object) {
+		return cityDecorations.contains(object);
+	}
+
+	// Infinity:  Custom functions
+	@dirty
+	public native boolean isGCWBaseInsideRadius(int radiusToUse);
 }

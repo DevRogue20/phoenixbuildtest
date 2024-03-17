@@ -50,6 +50,7 @@ public:
 			return GENERALERROR;
 		}
 
+/* Phoenix: Allow vendors in private structures. -Rogue
 		for (int i = 1; i <= building->getTotalCellNumber(); ++i) {
 			ManagedReference<CellObject*> cell = building->getCell(i);
 
@@ -64,7 +65,7 @@ public:
 					return GENERALERROR;
 				}
 			}
-		}
+		} */
 
 		if (building->togglePrivacy()) {
 			creature->sendSystemMessage("@player_structure:structure_now_public"); //This structure is now public
