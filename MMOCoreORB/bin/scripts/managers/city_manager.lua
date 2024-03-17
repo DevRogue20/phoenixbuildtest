@@ -77,8 +77,8 @@ EnableCityWarn = false
 --The number of citizens required to achieve each city rank. (Outpost, Village, Township, City, Metropolis, Megaopolis)
 -- Infinity:  Custom ranks and rank 6
 --CitizensPerRank = {2, 3, 5, 7, 15, 25}
---CitizensPerRank = {1, 2, 3, 4, 5, 6} --Phoenix: For testing only. -Rogue
-CitizensPerRank = {1, 1, 1, 1, 1, 1} --For environtment testing only. -Rogue
+CitizensPerRank = {1, 2, 3, 4, 5, 6} --Phoenix: For testing only. -Rogue
+--CitizensPerRank = {1, 1, 1, 1, 1, 1} --For environtment testing only. -Rogue
 
 --The radius in meters of the city at each city rank. (Outpost, Village, Township, City, Metropolis, Megalopolis)
 RadiusPerRank = {150, 200, 300, 400, 450, 450}
