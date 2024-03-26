@@ -62,8 +62,8 @@
 
 
 --Jedi System Features
---Values: "hologrind", "village"
---feature("jediSystem", "hologrind")
+Values: "hologrind", "village"
+feature("jediSystem", "hologrind")
 
 --Armor Protection
 --Values: "normal", "minisuits"

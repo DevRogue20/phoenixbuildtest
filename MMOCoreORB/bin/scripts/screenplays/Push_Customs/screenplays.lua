@@ -25,3 +25,7 @@ includeFile("Push_Customs/dws/dws.lua")
 
 --Tony's Memorial
 includeFile("Push_Customs/memorials/TonyMemorial.lua")
+
+--Jedi
+includeFile("Push_Customs/jedi/jedipush.lua")
+includeFile("Push_Customs/jedi/jedi_test_convo_handler.lua")

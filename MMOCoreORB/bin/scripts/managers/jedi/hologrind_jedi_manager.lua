@@ -3,8 +3,8 @@ local ObjectManager = require("managers.object.object_manager")
 
 jediManagerName = "HologrindJediManager"
 
-NUMBEROFPROFESSIONSTOMASTER = 6
-MAXIMUMNUMBEROFPROFESSIONSTOSHOWWITHHOLOCRON = NUMBEROFPROFESSIONSTOMASTER - 2
+NUMBEROFPROFESSIONSTOMASTER = 1
+MAXIMUMNUMBEROFPROFESSIONSTOSHOWWITHHOLOCRON = NUMBEROFPROFESSIONSTOMASTER - 0
 
 HologrindJediManager = JediManager:new {
 	screenplayName = jediManagerName,
@@ -17,7 +17,7 @@ HologrindJediManager = JediManager:new {
 -- @return a list of professions and their badge numbers.
 function HologrindJediManager:getGrindableProfessionList()
 	local grindableProfessions = {
-		-- String Id, badge number, profession name
+		--[[ String Id, badge number, profession name
 		--{ "pilot_rebel_navy_corellia", 	PILOT_REBEL_NAVY_CORELLIA },
 		--{ "pilot_imperial_navy_corellia", 	PILOT_IMPERIAL_NAVY_CORELLIA },
 		--{ "pilot_neutral_corellia", 		PILOT_CORELLIA },
@@ -59,10 +59,27 @@ function HologrindJediManager:getGrindableProfessionList()
 		--{ "pilot_neutral_naboo", 		PILOT_NEUTRAL_NABOO },
 		--{ "pilot_neutral_tatooine", 		PILOT_TATOOINE },
 		--{ "pilot_imperial_navy_tatooine", 	PILOT_IMPERIAL_NAVY_TATOOINE },
-		{ "combat_unarmed_master", 		COMBAT_UNARMED_MASTER  },
+		{ "combat_unarmed_master", 		COMBAT_UNARMED_MASTER  },]]
+		{ "bdg_exp_cor_bela_vistal_fountain",   	BDG_EXP_COR_BELA_VISTAL_FOUNTAIN}
 	--{ "pilot_rebel_navy_naboo", 		PILOT_REBEL_NAVY_NABOO }
 	}
-	return grindableProfessions
+	-- Filter out unknown professions (badge number 0)
+    grindableProfessions = filterProfessions(grindableProfessions, function(profession) 
+        return profession[2] ~= 0
+    end)
+
+    return grindableProfessions
+end
+
+-- Helper function to filter professions based on a condition
+function filterProfessions(professions, condition)
+    local result = {}
+    for i = 1, #professions do
+        if condition(professions[i]) then
+            table.insert(result, professions[i])
+        end
+    end
+    return result
 end
 
 -- Handling of the onPlayerCreated event.
@@ -127,28 +144,52 @@ end
 -- @param pCreatureObject pointer to the creature object of the player who unlocked jedi.
 function HologrindJediManager:sendSuiWindow(pCreatureObject)
 	local suiManager = LuaSuiManager()
-	suiManager:sendMessageBox(pCreatureObject, pCreatureObject, "@quest/force_sensitive/intro:force_sensitive", "Perhaps you should meditate somewhere alone...", "@ok", "HologrindJediManager", "notifyOkPressed")
+	suiManager:sendMessageBox(pCreatureObject, pCreatureObject, "@quest/force_sensitive/intro:force_sensitive", "Congratulations, you have reached the next level of enlightenment. Seek out a vergence in the force on Dantooine to continue your path...", "@ok", "HologrindJediManager", "notifyOkPressed")
 end
 
 -- Award skill and jedi status to the player.
 -- @param pCreatureObject pointer to the creature object of the player who unlocked jedi.
-function HologrindJediManager:awardJediStatusAndSkill(pCreatureObject)
-	local pGhost = CreatureObject(pCreatureObject):getPlayerObject()
+function HologrindJediManager:awardJediStatusAndSkill(pCreatureObject, pPlayer, pGhost, pInventory)
+    local pGhost = CreatureObject(pCreatureObject):getPlayerObject()
 
-	if (pGhost == nil) then
-		return
-	end
+    if (pGhost == nil) then
+        return
+    end
 
-	awardSkill(pCreatureObject, "force_title_jedi_novice")
-	PlayerObject(pGhost):setJediState(1)
+	
+
+    CreatureObject(pCreatureObject):playEffect("clienteffect/trap_electric_01.cef", "")
+    CreatureObject(pCreatureObject):playMusicMessage("sound/music_become_jedi.snd")
+    awardSkill(pCreatureObject, "force_title_jedi_novice")
+    awardSkill(pCreatureObject, "force_title_jedi_rank_01")
+    PlayerObject(pGhost):setJediState(1)
+    awardSkill(pCreatureObject, "force_title_jedi_rank_02")
+    PlayerObject(pGhost):setJediState(2)
+
+	local pInventory = SceneObject(pCreatureObject):getSlottedObject("inventory")
+
+    -- Check inventory
+    if (pInventory == nil or SceneObject(pInventory):isContainerFullRecursive()) then
+        CreatureObject(pCreatureObject):sendSystemMessage("@jedi_spam:inventory_full_jedi_robe")
+    else
+        -- Add Jedi robe to inventory
+        local pInventory = CreatureObject(pCreatureObject):getSlottedObject("inventory")
+        local pItem = giveItem(pInventory, "object/tangible/wearables/robe/robe_jedi_padawan.iff", -1)
+    end
+
+    -- Send welcome mail
+    sendMail("system", "@jedi_spam:welcome_subject", "@jedi_spam:welcome_body", CreatureObject(pCreatureObject):getFirstName())
 end
+
 
 -- Check if the player has mastered all hologrind professions and send sui window and award skills.
 -- @param pCreatureObject pointer to the creature object of the player to check the jedi progression on.
 function HologrindJediManager:checkIfProgressedToJedi(pCreatureObject)
 	if self:getNumberOfMasteredProfessions(pCreatureObject) >= NUMBEROFPROFESSIONSTOMASTER and not self:isJedi(pCreatureObject) then
 		self:sendSuiWindow(pCreatureObject)
-		self:awardJediStatusAndSkill(pCreatureObject)
+		CreatureObject(pCreatureObject):setScreenPlayState(1, "jedipush")
+		--self:awardJediStatusAndSkill(pCreatureObject)
+
 	end
 end
 
@@ -189,39 +230,50 @@ end
 -- @return the profession name associated with the badge number, Unknown profession returned if the badge number isn't found.
 function HologrindJediManager:getProfessionStringIdFromBadgeNumber(badgeNumber)
 	local skillList = self:getGrindableProfessionList()
+	local unknownBadgeNumber = nil
+
 	for i = 1, #skillList, 1 do
 		if skillList[i][2] == badgeNumber then
 			return skillList[i][1]
 		end
 	end
+
+	-- If the loop completes without returning, the badgeNumber is unknown
+	unknownBadgeNumber = badgeNumber
+	print("Unknown badgeNumber: " .. tostring(unknownBadgeNumber))
+	
 	return "Unknown profession"
 end
+
 
 -- Find out and send the response from the holocron to the player
 -- @param pCreatureObject pointer to the creature object of the player who used the holocron.
 function HologrindJediManager:sendHolocronMessage(pCreatureObject)
-	if self:getNumberOfMasteredProfessions(pCreatureObject) >= MAXIMUMNUMBEROFPROFESSIONSTOSHOWWITHHOLOCRON then
-		-- The Holocron is quiet. The ancients' knowledge of the Force will no longer assist you on your journey. You must continue seeking on your own.
-		CreatureObject(pCreatureObject):sendSystemMessage("@jedi_spam:holocron_quiet")
-		return true
-	else
-		local pGhost = CreatureObject(pCreatureObject):getPlayerObject()
+    if self:getNumberOfMasteredProfessions(pCreatureObject) >= MAXIMUMNUMBEROFPROFESSIONSTOSHOWWITHHOLOCRON then
+        -- The Holocron is quiet. The ancients' knowledge of the Force will no longer assist you on your journey. You must continue seeking on your own.
+        CreatureObject(pCreatureObject):sendSystemMessage("@jedi_spam:holocron_quiet")
+        return true
+    else
+        local pGhost = CreatureObject(pCreatureObject):getPlayerObject()
 
-		if (pGhost == nil) then
-			return false
-		end
+        if (pGhost == nil) then
+            return false
+        end
 
-		local professions = PlayerObject(pGhost):getHologrindProfessions()
-		for i = 1, #professions, 1 do
-			if not PlayerObject(pGhost):hasBadge(professions[i]) then
-				local professionText = self:getProfessionStringIdFromBadgeNumber(professions[i])
-				CreatureObject(pCreatureObject):sendSystemMessageWithTO("@jedi_spam:holocron_light_information", "@skl_n:" .. professionText)
-			end
-		end
+        local professions = PlayerObject(pGhost):getHologrindProfessions()
 
-		return false
-	end
+        for i = 1, #professions, 1 do
+            if not PlayerObject(pGhost):hasBadge(professions[i]) then
+                local professionText = self:getProfessionStringIdFromBadgeNumber(professions[i])
+                CreatureObject(pCreatureObject):sendSystemMessageWithTO("@jedi_spam:holocron_light_information", "@skl_n:" .. professionText)
+                return false  -- Exit the function once an unmastered profession is found
+            end
+        end
+
+        return false
+    end
 end
+
 
 -- Handling of the useItem event.
 -- @param pSceneObject pointer to the item object.

@@ -735,4 +735,3 @@ includeFile("custom_content/tools/mission_level_choice.lua")
 -- Custom content - Loads last to allow for overrides
 includeFile("../custom_scripts/screenplays/screenplays.lua")
 includeFile("custom_screenplays/screenplays.lua")
-
