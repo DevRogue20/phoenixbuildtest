@@ -3098,6 +3098,7 @@ ConversationScreen* DirectorManager::runScreenHandlers(const String& luaClass, C
 	runMethod << selectedOption;
 	runMethod << conversationScreen;
 
+
 	runMethod.callFunction();
 
 	ConversationScreen* result = (ConversationScreen*) lua_touserdata(lua->getLuaState(), -1);

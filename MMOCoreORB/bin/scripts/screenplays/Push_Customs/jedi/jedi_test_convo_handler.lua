@@ -8,13 +8,7 @@ jedi_test_convo_handler = conv_handler:new {}
 function jedi_test_convo_handler:getInitialScreen(pPlayer, pNpc, pConvTemplate)
     local convoTemplate = LuaConversationTemplate(pConvTemplate)
 
-     -- Deserialize screenplay states
-     local serializedStates = readScreenPlayData(pPlayer, "jedipush", "serializedStates")
-     if serializedStates then
-         jedipush:deserializeStates(serializedStates)
-     end
-
-    -- Check if the player has any screenplay states set
+    --[[ Check if the player has any screenplay states set
     if not (CreatureObject(pPlayer):hasScreenPlayState(1, "jedipush") or
             CreatureObject(pPlayer):hasScreenPlayState(4, "jedipush") or
             CreatureObject(pPlayer):hasScreenPlayState(16, "jedipush") or
@@ -22,19 +16,31 @@ function jedi_test_convo_handler:getInitialScreen(pPlayer, pNpc, pConvTemplate)
             CreatureObject(pPlayer):hasScreenPlayState(256, "jedipush")) then
         -- Return the "no_quest" screen if no screenplay state is set
         return convoTemplate:getScreen("no_quest")
-    end
+    end]]
 
     -- If the player has a screenplay state, return the appropriate screen
     if CreatureObject(pPlayer):hasScreenPlayState(1, "jedipush") then
         return convoTemplate:getScreen("intro")
+    elseif CreatureObject(pPlayer):hasScreenPlayState(2, "jedipush") then
+        return convoTemplate:getScreen("task_one_active")        
     elseif CreatureObject(pPlayer):hasScreenPlayState(4, "jedipush") then
         return convoTemplate:getScreen("trial_two")
+    elseif CreatureObject(pPlayer):hasScreenPlayState(8, "jedipush") then
+        return convoTemplate:getScreen("task_two_active")  
     elseif CreatureObject(pPlayer):hasScreenPlayState(16, "jedipush") then
         return convoTemplate:getScreen("trial_three")
+    elseif CreatureObject(pPlayer):hasScreenPlayState(32, "jedipush") then
+        return convoTemplate:getScreen("task_three_active")  
     elseif CreatureObject(pPlayer):hasScreenPlayState(64, "jedipush") then
         return convoTemplate:getScreen("trial_four")
+    elseif CreatureObject(pPlayer):hasScreenPlayState(128, "jedipush") then
+        return convoTemplate:getScreen("task_four_active")  
     elseif CreatureObject(pPlayer):hasScreenPlayState(256, "jedipush") then
         return convoTemplate:getScreen("trial_five")
+    elseif CreatureObject(pPlayer):hasScreenPlayState(512, "jedipush") then
+        return convoTemplate:getScreen("trial_isJedi")
+    elseif CreatureObject(pPlayer):hasScreenPlayState(1024, "jedipush") then
+        return convoTemplate:getScreen("trial_abandon")
     end
 end
 
@@ -70,13 +76,9 @@ function jedi_test_convo_handler:runScreenHandlers(pConvTemplate, pPlayer, pNpc,
 
     elseif screenID == "trial_finish" then
         HologrindJediManager:awardJediStatusAndSkill(pPlayer)
+        jedipush:setJediTrainer(pPlayer)
         CreatureObject(pPlayer):removeScreenPlayState(256, "jedipush")
         CreatureObject(pPlayer):setScreenPlayState(512, "jedipush")
     end
-
-    -- Serialize screenplay states after each screen transition
-    writeScreenPlayData(pPlayer, "jedipush", "serializedStates", jedipush:serializeStates())
-
-
     return pConvScreen
 end

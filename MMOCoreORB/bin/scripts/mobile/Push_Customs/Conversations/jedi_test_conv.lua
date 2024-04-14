@@ -43,6 +43,14 @@ task_one = ConvoScreen:new {
 }
 jedi_test_convo_template:addScreen(task_one);
 
+task_one_active = ConvoScreen:new {
+	id = "task_one_active",
+	customDialogText = "You have not completed the Tusken Slayer Trial. Return when it is complete",
+	stopConversation = "true",
+	options = {}
+}
+jedi_test_convo_template:addScreen(task_one_active);
+
 trial_two = ConvoScreen:new {
 	id = "trial_two",
 	customDialogText = "You have overcome many battles to be before me once again. Your next trial could prove to be more challenging than the last. Travel to Witch Camps of Dathomir and slay 30 Nightsister Elders.",
@@ -61,6 +69,14 @@ task_two = ConvoScreen:new {
 	options = {}
 }
 jedi_test_convo_template:addScreen(task_two);
+
+task_two_active = ConvoScreen:new {
+	id = "task_two_active",
+	customDialogText = "You have not completed the Witches of Dathomir Trial. Return when it is complete.",
+	stopConversation = "true",
+	options = {}
+}
+jedi_test_convo_template:addScreen(task_two_active);
 
 trial_three = ConvoScreen:new {
 	id = "trial_three",
@@ -81,6 +97,14 @@ task_three = ConvoScreen:new {
 }
 jedi_test_convo_template:addScreen(task_three);
 
+task_three_active = ConvoScreen:new {
+	id = "task_three_active",
+	customDialogText = "You have not completed the Acklay Trial. Return when it is complete",
+	stopConversation = "true",
+	options = {}
+}
+jedi_test_convo_template:addScreen(task_three_active);
+
 trial_four = ConvoScreen:new {
 	id = "trial_four",
 	customDialogText = "You have survived the Acklay, Do not let your pride blind you young one. Travel to Tatooine and find the graveyards of the fabeled Ancient Krayt Dragons. Slay 5 of these creatures and return to me, hopefully alive.",
@@ -100,9 +124,17 @@ task_four = ConvoScreen:new {
 }
 jedi_test_convo_template:addScreen(task_four);
 
+task_four_active = ConvoScreen:new {
+	id = "task_four_active",
+	customDialogText = "You have not completed the Krayt Trial. Return when it is complete",
+	stopConversation = "true",
+	options = {}
+}
+jedi_test_convo_template:addScreen(task_four_active);
+
 trial_five = ConvoScreen:new {
 	id = "trial_five",
-	customDialogText = "You have reached the fifth and final trial. Before we continue you must understand that if you fail this trial the force will abaindon you and you will no longer be able to become one with the force or become a Jedi. Think long and hard before answering this question. How much wood, would a woodchuck chuck, if a woodchuck, could chuck, wood?",
+	customDialogText = "You have reached the fifth and final trial. Before we continue you must understand that if you fail this trial the force will abandon you and you will no longer be able to become one with the force or become a Jedi. Think long and hard before answering this question. How much wood, would a woodchuck chuck, if a woodchuck, could chuck, wood?",
 	stopConversation = "False",
 	options = {
 		{"69 of course", "trial_finish"},
@@ -127,6 +159,14 @@ trial_fail = ConvoScreen:new {
 }
 jedi_test_convo_template:addScreen(trial_fail);
 
+trial_abandon = ConvoScreen:new {
+	id = "trial_abandon",
+	customDialogText = " I sense your frustration, young one. The trials are not just about skill or dedication. They are a test of one's connection with the Force, their resolve, and their understanding of its ways. Feeling the Force and truly understanding it are different matters, my apprentice. Sometimes, the path to enlightenment is not a straight one. It twists and turns, presenting challenges we may not anticipate. While the path of a Jedi may not be yours to tread, it does not mean your journey ends here. There are other ways to serve the galaxy, other paths to walk. Perhaps your destiny lies in a different direction, one where your unique talents can shine. The Force has a plan for each of us, even if we cannot see it clearly. Trust in its guidance, and you will find your purpose. May the Force be with you, my young friend. And remember, failure is not the end. It is but a step on the journey to greatness.",
+	stopConversation = "true",
+	options = {}
+}
+jedi_test_convo_template:addScreen(trial_abandon);
+
 no_quest = ConvoScreen:new {
 	id = "no_quest",
 	customDialogText = "May the Force be with you, young one. Remember, the Force flows through all living things. Trust in its guidance, and you will find your path. Seek balance in all that you do, and the light will always prevail over the darkness. Stay true to your values and remain vigilant against the temptations of the dark side. Your journey is just beginning, but with patience and determination, you will become a beacon of hope for the galaxy.",
@@ -134,6 +174,14 @@ no_quest = ConvoScreen:new {
 	options = {}
 }
 jedi_test_convo_template:addScreen(no_quest);
+
+trial_isJedi = ConvoScreen:new {
+	id = "trial_isJedi",
+	customDialogText = "The Force is with you... ",
+	stopConversation = "true",
+	options = {}
+}
+jedi_test_convo_template:addScreen(trial_isJedi);
 
 addConversationTemplate("jedi_test_convo_template", jedi_test_convo_template);
 

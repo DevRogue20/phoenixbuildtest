@@ -157,8 +157,9 @@ function HologrindJediManager:awardJediStatusAndSkill(pCreatureObject, pPlayer, 
     end
 
 	
-
+	CreatureObject(pCreatureObject):sendSystemMessage("Congratulations You Have unlocked Jedi!")
     CreatureObject(pCreatureObject):playEffect("clienteffect/trap_electric_01.cef", "")
+	CreatureObject(pCreatureObject):playEffect("clienteffect/pl_force_meditate_self.cef", "")
     CreatureObject(pCreatureObject):playMusicMessage("sound/music_become_jedi.snd")
     awardSkill(pCreatureObject, "force_title_jedi_novice")
     awardSkill(pCreatureObject, "force_title_jedi_rank_01")
@@ -178,17 +179,25 @@ function HologrindJediManager:awardJediStatusAndSkill(pCreatureObject, pPlayer, 
     end
 
     -- Send welcome mail
-    sendMail("system", "@jedi_spam:welcome_subject", "@jedi_spam:welcome_body", CreatureObject(pCreatureObject):getFirstName())
+    sendMail("Phoenix Jedi", "@jedi_spam:welcome_subject", "I hope this message finds you in high spirits and brimming with excitement, as you've achieved a remarkable milestone in your journey on Project Phoenix; unlocking your Jedi! Allow us to extend our heartfelt congratulations to you on this extraordinary accomplishment. Your dedication, perseverance, and hard work have undoubtedly paid off, leading you to this significant moment. Becoming a Jedi is no small feat, and your commitment to mastering the Force is truly commendable. It is a testament to your skill and determination within our community. However, as you step into the shoes of a Jedi, it's important to recognize that as you are capable of great feats of power, you will start your journey weak and vulnerable.  First off get your training saber crafted and get to practicing your skills. once you have enough experienced gained you can locate a trainer and train the Jedi Padawan Skill. It's crucial to remain vigilant and mindful of your actions as you embark on this new chapter of your journey. XP will be not be easy to achieve without help, but with help comes visibility and with visibility comes bounty hunters. The path is slow and long, but in the end you will be a true force. As you venture forth as a Jedi, It will be more important than ever to be warry of who you can trust. There will be those that wish to see your demise... with death comes a loss of skill, do what you must to survive the harsh environments. Once again, congratulations on this momentous achievement. May the Force be with you always.", CreatureObject(pCreatureObject):getFirstName())
+	--sendMail("system", "@jedi_spam:welcome_subject", "@jedi_spam:welcome_body", CreatureObject(pCreatureObject):getFirstName())
 end
 
 
 -- Check if the player has mastered all hologrind professions and send sui window and award skills.
 -- @param pCreatureObject pointer to the creature object of the player to check the jedi progression on.
 function HologrindJediManager:checkIfProgressedToJedi(pCreatureObject)
+	-- Check if the player already has a screenplay state related to the "jedipush" quest
+    if CreatureObject(pCreatureObject):getScreenPlayState("jedipush") ~= 0 then
+        -- Player already progressed in the quest, no need to proceed further
+        return
+    end
+    
+    -- Check if the player has mastered all hologrind professions and send sui window and award skills.
 	if self:getNumberOfMasteredProfessions(pCreatureObject) >= NUMBEROFPROFESSIONSTOMASTER and not self:isJedi(pCreatureObject) then
 		self:sendSuiWindow(pCreatureObject)
-		CreatureObject(pCreatureObject):setScreenPlayState(1, "jedipush")
-		--self:awardJediStatusAndSkill(pCreatureObject)
+		--CreatureObject(pCreatureObject):setScreenPlayState(1, "jedipush")
+		self:awardJediStatusAndSkill(pCreatureObject)
 
 	end
 end
@@ -217,12 +226,17 @@ end
 -- Handling of the onPlayerLoggedIn event. The progression of the player will be checked and observers will be registered.
 -- @param pCreatureObject pointer to the creature object of the player who logged in.
 function HologrindJediManager:onPlayerLoggedIn(pCreatureObject)
-	if (pCreatureObject == nil) then
+	local pGhost = CreatureObject(pCreatureObject):getPlayerObject()
+
+	if (pGhost == nil) then
 		return
 	end
+		
 
+	jedipush:onPlayerLoggedIn(pCreatureObject)
 	self:checkIfProgressedToJedi(pCreatureObject)
 	self:registerObservers(pCreatureObject)
+	
 end
 
 -- Get the profession name from the badge number.

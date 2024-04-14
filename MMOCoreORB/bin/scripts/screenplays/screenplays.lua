@@ -160,12 +160,12 @@ includeFile("dungeon/corellian_corvette/ticket_takers/klaatu.lua")
 includeFile("dungeon/corellian_corvette/ticket_takers/lt_lance.lua")
 
 
--- Village
+--[[ Village
 includeFile("village/village_community_crafting.lua")
 includeFile("village/village_gm_sui.lua")
-includeFile("village/village_jedi_manager_common.lua")
+includeFile("village/village_jedi_manager_common.lua")]]
 includeFile("village/village_jedi_manager_holocron.lua")
-includeFile("village/village_jedi_manager_township.lua")
+--[[includeFile("village/village_jedi_manager_township.lua")
 includeFile("village/village_raids.lua")
 includeFile("village/village_spawn_table.lua")
 includeFile("village/intro/fs_intro.lua")
@@ -244,7 +244,7 @@ includeFile("village/convos/phase4/fs_gadget_specialist_phase4_conv_handler.lua"
 includeFile("village/convos/phase4/chief_engineer_phase4_conv_handler.lua")
 includeFile("village/convos/phase4/med_droid_phase4_conv_handler.lua")
 includeFile("village/convos/phase4/sarguillo_phase4_conv_handler.lua")
-includeFile("village/convos/phase4/sivarra_phase4_conv_handler.lua")
+includeFile("village/convos/phase4/sivarra_phase4_conv_handler.lua")]]
 
 -- Jedi Trials
 includeFile("jedi/trialData.lua")
@@ -360,13 +360,13 @@ includeFile("tasks/hero_of_tatooine/heroOfTatooine.lua")
 includeFile("tasks/hero_of_tatooine/heroOfTatooineContainerComponents.lua")
 includeFile("tasks/hero_of_tatooine/heroOfTatooineMenuComponents.lua")
 
--- Darndroid Quests
+--[[ Darndroid Quests
 includeFile("tasks/darndroid/conversations/amarentConvoHandler.lua")
 includeFile("tasks/darndroid/conversations/c3tcConvoHandler.lua")
 includeFile("tasks/darndroid/conversations/selanConvoHandler.lua")
 includeFile("tasks/darndroid/conversations/valanceConvoHandler.lua")
 includeFile("tasks/darndroid/darndroid1.lua")
-includeFile("tasks/darndroid/darndroid2.lua")
+includeFile("tasks/darndroid/darndroid2.lua")]]
 
 -- Safety Measures Quests
 includeFile("tasks/safety_measures/safety_measures.lua")

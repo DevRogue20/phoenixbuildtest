@@ -16,8 +16,6 @@
 #include "LootGroupMap.h"
 #include "server/zone/objects/tangible/component/lightsaber/LightsaberCrystalComponent.h"
 
-// #define DEBUG_LOOT_MAN
-
 void LootManagerImplementation::initialize() {
 	info("Loading configuration.");
 
