@@ -36,3 +36,6 @@ includeFile("trainer/trainer_tailor.lua")
 includeFile("trainer/trainer_unarmed.lua")
 includeFile("trainer/trainer_weaponsmith.lua")
 includeFile("trainer/trainer_jedi.lua")
+
+includeFile("trainer/trainer_jedi_dark.lua")
+includeFile("trainer/trainer_jedi_light.lua")

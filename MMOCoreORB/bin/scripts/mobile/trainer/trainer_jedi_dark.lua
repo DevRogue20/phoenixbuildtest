@@ -1,5 +1,5 @@
-trainer_jedi = Creature:new {
-	customName = "Padawan Trainer",
+trainer_jedi_dark = Creature:new {
+	customName = "Dark Jedi Trainer",
 	faction = "",
 	level = 100,
 	chanceHit = 0.390000,
@@ -25,9 +25,9 @@ trainer_jedi = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {
-		"object/mobile/dressed_padawan_female_bothan_02.iff",
-		"object/mobile/dressed_padawan_male_human_02.iff",
-		"object/mobile/dressed_padawan_female_wke_04.iff"
+		"object/mobile/dressed_dark_jedi_master_male_human_06.iff",
+		"object/mobile/dressed_dark_jedi_master_female_twk_02.iff",
+		"object/mobile/dressed_dark_jedi_master_male_zab_01.iff"
 	},
 	lootGroups = {},
 
@@ -35,11 +35,11 @@ trainer_jedi = Creature:new {
 	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
 	primaryWeapon = "unarmed",
 	secondaryWeapon = "none",
-	conversationTemplate = "jediTrainerConvoTemplate",
+	conversationTemplate = "darkjediTrainerConvoTemplate",
 	
 	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
 	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
 	primaryAttacks = {},
 	secondaryAttacks = { }
 }
-CreatureTemplates:addCreatureTemplate(trainer_jedi,"trainer_jedi")
+CreatureTemplates:addCreatureTemplate(trainer_jedi_dark,"trainer_jedi_dark")

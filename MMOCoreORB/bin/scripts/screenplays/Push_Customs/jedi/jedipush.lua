@@ -486,6 +486,14 @@ function jedipush:onPlayerLoggedIn(pPlayer)
         self:acklayRestart(pPlayer)
     elseif CreatureObject(pPlayer):hasScreenPlayState(128, "jedipush") then
         self:kraytRestart(pPlayer)
+    elseif CreatureObject(pPlayer):hasSkill("jedi_dark_side_journeyman_novice") then
+        CreatureObject(pPlayer):setFaction(FACTIONIMPERIAL)
+		--print("faction set to Imperial")
+    elseif CreatureObject(pPlayer):hasSkill("jedi_light_side_journeyman_novice") then
+        CreatureObject(pPlayer):setFaction(FACTIONREBEL)
+		--print("faction set to Rebel")
+        
+        
     end
 end
 

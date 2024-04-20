@@ -30,6 +30,16 @@ function trainerConvHandler:runScreenHandlers(pConvTemplate, pPlayer, pNpc, sele
 		stringTable = "@jedi_trainer:"
 	end
 
+	if (trainerType == "trainer_jedi_light") then
+		isJediTrainer = true
+		stringTable = "@jedi_trainer_light:"
+	end
+
+	if (trainerType == "trainer_jedi_dark") then
+		isJediTrainer = true
+		stringTable = "@jedi_trainer_dark:"
+	end
+
 	if (screenID == "intro") then
 		local pConvScreen = screen:cloneScreen()
 		local clonedConversation = LuaConversationScreen(pConvScreen)
@@ -269,6 +279,41 @@ function trainerConvHandler:handleConfirmLearnScreen(pConvTemplate, pPlayer, pNp
 		messageString:setTO(skillStringId)
 		CreatureObject(pPlayer):sendSystemMessage(messageString:_getObject())
 		clonedConversation:setDialogTextStringId(stringTable .. "error_grant_skill")
+	end
+
+	if CreatureObject(pPlayer):hasSkill("jedi_dark_side_journeyman_novice") then
+        CreatureObject(pPlayer):setFaction(FACTIONIMPERIAL)
+		CreatureObject(pPlayer):sendSystemMessage(" \\#822EFF\\You are now an agent of the Empire.")
+		CreatureObject(pPlayer):playMusicMessage("sound/music_become_dark_jedi.snd")
+		--print("faction set to Imperial")
+
+		local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+
+		-- Check inventory
+		if (pInventory == nil or SceneObject(pInventory):isContainerFullRecursive()) then
+			CreatureObject(pCreatureObject):sendSystemMessage("@jedi_spam:inventory_full_jedi_robe")
+		else
+			-- Add Jedi robe to inventory
+			local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+			local pItem = giveItem(pInventory, "object/tangible/wearables/robe/robe_jedi_dark_s01.iff", -1)
+		end
+
+	elseif CreatureObject(pPlayer):hasSkill("jedi_light_side_journeyman_novice") then
+        CreatureObject(pPlayer):setFaction(FACTIONREBEL)
+		CreatureObject(pPlayer):sendSystemMessage(" \\#FF5F1F\\You are now assigned to the Rebel Alliance.")
+		CreatureObject(pPlayer):playMusicMessage("sound/music_become_light_jedi.snd")
+		--print("faction set to Rebel")
+
+		local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+
+		-- Check inventory
+		if (pInventory == nil or SceneObject(pInventory):isContainerFullRecursive()) then
+			CreatureObject(pPlayer):sendSystemMessage("@jedi_spam:inventory_full_jedi_robe")
+		else
+			-- Add Jedi robe to inventory
+			local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+			local pItem = giveItem(pInventory, "object/tangible/wearables/robe/robe_jedi_light_s01.iff", -1)
+		end
 	end
 
 	if (SkillTrainer:hasSurpassedTrainer(pPlayer, trainerType)) then

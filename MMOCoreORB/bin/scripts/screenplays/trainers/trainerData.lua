@@ -811,7 +811,10 @@ trainerSkills = {
 		"jedi_padawan_force_manipulation_01",
 		"jedi_padawan_force_manipulation_02",
 		"jedi_padawan_force_manipulation_03",
-		"jedi_padawan_force_manipulation_04",
+		"jedi_padawan_force_manipulation_04"
+	},
+
+	trainer_jedi_light = {
 		"jedi_light_side_journeyman_novice",
 		"jedi_light_side_journeyman_master",
 		"jedi_light_side_journeyman_saber_01",
@@ -848,6 +851,8 @@ trainerSkills = {
 		"jedi_light_side_master_force_manipulation_02",
 		"jedi_light_side_master_force_manipulation_03",
 		"jedi_light_side_master_force_manipulation_04",
+	},
+	trainer_jedi_dark = {
 		"jedi_dark_side_journeyman_novice",
 		"jedi_dark_side_journeyman_master",
 		"jedi_dark_side_journeyman_saber_01",
@@ -884,6 +889,7 @@ trainerSkills = {
 		"jedi_dark_side_master_force_manipulation_02",
 		"jedi_dark_side_master_force_manipulation_03",
 		"jedi_dark_side_master_force_manipulation_04"
+	}
 		
 		--[["force_discipline_light_saber_novice",
 		"force_discipline_light_saber_master",
@@ -974,6 +980,6 @@ trainerSkills = {
 		"force_discipline_defender_preternatural_defense_01",
 		"force_discipline_defender_preternatural_defense_02",
 		"force_discipline_defender_preternatural_defense_03",
-		"force_discipline_defender_preternatural_defense_04"]]
-	},
+		"force_discipline_defender_preternatural_defense_04"
+	},]]
 }
