@@ -196,8 +196,8 @@ function HologrindJediManager:checkIfProgressedToJedi(pCreatureObject)
     -- Check if the player has mastered all hologrind professions and send sui window and award skills.
 	if self:getNumberOfMasteredProfessions(pCreatureObject) >= NUMBEROFPROFESSIONSTOMASTER and not self:isJedi(pCreatureObject) then
 		self:sendSuiWindow(pCreatureObject)
-		--CreatureObject(pCreatureObject):setScreenPlayState(1, "jedipush")
-		self:awardJediStatusAndSkill(pCreatureObject)
+		CreatureObject(pCreatureObject):setScreenPlayState(1, "jedipush")
+		--self:awardJediStatusAndSkill(pCreatureObject)
 
 	end
 end

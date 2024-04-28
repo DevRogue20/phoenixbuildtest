@@ -27,6 +27,61 @@ local trials = {
     kGoal = 1
     }
 }
+-- Define the x and y ranges for each planet
+local planetRanges = {
+    corellia = { minX = 1732, maxX = 1732, minY = 4464, maxY = 4464 } --{ minX = -300, maxX = 1800, minY = 3500, maxY = 5100 }
+}
+
+local spawnLocations = {
+    {74, 46, 4054},
+    {303, 50, 4205},
+    {707, 19, 4502},
+    {1098, 20, 3900},
+    {1597, 25, 4003},
+    {986, 19, 4900},
+    {891, 30, 3804},
+    {1194, 31, 4197},
+    {1399, 19, 4805},
+    {797, 49, 3705},
+    {228, 54, 3846},
+    {1694, 32, 4998},
+    {147, 50, 3908},
+    {608, 21, 3997},
+    {1091.7, 19, 4126.1},
+    {270, 20, 4694},
+    {1314, 19, 3946},
+    {388, 19, 4603},
+    {791, 19, 4814},
+    {1598, 19, 4292},
+    {207, 22, 4219},
+    {696.7, 48, 4391.8},
+    {1006.9, 42, 3731.7},
+    {1478.8, 19, 4813.2},
+    {304, 50, 4206},
+    {797.8, 19, 4993.2},
+    {1110.9, 49, 3831.8},
+    {1379.9, 20, 4297.9},
+    {1698, 28, 4400},
+    {203, 20, 4708},
+    {603, 19, 3895},
+    {1310, 50, 4385},
+    {507, 50, 4765},
+    {904, 42, 5000},
+    {1200, 20, 3890},
+    {1602, 20, 4704},
+    {115, 20, 4597},
+    {400, 22, 5000},
+    {1497, 19, 4198},
+    {1000, 40, 4000},
+    {994, 19, 4710},
+    {1401, 31, 4400},
+    {1710, 49, 4899},
+    {200, 40, 3900},
+    {600, 33, 4400},
+    {1296, 20, 5000},
+    {498, 29, 3699},
+    {921, 19, 3903},
+}
 
 -- Define Jedi Trials screenplay object
 jedipush = ScreenPlay:new {
@@ -43,7 +98,11 @@ jedipush = ScreenPlay:new {
         128,
         256,
         512,
-        1024
+        1024,
+        2048,
+        4096,
+        8192,
+        16384
     },
 }
 
@@ -443,7 +502,7 @@ function jedipush:ktargetdestroyed(pPlayer, pVictim)
 
                 -- Check if target count meets the goal
                 if targetCount >= goal then
-                    print("Goal reached!")
+                    --print("Goal reached!")
 
                     local pInventory = SceneObject(pPlayer):getSlottedObject("inventory")
                     local pItem = giveItem(pInventory, "object/tangible/item/quest/force_sensitive/bacta_tank.iff", -1)
@@ -454,9 +513,9 @@ function jedipush:ktargetdestroyed(pPlayer, pVictim)
                     -- Transition to the next trial
                     CreatureObject(pPlayer):removeScreenPlayState(128, "jedipush")
                     CreatureObject(pPlayer):setScreenPlayState(256, "jedipush")
-                    print("sreenplaystate 128 removed and 256 set")
+                    --print("sreenplaystate 128 removed and 256 set")
                     dropObserver(KILLEDCREATURE, "jedipush", "ktargetdestroyed", pPlayer)
-                    print("KILLEDCREATURE dropped")
+                    --print("KILLEDCREATURE dropped")
                     CreatureObject(pPlayer):playMusicMessage("sound/ui_npe2_quest_completed.snd")
                     CreatureObject(pPlayer):sendSystemMessage("Seek out the Force essence for your next trial")
                 end
@@ -492,8 +551,19 @@ function jedipush:onPlayerLoggedIn(pPlayer)
     elseif CreatureObject(pPlayer):hasSkill("jedi_light_side_journeyman_novice") then
         CreatureObject(pPlayer):setFaction(FACTIONREBEL)
 		--print("faction set to Rebel")
+    elseif CreatureObject(pPlayer):hasScreenPlayState(1024, "jedipush") then
+        local npcPool = {"yoda_test"}
         
+        -- Choose a random location from the spawnLocations table
+        local randomIndex = math.random(1, #spawnLocations)
+        local randomLocation = spawnLocations[randomIndex]
         
+        -- Spawn the NPC at the random location
+        local pYoda = spawnMobile("corellia", "yoda_test", 1, randomLocation[1], randomLocation[2], randomLocation[3], 0, 0)
+        
+        print("Random Location: X: " .. randomLocation[1] .. ", Z: " .. randomLocation[2] .. ", Y: " .. randomLocation[3])
+
+        return randomLocation
     end
 end
 
@@ -634,4 +704,42 @@ function jedipush:kraytRestart(pPlayer, pVictim)
         self:ktargetdestroyed(pPlayer)
     end
 end
+
+
+--***********************************************************************************************************************************************
+
+-- Function to start the last trial with random parameters
+function jedipush:startRandomTrial(pPlayer)
+    if (pPlayer == nil) then
+        print("random trial pPlayer is nil")
+        return
+    end
     
+    if CreatureObject(pPlayer):hasScreenPlayState(512, "jedipush") then
+        print("Random Trial Started")
+
+        CreatureObject(pPlayer):removeScreenPlayState(512, "jedipush")
+        print("removing sps 512")
+        CreatureObject(pPlayer):setScreenPlayState(1024, "jedipush")
+        print("ssps 1024")
+        CreatureObject(pPlayer):sendSystemMessage(" \\#FFFF00\\<Communicator>  \\#0000FF\\Trial 5: Quest for the Five Masters")
+        CreatureObject(pPlayer):playMusicMessage("sound/ui_npe2_quest_received.snd")
+        
+        -- Define your pool of NPCs and goals
+        local npcPool = {"yoda_test"}
+        
+        -- Choose a random location from the selected planet within the defined ranges
+        local range = planetRanges["corellia"]
+        local randomX = math.random(range.minX, range.maxX)
+        local randomZ = 50 -- Define the z coordinate if needed
+        local randomY = math.random(range.minY, range.maxY)
+        
+        -- Spawn the NPC at the random location
+        local pYoda = spawnMobile("corellia", "yoda_test", 1, randomX, randomZ, randomY, 0, 0)
+        
+        local randomLocation = { randomX,  randomZ, randomY}
+        print("Random Location: X: " .. randomX .. ", Z: " .. randomZ .. ", Y: " .. randomY)
+
+        return randomLocation
+    end
+end

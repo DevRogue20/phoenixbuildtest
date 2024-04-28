@@ -134,30 +134,42 @@ jedi_test_convo_template:addScreen(task_four_active);
 
 trial_five = ConvoScreen:new {
 	id = "trial_five",
-	customDialogText = "You have reached the fifth and final trial. Before we continue you must understand that if you fail this trial the force will abandon you and you will no longer be able to become one with the force or become a Jedi. Think long and hard before answering this question. How much wood, would a woodchuck chuck, if a woodchuck, could chuck, wood?",
-	stopConversation = "False",
+	customDialogText = "You have reached the fifth and final trial. Before we continue you must understand that if you fail this trial the force will abandon you and you will no longer be able to become one with the force or become a Jedi.",
+	stopConversation = "false",
 	options = {
-		{"69 of course", "trial_finish"},
-		{"FML, I quit", "trial_fail"}
+		{"I understand, Please continue.", "trial_five_a"}
 	}
 }
 jedi_test_convo_template:addScreen(trial_five);
 
+trial_five_a = ConvoScreen:new {
+	id = "trial_five_a",
+	customDialogText = "Recently, contact was lost with a powerful force user. You must track down this person to gain the answers that you seek. Only then can you be a jedi... Seek out this powerful ally of the force and return to me the Holocron of the Five Masters. They were last known to be wondering the swamps of Corellia.",
+	stopConversation = "false",
+	options = {
+		{"I understand, I will seek out this powerful force user.", "trial_five_active"}
+	}
+}
+jedi_test_convo_template:addScreen(trial_five_a);
+
+trial_five_active = ConvoScreen:new {
+	id = "trial_five_active",
+	customDialogText = "Your destiny awaits you on Corellia...",
+	stopConversation = "true",
+	options = {
+		}
+}
+jedi_test_convo_template:addScreen(trial_five_active);
+
 trial_finish = ConvoScreen:new {
 	id = "trial_finish",
-	customDialogText = "You have answered correctly... ",
-	stopConversation = "true",
-	options = {}
+	customDialogText = "I can sense the Holocron of the Five Masters.. ",
+	stopConversation = "false",
+	options = {
+		{"Yes, I have retrieved it as you have requested.", "trial_isJedi"}
+	}
 }
 jedi_test_convo_template:addScreen(trial_finish);
-
-trial_fail = ConvoScreen:new {
-	id = "trial_fail",
-	customDialogText = "You have answered incorrectly... ",
-	stopConversation = "true",
-	options = {}
-}
-jedi_test_convo_template:addScreen(trial_fail);
 
 trial_abandon = ConvoScreen:new {
 	id = "trial_abandon",
@@ -177,15 +189,10 @@ jedi_test_convo_template:addScreen(no_quest);
 
 trial_isJedi = ConvoScreen:new {
 	id = "trial_isJedi",
-	customDialogText = "The Force is with you... ",
+	customDialogText = "The Force is with you... Always ",
 	stopConversation = "true",
 	options = {}
 }
 jedi_test_convo_template:addScreen(trial_isJedi);
 
 addConversationTemplate("jedi_test_convo_template", jedi_test_convo_template);
-
---[["In the depths of the Dantooine wilderness, there lies a hidden enclave of Force-sensitive beings. 
-What is the name of this secluded group, and what role do they play in the balance of the Force?"
-This question refers to the enclave of the Followers of Palawa, who are Force-sensitive but are neither Jedi nor Sith. 
-Their role in the balance of the Force is not explicitly defined, leaving room for interpretation and making the answer less straightforward.]]

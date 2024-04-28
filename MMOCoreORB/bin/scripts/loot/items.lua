@@ -1207,6 +1207,7 @@ includeFile("items/wearables/wookiee/wke_skirt_s04.lua")
 includeFile("items/push/sherkar_venom.lua")
 includeFile("items/push/sherkar_venom_rare.lua")
 includeFile("items/push/sherkar_tissue.lua")
+includeFile("items/push/five_masters.lua")
 
 includeFile("items/push/barc_speeder.lua")
 

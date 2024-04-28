@@ -41,18 +41,7 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_tangible_jedi_five_masters = object_tangible_jedi_shared_five_masters:new {
+}
 
---Children folder includes
-
--- Server Objects
-includeFile("tangible/jedi/force_shrine_stone.lua")
-includeFile("tangible/jedi/jedi_holocron_dark.lua")
-includeFile("tangible/jedi/jedi_holocron_light.lua")
-includeFile("tangible/jedi/no_drop_jedi_holocron_dark.lua")
-includeFile("tangible/jedi/no_drop_jedi_holocron_light.lua")
-includeFile("tangible/jedi/padawan_trials_skeleton.lua")
-includeFile("tangible/jedi/power_shrine.lua")
-includeFile("tangible/jedi/power_shrine_red.lua")
-
---Push
-includeFile("tangible/jedi/five_masters.lua")
+ObjectTemplates:addTemplate(object_tangible_jedi_five_masters, "object/tangible/jedi/five_masters.iff")

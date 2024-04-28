@@ -512,3 +512,12 @@ object_tangible_jedi_shared_power_shrine_red = SharedTangibleObjectTemplate:new 
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_jedi_shared_power_shrine_red, "object/tangible/jedi/shared_power_shrine_red.iff")
+
+--*************************************************************************************************************************
+
+object_tangible_jedi_shared_five_masters = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/jedi/shared_five_masters.iff"
+	
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_jedi_shared_five_masters, "object/tangible/jedi/shared_five_masters.iff")

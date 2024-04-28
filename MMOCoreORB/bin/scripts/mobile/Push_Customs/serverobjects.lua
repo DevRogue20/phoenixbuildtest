@@ -8,6 +8,7 @@ includeFile("Push_Customs/teleport.lua")
 includeFile("Push_Customs/han_orion.lua")
 includeFile("Push_Customs/jaden_welcome.lua")
 includeFile("Push_Customs/obiwan_test.lua")
+includeFile("Push_Customs/yoda_test.lua")
 
 --Twin Sabers
 includeFile("Push_Customs/twin_sabers/emptat.lua")
