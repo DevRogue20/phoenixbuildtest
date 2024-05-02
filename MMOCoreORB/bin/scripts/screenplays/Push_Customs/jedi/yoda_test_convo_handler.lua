@@ -44,7 +44,7 @@ end
 
 
 -- Run screen handlers for the Jedi Push screenplay
-function yoda_test_convo_handler:runScreenHandlers(pConvTemplate, pPlayer, pNpc, selectedOption, pConvScreen, pVictim, pGhost, pYoda)
+function yoda_test_convo_handler:runScreenHandlers(pConvTemplate, pPlayer, pNpc, selectedOption, pConvScreen, pVictim, pGhost, pYoda, pMobile)
     local screen = LuaConversationScreen(pConvScreen)
     local screenID = screen:getScreenID()
 
@@ -65,13 +65,17 @@ function yoda_test_convo_handler:runScreenHandlers(pConvTemplate, pPlayer, pNpc,
         CreatureObject(pPlayer):sendSystemMessage(" \\#FFFF00\\<Communicator>  \\#0000FF\\Trial 5: Quest for The Five Masters, Completed!")
         CreatureObject(pPlayer):playMusicMessage("sound/ui_npe2_quest_completed.snd")
         CreatureObject(pPlayer):sendSystemMessage(" \\#00FF00\\Seek out the Force Essence and return the Holocron of the Five Masters, to claim your destiny...")
-        createEvent(1 * 60 * 1000, "yoda_test_convo_handler", "removeMobile", pYoda, "")
+        createEvent(1 * 60 * 1000, "jedipush", "removeYoda", pYoda, "")
         print("removing yoda")
 
     elseif screenID == "trial_fail" then
         CreatureObject(pPlayer):removeScreenPlayState(2048, "jedipush")
         CreatureObject(pPlayer):setScreenPlayState(16384, "jedipush")
         CreatureObject(pPlayer):sendSystemMessage("The Force has abandoned you indefinitely...")
+        createEvent(1 * 60 * 1000, "jedipush", "removeYoda", pYoda, "")
+        print("removing yoda")
+        createEvent(1 * 60 * 1000, "jedipush", "removeMobile", pMobile, "")
+        print("Removing Obiwan")
     end
 
     return pConvScreen
@@ -85,14 +89,3 @@ function table.randomKey(tbl)
     return keys[math.random(#keys)]
 end
 
--- Function to remove spawned mobile
-function yoda_test_convo_handler:removeMobile(pYoda)
-    if pYoda ~= nil then
-        print("Mobile is active")
-        SceneObject(pYoda):destroyObjectFromWorld()
-        print("Mobile deleted")
-    else
-        print("Mobile? What Mobile?")
-    end
-    return 0
-end

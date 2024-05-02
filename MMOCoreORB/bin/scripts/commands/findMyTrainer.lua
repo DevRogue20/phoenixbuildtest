@@ -41,9 +41,10 @@
 --which carries forward this exception.
 --true = 1, false = 0
 
-FindMyTrainerCommand = {
+--[[FindMyTrainerCommand = {
         name = "findmytrainer",
 }
 
 AddCommand(FindMyTrainerCommand)
 
+]]

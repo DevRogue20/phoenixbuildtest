@@ -9,12 +9,12 @@ local trials = {
     target = {"tusken_raider", "tusken_avenger", "tusken_berserker", "tusken_blood_champion", "tusken_brute", "tusken_captain", "tusken_carnage_champion", "tusken_chief", "tusken_death_hunter", "tusken_gore_chief", "tusken_king", 
             "tusken_observer", "tusken_raid_champion", "tusken_raid_leader", "tusken_savage", "tusken_sniper", "tusken_torture_lord", "tusken_wanderer", "tusken_warlord", "tusken_war_master", "tusken_warrior", "tusken_child", 
             "tusken_witch_doctor", "tusken_woman"},
-    goal = 1
+    goal = 10
     },
     {
     nsTrialName = "trial_two",
     nsTarget = {"nightsister_elder"},
-    nsGoal = 1
+    nsGoal = 3
     },
     {
     aTrialName = "trial_three",
@@ -213,6 +213,12 @@ function jedipush:targetdestroyed(pPlayer, pVictim)
 
                     local pInventory = SceneObject(pPlayer):getSlottedObject("inventory")
                     local pItem = giveItem(pInventory, "object/tangible/tcg/series1/decorative_dooku_bust.iff", -1)
+                    
+                    local pGhost = CreatureObject(pPlayer):getPlayerObject()
+                        if (pGhost == nil) then
+                            return
+                        end
+                    
                     CreatureObject(pPlayer):sendSystemMessage(" \\#FFFF00\\You have received a decorative Count Dooku pillar")
                     -- Remove the huntTargetCount data
                     deleteScreenPlayData(pPlayer, "jedipush", "huntTargetCount")
@@ -225,6 +231,7 @@ function jedipush:targetdestroyed(pPlayer, pVictim)
                     CreatureObject(pPlayer):sendSystemMessage(" \\#FFFF00\\<Communicator>  \\#0000FF\\Trial 1: Tusken Slayer Completed!")
                     CreatureObject(pPlayer):playMusicMessage("sound/ui_npe2_quest_completed.snd")
                     CreatureObject(pPlayer):sendSystemMessage(" \\#00FF00\\Seek out the Force essence for your next trial")
+                    PlayerObject(pGhost):awardBadge(141)
                 end
             end
         end
@@ -742,4 +749,16 @@ function jedipush:startRandomTrial(pPlayer)
 
         return randomLocation
     end
+end
+
+-- Function to remove spawned mobile
+function jedipush:removeYoda(pYoda)
+    if pYoda ~= nil then
+        print("Mobile is active")
+        SceneObject(pYoda):destroyObjectFromWorld()
+        print("Mobile deleted")
+    else
+        print("Mobile? What Mobile?")
+    end
+    return 0
 end

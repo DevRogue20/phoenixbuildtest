@@ -1,4 +1,4 @@
-JediManager = require("managers.jedi.jedi_manager")
+--[[JediManager = require("managers.jedi.jedi_manager")
 local Logger = require("utils.logger")
 local QuestManager = require("managers.quest.quest_manager")
 
@@ -170,4 +170,4 @@ end
 
 registerScreenPlay("VillageJediManager", true)
 
-return VillageJediManager
+return VillageJediManager]]
