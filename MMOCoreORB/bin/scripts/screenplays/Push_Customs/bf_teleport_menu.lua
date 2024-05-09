@@ -218,6 +218,26 @@ function bf_teleport_menu:fillObjectMenuResponse(pSceneObject, pMenuResponse, pP
 		response:addRadialMenuItem(24, 3, "Teleport to Dearic,Talus")
 		response:addRadialMenuItem(25, 3, "Teleport to Mos Eisley,Tatooine")
 
+--Jedi Quest
+elseif name == "Force Beacon (System Generated)" or name == "Force Beacon" then
+	local itvItem = getContainerObjectByTemplate(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", true)
+	if itvItem == nil then
+		print("ship is shit")
+		return false
+	end
+
+	response:addRadialMenuItem(20, 3, "Teleport to the Force Esscence")
+
+--Jedi Trainers
+	elseif name == "Holocron of the Five Masters" or name == "Holocron of the Five Masters (System Generated)" then
+		local itvItem = getContainerObjectByTemplate(pInventory, "object/tangible/jedi/five_masters.iff", true)
+		if itvItem == nil then
+			print("holocron is shit")
+			return false
+		end
+
+		response:addRadialMenuItem(20, 3, "Teleport to Jedi Trainer")
+
 -- Bespin ITV
 	elseif name == "Bespin Cloud Car ITV (System Generated)" or name == "Bespin Cloud Car ITV" then
 		local itvItem = getContainerObjectByTemplate(pInventory, "object/tangible/deed/vehicle_deed/twin_pod_cloud_car.iff", true)
@@ -383,6 +403,19 @@ function bf_teleport_menu:handleObjectMenuSelect(pSceneObject, pPlayer, selected
 			--ported = playerSwitchZoneOutOfCombat(pPlayer, pCollector, "tatooine", 3528.1, 5, -4802.2, 0)
 			playerCreature:sendSystemMessage("You are being transmitted to Tatooine, Mos Eisley")
 
+		end
+--Jedi Quest
+elseif name == "Force Beacon (System Generated)" or name == "Force Beacon" then
+	if (selectedID == 20) then
+		LuaSceneObject(pPlayer):switchZone("dungeon2", 27.5, -3.8, -159.3, 14201899)
+		playerCreature:sendSystemMessage("You are being pulled through the nether by the Force")
+	end
+
+--Jedi Trainers
+	elseif name == "Holocron of the Five Masters (System Generated)" or name == "Holocron of the Five Masters" then
+		if (selectedID == 20) then
+			LuaSceneObject(pPlayer):switchZone("dungeon2", 27.5, -3.8, -159.3, 14201901)
+			playerCreature:sendSystemMessage("You are being pulled through the nether by the Force")
 		end
 
 -- Bespin ITV

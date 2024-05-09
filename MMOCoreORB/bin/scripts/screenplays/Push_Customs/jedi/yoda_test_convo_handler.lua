@@ -65,7 +65,7 @@ function yoda_test_convo_handler:runScreenHandlers(pConvTemplate, pPlayer, pNpc,
         CreatureObject(pPlayer):sendSystemMessage(" \\#FFFF00\\<Communicator>  \\#0000FF\\Trial 5: Quest for The Five Masters, Completed!")
         CreatureObject(pPlayer):playMusicMessage("sound/ui_npe2_quest_completed.snd")
         CreatureObject(pPlayer):sendSystemMessage(" \\#00FF00\\Seek out the Force Essence and return the Holocron of the Five Masters, to claim your destiny...")
-        createEvent(1 * 60 * 1000, "jedipush", "removeYoda", pYoda, "")
+        createEvent(1 * 30 * 1000, "jedipush", "removeYoda", {pYoda})
         print("removing yoda")
 
     elseif screenID == "trial_fail" then
@@ -74,7 +74,7 @@ function yoda_test_convo_handler:runScreenHandlers(pConvTemplate, pPlayer, pNpc,
         CreatureObject(pPlayer):sendSystemMessage("The Force has abandoned you indefinitely...")
         createEvent(1 * 60 * 1000, "jedipush", "removeYoda", pYoda, "")
         print("removing yoda")
-        createEvent(1 * 60 * 1000, "jedipush", "removeMobile", pMobile, "")
+        createEvent(1 * 30 * 1000, "jedipush", "removeMobile", pMobile, "")
         print("Removing Obiwan")
     end
 

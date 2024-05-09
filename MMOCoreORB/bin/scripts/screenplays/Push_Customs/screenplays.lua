@@ -28,5 +28,6 @@ includeFile("Push_Customs/memorials/TonyMemorial.lua")
 
 --Jedi
 includeFile("Push_Customs/jedi/jedipush.lua")
+includeFile("Push_Customs/jedi/jedipush_objects.lua")
 includeFile("Push_Customs/jedi/jedi_test_convo_handler.lua")
 includeFile("Push_Customs/jedi/yoda_test_convo_handler.lua")

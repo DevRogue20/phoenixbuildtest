@@ -113,12 +113,20 @@ registerScreenPlay("jedipush", true)
     function jedipush:start(pPlayer)
         -- Spawn scene objects and mobiles
         self:spawnMobiles()
+        self:spawnSceneObjects()
     end
     
 -- Function to notify when a player enters an area
 function jedipush:spawnMobiles()
     -- Spawn a mobile if the player is valid
-    local pMobile = spawnMobile("dantooine", "obiwan_test", 1, 4194, 9, 5201, 24, 0, "calm")
+    local pMobile = spawnMobile("dungeon2", "obiwan_test", 1, 27.5, -3.5, -167.8, 0, 14201899, "calm")
+    local pMobile = spawnMobile("dungeon2", "trainer_jedi", 1, 27.5, -3.5, -167.8, 0, 14201901, "calm")
+    local pMobile = spawnMobile("dungeon2", "trainer_jedi_dark", 1, 13.6, -4.2, -159.3, 90, 14201903, "calm")
+    local pMobile = spawnMobile("dungeon2", "trainer_jedi_light", 1, 41.4, -4.2, -159.3, -90, 14201903, "calm")
+end
+
+function jedipush:spawnSceneObjects()
+    --ADD SHIT
 end
 
 -- Function to start a trial for a player
@@ -544,6 +552,28 @@ function jedipush:onPlayerLoggedIn(pPlayer)
         return
     end
 
+    local hasJedipushScreenplayState = false
+
+    local screenplayStates = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384}
+    for _, state in ipairs(screenplayStates) do
+        if CreatureObject(pPlayer):hasScreenPlayState(state, "jedipush") then
+            hasJedipushScreenplayState = true
+            break
+        end
+    end
+
+    if hasJedipushScreenplayState then
+        local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+        local item = getContainerObjectByTemplate(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", true)
+        
+        if item == nil then
+            -- Add Force Beacon to inventory
+            local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+            local pItem = giveItem(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", -1)
+        
+        end
+    end
+
     if CreatureObject(pPlayer):hasScreenPlayState(2, "jedipush") then
         self:trialRestart(pPlayer)
     elseif CreatureObject(pPlayer):hasScreenPlayState(8, "jedipush") then
@@ -571,6 +601,16 @@ function jedipush:onPlayerLoggedIn(pPlayer)
         print("Random Location: X: " .. randomLocation[1] .. ", Z: " .. randomLocation[2] .. ", Y: " .. randomLocation[3])
 
         return randomLocation
+
+    elseif CreatureObject(pPlayer):hasScreenPlayState(8192, "jedipush") then
+        local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+        local item = getContainerObjectByTemplate(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", true)
+
+        if item ~= nil then
+            SceneObject(item):destroyObjectFromWorld()
+            SceneObject(item):destroyObjectFromDatabase()
+        end
+        
     end
 end
 
@@ -716,7 +756,7 @@ end
 --***********************************************************************************************************************************************
 
 -- Function to start the last trial with random parameters
-function jedipush:startRandomTrial(pPlayer)
+function jedipush:startRandomTrial(pPlayer, pYoda)
     if (pPlayer == nil) then
         print("random trial pPlayer is nil")
         return
@@ -742,7 +782,7 @@ function jedipush:startRandomTrial(pPlayer)
         local randomY = math.random(range.minY, range.maxY)
         
         -- Spawn the NPC at the random location
-        local pYoda = spawnMobile("corellia", "yoda_test", 1, randomX, randomZ, randomY, 0, 0)
+        pYoda = spawnMobile("corellia", "yoda_test", 1, randomX, randomZ, randomY, 0, 0)
         
         local randomLocation = { randomX,  randomZ, randomY}
         print("Random Location: X: " .. randomX .. ", Z: " .. randomZ .. ", Y: " .. randomY)

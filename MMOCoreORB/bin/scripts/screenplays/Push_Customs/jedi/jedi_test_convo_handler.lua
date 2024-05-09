@@ -56,6 +56,17 @@ function jedi_test_convo_handler:runScreenHandlers(pConvTemplate, pPlayer, pNpc,
         CreatureObject(pPlayer):removeScreenPlayState(1, "jedipush")
         CreatureObject(pPlayer):setScreenPlayState(2, "jedipush")
         jedipush:startTrial(pPlayer)
+
+        local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+
+        -- Check inventory
+        if (pInventory == nil or SceneObject(pInventory):isContainerFullRecursive()) then
+            CreatureObject(pPlayer):sendSystemMessage("Inventory is full, make room for additional items")
+        else
+            -- Add Force Beacon to inventory
+            local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+            local pItem = giveItem(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", -1)
+        end
         	
     elseif screenID == "task_two" then
         CreatureObject(pPlayer):removeScreenPlayState(4, "jedipush")
@@ -85,8 +96,14 @@ function jedi_test_convo_handler:runScreenHandlers(pConvTemplate, pPlayer, pNpc,
         HologrindJediManager:awardJediStatusAndSkill(pPlayer)
         CreatureObject(pPlayer):removeScreenPlayState(4096, "jedipush")
         CreatureObject(pPlayer):setScreenPlayState(8192, "jedipush")
-        createEvent(1 * 60 * 1000, "jedipush", "removeMobile", pMobile, "")
-        print("Removing Obiwan")
+
+        local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+        local item = getContainerObjectByTemplate(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", true)
+
+        if item ~= nil then
+            SceneObject(item):destroyObjectFromWorld()
+            SceneObject(item):destroyObjectFromDatabase()
+        end
     end
     return pConvScreen
 end

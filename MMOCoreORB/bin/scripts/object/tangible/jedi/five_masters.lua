@@ -42,6 +42,12 @@
 
 
 object_tangible_jedi_five_masters = object_tangible_jedi_shared_five_masters:new {
+
+    customName = "Holocron of the Five Masters",
+
+    objectMenuComponent = "bf_teleport_menu",
+
+    noTrade = 1
 }
 
 ObjectTemplates:addTemplate(object_tangible_jedi_five_masters, "object/tangible/jedi/five_masters.iff")

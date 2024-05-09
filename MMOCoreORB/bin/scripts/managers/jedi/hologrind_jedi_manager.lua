@@ -26,8 +26,8 @@ function HologrindJediManager:getGrindableProfessionList()
 		{ "crafting_architect_master", 		CRAFTING_ARCHITECT_MASTER  },
 		{ "crafting_armorsmith_master", 	CRAFTING_ARMORSMITH_MASTER  },
 		--{ "crafting_artisan_master", 		CRAFTING_ARTISAN_MASTER  },
-		{ "outdoors_bio_engineer_master", 	OUTDOORS_BIOENGINEER_MASTER  },
-		{ "combat_bountyhunter_master", 	COMBAT_BOUNTYHUNTER_MASTER  },
+		{ "outdoors_bio_engineer_master",    OUTDOORS_BIOENGINEER_MASTER  },
+		{ "combat_bountyhunter_master",    COMBAT_BOUNTYHUNTER_MASTER },
 		--{ "combat_brawler_master", 		COMBAT_BRAWLER_MASTER  },
 		{ "combat_carbine_master", 		COMBAT_CARBINE_MASTER  },
 		{ "crafting_chef_master", 		CRAFTING_CHEF_MASTER  },
@@ -40,7 +40,7 @@ function HologrindJediManager:getGrindableProfessionList()
 		--{ "social_entertainer_master", 		SOCIAL_ENTERTAINER_MASTER  },
 		{ "combat_1hsword_master", 		COMBAT_1HSWORD_MASTER  },
 		{ "social_imagedesigner_master", 	SOCIAL_IMAGEDESIGNER_MASTER  },
-		{ "combat_marksman_master", 		COMBAT_MARKSMAN_MASTER  },
+		--{ "combat_marksman_master", 		COMBAT_MARKSMAN_MASTER  },
 		--{ "science_medic_master", 		SCIENCE_MEDIC_MASTER  },
 		--{ "crafting_merchant_master", 		CRAFTING_MERCHANT_MASTER  },
 		{ "social_musician_master", 		SOCIAL_MUSICIAN_MASTER  },
@@ -78,7 +78,7 @@ function HologrindJediManager:getGrindableProfessionList()
 		{ "exp_tat_krayt_graveyard",   	EXP_TAT_KRAYT_GRAVEYARD },
 		{ "exp_dat_sarlacc",   	EXP_DAT_SARLACC },
 		{ "bdg_library_trivia",    BDG_LIBRARY_TRIVIA },
-		{ "bdg_exp_cor_bela_vistal_fountain",   	BDG_EXP_COR_BELA_VISTAL_FOUNTAIN}
+		--{ "bdg_exp_cor_bela_vistal_fountain",   	BDG_EXP_COR_BELA_VISTAL_FOUNTAIN}
 	--{ "pilot_rebel_navy_naboo", 		PILOT_REBEL_NAVY_NABOO }
 	}
 	-- Filter out unknown professions (badge number 0)
@@ -154,7 +154,10 @@ function HologrindJediManager:isJedi(pCreatureObject)
 end
 
 -- Sui window ok pressed callback function.
-function HologrindJediManager:notifyOkPressed()
+function HologrindJediManager:notifyOkPressed(pPlayer, pCreatureObject, pInventory)
+	
+	SceneObject(pPlayer):switchZone("dungeon2", 27.5, -3.8, -159.3, 14201899)
+
 -- Do nothing.
 end
 
@@ -162,7 +165,7 @@ end
 -- @param pCreatureObject pointer to the creature object of the player who unlocked jedi.
 function HologrindJediManager:sendSuiWindow(pCreatureObject)
 	local suiManager = LuaSuiManager()
-	suiManager:sendMessageBox(pCreatureObject, pCreatureObject, "@quest/force_sensitive/intro:force_sensitive", "Congratulations, you have reached the next level of enlightenment. Seek out a vergence in the force on Dantooine to continue your path...", "@ok", "HologrindJediManager", "notifyOkPressed")
+	suiManager:sendMessageBox(pCreatureObject, pCreatureObject, "Tremor in the Force", "Congratulations, apprentice of the Force. You've unlocked another level of enlightenment. When you are ready to continue press the okay button and you will ported to the next part of your jouney.", "@ok", "HologrindJediManager", "notifyOkPressed")
 end
 
 -- Award skill and jedi status to the player.
