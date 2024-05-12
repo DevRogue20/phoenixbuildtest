@@ -229,7 +229,7 @@ elseif name == "Force Beacon (System Generated)" or name == "Force Beacon" then
 	response:addRadialMenuItem(20, 3, "Teleport to the Force Esscence")
 
 --Jedi Trainers
-	elseif name == "Holocron of the Five Masters" or name == "Holocron of the Five Masters (System Generated)" then
+	elseif name == "Holocron of the Five Masters (System Generated)" or name == "Holocron of the Five Masters" then
 		local itvItem = getContainerObjectByTemplate(pInventory, "object/tangible/jedi/five_masters.iff", true)
 		if itvItem == nil then
 			print("holocron is shit")

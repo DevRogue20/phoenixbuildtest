@@ -1713,3 +1713,5 @@ includeFile("custom_content/mobile/zolo_assistant.lua")
 includeFile("custom_content/mobile/zolo_sartain.lua")
 includeFile("custom_content/mobile/zozpheratu_static.lua")
 
+--Jedi transport npc
+includeFile("custom_content/mobile/dressed_padawan_teleport.lua")
