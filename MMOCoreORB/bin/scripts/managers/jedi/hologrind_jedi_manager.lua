@@ -260,6 +260,18 @@ function HologrindJediManager:onPlayerLoggedIn(pCreatureObject)
 	
 end
 
+function HologrindJediManager:onPlayerLoggedOut(pCreatureObject)
+	local pGhost = CreatureObject(pCreatureObject):getPlayerObject()
+
+	if (pGhost == nil) then
+		return
+	end
+		
+
+	jedipush:onPlayerLoggedOut(pCreatureObject)
+	
+end
+
 -- Get the profession name from the badge number.
 -- @param badgeNumber the badge number to find the profession name for.
 -- @return the profession name associated with the badge number, Unknown profession returned if the badge number isn't found.

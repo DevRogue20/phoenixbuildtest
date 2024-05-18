@@ -27,10 +27,10 @@ local trials = {
     kGoal = 1
     }
 }
--- Define the x and y ranges for each planet
+--[[Define the x and y ranges for each planet
 local planetRanges = {
     corellia = { minX = 1732, maxX = 1732, minY = 4464, maxY = 4464 } --{ minX = -300, maxX = 1800, minY = 3500, maxY = 5100 }
-}
+}]]
 
 local spawnLocations = {
     {74, 46, 4054},
@@ -543,7 +543,10 @@ function jedipush:ktargetdestroyed(pPlayer, pVictim)
     return 0
 end
 
+-- Function Called on Player Login
 function jedipush:onPlayerLoggedIn(pPlayer)
+    print("Player logging in: " .. tostring(pPlayer))
+    
     -- Drop observer if already registered
     dropObserver(KILLEDCREATURE, "jedipush", "targetdestroyed", pPlayer)
     dropObserver(KILLEDCREATURE, "jedipush", "nstargetdestroyed", pPlayer)
@@ -570,10 +573,8 @@ function jedipush:onPlayerLoggedIn(pPlayer)
         local item = getContainerObjectByTemplate(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", true)
         
         if item == nil then
-            -- Add Force Beacon to inventory
             local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
             local pItem = giveItem(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", -1)
-        
         end
     end
 
@@ -587,24 +588,11 @@ function jedipush:onPlayerLoggedIn(pPlayer)
         self:kraytRestart(pPlayer)
     elseif CreatureObject(pPlayer):hasSkill("jedi_dark_side_journeyman_novice") then
         CreatureObject(pPlayer):setFaction(FACTIONIMPERIAL)
-		--print("faction set to Imperial")
     elseif CreatureObject(pPlayer):hasSkill("jedi_light_side_journeyman_novice") then
         CreatureObject(pPlayer):setFaction(FACTIONREBEL)
-		--print("faction set to Rebel")
     elseif CreatureObject(pPlayer):hasScreenPlayState(1024, "jedipush") then
-        local npcPool = {"yoda_test"}
-        
-        -- Choose a random location from the spawnLocations table
-        local randomIndex = math.random(1, #spawnLocations)
-        local randomLocation = spawnLocations[randomIndex]
-        
-        -- Spawn the NPC at the random location
-        local pYoda = spawnMobile("corellia", "yoda_test", 1, randomLocation[1], randomLocation[2], randomLocation[3], 0, 0)
-        
-        print("Random Location: X: " .. randomLocation[1] .. ", Z: " .. randomLocation[2] .. ", Y: " .. randomLocation[3])
-
-        return randomLocation
-
+        print("Player has screenplay state 1024, removing old Yoda if exists")
+        self:removeYoda(pPlayer, true)
     elseif CreatureObject(pPlayer):hasScreenPlayState(8192, "jedipush") then
         local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
         local item = getContainerObjectByTemplate(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", true)
@@ -613,8 +601,21 @@ function jedipush:onPlayerLoggedIn(pPlayer)
             SceneObject(item):destroyObjectFromWorld()
             SceneObject(item):destroyObjectFromDatabase()
         end
-        
+    elseif CreatureObject(pPlayer):hasScreenPlayState(16384, "jedipush") then
+        local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+        local item = getContainerObjectByTemplate(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", true)
+
+        if item ~= nil then
+            SceneObject(item):destroyObjectFromWorld()
+            SceneObject(item):destroyObjectFromDatabase()
+        end
     end
+end
+
+-- Function Called on Player Logout
+function jedipush:onPlayerLoggedOut(pPlayer)
+    print("Player logging out: " .. tostring(pPlayer))
+    self:removeYoda(pPlayer, false)
 end
 
 function jedipush:trialRestart(pPlayer, pVictim)
@@ -758,8 +759,48 @@ end
 
 --***********************************************************************************************************************************************
 
+-- Ensure jedipush is defined
+jedipush = jedipush or {}
+
+-- Helper Function to Convert Table to String
+function tableToString(tbl)
+    local result = "{"
+    for k, v in pairs(tbl) do
+        result = result .. tostring(k) .. ": " .. tostring(v) .. ", "
+    end
+    return result .. "}"
+end
+
+-- Helper Function to Get Player ID
+function getPlayerID(pPlayer)
+    if pPlayer == nil then
+        return nil
+    end
+    return SceneObject(pPlayer):getObjectID()
+end
+
+-- Function to Save Yoda Data
+function saveYodaData(playerID, pYoda)
+    writeData(playerID .. "_yoda", SceneObject(pYoda):getObjectID())
+    print("Saved Yoda data for player ID: " .. tostring(playerID) .. " with Yoda ID: " .. tostring(SceneObject(pYoda):getObjectID()))
+end
+
+-- Function to Load Yoda Data
+function loadYodaData(playerID)
+    local yodaID = readData(playerID .. "_yoda")
+    if yodaID ~= nil and yodaID ~= 0 then
+        local pYoda = getSceneObject(yodaID)
+        if pYoda ~= nil then
+            print("Loaded Yoda data for player ID: " .. tostring(playerID) .. " with Yoda ID: " .. tostring(yodaID))
+            return pYoda
+        end
+    end
+    print("No Yoda data found for player ID: " .. tostring(playerID))
+    return nil
+end
+
 -- Function to start the last trial with random parameters
-function jedipush:startRandomTrial(pPlayer, pYoda)
+function jedipush:startRandomTrial(pPlayer)
     if (pPlayer == nil) then
         print("random trial pPlayer is nil")
         return
@@ -777,31 +818,75 @@ function jedipush:startRandomTrial(pPlayer, pYoda)
         
         -- Define your pool of NPCs and goals
         local npcPool = {"yoda_test"}
-        
-        -- Choose a random location from the selected planet within the defined ranges
-        local range = planetRanges["corellia"]
-        local randomX = math.random(range.minX, range.maxX)
-        local randomZ = 50 -- Define the z coordinate if needed
-        local randomY = math.random(range.minY, range.maxY)
+                
+        -- Choose a random location from the spawnLocations table
+        local randomIndex = math.random(1, #spawnLocations)
+        local randomLocation = spawnLocations[randomIndex]
         
         -- Spawn the NPC at the random location
-        pYoda = spawnMobile("corellia", "yoda_test", 1, randomX, randomZ, randomY, 0, 0)
+        local pYoda = spawnMobile("corellia", "yoda_test", 1, randomLocation[1], randomLocation[2], randomLocation[3], 0, 0)
+
+        -- Save the player's Yoda instance in the data store
+        local playerID = getPlayerID(pPlayer)
+        saveYodaData(playerID, pYoda)
+        print("Stored Yoda for player: " .. tostring(pPlayer) .. " with pYoda: " .. tostring(pYoda))
         
-        local randomLocation = { randomX,  randomZ, randomY}
-        print("Random Location: X: " .. randomX .. ", Z: " .. randomZ .. ", Y: " .. randomY)
+        print("Random Location: X: " .. randomLocation[1] .. ", Z: " .. randomLocation[2] .. ", Y: " .. randomLocation[3])
 
         return randomLocation
     end
 end
 
--- Function to remove spawned mobile
-function jedipush:removeYoda(pYoda)
+-- Function to Remove Yoda
+function jedipush:removeYoda(pPlayer, shouldSpawnNew)
+    local playerID = getPlayerID(pPlayer)
+    if playerID == nil then
+        print("Player ID is nil")
+        return
+    end
+
+    local pYoda = loadYodaData(playerID)
+    print("Attempting to retrieve Yoda for player ID: " .. tostring(playerID) .. " with pYoda: " .. tostring(pYoda))
+    
     if pYoda ~= nil then
-        print("Mobile is active")
+        print("Mobile is active, removing Yoda for player ID: " .. tostring(playerID))
         SceneObject(pYoda):destroyObjectFromWorld()
         print("Mobile deleted")
+        writeData(playerID .. "_yoda", 0) -- Clear the Yoda data
+
+        if shouldSpawnNew then
+            print("Scheduling new Yoda spawn for player ID: " .. tostring(playerID))
+            createEvent(2 * 1000, "jedipush", "spawnNewYoda", pPlayer)
+        end
     else
         print("Mobile? What Mobile?")
+        if shouldSpawnNew then
+            print("No existing Yoda found, spawning new Yoda for player ID: " .. tostring(playerID))
+            self:spawnNewYoda(pPlayer)
+        end
     end
-    return 0
+end
+
+-- Function to Spawn New Yoda
+function jedipush:spawnNewYoda(pPlayer)
+    local playerID = getPlayerID(pPlayer)
+    if playerID == nil then
+        print("Player ID is nil")
+        return
+    end
+
+    local npcPool = {"yoda_test"}
+    
+    -- Choose a random location from the spawnLocations table
+    local randomIndex = math.random(1, #spawnLocations)
+    local randomLocation = spawnLocations[randomIndex]
+    
+    -- Spawn the NPC at the random location
+    local pYoda = spawnMobile("corellia", "yoda_test", 1, randomLocation[1], randomLocation[2], randomLocation[3], 0, 0)
+    
+    -- Save the player's Yoda instance in the data store
+    saveYodaData(playerID, pYoda)
+    print("Stored new Yoda for player: " .. tostring(pPlayer) .. " with player ID: " .. tostring(playerID) .. " and pYoda: " .. tostring(pYoda))
+    
+    print("Random Location: X: " .. randomLocation[1] .. ", Z: " .. randomLocation[2] .. ", Y: " .. randomLocation[3])
 end

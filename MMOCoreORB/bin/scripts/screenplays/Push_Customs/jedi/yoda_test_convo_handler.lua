@@ -65,17 +65,23 @@ function yoda_test_convo_handler:runScreenHandlers(pConvTemplate, pPlayer, pNpc,
         CreatureObject(pPlayer):sendSystemMessage(" \\#FFFF00\\<Communicator>  \\#0000FF\\Trial 5: Quest for The Five Masters, Completed!")
         CreatureObject(pPlayer):playMusicMessage("sound/ui_npe2_quest_completed.snd")
         CreatureObject(pPlayer):sendSystemMessage(" \\#00FF00\\Seek out the Force Essence and return the Holocron of the Five Masters, to claim your destiny...")
-        createEvent(1 * 30 * 1000, "jedipush", "removeYoda", {pYoda})
-        print("removing yoda")
+        jedipush:removeYoda(pPlayer, false)
+        print("scheduled Yoda removal")
 
     elseif screenID == "trial_fail" then
         CreatureObject(pPlayer):removeScreenPlayState(2048, "jedipush")
         CreatureObject(pPlayer):setScreenPlayState(16384, "jedipush")
         CreatureObject(pPlayer):sendSystemMessage("The Force has abandoned you indefinitely...")
-        createEvent(1 * 60 * 1000, "jedipush", "removeYoda", pYoda, "")
-        print("removing yoda")
-        createEvent(1 * 30 * 1000, "jedipush", "removeMobile", pMobile, "")
-        print("Removing Obiwan")
+        jedipush:removeYoda(pPlayer, false)
+        print("scheduled Yoda removal")
+
+        local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+        local item = getContainerObjectByTemplate(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", true)
+
+        if item ~= nil then
+            SceneObject(item):destroyObjectFromWorld()
+            SceneObject(item):destroyObjectFromDatabase()
+        end
     end
 
     return pConvScreen
