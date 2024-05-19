@@ -27,10 +27,6 @@ local trials = {
     kGoal = 1
     }
 }
---[[Define the x and y ranges for each planet
-local planetRanges = {
-    corellia = { minX = 1732, maxX = 1732, minY = 4464, maxY = 4464 } --{ minX = -300, maxX = 1800, minY = 3500, maxY = 5100 }
-}]]
 
 local spawnLocations = {
     {74, 46, 4054},
