@@ -792,7 +792,7 @@ yoda_test_convo_template:addScreen(yoda_two);
 
 yoda_three = ConvoScreen:new {
 	id = "yoda_three",
-	customDialogText = "Try??? This generation it is... Okay Do or do not, there is no try! When ready are you, speak to me again.",
+	customDialogText = "Try??? This generation it is... Do or do not, there is no try! When ready are you, speak to me again.",
 	stopConversation = "true",
 	options = {
 		--{"Yes Master I am ready.", math.random(screens)}
@@ -826,5 +826,62 @@ yoda_test_convo_template:addScreen(trial_fail);
 
 yoda_test_convo_template:addScreen(screens.yoda_four)
 yoda_test_convo_template:addScreen(screens.yoda_five)
+yoda_test_convo_template:addScreen(screens.yoda_six)
+yoda_test_convo_template:addScreen(screens.yoda_seven)
+yoda_test_convo_template:addScreen(screens.yoda_eight)
+yoda_test_convo_template:addScreen(screens.yoda_nine)
+yoda_test_convo_template:addScreen(screens.yoda_ten)
+yoda_test_convo_template:addScreen(screens.yoda_eleven)
+yoda_test_convo_template:addScreen(screens.yoda_twelve)
+yoda_test_convo_template:addScreen(screens.yoda_thirteen)
+yoda_test_convo_template:addScreen(screens.yoda_fourteen)
+yoda_test_convo_template:addScreen(screens.yoda_fifteen)
+yoda_test_convo_template:addScreen(screens.yoda_sixteen)
+yoda_test_convo_template:addScreen(screens.yoda_seventeen)
+yoda_test_convo_template:addScreen(screens.yoda_eighteen)
+yoda_test_convo_template:addScreen(screens.yoda_nineteen)
+yoda_test_convo_template:addScreen(screens.yoda_twenty)
+yoda_test_convo_template:addScreen(screens.yoda_twenty_one)
+yoda_test_convo_template:addScreen(screens.yoda_twenty_two)
+yoda_test_convo_template:addScreen(screens.yoda_twenty_three)
+yoda_test_convo_template:addScreen(screens.yoda_twenty_four)
+yoda_test_convo_template:addScreen(screens.yoda_twenty_five)
+yoda_test_convo_template:addScreen(screens.yoda_twenty_six)
+yoda_test_convo_template:addScreen(screens.yoda_twenty_seven)
+yoda_test_convo_template:addScreen(screens.yoda_twenty_eight)
+yoda_test_convo_template:addScreen(screens.yoda_twenty_nine)
+yoda_test_convo_template:addScreen(screens.yoda_thirty)
+yoda_test_convo_template:addScreen(screens.yoda_thirty_one)
+yoda_test_convo_template:addScreen(screens.yoda_thirty_two)
+yoda_test_convo_template:addScreen(screens.yoda_thirty_three)
+yoda_test_convo_template:addScreen(screens.yoda_thirty_four)
+yoda_test_convo_template:addScreen(screens.yoda_thirty_five)
+yoda_test_convo_template:addScreen(screens.yoda_thirty_six)
+yoda_test_convo_template:addScreen(screens.yoda_thirty_seven)
+yoda_test_convo_template:addScreen(screens.yoda_thirty_eight)
+yoda_test_convo_template:addScreen(screens.yoda_thirty_nine)
+yoda_test_convo_template:addScreen(screens.yoda_forty)
+yoda_test_convo_template:addScreen(screens.yoda_forty_one)
+yoda_test_convo_template:addScreen(screens.yoda_forty_two)
+yoda_test_convo_template:addScreen(screens.yoda_forty_three)
+yoda_test_convo_template:addScreen(screens.yoda_forty_four)
+yoda_test_convo_template:addScreen(screens.yoda_forty_five)
+yoda_test_convo_template:addScreen(screens.yoda_forty_six)
+yoda_test_convo_template:addScreen(screens.yoda_forty_seven)
+yoda_test_convo_template:addScreen(screens.yoda_forty_eight)
+yoda_test_convo_template:addScreen(screens.yoda_forty_nine)
+yoda_test_convo_template:addScreen(screens.yoda_fifty)
+yoda_test_convo_template:addScreen(screens.yoda_fifty_one)
+yoda_test_convo_template:addScreen(screens.yoda_fifty_two)
+yoda_test_convo_template:addScreen(screens.yoda_fifty_three)
+yoda_test_convo_template:addScreen(screens.yoda_fifty_four)
+yoda_test_convo_template:addScreen(screens.yoda_fifty_five)
+yoda_test_convo_template:addScreen(screens.yoda_fifty_six)
+yoda_test_convo_template:addScreen(screens.yoda_fifty_seven)
+yoda_test_convo_template:addScreen(screens.yoda_fifty_eight)
+yoda_test_convo_template:addScreen(screens.yoda_fifty_nine)
+yoda_test_convo_template:addScreen(screens.yoda_sixty)
+yoda_test_convo_template:addScreen(screens.yoda_sixty_one)
+
 
 addConversationTemplate("yoda_test_convo_template", yoda_test_convo_template);

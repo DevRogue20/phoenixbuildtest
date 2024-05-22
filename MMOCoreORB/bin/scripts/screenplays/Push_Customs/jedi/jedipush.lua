@@ -589,6 +589,9 @@ function jedipush:onPlayerLoggedIn(pPlayer)
     elseif CreatureObject(pPlayer):hasScreenPlayState(1024, "jedipush") then
         print("Player has screenplay state 1024, removing old Yoda if exists")
         self:removeYoda(pPlayer, true)
+    elseif CreatureObject(pPlayer):hasScreenPlayState(2048, "jedipush") then
+        print("Player has screenplay state 2048, removing old Yoda if exists")
+        self:removeYoda(pPlayer, true)
     elseif CreatureObject(pPlayer):hasScreenPlayState(8192, "jedipush") then
         local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
         local item = getContainerObjectByTemplate(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", true)

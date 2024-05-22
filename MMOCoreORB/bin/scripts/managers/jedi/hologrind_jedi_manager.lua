@@ -255,6 +255,7 @@ function HologrindJediManager:onPlayerLoggedIn(pCreatureObject)
 		
 
 	jedipush:onPlayerLoggedIn(pCreatureObject)
+	jedi_tier2:onPlayerLoggedIn(pCreatureObject)
 	self:checkIfProgressedToJedi(pCreatureObject)
 	self:registerObservers(pCreatureObject)
 	
