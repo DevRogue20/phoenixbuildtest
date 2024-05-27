@@ -31,7 +31,7 @@ darian_veilwalker= Creature:new {
 	templates = {"object/mobile/dressed_npe_force_trainer.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "",
+	conversationTemplate = "destiny_convo_template",
 	attacks = {
 	}
 }

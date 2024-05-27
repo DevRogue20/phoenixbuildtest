@@ -41,20 +41,13 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_tangible_jedi_holocron_forbidden = object_tangible_jedi_shared_holocron_forbidden:new {
 
---Children folder includes
+    customName = "Holocron of Forbidden Knowledge",
 
--- Server Objects
-includeFile("tangible/jedi/force_shrine_stone.lua")
-includeFile("tangible/jedi/jedi_holocron_dark.lua")
-includeFile("tangible/jedi/jedi_holocron_light.lua")
-includeFile("tangible/jedi/no_drop_jedi_holocron_dark.lua")
-includeFile("tangible/jedi/no_drop_jedi_holocron_light.lua")
-includeFile("tangible/jedi/padawan_trials_skeleton.lua")
-includeFile("tangible/jedi/power_shrine.lua")
-includeFile("tangible/jedi/power_shrine_red.lua")
+    objectMenuComponent = "bf_teleport_menu",
 
---Push
-includeFile("tangible/jedi/five_masters.lua")
-includeFile("tangible/jedi/holocron_eternal.lua")
-includeFile("tangible/jedi/holocron_forbidden.lua")
+    noTrade = 1
+}
+
+ObjectTemplates:addTemplate(object_tangible_jedi_holocron_forbidden, "object/tangible/jedi/holocron_forbidden.iff")

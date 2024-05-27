@@ -23,7 +23,7 @@ function HologrindJediManager:getGrindableProfessionList()
 		--{ "pilot_neutral_corellia", 		PILOT_CORELLIA },
 		--{ "pilot_rebel_navy_tatooine", 	PILOT_REBEL_NAVY_TATOOINE },
 		--{ "pilot_imperial_navy_naboo", 	PILOT_IMPERIAL_NAVY_NABOO },
-		{ "crafting_architect_master", 		CRAFTING_ARCHITECT_MASTER  },
+		--[[{ "crafting_architect_master", 		CRAFTING_ARCHITECT_MASTER  },
 		{ "crafting_armorsmith_master", 	CRAFTING_ARMORSMITH_MASTER  },
 		--{ "crafting_artisan_master", 		CRAFTING_ARTISAN_MASTER  },
 		{ "outdoors_bio_engineer_master",    OUTDOORS_BIOENGINEER_MASTER  },
@@ -77,8 +77,8 @@ function HologrindJediManager:getGrindableProfessionList()
 		{ "exp_tat_sarlacc_pit",   	EXP_TAT_SARLACC_PIT },
 		{ "exp_tat_krayt_graveyard",   	EXP_TAT_KRAYT_GRAVEYARD },
 		{ "exp_dat_sarlacc",   	EXP_DAT_SARLACC },
-		{ "bdg_library_trivia",    BDG_LIBRARY_TRIVIA },
-		--{ "bdg_exp_cor_bela_vistal_fountain",   	BDG_EXP_COR_BELA_VISTAL_FOUNTAIN}
+		{ "bdg_library_trivia",    BDG_LIBRARY_TRIVIA },]]
+		{ "bdg_exp_cor_bela_vistal_fountain",   	BDG_EXP_COR_BELA_VISTAL_FOUNTAIN}
 	--{ "pilot_rebel_navy_naboo", 		PILOT_REBEL_NAVY_NABOO }
 	}
 	-- Filter out unknown professions (badge number 0)
@@ -213,7 +213,7 @@ function HologrindJediManager:checkIfProgressedToJedi(pCreatureObject)
         -- Player already progressed in the quest, no need to proceed further
         return
     end
-    
+
     -- Check if the player has mastered all hologrind professions and send sui window and award skills.
 	if self:getNumberOfMasteredProfessions(pCreatureObject) >= NUMBEROFPROFESSIONSTOMASTER and not self:isJedi(pCreatureObject) then
 		self:sendSuiWindow(pCreatureObject)
@@ -242,6 +242,7 @@ end
 -- @param pCreatureObject pointer to the creature object of the player to register observers on.
 function HologrindJediManager:registerObservers(pCreatureObject)
 	createObserver(BADGEAWARDED, "HologrindJediManager", "badgeAwardedEventHandler", pCreatureObject)
+	createObserver(BADGEAWARDED, "jedi_tier2", "checkPlayerStatus", pCreatureObject)
 end
 
 -- Handling of the onPlayerLoggedIn event. The progression of the player will be checked and observers will be registered.

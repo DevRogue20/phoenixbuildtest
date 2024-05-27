@@ -4,22 +4,33 @@ local ObjectManager = require("managers.object.object_manager")  --print("Object
 jedi_training = ScreenPlay:new {
     numberOfActs = 1,
     screenplayName = "jedi_training",
-    states = {}
+    states = {},
+    defaultX = 28.0,
+    defaultZ = -4.2,
+    defaultY = -159.0,
+    radius = 128 -- Radius for checking if player is within the active area
 }
 registerScreenPlay("jedi_training", true)
 
 function jedi_training:start()
-    local pActiveArea = spawnSceneObject("dungeon2", "object/active_area.iff", 28.0, -4.2, 590.3, 0, 0, 0, 0, 0)
-    
-    if pActiveArea ~= nil then
-        local activeArea = LuaActiveArea(pActiveArea)
-        activeArea:setCellObjectID(0)
-        activeArea:setRadius(128)
-        createObserver(ENTEREDAREA, "jedi_training", "onEnterActiveArea", pActiveArea)
+    local activeAreas = {
+        { x = 28.0, y = -4.2, z = 590.3 },
+        { x = 28.0, y = -4.2, z = 1591.3 },
+        { x = 28.0, y = -4.2, z = 6841.3 }
+    }
+
+    for _, coords in ipairs(activeAreas) do
+        local pActiveArea = spawnSceneObject("dungeon2", "object/active_area.iff", coords.x, coords.y, coords.z, 0, 0, 0, 0, 0)
+        if pActiveArea ~= nil then
+            local activeArea = LuaActiveArea(pActiveArea)
+            activeArea:setCellObjectID(0)
+            activeArea:setRadius(self.radius)
+            createObserver(ENTEREDAREA, "jedi_training", "onEnterActiveArea", pActiveArea)
+        end
     end
 end
 
-local cooldownTime = 60 * 60 * 1000 -- 60 minutes in milliseconds
+local cooldownTime = 1 * 60 * 1000 -- 1 minute in milliseconds for testing
 
 local lastEntryTimes = {} -- Table to store last entry times for each player
 
@@ -45,6 +56,11 @@ function jedi_training:onEnterActiveArea(pActiveArea, pMovingObject)
     
     print("Player is a player object and not an AI agent")
 
+    --[[if pPlayer:hasSkill("admin_base") then
+        pPlayer:sendSystemMessage("You have entered the Jedi Training Area as an admin. Timer is disabled for you.")
+        return 0
+    end]]
+
 	local playerId = pPlayer:getObjectID()
     local playerLastEntryTime = lastEntryTimes[playerId] or 0
     local currentTime = os.time() * 1000 -- Convert current time to milliseconds
@@ -63,14 +79,32 @@ function jedi_training:onEnterActiveArea(pActiveArea, pMovingObject)
     lastEntryTimes[playerId] = currentTime
     
     pPlayer:sendSystemMessage("You have entered the Jedi Training Area. You have 15 minutes to perform your task before you are removed from the area!")
-    createEvent(15 * 60 * 1000, "jedi_training", "onLeaveActiveArea", pMovingObject, "")
+    createEvent(1 * 60 * 1000, "jedi_training", "onLeaveActiveArea", pMovingObject, "")
     print("onLeaveActiveArea event created.")
     
     return 0
 end
 
+function jedi_training:isPlayerInActiveArea(pPlayer)
+    local playerX = SceneObject(pPlayer):getPositionX()
+    local playerY = SceneObject(pPlayer):getPositionY()
+    local playerZ = SceneObject(pPlayer):getPositionZ()
+    
+    -- Calculate distance from default coordinates
+    local distance = math.sqrt((playerX - self.defaultX)^2 + (playerY - self.defaultY)^2 + (playerZ - self.defaultZ)^2)
+    print("Player coordinates: x=" .. playerX .. ", y=" .. playerY .. ", z=" .. playerZ)
+    print("Calculated distance to default coordinates: " .. distance)
+
+    return distance <= self.radius
+end
+
 function jedi_training:onLeaveActiveArea(pPlayer)
     print("Entering onLeaveActiveArea function")
+    
+    if not self:isPlayerInActiveArea(pPlayer) then
+        print("Player is outside of the active area. Teleport aborted.")
+        return 0
+    end
 
     CreatureObject(pPlayer):sendSystemMessage("You have TIMED OUT of the Jedi Training Area.")
     SceneObject(pPlayer):switchZone("corellia", -151.0, 28.0, -4723.0, 0) -- Switch the player to a different zone

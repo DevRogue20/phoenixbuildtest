@@ -23,7 +23,8 @@ end
 
 function jedipush_objects:spawnMobiles()
 
-	local pCollector1 = spawnMobile("dungeon2", "aurora_sunrider", 1, 41.4, -4.2, -159.3, -90, 14201899)
+	--Obiwan Room Exit NPC's
+    local pCollector1 = spawnMobile("dungeon2", "aurora_sunrider", 1, 41.4, -4.2, -159.3, -90, 14201899)
 	local collector1 = LuaCreatureObject(pCollector1)
 	collector1:setOptionsBitmask(264)
 	createObserver(OBJECTRADIALUSED, "jedipush_objects", "teleportaurora", pCollector1)
@@ -33,6 +34,7 @@ function jedipush_objects:spawnMobiles()
 	collector2:setOptionsBitmask(264)
 	createObserver(OBJECTRADIALUSED, "jedipush_objects", "teleportmalakai", pCollector2)
 
+    --Padawan Room Exit NPC's
 	local ptransport1 = spawnMobile("dungeon2", "dressed_padawan_teleport", 1, 24.9, -4.2, -152.8, 180, 14201901)
 	local transport1 = LuaCreatureObject(ptransport1)
 	transport1:setOptionsBitmask(264)
@@ -64,7 +66,72 @@ function jedipush_objects:spawnMobiles()
     transport5:setCustomObjectName("Aurillia")
 	createObserver(OBJECTRADIALUSED, "jedipush_objects", "teleportaurillia", ptransport5)
 
-    if (pCollector1 or pCollector2 or ptransport1 or ptransport2 or ptransport3 or ptransport4 or ptransport5 ~= nil) then
+    --Dark Jedi Room Exit NPC's
+    local ptransport6 = spawnMobile("dungeon2", "dressed_dark_jedi_transport", 1, 27.5, -4.2, -153.2, 180, 610000432)
+	self:setMoodString(ptransport5, "npc_sitting_chair")
+	local transport6 = LuaCreatureObject(ptransport6)
+	transport6:setOptionsBitmask(264)
+    transport6:setCustomObjectName("Aurillia")
+	createObserver(OBJECTRADIALUSED, "jedipush_objects", "teleportaurillia", ptransport6)
+
+    local ptransport7 = spawnMobile("dungeon2", "dressed_dark_jedi_transport", 1, 24.9, -4.2, -152.8, 180, 610000432)
+	local transport7 = LuaCreatureObject(ptransport7)
+	transport7:setOptionsBitmask(264)
+    transport7:setCustomObjectName("Imperial Outpost")
+	createObserver(OBJECTRADIALUSED, "jedipush_objects", "teleportimpoutpost", ptransport7)
+
+    --[[local ptransport8 = spawnMobile("dungeon2", "dressed_dark_jedi_transport", 1, 29.4, -4.2, -152.8, 180, 610000432)
+	local transport8 = LuaCreatureObject(ptransport8)
+	transport8:setOptionsBitmask(264)
+    transport8:setCustomObjectName("")
+	createObserver(OBJECTRADIALUSED, "jedipush_objects", "", ptransport8)]]
+
+    local ptransport9 = spawnMobile("dungeon2", "dressed_dark_jedi_transport", 1, 20.8, -4.2, -169.9, 0, 610000432)
+	local transport9 = LuaCreatureObject(ptransport9)
+	transport9:setOptionsBitmask(264)
+    transport9:setCustomObjectName("Imperial Base")
+	createObserver(OBJECTRADIALUSED, "jedipush_objects", "teleportimpbase", ptransport9)
+
+    --[[local ptransport10 = spawnMobile("dungeon2", "dressed_dark_jedi_transport", 1, 33.6, -4.2, -169.9, 0, 610000432)
+	local transport10 = LuaCreatureObject(ptransport10)
+	transport10:setOptionsBitmask(264)
+    transport10:setCustomObjectName("")
+	createObserver(OBJECTRADIALUSED, "jedipush_objects", "", ptransport10)]]
+
+    --Jedi Room Exit NPC's
+    --[[local ptransport11 = spawnMobile("dungeon2", "dressed_padawan_teleport", 1, 24.9, -4.2, -152.8, 180, 14201903)
+	local transport11 = LuaCreatureObject(ptransport11)
+	transport11:setOptionsBitmask(264)
+    transport11:setCustomObjectName("")
+	createObserver(OBJECTRADIALUSED, "jedipush_objects", "", ptransport11)]]
+
+    local ptransport12 = spawnMobile("dungeon2", "dressed_padawan_teleport", 1, 29.4, -4.2, -152.8, 180, 14201903)
+	local transport12 = LuaCreatureObject(ptransport12)
+	transport12:setOptionsBitmask(264)
+    transport12:setCustomObjectName("Abandoned Rebel Base")
+	createObserver(OBJECTRADIALUSED, "jedipush_objects", "teleportrebbase", ptransport12)
+
+    --[[local ptransport13 = spawnMobile("dungeon2", "dressed_padawan_teleport", 1, 20.8, -4.2, -169.9, 0, 14201903)
+	local transport13 = LuaCreatureObject(ptransport13)
+	transport13:setOptionsBitmask(264)
+    transport13:setCustomObjectName("")
+	createObserver(OBJECTRADIALUSED, "jedipush_objects", "", ptransport13)]]
+
+    local ptransport14 = spawnMobile("dungeon2", "dressed_padawan_teleport", 1, 33.6, -4.2, -169.9, 0, 14201903)
+	local transport14 = LuaCreatureObject(ptransport14)
+	transport14:setOptionsBitmask(264)
+    transport14:setCustomObjectName("Anchorhead")
+	createObserver(OBJECTRADIALUSED, "jedipush_objects", "teleportanchorhead", ptransport14)
+
+	--[[local ptransport15 = spawnMobile("dungeon2", "dressed_padawan_teleport", 1, 27.5, -4.2, -153.2, 180, 14201903)
+	self:setMoodString(ptransport15, "npc_sitting_chair")
+	local transport15 = LuaCreatureObject(ptransport15)
+	transport15:setOptionsBitmask(264)
+    transport15:setCustomObjectName("Aurillia")
+	createObserver(OBJECTRADIALUSED, "jedipush_objects", "teleportaurillia", ptransport15)]]
+
+    if (pCollector1 or pCollector2 or ptransport1 or ptransport2 or ptransport3 or ptransport4 or ptransport5 or ptransport6 or ptransport7 or ptransport8 or ptransport9 or ptransport10 or ptransport11 or ptransport12 or ptransport13 or ptransport14 or ptransport15
+    ~= nil) then
 		return 1
 	end
 end

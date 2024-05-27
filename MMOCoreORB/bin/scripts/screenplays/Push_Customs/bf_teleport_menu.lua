@@ -236,7 +236,25 @@ elseif name == "Force Beacon (System Generated)" or name == "Force Beacon" then
 			return false
 		end
 
+		response:addRadialMenuItem(20, 3, "Teleport to Padawan Trainer")
+
+	elseif name == "Holocron of Eternal Light (System Generated)" or name == "Holocron of Eternal Light" then
+		local itvItem = getContainerObjectByTemplate(pInventory, "object/tangible/jedi/holocron_eternal.iff", true)
+		if itvItem == nil then
+			print("holocron is shit")
+			return false
+		end
+
 		response:addRadialMenuItem(20, 3, "Teleport to Jedi Trainer")
+
+	elseif name == "Holocron of Forbidden Knowledge (System Generated)" or name == "Holocron of Forbidden Knowledge" then
+		local itvItem = getContainerObjectByTemplate(pInventory, "object/tangible/jedi/holocron_forbidden.iff", true)
+		if itvItem == nil then
+			print("holocron is shit")
+			return false
+		end
+
+		response:addRadialMenuItem(20, 3, "Teleport to Dark Jedi Trainer")
 
 -- Bespin ITV
 	elseif name == "Bespin Cloud Car ITV (System Generated)" or name == "Bespin Cloud Car ITV" then
@@ -415,6 +433,18 @@ elseif name == "Force Beacon (System Generated)" or name == "Force Beacon" then
 	elseif name == "Holocron of the Five Masters (System Generated)" or name == "Holocron of the Five Masters" then
 		if (selectedID == 20) then
 			LuaSceneObject(pPlayer):switchZone("dungeon2", 27.5, -3.8, -159.3, 14201901)
+			playerCreature:sendSystemMessage("You are being pulled through the nether by the Force")
+		end
+
+	elseif name == "Holocron of Eternal Light (System Generated)" or name == "Holocron of Eternal Light" then
+		if (selectedID == 20) then
+			LuaSceneObject(pPlayer):switchZone("dungeon2", 27.5, -3.8, -159.3, 14201903)
+			playerCreature:sendSystemMessage("You are being pulled through the nether by the Force")
+		end
+
+	elseif name == "Holocron of Forbidden Knowledge (System Generated)" or name == "Holocron of Forbidden Knowledge" then
+		if (selectedID == 20) then
+			LuaSceneObject(pPlayer):switchZone("dungeon2", 27.5, -3.8, -159.3, 610000432)
 			playerCreature:sendSystemMessage("You are being pulled through the nether by the Force")
 		end
 

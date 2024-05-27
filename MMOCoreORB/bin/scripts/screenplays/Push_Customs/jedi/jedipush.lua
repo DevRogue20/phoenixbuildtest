@@ -556,7 +556,7 @@ function jedipush:onPlayerLoggedIn(pPlayer)
 
     local hasJedipushScreenplayState = false
 
-    local screenplayStates = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384}
+    local screenplayStates = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096}
     for _, state in ipairs(screenplayStates) do
         if CreatureObject(pPlayer):hasScreenPlayState(state, "jedipush") then
             hasJedipushScreenplayState = true
@@ -594,12 +594,14 @@ function jedipush:onPlayerLoggedIn(pPlayer)
         self:removeYoda(pPlayer, true)
     elseif CreatureObject(pPlayer):hasScreenPlayState(8192, "jedipush") then
         local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+        local pItem = giveItem(pInventory, "object/tangible/jedi/five_masters.iff", -1)
         local item = getContainerObjectByTemplate(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", true)
 
         if item ~= nil then
             SceneObject(item):destroyObjectFromWorld()
             SceneObject(item):destroyObjectFromDatabase()
         end
+    
     elseif CreatureObject(pPlayer):hasScreenPlayState(16384, "jedipush") then
         local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
         local item = getContainerObjectByTemplate(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", true)

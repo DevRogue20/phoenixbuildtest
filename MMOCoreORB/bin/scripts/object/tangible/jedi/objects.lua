@@ -521,3 +521,22 @@ object_tangible_jedi_shared_five_masters = SharedTangibleObjectTemplate:new {
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_jedi_shared_five_masters, "object/tangible/jedi/shared_five_masters.iff")
+
+--*************************************************************************************************************************
+
+object_tangible_jedi_shared_holocron_eternal = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/jedi/shared_holocron_eternal.iff"
+	
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_jedi_shared_holocron_eternal, "object/tangible/jedi/shared_holocron_eternal.iff")
+
+
+--*************************************************************************************************************************
+
+object_tangible_jedi_shared_holocron_forbidden = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/jedi/shared_holocron_forbidden.iff"
+	
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_jedi_shared_holocron_forbidden, "object/tangible/jedi/shared_holocron_forbidden.iff")
