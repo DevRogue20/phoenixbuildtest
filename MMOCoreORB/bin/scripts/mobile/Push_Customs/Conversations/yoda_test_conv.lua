@@ -802,7 +802,7 @@ yoda_test_convo_template:addScreen(yoda_three);
 
 correct_answer = ConvoScreen:new {
 	id = "correct_answer",
-	customDialogText = "Correct you are. Ready are you, ready for the journey that lay ahead. Take your Key of Destiny, and potential you will unlock. Return it you will... return it to the force..",
+	customDialogText = "Correct you are. Ready are you, ready for the journey that lay ahead. Return to the force essence and inform him you will.",
 	stopConversation = "true",
 	options = {}
 }

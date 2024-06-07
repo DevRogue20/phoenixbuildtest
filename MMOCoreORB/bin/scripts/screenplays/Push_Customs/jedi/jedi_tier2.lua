@@ -58,6 +58,7 @@ function jedi_tier2:checkPlayerStatus(pPlayer)
             CreatureObject(pPlayer):sendSystemMessage("You have unlocked a new quest. Follow the waypoint to Darian Veilwalker to choose your Jedi path.")
         end
     end
+    return 1
 end
 
 -- Helper function to create a waypoint
@@ -96,6 +97,10 @@ end
 
 -- Function to check if player has the required skill upon login
 function jedi_tier2:onPlayerLoggedIn(pPlayer)
+    local pGhost = CreatureObject(pPlayer):getPlayerObject()
+    if CreatureObject(pPlayer):hasSkill("jedi_dark_side_master_master") or CreatureObject(pPlayer):hasSkill("jedi_light_side_master_master") then
+        return 0
+    end
     if CreatureObject(pPlayer):hasSkill("jedi_padawan_master") then
         -- Check if the player already has screenplay state 4 or 8
         if CreatureObject(pPlayer):hasScreenPlayState(4, "jedi_tier2") or CreatureObject(pPlayer):hasScreenPlayState(8, "jedi_tier2") then

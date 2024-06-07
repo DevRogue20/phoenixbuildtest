@@ -5,7 +5,7 @@ JediTrials = ScreenPlay:new {
 	-- Object ID's of the various force shrines.
 	forceShrineIds = {
 		corellia = { 7345554, 7345568, 7345533, 7345540, 7345561 },
-		dantooine = { 6045480, 6045501, 6045522, 6045494, 6045508 },
+		--[[dantooine = { 6045480, 6045501, 6045522, 6045494, 6045508 },
 		dathomir = { 7325403, 7325410, 7325417, 7325424, 7325438 },
 		endor = { 7255422, 7255429, 7255436, 7255443, 7255457 },
 		lok = { 6625591, 6625598, 6625605, 6625619, 6625626 },
@@ -13,7 +13,7 @@ JediTrials = ScreenPlay:new {
 		rori = { 6885431, 6885438, 6885445, 6885452, 6885459 },
 		talus = { 6535834, 6535841, 6535869, 6535891 },
 		tatooine = { 5996497, 5996504, 5996539, 5996546, 5996560 },
-		yavin4 = { 6845418, 6845425, 7665623, 7665630 }
+		yavin4 = { 6845418, 6845425, 7665623, 7665630 }]]
 	},
 
 	shrinePlanets = { "corellia", "dantooine", "dathomir", "endor", "lok", "naboo", "rori", "talus", "tatooine", "yavin4" },
@@ -41,6 +41,10 @@ function JediTrials:isOnPadawanTrials(pPlayer)
 end
 
 function JediTrials:isEligibleForKnightTrials(pPlayer)
+	if CreatureObject(pPlayer):hasSkill("jedi_dark_side_master_master") or CreatureObject(pPlayer):hasSkill("jedi_light_side_master_master") then
+		return true
+	end
+	
 	if (pPlayer == nil or not self.knightTrialsEnabled) then
 		return false
 	end
@@ -49,7 +53,7 @@ function JediTrials:isEligibleForKnightTrials(pPlayer)
 		return false
 	end
 
-	return CreatureObject(pPlayer):villageKnightPrereqsMet("")
+	--return CreatureObject(pPlayer):villageKnightPrereqsMet("")
 end
 
 function JediTrials:isOnKnightTrials(pPlayer)

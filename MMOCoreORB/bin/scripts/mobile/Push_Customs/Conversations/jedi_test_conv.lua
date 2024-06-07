@@ -144,7 +144,7 @@ jedi_test_convo_template:addScreen(trial_five);
 
 trial_five_a = ConvoScreen:new {
 	id = "trial_five_a",
-	customDialogText = "Recently, contact was lost with a powerful force user. You must track down this person to gain the answers that you seek. Only then can you be a jedi... Seek out this powerful ally of the force and return to me the Holocron of the Five Masters. They were last known to be wondering the swamps of Corellia.",
+	customDialogText = "Recently, contact was lost with a powerful force user. You must track down this force user to gain the answers that you seek. Only then can you be a jedi... Seek out this powerful ally of the force and return to me after providing what he asks of you. He was last known to be wondering the swamps of Corellia.",
 	stopConversation = "false",
 	options = {
 		{"I understand, I will seek out this powerful force user.", "trial_five_active"}
@@ -163,10 +163,10 @@ jedi_test_convo_template:addScreen(trial_five_active);
 
 trial_finish = ConvoScreen:new {
 	id = "trial_finish",
-	customDialogText = "I can sense the Holocron of the Five Masters.. ",
+	customDialogText = "I can sense that you have completed your task, Take the Holocron of the Five Masters. You will use this device to instantly travel to your new traning grounds. Be aware that that training grounds are highly restricted. Only those that are invited my be there and even then only for a short period of time.",
 	stopConversation = "false",
 	options = {
-		{"Yes, I have retrieved it as you have requested.", "trial_isJedi"}
+		{"I understand. Thank you Master", "trial_isJedi"}
 	}
 }
 jedi_test_convo_template:addScreen(trial_finish);

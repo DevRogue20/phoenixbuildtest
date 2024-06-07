@@ -53,10 +53,6 @@ function jedi_test_convo_handler:runScreenHandlers(pConvTemplate, pPlayer, pNpc,
     local screenID = screen:getScreenID()
     
     if screenID == "task_one" then
-        CreatureObject(pPlayer):removeScreenPlayState(1, "jedipush")
-        CreatureObject(pPlayer):setScreenPlayState(2, "jedipush")
-        jedipush:startTrial(pPlayer)
-
         local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
 
         -- Check inventory
@@ -66,6 +62,10 @@ function jedi_test_convo_handler:runScreenHandlers(pConvTemplate, pPlayer, pNpc,
             -- Add Force Beacon to inventory
             local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
             local pItem = giveItem(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", -1)
+
+            CreatureObject(pPlayer):removeScreenPlayState(1, "jedipush")
+            CreatureObject(pPlayer):setScreenPlayState(2, "jedipush")
+            jedipush:startTrial(pPlayer)
         end
         	
     elseif screenID == "task_two" then
@@ -93,16 +93,23 @@ function jedi_test_convo_handler:runScreenHandlers(pConvTemplate, pPlayer, pNpc,
         
 
     elseif screenID == "trial_isJedi" then
+        local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+
+        if (pInventory == nil or SceneObject(pInventory):isContainerFullRecursive()) then
+            CreatureObject(pPlayer):sendSystemMessage("Inventory is full, make room for additional items")
+        else
+        local pItem = giveItem(pInventory, "object/tangible/crafting/station/jedi_tool.iff", -1)
+        local pItem = giveItem(pInventory, "object/tangible/jedi/five_masters.iff", -1)
+        CreatureObject(pPlayer):sendSystemMessage(" \\#FFFF00\\You have received The Holocron of the Five Masters")
+        local item = getContainerObjectByTemplate(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", true)
         HologrindJediManager:awardJediStatusAndSkill(pPlayer)
         CreatureObject(pPlayer):removeScreenPlayState(4096, "jedipush")
         CreatureObject(pPlayer):setScreenPlayState(8192, "jedipush")
 
-        local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
-        local item = getContainerObjectByTemplate(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", true)
-
-        if item ~= nil then
-            SceneObject(item):destroyObjectFromWorld()
-            SceneObject(item):destroyObjectFromDatabase()
+            if item ~= nil then
+                SceneObject(item):destroyObjectFromWorld()
+                SceneObject(item):destroyObjectFromDatabase()
+            end
         end
     end
     return pConvScreen

@@ -1,5 +1,5 @@
 
---				Property of BloodfinEMU (Do Not Distribute) 
+--				Project Phoenix
 
 --Copyright (C) 2010 <SWGEmu>
 
@@ -85,24 +85,24 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_gen5 = object
                 "object/creature/player/smc_female.iff",
                 "object/creature/player/togruta_female.iff",
                 "object/creature/player/weequay_male.iff",
-		"object/creature/player/abyssin_male.iff",
-		"object/creature/player/arcona_male.iff",
-		"object/creature/player/cerean_male.iff",
-		"object/creature/player/duros_male.iff",
-		"object/creature/player/feeorin_male.iff",
-		"object/creature/player/gungan_male.iff",
-		"object/creature/player/iktotchi_male.iff",
-		"object/creature/player/jenet_male.iff",
-		"object/creature/player/kel_dor_male.iff",
-		"object/creature/player/kubaz_male.iff",
-		"object/creature/player/mirialan_female.iff",
-		"object/creature/player/mirialan_male.iff",
-		"object/creature/player/sanyassan_female.iff",
-		"object/creature/player/sanyassan_male.iff",
-		"object/creature/player/zeltron_female.iff",
-		"object/creature/player/zeltron_male.iff"},
+				"object/creature/player/abyssin_male.iff",
+				"object/creature/player/arcona_male.iff",
+				"object/creature/player/cerean_male.iff",
+				"object/creature/player/duros_male.iff",
+				"object/creature/player/feeorin_male.iff",
+				"object/creature/player/gungan_male.iff",
+				"object/creature/player/iktotchi_male.iff",
+				"object/creature/player/jenet_male.iff",
+				"object/creature/player/kel_dor_male.iff",
+				"object/creature/player/kubaz_male.iff",
+				"object/creature/player/mirialan_female.iff",
+				"object/creature/player/mirialan_male.iff",
+				"object/creature/player/sanyassan_female.iff",
+				"object/creature/player/sanyassan_male.iff",
+				"object/creature/player/zeltron_female.iff",
+				"object/creature/player/zeltron_male.iff"},
 
-	-- RANGEDATTACK, MELEEATTACK, FORCEATTACK, TRAPATTACK, GRENADEATTACK, HEAVYACIDBEAMATTACK, 
+	-- RANGEDATTACK, MELEEATTACK, FORCEATTACK, TRAPATTACK, GRENADEATTACK, HEAVYACIDBEAMATTACK,
 	-- HEAVYLIGHTNINGBEAMATTACK, HEAVYPARTICLEBEAMATTACK, HEAVYROCKETLAUNCHERATTACK, HEAVYLAUNCHERATTACK
 	attackType = MELEEATTACK,
 
@@ -116,9 +116,9 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_gen5 = object
 	-- combat_meleespecialize_unarmed, combat_meleespecialize_twohand, combat_meleespecialize_polearm, combat_meleespecialize_onehand, combat_general,
 	-- combat_meleespecialize_twohandlightsaber, jedi_general, combat_meleespecialize_onehandlightsaber
 	xpType = "jedi_general",
-	
+
 	-- See http://www.ocdsoft.com/files/certifications.xls
-	certificationsRequired = { "cert_polearmlightsaber_gen3" },
+	certificationsRequired = { "cert_polearmlightsaber_gen4" },
 	-- See http://www.ocdsoft.com/files/accuracy.xls
 	creatureAccuracyModifiers = { "polearmlightsaber_accuracy" },
 
@@ -160,6 +160,7 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_gen5 = object
 	defenderToughnessModifiers = { "lightsaber_toughness" },
 
 	noTrade = 0,
+	
 	childObjects = {
 		{templateFile = "object/tangible/inventory/lightsaber_inventory_5.iff", x = 0, z = 0, y = 0, ox = 0, oy = 0, oz = 0, ow = 0, cellid = -1, containmentType = 4}
 	},
@@ -169,8 +170,8 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_gen5 = object
 	experimentalWeights = {1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1},
 	experimentalGroupTitles = {"null", "null", "expDamage", "expDamage", "expDamage", "expDamage", "expEffeciency", "expEffeciency", "expEffeciency", "expEffeciency"},
 	experimentalSubGroupTitles = {"null", "null", "mindamage", "maxdamage", "attackspeed", "woundchance", "forcecost", "attackhealthcost", "attackactioncost", "attackmindcost"},
-	experimentalMin = {0, 0, 255, 335, 5.1, 25, 61, 60, 95, 45},
-	experimentalMax = {0, 0, 275, 355, 4.8, 50, 54, 45, 65, 40},
+	experimentalMin = {0, 0, 505, 685, 5.1, 25, 53, 60, 95, 45},
+	experimentalMax = {0, 0, 528, 730, 4.8, 50, 46, 45, 65, 40},
 	experimentalPrecision = {0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1},
 }
@@ -178,4 +179,4 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_gen5 = object
 ObjectTemplates:addTemplate(object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_gen5, "object/weapon/melee/polearm/crafted_saber/sword_lightsaber_polearm_gen5.iff")
 
 
---				Property of BloodfinEMU (Do Not Distribute)
+--				Project Phoenix

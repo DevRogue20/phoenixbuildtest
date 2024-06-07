@@ -115,12 +115,9 @@ function yoda_test_convo_handler:runScreenHandlers(pConvTemplate, pPlayer, pNpc,
         print("removing screenplaystate 2048")
         CreatureObject(pPlayer):setScreenPlayState(4096, "jedipush")
         print("setting screenplaystate 4096")
-        local pInventory = SceneObject(pPlayer):getSlottedObject("inventory")
-        local pItem = giveItem(pInventory, "object/tangible/jedi/five_masters.iff", -1)
-        CreatureObject(pPlayer):sendSystemMessage(" \\#FFFF00\\You have received The Holocron of the Five Masters")
         CreatureObject(pPlayer):sendSystemMessage(" \\#FFFF00\\<Communicator>  \\#0000FF\\Trial 5: Quest for The Five Masters, Completed!")
         CreatureObject(pPlayer):playMusicMessage("sound/ui_npe2_quest_completed.snd")
-        CreatureObject(pPlayer):sendSystemMessage(" \\#00FF00\\Seek out the Force Essence and return the Holocron of the Five Masters, to claim your destiny...")
+        CreatureObject(pPlayer):sendSystemMessage(" \\#00FF00\\Seek out the Force Essence and claim the Holocron of the Five Masters")
         jedipush:removeYoda(pPlayer, false)
         print("scheduled Yoda removal")
 

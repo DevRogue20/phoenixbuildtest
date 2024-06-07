@@ -96,14 +96,14 @@ object_tangible_wearables_robe_robe_jedi_light_s04 = object_tangible_wearables_r
 	jediRobe = true,
 
 	skillMods = {
-		{"jedi_force_power_max", 250},
-		{"jedi_force_power_regen", 10}
+		{"jedi_force_power_max", 450},
+		{"jedi_force_power_regen", 30}
 	},
 
-	noTrade = 0,
+	noTrade = 1,
 
 	objectMenuComponent = "RobeObjectMenuComponent",
-	certificationsRequired = {"force_rank_light_rank_08"},
+	certificationsRequired = {"force_rank_light_rank_01"},
 	attributeListComponent = "JediRobeAttributeListComponent",
 }
 

@@ -118,7 +118,7 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_gen6 = object
 	xpType = "jedi_general",
 	
 	-- See http://www.ocdsoft.com/files/certifications.xls
-	certificationsRequired = { "cert_polearmlightsaber_gen3" },
+	certificationsRequired = { "cert_polearmlightsaber_gen4" },
 	-- See http://www.ocdsoft.com/files/accuracy.xls
 	creatureAccuracyModifiers = { "polearmlightsaber_accuracy" },
 
