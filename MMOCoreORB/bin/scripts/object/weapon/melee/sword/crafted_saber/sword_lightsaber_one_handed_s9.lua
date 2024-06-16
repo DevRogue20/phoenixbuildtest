@@ -1,5 +1,5 @@
 
---				Property of BloodfinEMU (Do Not Distribute) 
+--				Project Phoenix 
 
 --Copyright (C) 2010 <SWGEmu>
 
@@ -47,62 +47,62 @@
 object_weapon_melee_sword_crafted_saber_sword_lightsaber_one_handed_s9 = object_weapon_melee_sword_crafted_saber_shared_sword_lightsaber_one_handed_s9:new {
 
 	playerRaces = { "object/creature/player/bothan_male.iff",
-				"object/creature/player/bothan_female.iff",
-				"object/creature/player/human_male.iff",
-				"object/creature/player/human_female.iff",
-				"object/creature/player/ithorian_male.iff",
-				"object/creature/player/ithorian_female.iff",
-				"object/creature/player/moncal_male.iff",
-				"object/creature/player/moncal_female.iff",
-				"object/creature/player/rodian_male.iff",
-				"object/creature/player/rodian_female.iff",
-				"object/creature/player/sullustan_male.iff",
-				"object/creature/player/sullustan_female.iff",
-				"object/creature/player/trandoshan_male.iff",
-				"object/creature/player/trandoshan_female.iff",
-				"object/creature/player/twilek_male.iff",
-				"object/creature/player/twilek_female.iff",
-				"object/creature/player/wookiee_male.iff",
-				"object/creature/player/wookiee_female.iff",
-				"object/creature/player/zabrak_male.iff",
-				"object/creature/player/zabrak_female.iff",
-                "object/creature/player/aqualish_female.iff",
-                "object/creature/player/aqualish_male.iff",
-                "object/creature/player/bith_female.iff",
-                "object/creature/player/bith_male.iff",
-                "object/creature/player/chiss_female.iff",
-                "object/creature/player/chiss_male.iff",
-                "object/creature/player/devaronian_male.iff",
-                "object/creature/player/gran_male.iff",
---				"object/creature/player/hutt_female.iff",
---				"object/creature/player/hutt_male.iff",
-                "object/creature/player/ishi_tib_male.iff",
-                "object/creature/player/gotal_male.iff",
-                "object/creature/player/nautolan_male.iff",
-                "object/creature/player/nikto_male.iff",
-                "object/creature/player/quarren_male.iff",
-                "object/creature/player/nightsister_female.iff",
-                "object/creature/player/smc_female.iff",
-                "object/creature/player/togruta_female.iff",
-                "object/creature/player/weequay_male.iff",
-		"object/creature/player/abyssin_male.iff",
-		"object/creature/player/arcona_male.iff",
-		"object/creature/player/cerean_male.iff",
-		"object/creature/player/duros_male.iff",
-		"object/creature/player/feeorin_male.iff",
-		"object/creature/player/gungan_male.iff",
-		"object/creature/player/iktotchi_male.iff",
-		"object/creature/player/jenet_male.iff",
-		"object/creature/player/kel_dor_male.iff",
-		"object/creature/player/kubaz_male.iff",
-		"object/creature/player/mirialan_female.iff",
-		"object/creature/player/mirialan_male.iff",
-		"object/creature/player/sanyassan_female.iff",
-		"object/creature/player/sanyassan_male.iff",
-		"object/creature/player/zeltron_female.iff",
-		"object/creature/player/zeltron_male.iff"},
+					"object/creature/player/bothan_female.iff",
+					"object/creature/player/human_male.iff",
+					"object/creature/player/human_female.iff",
+					"object/creature/player/ithorian_male.iff",
+					"object/creature/player/ithorian_female.iff",
+					"object/creature/player/moncal_male.iff",
+					"object/creature/player/moncal_female.iff",
+					"object/creature/player/rodian_male.iff",
+					"object/creature/player/rodian_female.iff",
+					"object/creature/player/sullustan_male.iff",
+					"object/creature/player/sullustan_female.iff",
+					"object/creature/player/trandoshan_male.iff",
+					"object/creature/player/trandoshan_female.iff",
+					"object/creature/player/twilek_male.iff",
+					"object/creature/player/twilek_female.iff",
+					"object/creature/player/wookiee_male.iff",
+					"object/creature/player/wookiee_female.iff",
+					"object/creature/player/zabrak_male.iff",
+					"object/creature/player/zabrak_female.iff",
+					"object/creature/player/aqualish_female.iff",
+					"object/creature/player/aqualish_male.iff",
+					"object/creature/player/bith_female.iff",
+					"object/creature/player/bith_male.iff",
+					"object/creature/player/chiss_female.iff",
+					"object/creature/player/chiss_male.iff",
+					"object/creature/player/devaronian_male.iff",
+					"object/creature/player/gran_male.iff",
+	--				"object/creature/player/hutt_female.iff",
+	--				"object/creature/player/hutt_male.iff",
+					"object/creature/player/ishi_tib_male.iff",
+					"object/creature/player/gotal_male.iff",
+					"object/creature/player/nautolan_male.iff",
+					"object/creature/player/nikto_male.iff",
+					"object/creature/player/quarren_male.iff",
+					"object/creature/player/nightsister_female.iff",
+					"object/creature/player/smc_female.iff",
+					"object/creature/player/togruta_female.iff",
+					"object/creature/player/weequay_male.iff",
+					"object/creature/player/abyssin_male.iff",
+					"object/creature/player/arcona_male.iff",
+					"object/creature/player/cerean_male.iff",
+					"object/creature/player/duros_male.iff",
+					"object/creature/player/feeorin_male.iff",
+					"object/creature/player/gungan_male.iff",
+					"object/creature/player/iktotchi_male.iff",
+					"object/creature/player/jenet_male.iff",
+					"object/creature/player/kel_dor_male.iff",
+					"object/creature/player/kubaz_male.iff",
+					"object/creature/player/mirialan_female.iff",
+					"object/creature/player/mirialan_male.iff",
+					"object/creature/player/sanyassan_female.iff",
+					"object/creature/player/sanyassan_male.iff",
+					"object/creature/player/zeltron_female.iff",
+					"object/creature/player/zeltron_male.iff"},																																
 
-	-- RANGEDATTACK, MELEEATTACK, FORCEATTACK, TRAPATTACK, GRENADEATTACK, HEAVYACIDBEAMATTACK, 
+	-- RANGEDATTACK, MELEEATTACK, FORCEATTACK, TRAPATTACK, GRENADEATTACK, HEAVYACIDBEAMATTACK,
 	-- HEAVYLIGHTNINGBEAMATTACK, HEAVYPARTICLEBEAMATTACK, HEAVYROCKETLAUNCHERATTACK, HEAVYLAUNCHERATTACK
 	attackType = MELEEATTACK,
 
@@ -116,7 +116,7 @@ object_weapon_melee_sword_crafted_saber_sword_lightsaber_one_handed_s9 = object_
 	-- combat_meleespecialize_unarmed, combat_meleespecialize_twohand, combat_meleespecialize_polearm, combat_meleespecialize_onehand, combat_general,
 	-- combat_meleespecialize_twohandlightsaber, combat_meleespecialize_polearmlightsaber, jedi_general
 	xpType = "jedi_general",
-	
+
 	-- See http://www.ocdsoft.com/files/certifications.xls
 	certificationsRequired = { "cert_onehandlightsaber_gen1" },
 	-- See http://www.ocdsoft.com/files/accuracy.xls
@@ -134,10 +134,11 @@ object_weapon_melee_sword_crafted_saber_sword_lightsaber_one_handed_s9 = object_
 	-- Leave blank for now
 	damageModifiers = { },
 
+
 	-- The values below are the default values.  To be used for blue frog objects primarily
-	healthAttackCost = 20,
+	healthAttackCost = 40,
 	actionAttackCost = 35,
-	mindAttackCost = 40,
+	mindAttackCost = 20,
 	forceCost = 12,
 
 	pointBlankRange = 0,
@@ -149,29 +150,28 @@ object_weapon_melee_sword_crafted_saber_sword_lightsaber_one_handed_s9 = object_
 	maxRange = 5,
 	maxRangeAccuracy = 5,
 
-	minDamage = 70,
-	maxDamage = 160,
+	minDamage = 250,
+	maxDamage = 285,
 
-	attackSpeed = 4.5,
+	attackSpeed = 4.8,
 
 	woundsRatio = 15,
 
 	defenderToughnessModifiers = { "lightsaber_toughness" },
 	
 	noTrade = 0,
-
+	
 	childObjects = {
 		{templateFile = "object/tangible/inventory/lightsaber_inventory_1.iff", x = 0, z = 0, y = 0, ox = 0, oy = 0, oz = 0, ow = 0, cellid = -1, containmentType = 4}
 	},
-
 
 	numberExperimentalProperties = {1, 1, 2, 2, 2, 2, 2, 1, 1, 1},
 	experimentalProperties = {"XX", "XX", "CD", "OQ", "CD", "OQ", "CD", "OQ", "SR", "UT", "CD", "OQ", "OQ", "OQ", "OQ"},
 	experimentalWeights = {1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1},
 	experimentalGroupTitles = {"null", "null", "expDamage", "expDamage", "expDamage", "expDamage", "expEffeciency", "expEffeciency", "expEffeciency", "expEffeciency"},
 	experimentalSubGroupTitles = {"null", "null", "mindamage", "maxdamage", "attackspeed", "woundchance", "forcecost", "attackhealthcost", "attackactioncost", "attackmindcost"},
-	experimentalMin = {0, 0, 70, 160, 4.5, 10, 15, 20, 35, 40},
-	experimentalMax = {0, 0, 90, 200, 4.2, 20, 12, 15, 25, 25},
+	experimentalMin = {0, 0, 205, 295, 4.8, 10, 15, 40, 35, 20},
+	experimentalMax = {0, 0, 230, 340, 4.5, 20, 12, 25, 25, 15},
 	experimentalPrecision = {0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1},
 
@@ -180,4 +180,4 @@ object_weapon_melee_sword_crafted_saber_sword_lightsaber_one_handed_s9 = object_
 ObjectTemplates:addTemplate(object_weapon_melee_sword_crafted_saber_sword_lightsaber_one_handed_s9, "object/weapon/melee/sword/crafted_saber/sword_lightsaber_one_handed_s9.iff")
 
 
---				Property of BloodfinEMU (Do Not Distribute)
+--				Project Phoenix

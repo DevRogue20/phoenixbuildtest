@@ -163,9 +163,9 @@ includeFile("dungeon/corellian_corvette/ticket_takers/lt_lance.lua")
 --[[ Village
 includeFile("village/village_community_crafting.lua")
 includeFile("village/village_gm_sui.lua")
-includeFile("village/village_jedi_manager_common.lua")]]
+includeFile("village/village_jedi_manager_common.lua")
 includeFile("village/village_jedi_manager_holocron.lua")
---[[includeFile("village/village_jedi_manager_township.lua")
+includeFile("village/village_jedi_manager_township.lua")
 includeFile("village/village_raids.lua")
 includeFile("village/village_spawn_table.lua")
 includeFile("village/intro/fs_intro.lua")
@@ -247,7 +247,7 @@ includeFile("village/convos/phase4/sarguillo_phase4_conv_handler.lua")
 includeFile("village/convos/phase4/sivarra_phase4_conv_handler.lua")]]
 
 -- Jedi Trials
-includeFile("jedi/trialData.lua")
+--[[includeFile("jedi/trialData.lua")
 includeFile("jedi/jedi_trials.lua")
 includeFile("jedi/knight/knight_trials.lua")
 includeFile("jedi/padawan/padawan_trials.lua")
@@ -274,11 +274,11 @@ includeFile("jedi/padawan/convos/padawan_spice_mom_01_conv_handler.lua")
 includeFile("jedi/padawan/convos/padawan_spice_mom_02_conv_handler.lua")
 includeFile("jedi/padawan/convos/padawan_surveyor_01_conv_handler.lua")
 includeFile("jedi/padawan/convos/padawan_the_ring_01_conv_handler.lua")
-includeFile("jedi/padawan/convos/padawan_the_ring_02_conv_handler.lua")
+includeFile("jedi/padawan/convos/padawan_the_ring_02_conv_handler.lua")]]
 
 -- Jedi Objects
 includeFile("jedi/components/ForceShrineMenuComponent.lua")
-includeFile("jedi/components/TrialsSearchObjectMenuComponent.lua")
+--includeFile("jedi/components/TrialsSearchObjectMenuComponent.lua")
 
 -- Events - Bestine Election
 includeFile("events/bestine_election/bestineElection.lua")

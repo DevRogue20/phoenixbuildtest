@@ -80,7 +80,7 @@ function JediTrials:onPlayerLoggedIn(pPlayer)
 	KnightTrials:onPlayerLoggedIn(pPlayer)
 end
 
-function JediTrials:droppedSkillDuringTrials(pPlayer, pSkill)
+--[[function JediTrials:droppedSkillDuringTrials(pPlayer, pSkill)
 	if (pPlayer == nil) then
 		return 1
 	end
@@ -107,9 +107,9 @@ function JediTrials:droppedSkillDuringTrials(pPlayer, pSkill)
 	end
 
 	return 0
-end
+end]]
 
-function JediTrials:unlockJediPadawan(pPlayer, dontSendSui)
+--[[function JediTrials:unlockJediPadawan(pPlayer, dontSendSui)
 	if (pPlayer == nil) then
 		return
 	end
@@ -149,7 +149,7 @@ function JediTrials:unlockJediPadawan(pPlayer, dontSendSui)
 	end
 
 	sendMail("system", "@jedi_spam:welcome_subject", "@jedi_spam:welcome_body", CreatureObject(pPlayer):getFirstName())
-end
+end]]
 
 function JediTrials:unlockJediKnight(pPlayer)
 	if (pPlayer == nil) then

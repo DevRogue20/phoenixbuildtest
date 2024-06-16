@@ -3,7 +3,7 @@ local ObjectManager = require("managers.object.object_manager")
 
 jediManagerName = "HologrindJediManager"
 
-NUMBEROFPROFESSIONSTOMASTER = 1
+NUMBEROFPROFESSIONSTOMASTER = 10
 MAXIMUMNUMBEROFPROFESSIONSTOSHOWWITHHOLOCRON = NUMBEROFPROFESSIONSTOMASTER - 0
 
 HologrindJediManager = JediManager:new {
@@ -17,18 +17,10 @@ HologrindJediManager = JediManager:new {
 -- @return a list of professions and their badge numbers.
 function HologrindJediManager:getGrindableProfessionList()
 	local grindableProfessions = {
-		-- String Id, badge number, profession name
-		--{ "pilot_rebel_navy_corellia", 	PILOT_REBEL_NAVY_CORELLIA },
-		--{ "pilot_imperial_navy_corellia", 	PILOT_IMPERIAL_NAVY_CORELLIA },
-		--{ "pilot_neutral_corellia", 		PILOT_CORELLIA },
-		--{ "pilot_rebel_navy_tatooine", 	PILOT_REBEL_NAVY_TATOOINE },
-		--{ "pilot_imperial_navy_naboo", 	PILOT_IMPERIAL_NAVY_NABOO },
-		--[[{ "crafting_architect_master", 		CRAFTING_ARCHITECT_MASTER  },
+		{ "crafting_architect_master", 		CRAFTING_ARCHITECT_MASTER  },
 		{ "crafting_armorsmith_master", 	CRAFTING_ARMORSMITH_MASTER  },
-		--{ "crafting_artisan_master", 		CRAFTING_ARTISAN_MASTER  },
 		{ "outdoors_bio_engineer_master",    OUTDOORS_BIOENGINEER_MASTER  },
 		{ "combat_bountyhunter_master",    COMBAT_BOUNTYHUNTER_MASTER },
-		--{ "combat_brawler_master", 		COMBAT_BRAWLER_MASTER  },
 		{ "combat_carbine_master", 		COMBAT_CARBINE_MASTER  },
 		{ "crafting_chef_master", 		CRAFTING_CHEF_MASTER  },
 		{ "science_combatmedic_master", 	SCIENCE_COMBATMEDIC_MASTER  },
@@ -37,28 +29,18 @@ function HologrindJediManager:getGrindableProfessionList()
 		{ "social_dancer_master", 		SOCIAL_DANCER_MASTER  },
 		{ "science_doctor_master", 		SCIENCE_DOCTOR_MASTER  },
 		{ "crafting_droidengineer_master", 	CRAFTING_DROIDENGINEER_MASTER  },
-		--{ "social_entertainer_master", 		SOCIAL_ENTERTAINER_MASTER  },
 		{ "combat_1hsword_master", 		COMBAT_1HSWORD_MASTER  },
 		{ "social_imagedesigner_master", 	SOCIAL_IMAGEDESIGNER_MASTER  },
-		--{ "combat_marksman_master", 		COMBAT_MARKSMAN_MASTER  },
-		--{ "science_medic_master", 		SCIENCE_MEDIC_MASTER  },
-		--{ "crafting_merchant_master", 		CRAFTING_MERCHANT_MASTER  },
 		{ "social_musician_master", 		SOCIAL_MUSICIAN_MASTER  },
 		{ "combat_polearm_master", 		COMBAT_POLEARM_MASTER  },
 		{ "combat_pistol_master", 		COMBAT_PISTOL_MASTER  },
-		--{ "social_politician_master", 	SOCIAL_POLITICIAN_MASTER  },
 		{ "outdoors_ranger_master", 		OUTDOORS_RANGER_MASTER  },
 		{ "combat_rifleman_master", 		COMBAT_RIFLEMAN_MASTER  },
-		--{ "outdoors_scout_master", 		OUTDOORS_SCOUT_MASTER  },
-		--{ "crafting_shipwright", 		CRAFTING_SHIPWRIGHT },
 		{ "combat_smuggler_master", 		COMBAT_SMUGGLER_MASTER  },
 		{ "outdoors_squadleader_master", 	OUTDOORS_SQUADLEADER_MASTER  },
 		{ "combat_2hsword_master", 		COMBAT_2HSWORD_MASTER  },
 		{ "crafting_tailor_master", 		CRAFTING_TAILOR_MASTER  },
 		{ "crafting_weaponsmith_master", 	CRAFTING_WEAPONSMITH_MASTER  },
-		--{ "pilot_neutral_naboo", 		PILOT_NEUTRAL_NABOO },
-		--{ "pilot_neutral_tatooine", 		PILOT_TATOOINE },
-		--{ "pilot_imperial_navy_tatooine", 	PILOT_IMPERIAL_NAVY_TATOOINE },
 		{ "combat_unarmed_master", 		COMBAT_UNARMED_MASTER  },
 		{ "bdg_thm_park_jabba_badge",   	BDG_THM_PARK_JABBA_BADGE },
 		{ "bdg_thm_park_imperial_badge",   	BDG_THM_PARK_IMPERIAL_BADGE },
@@ -77,9 +59,8 @@ function HologrindJediManager:getGrindableProfessionList()
 		{ "exp_tat_sarlacc_pit",   	EXP_TAT_SARLACC_PIT },
 		{ "exp_tat_krayt_graveyard",   	EXP_TAT_KRAYT_GRAVEYARD },
 		{ "exp_dat_sarlacc",   	EXP_DAT_SARLACC },
-		{ "bdg_library_trivia",    BDG_LIBRARY_TRIVIA },]]
+		{ "bdg_library_trivia",    BDG_LIBRARY_TRIVIA },
 		{ "bdg_exp_cor_bela_vistal_fountain",   	BDG_EXP_COR_BELA_VISTAL_FOUNTAIN}
-	--{ "pilot_rebel_navy_naboo", 		PILOT_REBEL_NAVY_NABOO }
 	}
 	-- Filter out unknown professions (badge number 0)
     grindableProfessions = filterProfessions(grindableProfessions, function(profession) 
@@ -155,29 +136,25 @@ end
 
 -- Sui window ok pressed callback function.
 function HologrindJediManager:notifyOkPressed(pPlayer, pCreatureObject, pInventory)
-	
 	SceneObject(pPlayer):switchZone("dungeon2", 27.5, -3.8, -159.3, 14201899)
-
--- Do nothing.
 end
 
 -- Send a sui window to the player about unlocking jedi and award jedi status and force sensitive skill.
 -- @param pCreatureObject pointer to the creature object of the player who unlocked jedi.
 function HologrindJediManager:sendSuiWindow(pCreatureObject)
 	local suiManager = LuaSuiManager()
-	suiManager:sendMessageBox(pCreatureObject, pCreatureObject, "Tremor in the Force", "Congratulations, apprentice of the Force. You've unlocked another level of enlightenment. When you are ready to continue press the okay button and you will ported to the next part of your jouney.", "@ok", "HologrindJediManager", "notifyOkPressed")
+	suiManager:sendMessageBox(pCreatureObject, pCreatureObject, "Force Awakening", "Congratulations, apprentice of the Force. You've unlocked another level of enlightenment. When you are ready to continue press the okay button and you will ported to the next part of your jouney.", "@ok", "HologrindJediManager", "notifyOkPressed")
 end
 
 -- Award skill and jedi status to the player.
 -- @param pCreatureObject pointer to the creature object of the player who unlocked jedi.
-function HologrindJediManager:awardJediStatusAndSkill(pCreatureObject, pPlayer, pGhost, pInventory)
+function HologrindJediManager:awardJediStatusAndSkill(pCreatureObject)
     local pGhost = CreatureObject(pCreatureObject):getPlayerObject()
 
     if (pGhost == nil) then
         return
     end
 
-	
 	CreatureObject(pCreatureObject):sendSystemMessage("Congratulations You Have unlocked Jedi!")
     CreatureObject(pCreatureObject):playEffect("clienteffect/trap_electric_01.cef", "")
 	CreatureObject(pCreatureObject):playEffect("clienteffect/pl_force_meditate_self.cef", "")
@@ -201,9 +178,7 @@ function HologrindJediManager:awardJediStatusAndSkill(pCreatureObject, pPlayer, 
 
     -- Send welcome mail
     sendMail("Phoenix Jedi", "@jedi_spam:welcome_subject", "I hope this message finds you in high spirits and brimming with excitement, as you've achieved a remarkable milestone in your journey on Project Phoenix; unlocking your Jedi! Allow us to extend our heartfelt congratulations to you on this extraordinary accomplishment. Your dedication, perseverance, and hard work have undoubtedly paid off, leading you to this significant moment. Becoming a Jedi is no small feat, and your commitment to mastering the Force is truly commendable. It is a testament to your skill and determination within our community. However, as you step into the shoes of a Jedi, it's important to recognize that as you are capable of great feats of power, you will start your journey weak and vulnerable.  First off get your training saber crafted and get to practicing your skills. once you have enough experienced gained you can locate a trainer and train the Jedi Padawan Skill. It's crucial to remain vigilant and mindful of your actions as you embark on this new chapter of your journey. XP will be not be easy to achieve without help, but with help comes visibility and with visibility comes bounty hunters. The path is slow and long, but in the end you will be a true force. As you venture forth as a Jedi, It will be more important than ever to be warry of who you can trust. There will be those that wish to see your demise... with death comes a loss of skill, do what you must to survive the harsh environments. Once again, congratulations on this momentous achievement. May the Force be with you always.", CreatureObject(pCreatureObject):getFirstName())
-	--sendMail("system", "@jedi_spam:welcome_subject", "@jedi_spam:welcome_body", CreatureObject(pCreatureObject):getFirstName())
 end
-
 
 -- Check if the player has mastered all hologrind professions and send sui window and award skills.
 -- @param pCreatureObject pointer to the creature object of the player to check the jedi progression on.
@@ -219,7 +194,6 @@ function HologrindJediManager:checkIfProgressedToJedi(pCreatureObject)
 		self:sendSuiWindow(pCreatureObject)
 		CreatureObject(pCreatureObject):setScreenPlayState(1, "jedipush")
 		--self:awardJediStatusAndSkill(pCreatureObject)
-
 	end
 end
 
@@ -253,13 +227,11 @@ function HologrindJediManager:onPlayerLoggedIn(pCreatureObject)
 	if (pGhost == nil) then
 		return
 	end
-		
 
 	jedipush:onPlayerLoggedIn(pCreatureObject)
 	jedi_tier2:onPlayerLoggedIn(pCreatureObject)
 	self:checkIfProgressedToJedi(pCreatureObject)
 	self:registerObservers(pCreatureObject)
-	
 end
 
 function HologrindJediManager:onPlayerLoggedOut(pCreatureObject)
@@ -268,10 +240,8 @@ function HologrindJediManager:onPlayerLoggedOut(pCreatureObject)
 	if (pGhost == nil) then
 		return
 	end
-		
 
 	jedipush:onPlayerLoggedOut(pCreatureObject)
-	
 end
 
 -- Get the profession name from the badge number.
@@ -293,7 +263,6 @@ function HologrindJediManager:getProfessionStringIdFromBadgeNumber(badgeNumber)
 	
 	return "Unknown profession"
 end
-
 
 -- Find out and send the response from the holocron to the player
 -- @param pCreatureObject pointer to the creature object of the player who used the holocron.
@@ -323,7 +292,6 @@ function HologrindJediManager:sendHolocronMessage(pCreatureObject)
     end
 end
 
-
 -- Handling of the useItem event.
 -- @param pSceneObject pointer to the item object.
 -- @param itemType the type of item that is used.
@@ -333,19 +301,102 @@ function HologrindJediManager:useItem(pSceneObject, itemType, pCreatureObject)
 		return
 	end
 
+	local pGhost = CreatureObject(pCreatureObject):getPlayerObject()
+
 	if itemType == ITEMHOLOCRON then
-		local isSilent = self:sendHolocronMessage(pCreatureObject)
-		if isSilent then
-			return
+		-- Check if the player has the force_title_jedi_rank_02 skill
+		if pGhost and PlayerObject(pGhost):isJedi() then
+			-- Use the holocron from the PushJediManagerHolocron screenplay
+			self:useHolocron(pSceneObject, pCreatureObject)
 		else
-			SceneObject(pSceneObject):destroyObjectFromWorld()
-			SceneObject(pSceneObject):destroyObjectFromDatabase()
+			local isSilent = self:sendHolocronMessage(pCreatureObject)
+			if isSilent then
+				return
+			else
+				SceneObject(pSceneObject):destroyObjectFromWorld()
+				SceneObject(pSceneObject):destroyObjectFromDatabase()
+			end
 		end
 	end
 end
 
-function HologrindJediManager:canLearnSkill(pPlayer, skillName)
-	return true
+-- PushJediManagerHolocron functionality
+
+USEDHOLOCRON = "used_holocron"
+HOLOCRONCOOLDOWNTIME = 24 * 60 * 60 * 1000 -- 24 hours
+
+-- Check if the player can use the holocron.
+-- @param pPlayer pointer to the creature object of the player who tries to use the holocron.
+-- @return true if the player can use the holocron.
+function HologrindJediManager:canUseHolocron(pPlayer)
+	local pGhost = CreatureObject(pPlayer):getPlayerObject()
+
+	if (pGhost == nil) then
+		return false
+	end
+
+	return PlayerObject(pGhost):isJedi() and CreatureObject(pPlayer):checkCooldownRecovery(USEDHOLOCRON)
+end
+
+-- Checks if the player can replenish the force or not.
+-- @param pPlayer pointer to the creature object of the player who should be checked.
+-- @return true if the player can replenish the force.
+function HologrindJediManager:canReplenishForce(pPlayer)
+	local pGhost = CreatureObject(pPlayer):getPlayerObject()
+
+	if (pGhost == nil) then
+		return false
+	end
+
+	return PlayerObject(pGhost):getForcePower() < PlayerObject(pGhost):getForcePowerMax()
+end
+
+-- Use the holocron on the player.
+-- @param pSceneObject pointer to the scene object of the holocron.
+-- @param pPlayer pointer to the creature object of the player who is using the holocron.
+function HologrindJediManager:usePushHolocron(pSceneObject, pPlayer)
+	local pGhost = CreatureObject(pPlayer):getPlayerObject()
+
+	if (pGhost == nil) then
+		return
+	end
+
+	-- The holocron hums softly as you feel your Force power replenish.
+	CreatureObject(pPlayer):sendSystemMessage("@jedi_spam:holocron_force_replenish")
+	PlayerObject(pGhost):setForcePower(PlayerObject(pGhost):getForcePowerMax())
+	CreatureObject(pPlayer):addCooldown(USEDHOLOCRON, HOLOCRONCOOLDOWNTIME)
+
+	SceneObject(pSceneObject):destroyObjectFromWorld()
+	SceneObject(pSceneObject):destroyObjectFromDatabase()
+end
+
+-- Send message to the player that he cannot replenish the force.
+-- @param pPlayer pointer to the creature object of the player that tries to use the holocron.
+function HologrindJediManager:cannotReplenishForce(pPlayer)
+	-- You are already at your maximum Force power.
+	CreatureObject(pPlayer):sendSystemMessage("@jedi_spam:holocron_force_max")
+end
+
+-- Send message to the player that he cannot use the holocron.
+-- @param pPlayer pointer to the creature object of the player that tries to use the holocron.
+function HologrindJediManager:cannotUseHolocron(pPlayer)
+	-- The holocron hums briefly, but otherwise does nothing.
+	CreatureObject(pPlayer):sendSystemMessage("@jedi_spam:holocron_no_effect")
+end
+
+-- Handling of the useHolocron event.
+-- @param pSceneObject pointer to the holocron object.
+-- @param pPlayer pointer to the creature object that used the holocron.
+function HologrindJediManager:useHolocron(pSceneObject, pPlayer)
+	if self:canUseHolocron(pPlayer) then
+		if self:canReplenishForce(pPlayer) then
+			self:usePushHolocron(pSceneObject, pPlayer)
+		else
+			self:cannotReplenishForce(pPlayer)
+		end
+	else
+		self:cannotUseHolocron(pPlayer)
+	end
 end
 
 registerScreenPlay("HologrindJediManager", true)

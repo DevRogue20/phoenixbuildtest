@@ -1,5 +1,5 @@
 
---				Property of BloodfinEMU (Do Not Distribute) 
+--				Project Phoenix 
 
 --Copyright (C) 2010 <SWGEmu>
 
@@ -182,4 +182,4 @@ object_weapon_melee_sword_crafted_saber_sword_lightsaber_training = object_weapo
 ObjectTemplates:addTemplate(object_weapon_melee_sword_crafted_saber_sword_lightsaber_training, "object/weapon/melee/sword/crafted_saber/sword_lightsaber_training.iff")
 
 
---				Property of BloodfinEMU (Do Not Distribute)
+--				Project Phoenix

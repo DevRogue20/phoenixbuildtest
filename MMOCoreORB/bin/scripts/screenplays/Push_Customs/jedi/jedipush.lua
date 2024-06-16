@@ -9,22 +9,22 @@ local trials = {
     target = {"tusken_raider", "tusken_avenger", "tusken_berserker", "tusken_blood_champion", "tusken_brute", "tusken_captain", "tusken_carnage_champion", "tusken_chief", "tusken_death_hunter", "tusken_gore_chief", "tusken_king", 
             "tusken_observer", "tusken_raid_champion", "tusken_raid_leader", "tusken_savage", "tusken_sniper", "tusken_torture_lord", "tusken_wanderer", "tusken_warlord", "tusken_war_master", "tusken_warrior", "tusken_child", 
             "tusken_witch_doctor", "tusken_woman"},
-    goal = 10
+    goal = 100
     },
     {
     nsTrialName = "trial_two",
     nsTarget = {"nightsister_elder"},
-    nsGoal = 3
+    nsGoal = 30
     },
     {
     aTrialName = "trial_three",
     aTarget = {"geonosian_acklay_bunker_boss"},
-    aGoal = 1
+    aGoal = 5
     },
     {
     kTrialName = "trial_four",
     kTarget = {"krayt_dragon_ancient"},
-    kGoal = 1
+    kGoal = 5
     }
 }
 
@@ -594,14 +594,19 @@ function jedipush:onPlayerLoggedIn(pPlayer)
         self:removeYoda(pPlayer, true)
     elseif CreatureObject(pPlayer):hasScreenPlayState(8192, "jedipush") then
         local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
-        local pItem = giveItem(pInventory, "object/tangible/jedi/five_masters.iff", -1)
+        
+        -- Check if the player already has the five_masters object
+        local existingItem = getContainerObjectByTemplate(pInventory, "object/tangible/jedi/five_masters.iff", true)
+        if existingItem == nil then
+            local pItem = giveItem(pInventory, "object/tangible/jedi/five_masters.iff", -1)
+        end
+        
+        -- Check for the jedi_fighter object and remove it if it exists
         local item = getContainerObjectByTemplate(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", true)
-
         if item ~= nil then
             SceneObject(item):destroyObjectFromWorld()
             SceneObject(item):destroyObjectFromDatabase()
         end
-    
     elseif CreatureObject(pPlayer):hasScreenPlayState(16384, "jedipush") then
         local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
         local item = getContainerObjectByTemplate(pInventory, "object/tangible/tcg/series5/hangar_ships/jedi_fighter.iff", true)

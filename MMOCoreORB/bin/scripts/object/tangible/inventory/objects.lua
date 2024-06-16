@@ -935,3 +935,12 @@ object_tangible_inventory_shared_lightsaber_inventory_5 = SharedTangibleObjectTe
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_inventory_shared_lightsaber_inventory_5, "object/tangible/inventory/shared_lightsaber_inventory_5.iff")
+
+--**********************************************************************************************************************************************
+
+object_tangible_inventory_shared_lightsaber_inventory_6 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/inventory/shared_lightsaber_inventory_6.iff"
+	
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_inventory_shared_lightsaber_inventory_6, "object/tangible/inventory/shared_lightsaber_inventory_6.iff")

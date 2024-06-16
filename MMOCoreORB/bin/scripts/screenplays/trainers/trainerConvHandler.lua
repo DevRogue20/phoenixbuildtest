@@ -281,38 +281,87 @@ function trainerConvHandler:handleConfirmLearnScreen(pConvTemplate, pPlayer, pNp
 		clonedConversation:setDialogTextStringId(stringTable .. "error_grant_skill")
 	end
 
-	if CreatureObject(pPlayer):hasSkill("jedi_dark_side_journeyman_novice") then
-        CreatureObject(pPlayer):setFaction(FACTIONIMPERIAL)
+	if skillName == "jedi_dark_side_journeyman_novice" then
+		CreatureObject(pPlayer):setFaction(FACTIONIMPERIAL)
 		CreatureObject(pPlayer):sendSystemMessage(" \\#822EFF\\You are now an agent of the Empire.")
 		CreatureObject(pPlayer):playMusicMessage("sound/music_become_dark_jedi.snd")
-		--print("faction set to Imperial")
 
 		local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+		local existingRobe = getContainerObjectByTemplate(pInventory, "object/tangible/wearables/robe/robe_jedi_dark_s01.iff", true)
 
-		-- Check inventory
-		if (pInventory == nil or SceneObject(pInventory):isContainerFullRecursive()) then
-			CreatureObject(pCreatureObject):sendSystemMessage("@jedi_spam:inventory_full_jedi_robe")
-		else
-			-- Add Jedi robe to inventory
-			local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
-			local pItem = giveItem(pInventory, "object/tangible/wearables/robe/robe_jedi_dark_s01.iff", -1)
+		if existingRobe == nil then
+			if (pInventory == nil or SceneObject(pInventory):isContainerFullRecursive()) then
+				CreatureObject(pPlayer):sendSystemMessage("@jedi_spam:inventory_full_jedi_robe")
+			else
+				giveItem(pInventory, "object/tangible/wearables/robe/robe_jedi_dark_s01.iff", -1)
+			end
 		end
-
-	elseif CreatureObject(pPlayer):hasSkill("jedi_light_side_journeyman_novice") then
-        CreatureObject(pPlayer):setFaction(FACTIONREBEL)
+	elseif skillName == "jedi_light_side_journeyman_novice" then
+		CreatureObject(pPlayer):setFaction(FACTIONREBEL)
 		CreatureObject(pPlayer):sendSystemMessage(" \\#FF5F1F\\You are now assigned to the Rebel Alliance.")
 		CreatureObject(pPlayer):playMusicMessage("sound/music_become_light_jedi.snd")
-		--print("faction set to Rebel")
 
 		local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+		local existingRobe = getContainerObjectByTemplate(pInventory, "object/tangible/wearables/robe/robe_jedi_light_s01.iff", true)
 
-		-- Check inventory
-		if (pInventory == nil or SceneObject(pInventory):isContainerFullRecursive()) then
-			CreatureObject(pPlayer):sendSystemMessage("@jedi_spam:inventory_full_jedi_robe")
-		else
-			-- Add Jedi robe to inventory
-			local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
-			local pItem = giveItem(pInventory, "object/tangible/wearables/robe/robe_jedi_light_s01.iff", -1)
+		if existingRobe == nil then
+			if (pInventory == nil or SceneObject(pInventory):isContainerFullRecursive()) then
+				CreatureObject(pPlayer):sendSystemMessage("@jedi_spam:inventory_full_jedi_robe")
+			else
+				giveItem(pInventory, "object/tangible/wearables/robe/robe_jedi_light_s01.iff", -1)
+			end
+		end
+	end
+
+	if skillName == "jedi_dark_side_journeyman_master" then
+
+		local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+		local existingRobe = getContainerObjectByTemplate(pInventory, "object/tangible/wearables/robe/robe_jedi_dark_s02.iff", true)
+
+		if existingRobe == nil then
+			if (pInventory == nil or SceneObject(pInventory):isContainerFullRecursive()) then
+				CreatureObject(pPlayer):sendSystemMessage("@jedi_spam:inventory_full_jedi_robe")
+			else
+				giveItem(pInventory, "object/tangible/wearables/robe/robe_jedi_dark_s02.iff", -1)
+			end
+		end
+	elseif skillName == "jedi_light_side_journeyman_master" then
+
+		local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+		local existingRobe = getContainerObjectByTemplate(pInventory, "object/tangible/wearables/robe/robe_jedi_light_s02.iff", true)
+
+		if existingRobe == nil then
+			if (pInventory == nil or SceneObject(pInventory):isContainerFullRecursive()) then
+				CreatureObject(pPlayer):sendSystemMessage("@jedi_spam:inventory_full_jedi_robe")
+			else
+				giveItem(pInventory, "object/tangible/wearables/robe/robe_jedi_light_s02.iff", -1)
+			end
+		end
+	end
+
+	if skillName == "jedi_dark_side_master_master" then
+
+		local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+		local existingRobe = getContainerObjectByTemplate(pInventory, "object/tangible/wearables/robe/robe_jedi_dark_s03.iff", true)
+
+		if existingRobe == nil then
+			if (pInventory == nil or SceneObject(pInventory):isContainerFullRecursive()) then
+				CreatureObject(pPlayer):sendSystemMessage("@jedi_spam:inventory_full_jedi_robe")
+			else
+				giveItem(pInventory, "object/tangible/wearables/robe/robe_jedi_dark_s03.iff", -1)
+			end
+		end
+	elseif skillName == "jedi_light_side_master_master" then
+
+		local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+		local existingRobe = getContainerObjectByTemplate(pInventory, "object/tangible/wearables/robe/robe_jedi_light_s03.iff", true)
+
+		if existingRobe == nil then
+			if (pInventory == nil or SceneObject(pInventory):isContainerFullRecursive()) then
+				CreatureObject(pPlayer):sendSystemMessage("@jedi_spam:inventory_full_jedi_robe")
+			else
+				giveItem(pInventory, "object/tangible/wearables/robe/robe_jedi_light_s03.iff", -1)
+			end
 		end
 	end
 

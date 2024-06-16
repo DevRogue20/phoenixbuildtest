@@ -102,7 +102,7 @@ object_tangible_wearables_robe_robe_jedi_light_s03 = object_tangible_wearables_r
 
 	noTrade = 1,
 
-	objectMenuComponent = "ArmorObjectMenuComponent",
+	objectMenuComponent = "RobeObjectMenuComponent",
 	certificationsRequired = {"jedi_light_side_master_master"},
 	attributeListComponent = "JediRobeAttributeListComponent",
 }

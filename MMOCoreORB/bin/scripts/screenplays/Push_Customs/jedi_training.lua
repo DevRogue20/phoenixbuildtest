@@ -30,7 +30,7 @@ function jedi_training:start()
     end
 end
 
-local cooldownTime = 1 * 60 * 1000 -- 1 minute in milliseconds for testing
+local cooldownTime = 60 * 60 * 1000 -- 1 minute in milliseconds for testing
 
 local lastEntryTimes = {} -- Table to store last entry times for each player
 
@@ -56,10 +56,10 @@ function jedi_training:onEnterActiveArea(pActiveArea, pMovingObject)
     
     print("Player is a player object and not an AI agent")
 
-    --[[if pPlayer:hasSkill("admin_base") then
+    if pPlayer:hasSkill("admin_base") then
         pPlayer:sendSystemMessage("You have entered the Jedi Training Area as an admin. Timer is disabled for you.")
         return 0
-    end]]
+    end
 
 	local playerId = pPlayer:getObjectID()
     local playerLastEntryTime = lastEntryTimes[playerId] or 0
@@ -79,7 +79,7 @@ function jedi_training:onEnterActiveArea(pActiveArea, pMovingObject)
     lastEntryTimes[playerId] = currentTime
     
     pPlayer:sendSystemMessage("You have entered the Jedi Training Area. You have 15 minutes to perform your task before you are removed from the area!")
-    createEvent(1 * 60 * 1000, "jedi_training", "onLeaveActiveArea", pMovingObject, "")
+    createEvent(15 * 60 * 1000, "jedi_training", "onLeaveActiveArea", pMovingObject, "")
     print("onLeaveActiveArea event created.")
     
     return 0
