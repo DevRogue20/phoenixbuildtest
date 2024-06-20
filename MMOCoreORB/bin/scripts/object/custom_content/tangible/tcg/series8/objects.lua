@@ -285,3 +285,8 @@ object_tangible_tcg_series8_shared_phoenix_cape = SharedTangibleObjectTemplate:n
 	clientTemplateFileName = "object/tangible/tcg/series8/shared_phoenix_cape.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_tcg_series8_shared_phoenix_cape, "object/tangible/tcg/series8/shared_phoenix_cape.iff")
+
+object_tangible_tcg_series8_shared_phoenix_cape_imp = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/tcg/series8/shared_phoenix_cape_imp.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_tcg_series8_shared_phoenix_cape_imp, "object/tangible/tcg/series8/shared_phoenix_cape_imp.iff")
