@@ -47,7 +47,6 @@
 object_weapon_melee_sword_crafted_saber_sword_lightsaber_one_handed_s3 = object_weapon_melee_sword_crafted_saber_shared_sword_lightsaber_one_handed_s3:new {
 
 	playerRaces = { "object/creature/player/bothan_male.iff",
-	playerRaces = { "object/creature/player/bothan_male.iff",
 					"object/creature/player/bothan_female.iff",
 					"object/creature/player/human_male.iff",
 					"object/creature/player/human_female.iff",

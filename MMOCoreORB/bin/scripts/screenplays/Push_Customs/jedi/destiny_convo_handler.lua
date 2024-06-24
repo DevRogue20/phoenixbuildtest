@@ -46,6 +46,7 @@ function destiny_convo_handler:runScreenHandlers(pConvTemplate, pPlayer, pNpc, s
         else
             -- Add Jedi Training Holocron
             local pItem = giveItem(pInventory, "object/tangible/jedi/holocron_eternal.iff", -1)
+            local pDeed = giveItem(pInventory, "object/tangible/deed/player_house_deed/jedi_house_deed.iff", -1)
             local item = getContainerObjectByTemplate(pInventory, "object/tangible/jedi/five_masters.iff", true)
             CreatureObject(pPlayer):removeScreenPlayState(2, "jedi_tier2")
             CreatureObject(pPlayer):removeScreenPlayState(8192, "jedipush")
@@ -66,6 +67,7 @@ function destiny_convo_handler:runScreenHandlers(pConvTemplate, pPlayer, pNpc, s
         else
             -- Add Dark Jedi Holocron
             local pItem = giveItem(pInventory, "object/tangible/jedi/holocron_forbidden.iff", -1)
+            local pDeed = giveItem(pInventory, "object/tangible/deed/player_house_deed/sith_house_deed.iff", -1)
             local item = getContainerObjectByTemplate(pInventory, "object/tangible/jedi/five_masters.iff", true)
             CreatureObject(pPlayer):removeScreenPlayState(2, "jedi_tier2")
             CreatureObject(pPlayer):removeScreenPlayState(8192, "jedipush")

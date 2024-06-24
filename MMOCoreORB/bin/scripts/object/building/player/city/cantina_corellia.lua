@@ -49,7 +49,7 @@ object_building_player_city_cantina_corellia = object_building_player_city_share
 	width = 7,
 	planetMapCategory = "cantina",
 	cityRankRequired = 2,
-	limitToOnePerCity = 0,
+	limitToOnePerCity = 1,
 	abilityRequired = "place_cantina",
 	skillMods = {
 		{"private_buff_mind", 100},

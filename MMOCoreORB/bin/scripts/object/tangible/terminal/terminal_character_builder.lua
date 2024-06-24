@@ -58,7 +58,7 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 	
 		templateType = CHARACTERBUILDERTERMINAL,
 	
-		glowyBadgeIds = {12, 14, 15, 16, 17, 19, 20, 21, 23, 30, 38, 39, 71, 105, 106, 107},
+		--[[glowyBadgeIds = {12, 14, 15, 16, 17, 19, 20, 21, 23, 30, 38, 39, 71, 105, 106, 107},
 	
 		villageBranchUnlocks = {
 			"force_sensitive_combat_prowess_ranged_accuracy",
@@ -67,7 +67,7 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 			"force_sensitive_combat_prowess_melee_speed",
 			"force_sensitive_enhanced_reflexes_ranged_defense",
 			"force_sensitive_enhanced_reflexes_melee_defense"
-		},
+		},]]
 	
 		itemList = {
 			"Begin Character Respec/Creation Process",
@@ -602,9 +602,9 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 						},
 						"Master", "combat_1hsword_master"
 					},
-					"Other Top Level Skills Plus Force Sensitive-WARNING-to learn FS/JEDI SKILLS YOU MUST UNLOCK JEDI FROM THE JEDI TAB FIRST",
+					"Other Top Level Skills", --Plus Force Sensitive-WARNING-to learn FS/JEDI SKILLS YOU MUST UNLOCK JEDI FROM THE JEDI TAB FIRST",
 					{
-						"FS Crafting Mastery",
+						--[["FS Crafting Mastery",
 					{
 						"Novice", "force_sensitive_crafting_mastery_novice",
 						"Experimentation",
@@ -735,7 +735,7 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 							"Melee Speed IV", "force_sensitive_combat_prowess_melee_speed_04"
 						},
 						"Master", "force_sensitive_combat_prowess_master"
-					},
+					},]]
 					"Image Designer",
 					{
 						"Novice", "social_imagedesigner_novice",
@@ -819,7 +819,7 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 					--		},
 					--	},
 					--	},
-						"Light Saber",
+						--[["Light Saber",
 					{
 						"Novice", "force_discipline_light_saber_novice",
 						"One Handed Light Saber",
@@ -983,7 +983,7 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 							"Preternatural Defense IV", "force_discipline_defender_preternatural_defense_04"
 						},
 						"Master", "force_discipline_defender_master"
-					},
+					},]]
 					"Marksman",
 					{
 						"Novice", "combat_marksman_novice",
@@ -1556,11 +1556,12 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 				"Enhance Character", "enhance_character",
 				"Jedi",
 				{
-					"Unlock Jedi Initiate", "unlock_jedi_initiate",
-					"Unlock Jedi Knight FRS Alliance Light Side", "frs_light_side",
-					"Unlock Dark Jedi Knight FRS Imperial Dark Side", "frs_dark_side"
+					"Jedi Unlock Token", "object/tangible/storyteller/story_token_static_fx.iff"
+					--"Unlock Jedi Initiate", "unlock_jedi_initiate",
+					--"Unlock Jedi Knight FRS Alliance Light Side", "frs_light_side",
+					--"Unlock Dark Jedi Knight FRS Imperial Dark Side", "frs_dark_side"
 				},
-				"Fill Force Bar", "fill_force_bar",
+				--"Fill Force Bar", "fill_force_bar",
 				"Reset Buffs", "reset_buffs",
 				"Learn Languages", "language",
 				"Credits", "credits",
@@ -1570,8 +1571,8 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 				"Apply Disease DOT", "apply_disease_dot",
 				"Apply Fire DOT", "apply_fire_dot",
 				"Clear DOTs", "clear_dots",
-				"Max XP", "max_xp",
-				"Become Glowy", "become_glowy",
+				--"Max XP", "max_xp",
+				--"Become Glowy", "become_glowy",
 				"Faction Points",
 				{
 					"Imperial", "faction_imperial",
@@ -1871,12 +1872,62 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 					"Vehicle Deeds",
 					{
 						"Swoop", "object/tangible/deed/vehicle_deed/speederbike_swoop_deed.iff",
-						--"Jetpack", "object/tangible/deed/vehicle_deed/jetpack_deed.iff",
+						"Jetpack", "object/tangible/deed/vehicle_deed/jetpack_deed.iff",
 						"Speederbike", "object/tangible/deed/vehicle_deed/speederbike_deed.iff",
-					--"Speederbike Flash", "object/tangible/deed/vehicle_deed/speederbike_flash_deed.iff",
-					--"Landspeeder av21", "object/tangible/deed/vehicle_deed/landspeeder_av21_deed.iff",
-					--"Landspeeder x31", "object/tangible/deed/vehicle_deed/landspeeder_x31_deed.iff",
-					--"Landspeeder x34", "object/tangible/deed/vehicle_deed/landspeeder_x34_deed.iff"
+						"Speederbike Flash", "object/tangible/deed/vehicle_deed/speederbike_flash_deed.iff",
+						"Landspeeder av21", "object/tangible/deed/vehicle_deed/landspeeder_av21_deed.iff",
+						"Landspeeder x31", "object/tangible/deed/vehicle_deed/landspeeder_x31_deed.iff",
+						"Landspeeder x34", "object/tangible/deed/vehicle_deed/landspeeder_x34_deed.iff",
+						"Barc Speeder", "object/tangible/deed/vehicle_deed/barc_speeder_deed.iff",
+						"Imperial Barc", "object/tangible/deed/vehicle_deed/barc_speeder_imperial_deed.iff",
+						"Landspeeder ab1", "object/tangible/deed/vehicle_deed/landspeeder_ab1_deed.iff",
+						"Desert Skiff", "object/tangible/deed/vehicle_deed/landspeeder_desert_skiff_deed.iff",
+						"Lava Skiff", "object/tangible/deed/vehicle_deed/landspeeder_lava_skiff_deed.iff",
+						"Tantive4", "object/tangible/deed/vehicle_deed/landspeeder_tantive4_deed.iff",
+						"Landspeeder usv5", "object/tangible/deed/vehicle_deed/landspeeder_usv5_deed.iff",
+						"Landspeeder v35", "object/tangible/deed/vehicle_deed/landspeeder_v35_deed.iff",
+						"Ord Pedrovia Podracer", "object/tangible/deed/vehicle_deed/pod_racer_one_deed.iff",
+						"GPE-3130 Podracer", "object/tangible/deed/vehicle_deed/pod_racer_two_deed.iff",
+						"Sith Speeder", "object/tangible/deed/vehicle_deed/vehicle_deed_sith_speeder.iff",
+						"Organa Landspeeder", "object/tangible/deed/vehicle_deed/vehicle_deed_organa_speeder.iff",
+						"Basilisk War Droid", "object/tangible/deed/vehicle_deed/basilisk_war_droid.iff",
+						"A1 Deluxe Floater", "object/tangible/deed/vehicle_deed/a1_deluxe_floater_deed.iff",
+						--"AT-AT", "object/tangible/deed/vehicle_deed/atat_deed.iff",
+						--"AT-PT", "object/tangible/deed/vehicle_deed/atpt_deed.iff",
+						--"AT-RT", "object/tangible/deed/vehicle_deed/atrt_deed.iff",
+						--"AT-ST", "object/tangible/deed/vehicle_deed/atst_deed.iff",
+						--"AT-XT", "object/tangible/deed/vehicle_deed/atxt_deed.iff",
+						"Rebel Barc", "object/tangible/deed/vehicle_deed/barc_speeder_rebel_deed.iff",
+						"Flare S Swoop", "object/tangible/deed/vehicle_deed/flare_s_swoop.iff",
+						--"Grievous Bike", "object/tangible/deed/vehicle_deed/grievous_wheel_bike_deed.iff",
+						"Hover Chair", "object/tangible/deed/vehicle_deed/hover_chair_deed.iff",
+						"Hover Lifter", "object/tangible/deed/vehicle_deed/hoverlifter_speeder.iff",
+						"Land Speeder XP-38", "object/tangible/deed/vehicle_deed/landspeeder_xp38_deed.iff",
+						"Millitary Transport", "object/tangible/deed/vehicle_deed/military_transport_deed.iff",
+						"Mustafar Panning Droid", "object/tangible/deed/vehicle_deed/mustafar_panning_droid.iff",
+						"Anikan Pod Racer", "object/tangible/deed/vehicle_deed/podracer_anakin_deed.iff",
+						"Snowspeeder", "object/tangible/deed/vehicle_deed/snowspeeder_deed.iff",
+						"Ric-920", "object/tangible/deed/vehicle_deed/speeder_ric_920_deed.iff",
+						"STAP Speeder", "object/tangible/deed/vehicle_deed/speeder_stap_deed.iff",
+						"Swamp Speeder", "object/tangible/deed/vehicle_deed/swamp_speeder_deed.iff",
+					--	"Black Swoop Racer", "object/tangible/deed/vehicle_deed/swoopracer_black_deed.iff",
+					--	"Blue Swoop Racer", "object/tangible/deed/vehicle_deed/swoopracer_blue_deed.iff",
+					--	"Green Swoop Racer", "object/tangible/deed/vehicle_deed/swoopracer_green_deed.iff",
+					--	"Gold Swoop Racer", "object/tangible/deed/vehicle_deed/swoopracer_gold_deed.iff",
+					--	"Purple Swoop Racer", "object/tangible/deed/vehicle_deed/swoopracer_purple_deed.iff",
+					--	"Red Swoop Racer", "object/tangible/deed/vehicle_deed/swoopracer_red_deed.iff",
+					--	"Silver Swoop Racer", "object/tangible/deed/vehicle_deed/swoopracer_silver_deed.iff",
+					--	"Air Speeder", "object/tangible/deed/vehicle_deed/tcg_8_air_speeder_deed.iff",
+						"Mechno Chair", "object/tangible/deed/vehicle_deed/vehicle_deed_mechno_chair.iff",
+						"Republic Gunship", "object/tangible/deed/vehicle_deed/tcg_republic_gunship_deed.iff",
+						"XJ6 Air Speeder", "object/tangible/deed/vehicle_deed/xj6_air_speeder_deed.iff",
+						"Air2 Swoop", "object/tangible/deed/vehicle_deed/air2_swoop_deed.iff",
+						"FG 8T8 Podracer", "object/tangible/deed/vehicle_deed/fg_8t8_podracer_deed.iff",
+						"Geonosian Speeder", "object/tangible/deed/vehicle_deed/geonosian_speeder_deed.iff",
+						"Koro2 Speeder", "object/tangible/deed/vehicle_deed/koro2_speeder_deed.iff",
+						"Balta Podracer", "object/tangible/deed/vehicle_deed/pod_racer_balta_podracer_deed.iff",
+						"IPG Longtail Podracer", "object/tangible/deed/vehicle_deed/pod_racer_ipg_longtail_deed.iff",
+						"Senate Pod", "object/tangible/deed/vehicle_deed/senate_pod_deed.iff"
 					},
 					"Structure Deeds",
 					{
@@ -2023,6 +2074,35 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 								"Small Corellia Garden (Style 5)", "object/tangible/deed/city_deed/garden_corellia_sml_05_deed.iff"
 							}
 						},
+						"NGE Housing Deeds",
+						{
+							"ATAT House", "object/tangible/deed/player_house_deed/atat_house_deed.iff",
+							"Bespin House", "object/tangible/deed/player_house_deed/bespin_house_deed.iff",
+							"Commando House", "object/tangible/deed/player_house_deed/commando_house_deed.iff",
+							"Emperors Spire", "object/tangible/deed/player_house_deed/emperors_house_deed.iff",
+							"Large Generic Windowed House (style 1)", "object/tangible/deed/player_house_deed/generic_large_window_s01_deed.iff",
+							"Large Generic Windowed House (style 2)", "object/tangible/deed/player_house_deed/generic_large_window_s02_deed.iff",
+							"Medium Generic Windowed House (style 1)", "object/tangible/deed/player_house_deed/generic_medium_window_s01_deed.iff",
+							"Medium Generic Windowed House (style 2)", "object/tangible/deed/player_house_deed/generic_medium_window_s02_deed.iff",
+							"Small Generic Windowed House (style 1)", "object/tangible/deed/player_house_deed/generic_small_window_s01_deed.iff",
+							"Small Generic Windowed House (style 2)", "object/tangible/deed/player_house_deed/generic_small_window_s02_deed.iff",
+							"Hangar House", "object/tangible/deed/player_house_deed/hangar_house_deed.iff",
+							"Jabbas Sail Barge", "object/tangible/deed/player_house_deed/jabbas_house_deed.iff",
+							"Jedi Meditation House", "object/tangible/deed/player_house_deed/jedi_house_deed.iff",
+							"Mustafarian Bunker", "object/tangible/deed/player_house_deed/musty_house_deed.iff",
+							"Small Naboo Windowed House (style 1)", "object/tangible/deed/player_house_deed/naboo_small_window_s01_deed.iff",
+							"Nightsister Hut", "object/tangible/deed/player_house_deed/ns_hut_deed.iff",
+							"Rebel Spire", "object/tangible/deed/player_house_deed/rebel_house_deed.iff",
+							"Pool House", "object/tangible/deed/player_house_deed/relaxation_house_deed.iff",
+							"VIP Bunker", "object/tangible/deed/player_house_deed/vipbunker_house_deed.iff",
+							"Sandcrawler House", "object/tangible/deed/player_house_deed/sandcrawler_house_deed.iff",
+							"Sith Meditation Chamber", "object/tangible/deed/player_house_deed/sith_house_deed.iff",
+							"Tree House", "object/tangible/deed/player_house_deed/tree_house_deed.iff",
+							"Vehicle Garage", "object/tangible/deed/player_house_deed/vehicle_house_deed.iff",
+							"Yoda House", "object/tangible/deed/player_house_deed/yoda_house_deed.iff",
+							"YT1300 House", "object/tangible/deed/player_house_deed/yt1300_house_deed.iff"
+						}
+					},
 						"Naboo Deeds",
 						{
 							"Player House Deeds",
@@ -2932,7 +3012,7 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 				--	"Dark Jedi Holocron (gift)", "object/tangible/jedi/no_drop_jedi_holocron_dark.iff",
 				--	"Light Jedi Holocron (gift)", "object/tangible/jedi/no_drop_jedi_holocron_light.iff"
 				--}
-				"Village Testing (Temporary)",
+				--[["Village Testing (Temporary)",
 				{
 					"Resources",
 					{
@@ -2951,10 +3031,10 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 						"Tracking Device Case - Second Section", "object/tangible/loot/collectible/collectible_parts/fs_tracking_device_case_02.iff",
 						"Tracking Device Case - Third Section", "object/tangible/loot/collectible/collectible_parts/fs_tracking_device_case_03.iff",
 					},
-				}
+				}]]
 			}
 		}
-	}
+	--}
 	
 	
 	ObjectTemplates:addTemplate(object_tangible_terminal_terminal_character_builder, "object/tangible/terminal/terminal_character_builder.iff")

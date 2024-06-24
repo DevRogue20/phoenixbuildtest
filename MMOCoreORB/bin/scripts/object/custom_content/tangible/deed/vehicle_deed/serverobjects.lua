@@ -50,3 +50,17 @@ includeFile("custom_content/tangible/deed/vehicle_deed/landspeeder_xp38_deed.lua
 includeFile("custom_content/tangible/deed/vehicle_deed/mustafar_panning_droid.lua")
 includeFile("custom_content/tangible/deed/vehicle_deed/speeder_stap_deed.lua")
 includeFile("custom_content/tangible/deed/vehicle_deed/temp_walker1_deed.lua")
+
+--Push Additions
+includeFile("custom_content/tangible/deed/vehicle_deed/vehicle_deed_organa_speeder.lua")
+includeFile("custom_content/tangible/deed/vehicle_deed/vehicle_deed_sith_speeder.lua")
+includeFile("custom_content/tangible/deed/vehicle_deed/grievous_wheel_bike_deed.lua")
+includeFile("custom_content/tangible/deed/vehicle_deed/tcg_republic_gunship_deed.lua")
+includeFile("custom_content/tangible/deed/vehicle_deed/xj6_air_speeder_deed.lua")
+includeFile("custom_content/tangible/deed/vehicle_deed/air2_swoop_deed.lua")
+includeFile("custom_content/tangible/deed/vehicle_deed/fg_8t8_podracer_deed.lua")
+includeFile("custom_content/tangible/deed/vehicle_deed/geonosian_speeder_deed.lua")
+includeFile("custom_content/tangible/deed/vehicle_deed/koro2_speeder_deed.lua")
+includeFile("custom_content/tangible/deed/vehicle_deed/pod_racer_balta_podracer_deed.lua")
+includeFile("custom_content/tangible/deed/vehicle_deed/pod_racer_ipg_longtail_deed.lua")
+includeFile("custom_content/tangible/deed/vehicle_deed/senate_pod_deed.lua")

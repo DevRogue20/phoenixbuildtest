@@ -1209,7 +1209,7 @@ includeFile("items/push/sherkar_venom_rare.lua")
 includeFile("items/push/sherkar_tissue.lua")
 includeFile("items/push/five_masters.lua")
 
-includeFile("items/push/barc_speeder.lua")
+--includeFile("items/push/barc_speeder.lua")
 
 
 --Named Color Crystals
@@ -1247,7 +1247,7 @@ includeFile("items/npc/nightsister_bicep_r.lua")
 includeFile("items/mystical_glowing_orb.lua")
 
 includeFile("items/unkajo_tooth.lua")
-includeFile("items/locked_container_r.lua")
-includeFile("items/war_droid.lua")
+--includeFile("items/locked_container_r.lua")
+--includeFile("items/war_droid.lua")
 --Rogue's Loot
 includeFile("items/npc/nightsister_vibro_unit_rare.lua")

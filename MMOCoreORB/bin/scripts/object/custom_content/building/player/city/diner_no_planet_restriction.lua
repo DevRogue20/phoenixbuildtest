@@ -3,6 +3,9 @@ object_building_player_city_diner_no_planet_restriction = object_building_player
 	baseMaintenanceRate = 50,
 	allowedZones = {"corellia", "dantooine", "lok", "naboo", "rori", "talus", "tatooine"},
 	publicStructure = 0,
+	length = 4,
+	width = 2,
+	constructionMarker = "object/building/player/construction/construction_player_house_corellia_large_style_02.iff",
 	skillMods = {
 		{"private_medical_rating", 100},
 		{"private_buff_mind", 100},

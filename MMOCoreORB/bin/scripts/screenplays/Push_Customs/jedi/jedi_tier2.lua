@@ -44,18 +44,24 @@ end
 
 -- Check for skill and decide what to do with it
 function jedi_tier2:checkPlayerStatus(pPlayer)
-    if CreatureObject(pPlayer) == nil then
+    if pPlayer == nil then
         return 0
     end
 
-    if CreatureObject(pPlayer):hasSkill("jedi_padawan_master") then
+    local player = CreatureObject(pPlayer)
+
+    if player:hasSkill("jedi_padawan_master") and 
+        not player:hasSkill("jedi_light_side_journeyman_novice") and 
+        not player:hasSkill("jedi_dark_side_journeyman_novice") then
+
         -- Set the screenplay state if not already set
-        if not CreatureObject(pPlayer):hasScreenPlayState(1, "jedi_tier2") then
-            CreatureObject(pPlayer):setScreenPlayState(1, "jedi_tier2")
+        if not player:hasScreenPlayState(1, "jedi_tier2") then
+            player:setScreenPlayState(1, "jedi_tier2")
                 
             -- Create the waypoint
             local waypoint = self:createWaypoint(pPlayer, self.npcLocation)
-            CreatureObject(pPlayer):sendSystemMessage("You have unlocked a new quest. Follow the waypoint to Darian Veilwalker to choose your Jedi path.")
+            HologrindJediManager:tierTwoSuiWindow(pPlayer)
+            --player:sendSystemMessage("You have unlocked a new quest. Follow the waypoint to Darian Veilwalker to choose your Jedi path.")
         end
     end
     return 1

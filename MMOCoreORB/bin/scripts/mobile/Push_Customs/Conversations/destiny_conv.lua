@@ -77,7 +77,7 @@ destiny_convo_template:addScreen(screen_seven);
 
 screen_five = ConvoScreen:new {
 	id = "screen_five",
-	customDialogText = "Making the choice is just the first step. Take this Holocron of Eternal Light. It will teleport you to your new trainer.",
+	customDialogText = "Making the choice is just the first step. Take this Holocron of Eternal Light. It will teleport you to your new trainer. You will also want this structure deed. Once you become a master you can use it to craft more powerful lightsabers.",
 	stopConversation = "true",
 	options = {}
 }
@@ -85,7 +85,7 @@ destiny_convo_template:addScreen(screen_five);
 
 screen_six = ConvoScreen:new {
 	id = "screen_six",
-	customDialogText = "Making the choice is just the first step. Take this Holocron of Forbidden Knowledge. It will teleport you to your new trainer.",
+	customDialogText = "Making the choice is just the first step. Take this Holocron of Forbidden Knowledge. It will teleport you to your new trainer. You will also want this structure deed. Once you become a master you can use it to craft more powerful lightsabers.",
 	stopConversation = "true",
 	options = {}
 }

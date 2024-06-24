@@ -139,11 +139,20 @@ function HologrindJediManager:notifyOkPressed(pPlayer, pCreatureObject, pInvento
 	SceneObject(pPlayer):switchZone("dungeon2", 27.5, -3.8, -159.3, 14201899)
 end
 
+function HologrindJediManager:tierTwoOkPressed(pPlayer, pCreatureObject, pInventory)
+	SceneObject(pPlayer):switchZone("corellia", -151, 28, -4723, 0)
+end
+
 -- Send a sui window to the player about unlocking jedi and award jedi status and force sensitive skill.
 -- @param pCreatureObject pointer to the creature object of the player who unlocked jedi.
 function HologrindJediManager:sendSuiWindow(pCreatureObject)
 	local suiManager = LuaSuiManager()
 	suiManager:sendMessageBox(pCreatureObject, pCreatureObject, "Force Awakening", "Congratulations, apprentice of the Force. You've unlocked another level of enlightenment. When you are ready to continue press the okay button and you will ported to the next part of your jouney.", "@ok", "HologrindJediManager", "notifyOkPressed")
+end
+
+function HologrindJediManager:tierTwoSuiWindow(pCreatureObject)
+	local suiManager = LuaSuiManager()
+	suiManager:sendMessageBox(pCreatureObject, pCreatureObject, "Destiny is a Choice", "You have unlocked a new quest. Follow the waypoint to Darian Veilwalker to choose your Jedi path. You will find him on Corellia.", "@ok", "HologrindJediManager", "tierTwoOkPressed")
 end
 
 -- Award skill and jedi status to the player.

@@ -159,7 +159,8 @@ object_intangible_vehicle_shared_gift_stap_pcd = SharedIntangibleObjectTemplate:
 	clientTemplateFileName = "object/intangible/vehicle/shared_gift_stap_pcd.iff"
 }
 ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_gift_stap_pcd, "object/intangible/vehicle/shared_gift_stap_pcd.iff")
-
+
+
 --**********************************************************************
 
 object_intangible_vehicle_shared_grievous_wheel_bike = SharedIntangibleObjectTemplate:new {
@@ -379,10 +380,10 @@ ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_swamp_speeder
 
 --**********************************************************************
 
-object_intangible_vehicle_shared_tcg_8_air_speeder = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/vehicle/shared_tcg_8_air_speeder.iff"
+object_intangible_vehicle_shared_tcg_8_airspeeder = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_tcg_8_airspeeder.iff"
 }
-ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_tcg_8_air_speeder, "object/intangible/vehicle/shared_tcg_8_air_speeder.iff")
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_tcg_8_airspeeder, "object/intangible/vehicle/shared_tcg_8_airspeeder.iff")
 
 --**********************************************************************
 

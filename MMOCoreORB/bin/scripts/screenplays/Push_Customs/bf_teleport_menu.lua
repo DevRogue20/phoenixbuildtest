@@ -292,6 +292,15 @@ elseif name == "Force Beacon (System Generated)" or name == "Force Beacon" then
 		
 		response:addRadialMenuItem(20, 3, "Begin Respec Process")
 
+-- Jedi Unlock Token
+	elseif name == "Jedi Unlock Token (System Generated)" or name == "Jedi Unlock Token" then
+		local pItem = getContainerObjectByTemplate(pInventory, "object/tangible/storyteller/story_token_static_fx.iff", true)
+		if pItem == nil then
+			return false
+		end
+
+		response:addRadialMenuItem(20, 3, "Unlock Jedi")
+
 -- Golden Group Space Pass
 	elseif name == "Golden Group Space Pass (System Generated)" or name == "Golden Group Space Pass" then
 		local pItem = getContainerObjectByTemplate(pInventory, "object/tangible/mindsoft/bf_teleports/bf_teleport_gold_space_group.iff", true)
@@ -668,6 +677,31 @@ elseif name == "Force Beacon (System Generated)" or name == "Force Beacon" then
 			ported = groupSwitchZoneOutOfCombatRange(pPlayer, range,0,0,0, "space_corellia", -12.2, -1, 5.6, 281475037675594, "Nova Orion")
 			playerCreature:sendSystemMessage("You are being transmitted to Nova Orion space station")
 		end
+
+-- Jedi Unlock Jedi Token
+	elseif name == "Jedi Unlock Token (System Generated)" or name == "Jedi Unlock Token" then
+		local pItem = getContainerObjectByTemplate(pInventory, "object/tangible/storyteller/story_token_static_fx.iff", true)
+		if (selectedID == 20) then
+			local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+
+			if (pInventory == nil or SceneObject(pInventory):isContainerFullRecursive()) then
+				CreatureObject(pPlayer):sendSystemMessage("Inventory is full, make room for additional items")
+			else
+			local pItem = giveItem(pInventory, "object/tangible/crafting/station/jedi_tool.iff", -1)
+			local pItem = giveItem(pInventory, "object/tangible/jedi/five_masters.iff", -1)
+			CreatureObject(pPlayer):sendSystemMessage(" \\#FFFF00\\You have received The Holocron of the Five Masters")
+			HologrindJediManager:awardJediStatusAndSkill(pPlayer)
+
+			local item = getContainerObjectByTemplate(pInventory, "object/tangible/storyteller/story_token_static_fx.iff", true)
+				
+				if item ~= nil then
+					SceneObject(item):destroyObjectFromWorld()
+					SceneObject(item):destroyObjectFromDatabase()
+				end
+
+			end
+		end
+
 -- Golden Group PVP Pass TODO
 	elseif name == "Golden Group PVP Pass (System Generated)" or name == "Golden Group PVP Pass" then
 		pItem = getContainerObjectByTemplate(pInventory, "object/tangible/mindsoft/bf_teleports/bf_teleport_gold_pvp_group.iff", true)

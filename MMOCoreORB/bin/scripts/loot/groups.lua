@@ -373,7 +373,7 @@ includeFile("groups/wearables/wearables_uncommon.lua")
 
 --Push Loot
 includeFile("groups/push/sher_kar_loot.lua")
-includeFile("groups/push/speeder_deeds.lua")
+--includeFile("groups/push/speeder_deeds.lua")
 includeFile("groups/push/fivem.lua")
 
 
