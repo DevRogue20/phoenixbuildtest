@@ -121,3 +121,8 @@ includeFile("building/player/city/shuttleport_tatooine.lua")
 includeFile("building/player/city/theater_corellia.lua")
 includeFile("building/player/city/theater_naboo.lua")
 includeFile("building/player/city/theater_tatooine.lua")
+
+--Push Addons
+includeFile("building/player/city/tatooine_npc_cantina.lua")
+includeFile("building/player/city/corellia_npc_cantina.lua")
+includeFile("building/player/city/naboo_npc_cantina.lua")

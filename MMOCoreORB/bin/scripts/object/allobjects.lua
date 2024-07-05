@@ -1220,3 +1220,7 @@ includeFile("weapon/ranged/vehicle/objects.lua")
 includeFile("weapon/ranged/objects.lua")
 includeFile("weapon/trap/objects.lua")
 includeFile("weapon/objects.lua")
+
+
+--push
+includeFile("tangible/deed/city_deed/push_city_deeds/objects.lua")

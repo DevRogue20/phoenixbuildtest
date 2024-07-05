@@ -4569,3 +4569,27 @@ object_building_player_city_shared_theater_tatooine = SharedBuildingObjectTempla
 }
 
 ObjectTemplates:addClientTemplate(object_building_player_city_shared_theater_tatooine, "object/building/player/city/shared_theater_tatooine.iff")
+
+--************************************************************************************************************************************************
+
+object_building_player_city_shared_tatooine_npc_cantina = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_tatooine_npc_cantina.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_tatooine_npc_cantina, "object/building/player/city/shared_tatooine_npc_cantina.iff")
+
+--************************************************************************************************************************************************
+
+object_building_player_city_shared_corellia_npc_cantina = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_corellia_npc_cantina.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_corellia_npc_cantina, "object/building/player/city/shared_corellia_npc_cantina.iff")
+
+--************************************************************************************************************************************************
+
+object_building_player_city_shared_naboo_npc_cantina = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_naboo_npc_cantina.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_naboo_npc_cantina, "object/building/player/city/shared_naboo_npc_cantina.iff")

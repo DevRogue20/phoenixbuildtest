@@ -43,6 +43,7 @@
 
 
 --Children folder includes
+includeFile("tangible/deed/city_deed/push_city_deeds/serverobjects.lua")
 
 -- Server Objects
 includeFile("tangible/deed/city_deed/bank_corellia_deed.lua")
