@@ -11,6 +11,7 @@
 #include "templates/params/creature/CreatureAttribute.h"
 #include "server/zone/packets/resource/ResourceListForSurveyMessage.h"
 #include "server/zone/packets/resource/SurveyMessage.h"
+#include "server/zone/packets/chat/ChatSystemMessage.h"
 #include "server/zone/objects/waypoint/WaypointObject.h"
 #include "templates/params/ObserverEventType.h"
 #include "server/zone/packets/scene/PlayClientEffectLocMessage.h"
@@ -371,7 +372,6 @@ void ResourceSpawner::shiftResources() {
 	manualPool->update();
 
 	dumpResources();
-	ghDumpAll();
 }
 
 ResourceSpawn* ResourceSpawner::createRecycledResourceSpawn(const ResourceTreeEntry* entry) const {
@@ -772,28 +772,29 @@ void ResourceSpawner::sendResourceListForSurvey(CreatureObject* player,
 	}
 
 	ResourceListForSurveyMessage* message = new ResourceListForSurveyMessage();
-	VectorMap<uint64, ManagedReference<ResourceSpawn*> > matchingResources;
-	matchingResources.setAllowDuplicateInsertPlan();
+	ManagedReference<ResourceSpawn*> resourceSpawn;
+	Vector<ManagedReference<ResourceSpawn*> > matchingResources;
 
 	for (int i = 0; i < zoneMap->size(); ++i) {
-		auto resourceSpawn = zoneMap->get(i);
+		resourceSpawn = zoneMap->get(i);
 
 		if (!resourceSpawn->inShift())
 			continue;
 
 		if (resourceSpawn->getSurveyToolType() == toolType || (toolType == SurveyTool::INORGANIC && resourceSpawn->isType("inorganic"))) {
-			matchingResources.put(resourceSpawn->getDespawned(), resourceSpawn);
+			matchingResources.add(resourceSpawn);
+			message->addResource(resourceSpawn->getName(),
+					resourceSpawn->getType(), resourceSpawn->_getObjectID());
 		}
-	}
-
-	for (int i = matchingResources.size() - 1; i >= 0; --i) {
-		auto resourceSpawn = matchingResources.elementAt(i).getValue();
-		message->addResource(resourceSpawn->getName(), resourceSpawn->getType(), resourceSpawn->_getObjectID());
 	}
 
 	message->finish(surveyType, player->getObjectID());
 
 	player->sendMessage(message);
+
+	/*for (int i = 0; i < matchingResources.size(); ++i) {
+
+	 }*/
 }
 
 void ResourceSpawner::sendSurvey(CreatureObject* player, const String& resname) const {
@@ -886,7 +887,8 @@ void ResourceSpawner::sendSurvey(CreatureObject* player, const String& resname) 
 	// Send survey start message
 	StringIdChatParameter message("survey", "start_survey");
 	message.setTO(resname);
-	player->sendSystemMessage(message);
+	ChatSystemMessage* sysMessage = new ChatSystemMessage(message);
+	player->sendMessage(sysMessage);
 
 	ManagedReference<ResourceSpawn*> resourceSpawn = resourceMap->get(resname.toLowerCase());
 
@@ -1304,100 +1306,4 @@ String ResourceSpawner::healthCheck() {
 	health << manualPool->healthCheck() << endl;
 
 	return health.toString();
-}
-
-
-bool ResourceSpawner::ghDumpAll() {
-	/* Infinity:   This is custom code written to export resources in a way that an additional script can easily push them to Galaxy Harvester -c0pp3r */
-	if (!scriptLoading)
-		return false;
-	planets = new Vector<String> ();
-	planets->add("corellia");
-	planets->add("dantooine");
-	planets->add("dathomir");
-	planets->add("endor");
-	planets->add("lok");
-	planets->add("naboo");
-	planets->add("rori");
-	planets->add("talus");
-	planets->add("tatooine");
-	planets->add("yavin4");
-
-	try {
-		File* ghfile = new File("scripts/managers/ghoutput.xml");
-		
-		FileWriter* ghwriter = new FileWriter(ghfile);
-		ghwriter->writeLine("<SpawnOutput>");		
-		int last = 0;
-
-		for(int i = 0; i < resourceMap->size(); ++i) {
-
-			ManagedReference<ResourceSpawn*> spawn = resourceMap->get(i);
-
-			uint64 despawned = spawn->getDespawned();
-			uint64 currTime = System::getTime();
-
-			int diff = 0;
-			int inPhase = 0;
-			if (despawned > currTime) {
-				diff = despawned - currTime;
-			} else {
-				diff = currTime - despawned;
-			}
-			if (despawned > currTime) {
-				inPhase = 1;
-			}
-			if (String::valueOf(inPhase) == "1") {
-				for(int j = 0; j < planets->size(); ++j){
-					ZoneResourceMap* zoneMap = resourceMap->getZoneResourceList(planets->get(j));
-					ManagedReference<ResourceSpawn*> resourceSpawn;
-					/*ghwriter->writeLine("<resource>");*/
-					for (int b = 0; b< zoneMap->size(); ++b) {
-						resourceSpawn = zoneMap->get(b);
-						if (spawn->getName() == resourceSpawn->getName()){
-							ghwriter->writeLine("<resource>");
-							
-							ghwriter->write("<SpawnName>");
-							ghwriter->write(spawn->getName());
-							ghwriter->writeLine("</SpawnName>");
-							ghwriter->write("<resType>");
-							for(int i = 0; i < 8; ++i) {
-								String spawnClass = spawn->getClass(i);
-								if (spawnClass != "") {
-									last = i;
-									String spawnClass2 = spawn->getStfClass(i);
-								}
-							}
-							ghwriter->write(spawn->getStfClass(last));
-							ghwriter->writeLine("</resType>");
-							//ghwriter->writeLine("<attributes>");
-							for(int i = 0; i < 12; ++i) {
-								String attribute = "";
-								int value = spawn->getAttributeAndValue(attribute, i);
-								if (attribute != "") {
-									ghwriter->writeLine("<attribute name=\"" + attribute + "\">" + String::valueOf(value) + "</attribute>");
-								}
-							}
-							//ghwriter->writeLine("</attributes>");
-							ghwriter->write("<planet>");
-							ghwriter->write(planets->get(j));
-							ghwriter->writeLine("</planet>");
-							ghwriter->writeLine("</resource>");
-							ghwriter->writeLine("");
-						}
-					}
-				}
-			}
-		}
-		ghwriter->writeLine("</SpawnOutput>");
-		ghwriter->close();
-
-		delete ghwriter;
-
-		return true;
-	} catch (Exception& e) {
-		error("Error dumping resources");
-			return false;
-	}
-	return true;
 }

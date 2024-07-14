@@ -457,9 +457,3 @@ String ResourceManagerImplementation::despawnResource(String& resourceName) {
 
 	return resourceName + " despawned.";
 }
-
-String ResourceManagerImplementation::ghDump() {  //Infinity:  Galaxy Harvester Dump
- 	Locker locker(_this.getReferenceUnsafeStaticCast());
- 
- 	return resourceSpawner->ghDump();
- }
