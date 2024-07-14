@@ -4593,3 +4593,11 @@ object_building_player_city_shared_naboo_npc_cantina = SharedBuildingObjectTempl
 }
 
 ObjectTemplates:addClientTemplate(object_building_player_city_shared_naboo_npc_cantina, "object/building/player/city/shared_naboo_npc_cantina.iff")
+
+--************************************************************************************************************************************************
+
+object_building_player_city_shared_outpost_starport_npc = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_outpost_starport_npc.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_outpost_starport_npc, "object/building/player/city/shared_outpost_starport_npc.iff")

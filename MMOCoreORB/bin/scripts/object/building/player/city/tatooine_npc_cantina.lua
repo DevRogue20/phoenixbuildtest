@@ -15,8 +15,8 @@ object_building_player_city_tatooine_npc_cantina = object_building_player_city_s
 		{"private_safe_logout", 1}
 	},
 	zoneComponent = "StructureZoneComponent",
-	--[[childObjects = {
-		{templateFile = "object/tangible/sign/municipal/municipal_sign_hanging_cantina.iff", x = 47.5, z = 2.0, y = -4.947, ox = 0, oy = 0, oz = 0, ow = 0, cellid = -1, containmentType = -1},
+	childObjects = {
+	--	{templateFile = "object/tangible/sign/municipal/municipal_sign_hanging_cantina.iff", x = 47.5, z = 2.0, y = -4.947, ox = 0, oy = 0, oz = 0, ow = 0, cellid = -1, containmentType = -1},
 		{templateFile = "object/tangible/terminal/terminal_player_structure.iff", x = -30.6054, z = -0.52, y = 14.8464, ox = 0, oy = 1, oz = 0, ow = 0, cellid = 13, containmentType = -1}
 	},
 	--[[shopSigns = {

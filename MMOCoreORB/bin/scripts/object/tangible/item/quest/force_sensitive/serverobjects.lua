@@ -56,7 +56,7 @@ includeFile("tangible/item/quest/force_sensitive/fs_craft_puzzle_signal_amp.lua"
 includeFile("tangible/item/quest/force_sensitive/fs_craft_puzzle_solid_state_array.lua")
 includeFile("tangible/item/quest/force_sensitive/fs_craft_puzzle_terminal.lua")
 includeFile("tangible/item/quest/force_sensitive/fs_crafting4_computer_core.lua")
-includeFile("tangible/item/quest/force_sensitive/fs_crafting4_downed_satellite.lua")
+--includeFile("tangible/item/quest/force_sensitive/fs_crafting4_downed_satellite.lua")
 includeFile("tangible/item/quest/force_sensitive/fs_medic_puzzle_heal_pack.lua")
 includeFile("tangible/item/quest/force_sensitive/fs_mellichae_cyborg_arm.lua")
 includeFile("tangible/item/quest/force_sensitive/fs_reflex_supply_crate.lua")

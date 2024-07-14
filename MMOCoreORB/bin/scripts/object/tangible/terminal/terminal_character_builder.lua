@@ -2030,7 +2030,8 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 								"Small Dathomir Garden", "object/tangible/deed/city_deed/garden_dathomir_sml_01_deed.iff",
 								"Large Endor Garden", "object/tangible/deed/city_deed/garden_endor_lrg_01_deed.iff",
 								"Medium Endor Garden", "object/tangible/deed/city_deed/garden_endor_med_01_deed.iff",
-								"Small Endor Garden", "object/tangible/deed/city_deed/garden_endor_sml_01_deed.iff"
+								"Small Endor Garden", "object/tangible/deed/city_deed/garden_endor_sml_01_deed.iff",
+								"Outpost Starport", "object/tangible/deed/city_deed/push_city_deeds/outpost_starport_npc_deed.iff",								
 							}
 						},
 						"Corellia Deeds",
@@ -2051,6 +2052,7 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 							{
 								"Corellia Bank Deed", "object/tangible/deed/city_deed/bank_corellia_deed.iff",
 								"Corellia Cantina Deed", "object/tangible/deed/city_deed/cantina_corellia_deed.iff",
+								"Corellia NPC Cantina", "object/tangible/deed/city_deed/push_city_deeds/corellia_npc_cantina_deed.iff",
 								"Corellia Garage Deed", "object/tangible/deed/city_deed/garage_corellia_deed.iff",
 								"Corellia Shuttleport Deed", "object/tangible/deed/city_deed/shuttleport_corellia_deed.iff",
 								"Corellia City Hall Deed", "object/tangible/deed/city_deed/cityhall_corellia_deed.iff",
@@ -2118,6 +2120,7 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 							{
 								"Naboo Bank Deed", "object/tangible/deed/city_deed/bank_naboo_deed.iff",
 								"Naboo Cantina Deed", "object/tangible/deed/city_deed/cantina_naboo_deed.iff",
+								"Naboo NPC Cantina", "object/tangible/deed/city_deed/push_city_deeds/naboo_npc_cantina_deed.iff",
 								"Naboo Garage Deed", "object/tangible/deed/city_deed/garage_naboo_deed.iff",
 								"Naboo Shuttleport Deed", "object/tangible/deed/city_deed/shuttleport_naboo_deed.iff",
 								"Naboo City Hall Deed", "object/tangible/deed/city_deed/cityhall_naboo_deed.iff",
@@ -2156,6 +2159,7 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 							{
 								"Tatooine Bank Deed", "object/tangible/deed/city_deed/bank_tatooine_deed.iff",
 								"Tatooine Cantina Deed", "object/tangible/deed/city_deed/cantina_tatooine_deed.iff",
+								"Tatooine NPC Cantina", "object/tangible/deed/city_deed/push_city_deeds/tatooine_npc_cantina_deed.iff",
 								"Tatooine Garage Deed", "object/tangible/deed/city_deed/garage_tatooine_deed.iff",
 								"Tatooine Shuttleport Deed", "object/tangible/deed/city_deed/shuttleport_tatooine_deed.iff",
 								"Tatooine City Hall Deed", "object/tangible/deed/city_deed/cityhall_tatooine_deed.iff",
