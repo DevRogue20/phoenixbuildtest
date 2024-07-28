@@ -4,11 +4,11 @@ function ForceShrineMenuComponent:fillObjectMenuResponse(pSceneObject, pMenuResp
 	local menuResponse = LuaObjectMenuResponse(pMenuResponse)
 	local player = CreatureObject(pPlayer)
 
-	if (player:hasSkill("force_title_jedi_novice")) then
+	if (player:hasSkill("jedi_padawan_novice")) then
 		menuResponse:addRadialMenuItem(120, 3, "@jedi_trials:meditate") -- Meditate
 	end
 
-	if (player:hasSkill("force_title_jedi_rank_02")) then
+	if (player:hasSkill("jedi_padawan_novice")) then
 		menuResponse:addRadialMenuItem(121, 3, "@force_rank:recover_jedi_items") -- Recover Jedi Items
 	end
 
@@ -127,13 +127,13 @@ function ForceShrineMenuComponent:handleObjectMenuSelect(pObject, pPlayer, selec
 		SceneObject(pPlayer):switchZone(enclaveLoc[3], enclaveLoc[1], 0, enclaveLoc[2], 0)
 	end
 
-	if (selectedID == 120 and CreatureObject(pPlayer):hasSkill("force_title_jedi_novice")) then
+	if (selectedID == 120 and CreatureObject(pPlayer):hasSkill("jedi_padawan_novice")) then
 		if (CreatureObject(pPlayer):getPosture() ~= CROUCHED) then
 			CreatureObject(pPlayer):sendSystemMessage("@jedi_trials:show_respect") -- Must respect
 		else
 			self:doMeditate(pObject, pPlayer)
 		end
-	elseif (selectedID == 121 and CreatureObject(pPlayer):hasSkill("force_title_jedi_rank_02")) then
+	elseif (selectedID == 121 and CreatureObject(pPlayer):hasSkill("jedi_padawan_novice")) then
 		self:recoverRobe(pPlayer)
 	end
 
@@ -226,7 +226,7 @@ function ForceShrineMenuComponent:recoverRobe(pPlayer)
 	elseif (CreatureObject(pPlayer):hasSkill("jedi_dark_side_journeyman_novice")) then
 		robeTemplate = "object/tangible/wearables/robe/robe_jedi_dark_s01.iff"
 
-	elseif (CreatureObject(pPlayer):hasSkill("force_title_jedi_rank_02")) then
+	elseif (CreatureObject(pPlayer):hasSkill("jedi_padawan_novice")) then
 		robeTemplate = "object/tangible/wearables/robe/robe_jedi_padawan.iff"
 		
 	end

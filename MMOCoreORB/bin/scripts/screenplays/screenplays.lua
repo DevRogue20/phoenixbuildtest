@@ -247,7 +247,7 @@ includeFile("village/convos/phase4/sarguillo_phase4_conv_handler.lua")
 includeFile("village/convos/phase4/sivarra_phase4_conv_handler.lua")]]
 
 -- Jedi Trials
---[[includeFile("jedi/trialData.lua")
+includeFile("jedi/trialData.lua")
 includeFile("jedi/jedi_trials.lua")
 includeFile("jedi/knight/knight_trials.lua")
 includeFile("jedi/padawan/padawan_trials.lua")
@@ -274,7 +274,7 @@ includeFile("jedi/padawan/convos/padawan_spice_mom_01_conv_handler.lua")
 includeFile("jedi/padawan/convos/padawan_spice_mom_02_conv_handler.lua")
 includeFile("jedi/padawan/convos/padawan_surveyor_01_conv_handler.lua")
 includeFile("jedi/padawan/convos/padawan_the_ring_01_conv_handler.lua")
-includeFile("jedi/padawan/convos/padawan_the_ring_02_conv_handler.lua")]]
+includeFile("jedi/padawan/convos/padawan_the_ring_02_conv_handler.lua")
 
 -- Jedi Objects
 includeFile("jedi/components/ForceShrineMenuComponent.lua")

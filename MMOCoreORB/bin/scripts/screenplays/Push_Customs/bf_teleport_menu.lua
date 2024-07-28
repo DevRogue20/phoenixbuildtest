@@ -691,6 +691,7 @@ elseif name == "Force Beacon (System Generated)" or name == "Force Beacon" then
 			local pItem = giveItem(pInventory, "object/tangible/jedi/five_masters.iff", -1)
 			CreatureObject(pPlayer):sendSystemMessage(" \\#FFFF00\\You have received The Holocron of the Five Masters")
 			HologrindJediManager:awardJediStatusAndSkill(pPlayer)
+			--JediTrials:completePadawanForTesting(pPlayer)
 
 			local item = getContainerObjectByTemplate(pInventory, "object/tangible/storyteller/story_token_static_fx.iff", true)
 				

@@ -61,10 +61,10 @@ globalExpMultiplier = 5.0
 
 --Sets the base number of control devices of each type that a player can have in their datapad at once
 --For creature pets, A Creature Handler will have the base number + their stored pets skill mod as limit
-baseStoredCreaturePets = 10
-baseStoredFactionPets = 3
-baseStoredDroids = 5
-baseStoredVehicles = 5
+baseStoredCreaturePets = 50
+baseStoredFactionPets = 30
+baseStoredDroids = 50
+baseStoredVehicles = 50
 baseStoredShips = 3
 
 -----------------------------------

@@ -109,7 +109,7 @@ end
 	return 0
 end]]
 
---[[function JediTrials:unlockJediPadawan(pPlayer, dontSendSui)
+function JediTrials:unlockJediPadawan(pPlayer, dontSendSui)
 	if (pPlayer == nil) then
 		return
 	end
@@ -149,7 +149,7 @@ end]]
 	end
 
 	sendMail("system", "@jedi_spam:welcome_subject", "@jedi_spam:welcome_body", CreatureObject(pPlayer):getFirstName())
-end]]
+end
 
 function JediTrials:unlockJediKnight(pPlayer)
 	if (pPlayer == nil) then
