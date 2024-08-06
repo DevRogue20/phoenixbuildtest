@@ -34,3 +34,8 @@ includeFile("Push_Customs/jedi/yoda_test_convo_handler.lua")
 includeFile("Push_Customs/jedi_training.lua")
 includeFile("Push_Customs/jedi/jedi_tier2.lua")
 includeFile("Push_Customs/jedi/destiny_convo_handler.lua")
+includeFile("Push_Customs/jedi/push_jedi_menu.lua")
+
+--Invasions
+includeFile("Push_Customs/gcw/theed_invasion.lua")
+includeFile("Push_Customs/gcw/theed_lambdaanimation.lua")

@@ -39,3 +39,11 @@ includeFile("trainer/trainer_jedi.lua")
 
 includeFile("trainer/trainer_jedi_dark.lua")
 includeFile("trainer/trainer_jedi_light.lua")
+
+includeFile("trainer/trainer_crafting_mechanic.lua")
+includeFile("trainer/trainer_gcw_commander.lua")
+includeFile("trainer/trainer_gcw_crafting.lua")
+includeFile("trainer/trainer_gcw_doctor.lua")
+includeFile("trainer/trainer_gcw_sniper.lua")
+includeFile("trainer/trainer_gcw_specialist.lua")
+includeFile("trainer/trainer_gcw_tactics.lua")

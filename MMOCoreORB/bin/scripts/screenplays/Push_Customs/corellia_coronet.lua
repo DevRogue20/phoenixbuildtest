@@ -348,6 +348,13 @@ CorelliaCoronetScreenPlay = CityScreenPlay:new {
 		{"trainer_droidengineer",0,-190.0,28,-4697.2,92,0, ""},
 		{"trainer_merchant",0,-189.6,28,-4703.9,90,0, ""},
 		{"trainer_chef",0,-160.7,28,-4691.1,-129,0, ""},
+		{"trainer_crafting_mechanic", 0, -137.5, 28, -4734.3, -90, 0, ""},
+		{"trainer_gcw_tactics", 0, -185.3, 28.0, -4783.9, 75, 0, ""},
+		{"trainer_gcw_sniper", 0, -185.3, 28, -4788.1, 81, 0, ""},
+		{"trainer_gcw_commander", 0, -177.9, 28.0, -4776.5, -176, 0, ""},
+		{"trainer_gcw_doctor", 0, -173.7, 28.0, -4776.6, 177, 0, ""},
+		{"trainer_gcw_specialist", 0, -173.7, 28.0, -4795.4, -5, 0, ""},
+		{"trainer_gcw_crafting", 0, -177.9, 28.0, -4795.5, -23, 0, ""},
 
 		-- Chassis dealer.
 		{"chassis_dealer", 0, 0.1, 0.6, 72.9, -4, 1855672, ""},

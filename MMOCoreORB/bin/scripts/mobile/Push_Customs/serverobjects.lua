@@ -45,3 +45,9 @@ includeFile("Push_Customs/dws/golga_jedi.lua")
 
 --Hoth
 includeFile("Push_Customs/unkajo.lua")
+
+--Invasions
+includeFile("Push_Customs/gcw/skywalker_pvp.lua")
+includeFile("Push_Customs/gcw/vader_pvp.lua")
+includeFile("Push_Customs/gcw/pylon_reb_support_a.lua")
+includeFile("Push_Customs/gcw/pylon_troop_reb_aa.lua")
