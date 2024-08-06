@@ -50,11 +50,11 @@ pylon_reb_support_a = Creature:new {
 			}
 		}
 	},
-	weapons = {"pylon_weapons"},
+	primaryWeapon = "pylon_weapons",
 	conversationTemplate = "",
 	reactionStf = "@npc_reaction/military",
 	personalityStf = "@hireling/hireling_military",
-	attacks = merge(brawlermaster,marksmanmaster,tkamid)
+	primaryAttacks = merge(brawlermaster,marksmanmaster,tkamid)
 }
 
 CreatureTemplates:addCreatureTemplate(pylon_reb_support_a, "pylon_reb_support_a")

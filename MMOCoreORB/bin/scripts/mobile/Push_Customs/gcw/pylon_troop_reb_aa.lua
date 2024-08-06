@@ -49,9 +49,9 @@ pylon_troop_reb_aa = Creature:new {
 			}
 		}
 	},
-	weapons = {"stormtrooper_weapons"},
+	primaryWeapon = "stormtrooper_weapons",
 	conversationTemplate = "",
-	attacks = merge(riflemanmaster,carbineermaster)
+	primaryAttacks = merge(riflemanmaster,carbineermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(pylon_troop_reb_aa, "pylon_troop_reb_aa")

@@ -49,9 +49,9 @@ vader_pvp = Creature:new {
 		}
 	},
 
-	weapons = {"luke_skywalker_weapons"},
+	primaryWeapon = "darth_vader_weapons",
 	conversationTemplate = "",
-	attacks = merge(lightsabermaster,forcewielder)
+	primaryAttacks = merge(lightsabermaster,forcewielder)
 }
 
 CreatureTemplates:addCreatureTemplate(vader_pvp, "vader_pvp")
