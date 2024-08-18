@@ -1,4 +1,4 @@
--- BY: Smoked/Mindsoft/Heat											-- last edited: 4.12.2020	-- (this code belongs soley to BloodfinEMU)
+-- BY: Push/Smoked/Mindsoft/Heat											-- last edited: 8.17.2024
 spHelper = require("screenplayHelper")
 local ObjectManager = require("managers.object.object_manager")
 -----------------------------------------------(SCREENPLAY)
@@ -85,17 +85,16 @@ function theed_invasion:handlePvpZone(pPlayer)
 end
 
 function theed_invasion:spawnMobiles() 
+    local pTrigger = spawnMobile("naboo", "pylon_reb_support_a", 4000, -4878, 6, 4143, 41, 0)
 
-	local pTrigger = spawnMobile("naboo", "pylon_reb_support_a", 4000, -4878, 6, 4143, 173,0)
-
-
-	if (pTrigger ~= nil ) then	
+    if (pTrigger ~= nil ) then    
         createObserver(OBJECTDESTRUCTION, "theed_invasion", "notifyTriggerDead", pTrigger)
+    end
 
-	end
-	writeData("theed_invasion:spawnState",0)	
-	return 0
+    writeData("theed_invasion:spawnState", 0)
+    return 0
 end
+
 
 
 
@@ -158,12 +157,12 @@ end
 
 
 function theed_invasion:retreatPatrolDestReached(pMobile)
-	--[[if AiAgent(pMobile):isInCombat() then
+	--if AiAgent(pMobile):isInCombat() then
 
-		if (pMobile ~= nil and CreatureObject(pMobile):isAiAgent()) then
-			AiAgent(pMobile):setAiTemplate("")
-		end
-	end]]
+	--	if (pMobile ~= nil and CreatureObject(pMobile):isAiAgent()) then
+	--		AiAgent(pMobile):setAiTemplate("")
+	--	end
+	--end
 
 	local curLoc = readData(SceneObject(pMobile):getObjectID() .. ":currentLoc")
 
@@ -179,12 +178,12 @@ function theed_invasion:retreatPatrolDestReached(pMobile)
 end
 
 function theed_invasion:droidPatrol(pMobile)
-	--[[if AiAgent(pMobile):isInCombat() then
+	--if AiAgent(pMobile):isInCombat() then
 
-		if (pMobile ~= nil and CreatureObject(pMobile):isAiAgent()) then
-			AiAgent(pMobile):setAiTemplate("")
-		end
-	end]]
+	--	if (pMobile ~= nil and CreatureObject(pMobile):isAiAgent()) then
+	--		AiAgent(pMobile):setAiTemplate("")
+	--	end
+	--end
 
 	local name = readStringData(SceneObject(pMobile):getObjectID() .. ":name")
 	local curLoc = readData(SceneObject(pMobile):getObjectID() .. ":currentLoc")
@@ -1866,7 +1865,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 			writeData(SceneObject(pAdd):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAdd):getObjectID() .. ":name", "droid1")
 			createEvent(2290000, "theed_invasion", "despawnAdd", pAdd,"")
-			createEvent(3000000, "theed_invasion", "notifyTriggerDead", pTrigger,"")
+			--createEvent(3000000, "theed_invasion", "notifyTriggerDead", pTrigger,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAdd, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAdd)
 			--AiAgent(pAdd):setAiTemplate("manualescortwalk")
@@ -1880,7 +1879,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 			local pAddTwo = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4929.2, 6.0, 4069.2, -88, 0)
 			writeData(SceneObject(pAddTwo):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddTwo):getObjectID() .. ":name", "droid2")
-			-- createEvent(360000, "theed_invasion", "despawnAddTwo", pAddTwo,"")
+			createEvent(360000, "theed_invasion", "despawnAddTwo", pAddTwo,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddTwo, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddTwo)
 			--AiAgent(pAddTwo):setAiTemplate("manualescortwalk")
@@ -1894,7 +1893,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 	        local pAddThree = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4929.2, 6.0, 4070.2, -88, 0)
 			writeData(SceneObject(pAddThree):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddThree):getObjectID() .. ":name", "droid3")
-			-- createEvent(360000, "theed_invasion", "despawnAddThree", pAddThree,"")
+			createEvent(360000, "theed_invasion", "despawnAddThree", pAddThree,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddThree, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddThree)
 			--AiAgent(pAddThree):setAiTemplate("manualescortwalk")
@@ -1908,7 +1907,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 		    local pAddFour = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4929.2, 6.0, 4071.2, -88, 0)
 			writeData(SceneObject(pAddFour):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddFour):getObjectID() .. ":name", "droid4")
-			-- createEvent(360000, "theed_invasion", "despawnAddFour", pAddFour,"")
+			createEvent(360000, "theed_invasion", "despawnAddFour", pAddFour,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddFour, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddFour)
 			--AiAgent(pAddFour):setAiTemplate("manualescortwalk")
@@ -1922,7 +1921,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 		    local pAddFive = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4929.2, 6.0, 4072.2, -88, 0)
 			writeData(SceneObject(pAddFive):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddFive):getObjectID() .. ":name", "droid5")
-			-- createEvent(360000, "theed_invasion", "despawnAddFive", pAddFive,"")
+			createEvent(360000, "theed_invasion", "despawnAddFive", pAddFive,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddFive, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddFive)
 			--AiAgent(pAddFive):setAiTemplate("manualescortwalk")
@@ -1936,7 +1935,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 			local pAddSix = spawnMobile("naboo", "specops_trooper", 0, -4961.2, 6.0, 4104.2, -88, 0)
 			writeData(SceneObject(pAddSix):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddSix):getObjectID() .. ":name", "droid6")
-			-- createEvent(360000, "theed_invasion", "despawnAddSix", pAddSix,"")
+			createEvent(360000, "theed_invasion", "despawnAddSix", pAddSix,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddSix, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddSix)
 			--AiAgent(pAddSix):setAiTemplate("manualescortwalk")
@@ -1950,7 +1949,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 			local pAddSeven = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4961.2, 6.0, 4105.2, -88, 0)
 			writeData(SceneObject(pAddSeven):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddSeven):getObjectID() .. ":name", "droid7")
-			-- createEvent(360000, "theed_invasion", "despawnAddSeven", pAddSeven,"")
+			createEvent(360000, "theed_invasion", "despawnAddSeven", pAddSeven,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddSeven, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddSeven)
 			--AiAgent(pAddSeven):setAiTemplate("manualescortwalk")
@@ -1964,7 +1963,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 	        local pAddEight = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4961.2, 6.0, 4106.2, -88, 0)
 			writeData(SceneObject(pAddEight):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddEight):getObjectID() .. ":name", "droid8")
-			-- createEvent(360000, "theed_invasion", "despawnAddEight", pAddEight,"")
+			createEvent(360000, "theed_invasion", "despawnAddEight", pAddEight,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddEight, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddEight)
 			--AiAgent(pAddEight):setAiTemplate("manualescortwalk")
@@ -1978,7 +1977,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 		    local pAddNine = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4961.2, 6.0, 4107.2, -88, 0)
 			writeData(SceneObject(pAddNine):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddNine):getObjectID() .. ":name", "droid9")
-			-- createEvent(360000, "theed_invasion", "despawnAddNine", pAddNine,"")
+			createEvent(360000, "theed_invasion", "despawnAddNine", pAddNine,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddNine, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddNine)
 			--AiAgent(pAddNine):setAiTemplate("manualescortwalk")
@@ -1992,7 +1991,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 		    local pAddTen = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4961.2, 6.0, 4108.2, -88, 0)
 			writeData(SceneObject(pAddTen):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddTen):getObjectID() .. ":name", "droid10")
-			-- createEvent(360000, "theed_invasion", "despawnAddTen", pAddTen,"")
+			createEvent(360000, "theed_invasion", "despawnAddTen", pAddTen,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddTen, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddTen)
 			--AiAgent(pAddTen):setAiTemplate("manualescortwalk")
@@ -2006,7 +2005,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 			local pAddEleven = spawnMobile("naboo", "specops_trooper", 0, -4934.2, 6.0, 4197.2, -88, 0)
 			writeData(SceneObject(pAddEleven):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddEleven):getObjectID() .. ":name", "droid11")
-			-- createEvent(360000, "theed_invasion", "despawnAddEleven", pAddEleven,"")
+			createEvent(360000, "theed_invasion", "despawnAddEleven", pAddEleven,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddEleven, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddEleven)
 			--AiAgent(pAddEleven):setAiTemplate("manualescortwalk")
@@ -2020,7 +2019,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 			local pAddTwelve = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4934.2, 6.0, 4198.2, -88, 0)
 			writeData(SceneObject(pAddTwelve):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddTwelve):getObjectID() .. ":name", "droid12")
-			-- createEvent(360000, "theed_invasion", "despawnAddTwelve", pAddTwelve,"")
+			createEvent(360000, "theed_invasion", "despawnAddTwelve", pAddTwelve,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddTwelve, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddTwelve)
 			--AiAgent(pAddTwelve):setAiTemplate("manualescortwalk")
@@ -2034,7 +2033,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 	        local pAddThirteen = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4934.2, 6.0, 4199.2, -88, 0)
 			writeData(SceneObject(pAddThirteen):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddThirteen):getObjectID() .. ":name", "droid13")
-			-- createEvent(360000, "theed_invasion", "despawnAddThirteen", pAddThirteen,"")
+			createEvent(360000, "theed_invasion", "despawnAddThirteen", pAddThirteen,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddThirteen, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddThirteen)
 			--AiAgent(pAddThirteen):setAiTemplate("manualescortwalk")
@@ -2048,7 +2047,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 		    local pAddFourteen = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4934.2, 6.0, 4200.2, -88, 0)
 			writeData(SceneObject(pAddFourteen):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddFourteen):getObjectID() .. ":name", "droid14")
-			-- createEvent(360000, "theed_invasion", "despawnAddFourteen", pAddFourteen,"")
+			createEvent(360000, "theed_invasion", "despawnAddFourteen", pAddFourteen,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddFourteen, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddFourteen)
 			--
@@ -2062,7 +2061,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 		    local pAddFifteen = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4934.2, 6.0, 4201.2, -88, 0)
 			writeData(SceneObject(pAddFifteen):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddFifteen):getObjectID() .. ":name", "droid15")
-			-- createEvent(360000, "theed_invasion", "despawnAddFifteen", pAddFifteen,"")
+			createEvent(360000, "theed_invasion", "despawnAddFifteen", pAddFifteen,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddFifteen, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddFifteen)
 			--
@@ -2074,11 +2073,11 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 			spatialChat(pAddFifteen, "target locked")
 			
 			local pAddSixteen = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4931.2, 6, 4201, -88, 0)
-			--writeData(SceneObject(pAddSixteen):getObjectID() .. ":currentLoc", 1)
-			--writeStringData(SceneObject(pAddSixteen):getObjectID() .. ":name", "droid16")
-			-- createEvent(360000, "theed_invasion", "despawnAddSixteen", pAddSixteen,"")
-			--createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddSixteen, "")
-			--createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddSixteen)
+			writeData(SceneObject(pAddSixteen):getObjectID() .. ":currentLoc", 1)
+			writeStringData(SceneObject(pAddSixteen):getObjectID() .. ":name", "droid16")
+			createEvent(360000, "theed_invasion", "despawnAddSixteen", pAddSixteen,"")
+			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddSixteen, "")
+			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddSixteen)
 			----AiAgent(pAddSixteen):setAiTemplate("manualescortwalk")
 			----AiAgent(pAddSixteen):setFollowState(4)
 			ObjectManager.withCreatureObject(pAddSixteen, function(sixteenthTime)
@@ -2090,7 +2089,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 			local pAddSeventeen = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4802.2, 6.0, 4103.2, -88, 0)
 			writeData(SceneObject(pAddSeventeen):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddSeventeen):getObjectID() .. ":name", "droid17")
-			-- createEvent(360000, "theed_invasion", "despawnAddSeventeen", pAddSeventeen,"")
+			createEvent(360000, "theed_invasion", "despawnAddSeventeen", pAddSeventeen,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddSeventeen, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddSeventeen)
 			--AiAgent(pAddSeventeen):setAiTemplate("manualescortwalk")
@@ -2104,7 +2103,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 	        local pAddEighteen = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4802.2, 6.0, 4104.2, -88, 0)
 			writeData(SceneObject(pAddEighteen):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddEighteen):getObjectID() .. ":name", "droid18")
-			-- createEvent(360000, "theed_invasion", "despawnAddEighteen", pAddEighteen,"")
+			createEvent(360000, "theed_invasion", "despawnAddEighteen", pAddEighteen,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddEighteen, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddEighteen)
 			
@@ -2118,7 +2117,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 		    local pAddNineteen = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4802.2, 6.0, 4105.2, -88, 0)
 			writeData(SceneObject(pAddNineteen):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddNineteen):getObjectID() .. ":name", "droid19")
-			-- createEvent(360000, "theed_invasion", "despawnAddNineteen", pAddNineteen,"")
+			createEvent(360000, "theed_invasion", "despawnAddNineteen", pAddNineteen,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddNineteen, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddNineteen)
 			--AiAgent(pAddNineteen):setAiTemplate("manualescortwalk")
@@ -2132,7 +2131,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 		    local pAddTwenty = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4802.2, 6.0, 4106.2, -88, 0)
 			writeData(SceneObject(pAddTwenty):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddTwenty):getObjectID() .. ":name", "droid20")
-			-- createEvent(360000, "theed_invasion", "despawnAddTwenty", pAddTwenty,"")
+			createEvent(360000, "theed_invasion", "despawnAddTwenty", pAddTwenty,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddTwenty, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddTwenty)
 			--AiAgent(pAddTwenty):setAiTemplate("manualescortwalk")
@@ -2146,7 +2145,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 		    local pAddTwentyone = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4837.2, 6.0, 4105.2, -88, 0)
 			writeData(SceneObject(pAddTwentyone):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddTwentyone):getObjectID() .. ":name", "droid21")
-			-- createEvent(360000, "theed_invasion", "despawnAddTwentyone", pAddTwentyone,"")
+			createEvent(360000, "theed_invasion", "despawnAddTwentyone", pAddTwentyone,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddTwentyone, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddTwentyone)
 			--AiAgent(pAddTwentyone):setAiTemplate("manualescortwalk")
@@ -2160,7 +2159,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 		    local pAddTwentytwo = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4837.2, 6.0, 4106.2, -88, 0)
 			writeData(SceneObject(pAddTwentytwo):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddTwentytwo):getObjectID() .. ":name", "droid22")
-			-- createEvent(360000, "theed_invasion", "despawnAddTwentytwo", pAddTwentytwo,"")
+			createEvent(360000, "theed_invasion", "despawnAddTwentytwo", pAddTwentytwo,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddTwentytwo, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddTwentytwo)
 			--AiAgent(pAddTwentytwo):setAiTemplate("manualescortwalk")
@@ -2174,7 +2173,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 		    local pAddTwentythree = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4837.2, 6.0, 4107.2, -88, 0)
 			writeData(SceneObject(pAddTwenty):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddTwentythree):getObjectID() .. ":name", "droid23")
-			-- createEvent(360000, "theed_invasion", "despawnAddTwentythree", pAddTwentythree,"")
+			createEvent(360000, "theed_invasion", "despawnAddTwentythree", pAddTwentythree,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddTwentythree, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddTwentythree)
 			--AiAgent(pAddTwentythree):setAiTemplate("manualescortwalk")
@@ -2188,7 +2187,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 		    local pAddTwentyfour = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4837.2, 6.0, 4108.2, -88, 0)
 			writeData(SceneObject(pAddTwentyfour):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddTwentyfour):getObjectID() .. ":name", "droid24")
-			-- createEvent(360000, "theed_invasion", "despawnAddTwentyfour", pAddTwentyfour,"")
+			createEvent(360000, "theed_invasion", "despawnAddTwentyfour", pAddTwentyfour,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddTwentyfour, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddTwentyfour)
 			--AiAgent(pAddTwentyfour):setAiTemplate("manualescortwalk")
@@ -2202,7 +2201,7 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 			local pAddTwentyfive = spawnMobile("naboo", "pylon_troop_reb_aa", 0, -4837.2, 6.0, 4109.2, -88, 0)
 			writeData(SceneObject(pAddTwentyfive):getObjectID() .. ":currentLoc", 1)
 			writeStringData(SceneObject(pAddTwentyfive):getObjectID() .. ":name", "droid25")
-			-- createEvent(360000, "theed_invasion", "despawnAddTwentyfive", pAddTwentyfive,"")
+			createEvent(360000, "theed_invasion", "despawnAddTwentyfive", pAddTwentyfive,"")
 			createEvent(getRandomNumber(350,450) * 100, "theed_invasion", "droidPatrol", pAddTwentyfive, "")
 			createObserver(DESTINATIONREACHED, "theed_invasion", "retreatPatrolDestReached", pAddTwentyfive)
 			--AiAgent(pAddTwentyfive):setAiTemplate("manualescortwalk")
@@ -2217,16 +2216,20 @@ function theed_invasion:notifyWavefive(pTrigger, pPlayer)
 end
 
 function theed_invasion:spawnRey()
-	local rey = spawnMobile("naboo", "skywalker_pvp", 0, -4864, 6, 4155, -88, 0)
-	if rey ~= nil then
-		spatialChat(rey, "Be with me")
-		createEvent(60 * 30 * 1000, "theed_invasion", "removeObject", rey, "")
+	local pRey = spawnMobile("naboo", "skywalker_pvp", 0, -4864, 6, 4155, -88, 0)
+	if pRey ~= nil then
+		spatialChat(pRey, "Be with me")
+		createEvent(60 * 30 * 1000, "theed_invasion", "removeObject", pRey, "") --60 * 30 * 1000
 	end
 end
 
-function theed_invasion:removeObject(pObject)
-	if pObject ~= nil then
-		destroyObjectFromWorld(pObject)
+function theed_invasion:removeObject(pRey)
+	if pRey ~= nil then
+		if CreatureObject(pRey):isInCombat() then
+			createEvent(30 * 1000, "theed_invasion", "removeObject", pRey, "")
+		else
+			SceneObject(pRey):destroyObjectFromWorld()
+		end
 	end
 end
 
@@ -2243,18 +2246,88 @@ registerScreenPlay("theed_invasion", true)
 
 function theed_invasion:start()
     if isZoneEnabled("naboo") then
-        self:spawnSceneObjects()
+        self:spawnActiveAreas()
         self:spawnMobiles()
     end
 end
 
-function theed_invasion:spawnSceneObjects()
-    -- Add any scene objects if required
-end
-
-function theed_invasion:spawnMobiles()
-    -- Initial spawn points and mobile setups
-end
+function theed_invasion:spawnActiveAreas()
+	local pSpawnArea = spawnSceneObject("naboo", "object/active_area.iff", -4864, 6, 4155, 0, 0, 0, 0, 0)
+	  
+	if (pSpawnArea ~= nil) then
+	  local activeArea = LuaActiveArea(pSpawnArea)
+			activeArea:setCellObjectID(0)
+			activeArea:setRadius(90)
+			createObserver(ENTEREDAREA, "theed_invasion", "notifySpawnAreaEnter", pSpawnArea)
+			createObserver(EXITEDAREA, "theed_invasion", "notifySpawnAreaLeave", pSpawnArea)
+		end
+  end
+   
+  function theed_invasion:notifySpawnAreaEnter(pActiveArea, pMovingObject)
+	if (not SceneObject(pMovingObject):isCreatureObject()) then
+	  return 0
+	end
+  
+	  return ObjectManager.withCreatureObject(pMovingObject, function(player)
+		  if (player:isAiAgent()) then
+			  return 0
+		  end 
+  
+		  if (player:isImperial() or player:isRebel()) then
+			  player:sendSystemMessage("You have entered the Theed Alliance Invasion event!")
+		  else
+			  player:sendSystemMessage("You have entered the Theed Alliance Invasion event! You must be of Imperial faction to gain faction points for this event!")
+  
+		  end
+		  return 0
+	  end)
+  end
+  
+  function theed_invasion:notifySpawnAreaLeave(pActiveArea, pMovingObject)
+	if (not SceneObject(pMovingObject):isCreatureObject()) then
+	  return 0
+	end
+	
+	return ObjectManager.withCreatureObject(pMovingObject, function(player)
+	  if (player:isAiAgent()) then
+		return 0
+	  end
+  
+	  writeData(player:getObjectID() .. ":naboo_withinActiveArea", 0);
+	  
+	  if (player:isInCombat()) then
+		player:sendSystemMessage("You have deserted in the heat of battle.")
+  
+	  else
+		player:sendSystemMessage("You are now leaving the area!")
+	  end           
+	  return 0
+	end)
+  end
+  
+  function theed_invasion:handlePvpZone(pPlayer)
+	  ObjectManager.withCreatureAndPlayerObject(pPlayer, function(player, playerObject)
+		  deleteData(player:getObjectID() .. ":changingFactionStatus")
+		  if (CreatureObject(pPlayer):isCovert() or CreatureObject(pPlayer):isOnLeave()) then
+			  player:sendSystemMessage("prepare for battle!")
+	  end
+	  
+  
+	end)
+  end
+  
+  function theed_invasion:spawnMobiles() 
+  
+	  local pTrigger = spawnMobile("naboo", "pylon_reb_support_a", 4000, -4878, 6, 4143, 173,0)
+  
+  
+	  if (pTrigger ~= nil ) then	
+		  createObserver(OBJECTDESTRUCTION, "theed_invasion", "notifyTriggerDead", pTrigger)
+  
+	  end
+	  writeData("theed_invasion:spawnState",0)	
+	  return 0
+  end
 
 function theed_invasion:notifyWaveone(pTrigger, pPlayer)
     local positions = {{-4929.2, 6.0, 4068.2}, {-4929.2, 6.0, 4069.2}, {-4929.2, 6.0, 4070.2},

@@ -25,6 +25,7 @@ pylon_reb_support_a = Creature:new {
 	aggroRadius = 5,
 	pvpBitmask = ATTACKABLE,
 	creatureBitmask = NONE,
+	optionsBitmask = INTERESTING,
 	diet = HERBIVORE,
 
 	templates = {
