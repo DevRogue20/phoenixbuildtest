@@ -59,7 +59,7 @@ function jedi_test:notifyEnteredAreaOne(pActiveAreaOne, pPlayer)
     if pGhost ~= nil then
         -- Spawn a mobile if the player is valid
         local pMobile = spawnMobile("corellia", "obiwan_test", 1, -145.7, 28, -4713.8, 107, 0, "calm")
-        createEvent (5 * 60 * 1000, "jedi_test", "removeMobile", pMobile, "") -- add back in after you get your shit to work right
+        createEvent (5 * 60 * 1000, "jedi_test", "removeMobile", pMobile, "") -- add back in after I get my shit to work right
     end
     return 1
 end
