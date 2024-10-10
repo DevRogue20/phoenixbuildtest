@@ -58,9 +58,9 @@ includeFile("custom_content/weapon/melee/lance_wookiee.lua")
 --POLEARM/CRAFTED_SABER
 includeFile("custom_content/weapon/melee/sword_lightsaber_polearm_gen4_heroic.lua")
 includeFile("custom_content/weapon/melee/sword_lightsaber_polearm_gen4_heroic_s02.lua")
-includeFile("custom_content/weapon/melee/sword_lightsaber_polearm_gen5.lua")
+--includeFile("custom_content/weapon/melee/sword_lightsaber_polearm_gen5.lua")
 includeFile("custom_content/weapon/melee/sword_lightsaber_polearm_pvp_bf.lua")
-includeFile("custom_content/weapon/melee/sword_lightsaber_polearm_pvp_bf_gen5.lua")
+--includeFile("custom_content/weapon/melee/sword_lightsaber_polearm_pvp_bf_gen5.lua")
 
 
 --2H SWORD
