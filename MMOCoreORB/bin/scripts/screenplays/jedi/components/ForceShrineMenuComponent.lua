@@ -55,7 +55,7 @@ function ForceShrineMenuComponent:handleObjectMenuSelect(pObject, pPlayer, selec
 	elseif (CreatureObject(pPlayer):hasSkill ("jedi_dark_side_master_master")) then
 		knightRobe = "object/tangible/wearables/robe/robe_jedi_dark_s04.iff"
 		unlockMusic = "sound/music_become_dark_jedi.snd"
-		unlockString = "Congratulations, you have met the requirements to join the Jedi Council. In doing so, you also have achieved the title of Sith Acolyte and have been given a new robe. You will also now be permanently overt."
+		unlockString = "Congratulations, you have met the requirements to join the Sith Council. In doing so, you also have achieved the title of Sith Acolyte and have been given a new robe. You will also now be permanently overt."
 		enclaveLoc = { 5079, 305, "yavin4" }
 		enclaveName = "Dark Jedi Enclave"
 		jediState = 8
