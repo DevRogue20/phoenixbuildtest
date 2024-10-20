@@ -1,4 +1,3 @@
-
 /*
 				Copyright <SWGEmu>
 		See file COPYING for copying conditions.*/
@@ -334,4 +333,3 @@ public:
 };
 
 #endif //RESOURCECOMMAND_H_
-
